@@ -1,0 +1,66 @@
+---
+title: "Econ 5120 - Macro Theory - Syllabus"
+format: html
+editor: visual
+toc: true
+---
+
+## Logistics
+
+Instructor: Scott Payseur, PhD (scott\@email.com)
+
+Class Times: Wednesdays 5:00 - 8:15pm
+
+Location: TBD
+
+Canvas: \[link\]
+
+## Objective
+
+The goal of the course is to develop a theoretical framework for thinking about how macroeconomic variables such as GDP, unemployment, and inflation are determined. This framework is then used to interpret recent economic performance and to analyze how governmental policies have affected outcomes. To be clear, the course has dual objectives: to enhance your understanding of recent macroeconomic events AND to gain competence building and using economic models.
+
+## Resources
+
+**Textbook:**
+
+*Macroeconomics,* by Charles Jones, published by Norton. Please do not buy the book in advance of the first class. The publisher has affordable options for students that include many additional features. 
+
+**Links:** [data](https://) \| [R Information](https::)
+
+## Grading
+
+-   Take home
+
+-   Exam
+
+## Schedule
+
+-   September 7th - Introduction and class setup \[slides\]
+
+-   September 14th - Production Functions \[slides\]
+
+-   September 21st - Growth \[slides\]
+
+-   September 28th - Labor Market, Wages, Unemployment \[slides\]
+
+-   October 5th - Inflation \[slides\]
+
+-   October 12th - IS Curve \[slides\]
+
+-   October 19th - Monetary Policy and the Phillips Curve \[slides\]
+
+-   October 26th - AS/AD Framework \| Expectations \[slides\]
+
+-   November 2nd - DSGE \[slides\]
+
+-   November 9th - Consumption / Investment \[slides\]
+
+-   November 16th - Fiscal Policy \[slides\]
+
+-   November 30th - Covid / GFC / Great Depression \[slides\]
+
+-   December 7th - International Trade \[slides\]
+
+-   December 14th - Final
+
+[Book](https://studylib.net/doc/25674733/macroeconomics-5th-edition-charles-i.-jones)

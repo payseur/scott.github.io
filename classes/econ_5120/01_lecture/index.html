@@ -9,7 +9,7 @@
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.0.37">
 
-  <title>Quarto Presentations</title>
+  <title>Econ 5120 Macroeconomic Theory</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -22,70 +22,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="styles.css">
@@ -379,1143 +315,387 @@
       margin-right: 0; 
     }
   </style>
-  <script type="module" src="index_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-  <link href="index_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-  <script src="index_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-  <script src="index_files/libs/jquery-1.12.4/jquery.min.js"></script>
-  <link href="index_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-  <script src="index_files/libs/leaflet-1.3.1/leaflet.js"></script>
-  <link href="index_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-  <script src="index_files/libs/proj4-2.6.2/proj4.min.js"></script>
-  <script src="index_files/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-  <link href="index_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-  <script src="index_files/libs/leaflet-binding-2.1.1/leaflet.js"></script>
-  <script type="ojs-define">
-  {"contents":[{"name":"actors","value":{"x":[0.2938,0.006,0.6107,1.5431,-0.0443,-1.758,0.8775,0.6105,-1.1081,0.6352,0.1174,-0.9132,0.3912,0.4865,0.2026,1.8603,1.0324,-0.0094,-1.1573,0.139,0.9015,0.5503,-1.7714,1.2321,-1.4804,-0.0853,-1.8381,-0.7704,2.0803,1.5149,0.7422,1.204,2.285,0.3912,0.5074,1.2708,0.3505,0.07,1.2409,0.6099,0.7361,-0.3118,1.1718,0.4608,0.3486,0.1172,-0.383,0.2344,0.2938,-0.9745,0.6882,0.3584,-0.2375,-0.4288,1.4473,0.2769,-0.6367,1.2052,-0.4532,-0.993,0.8215,-1.3946,3.2086,0.0549,1.0776,-0.2331,-0.8448,-0.1284,1.1279,-1.3252,1.1462,0.2805,-1.3512,-0.059,0.8819,0.5479,2.7762,-1.1616,-0.9118,1.3968,-0.1652,0.3242,0.4168,-0.1725,-0.4994,-1.0494,-0.658,-1.2758,-0.3249,0.3411,-0.3568,0.5689,-0.9593,0.101,-0.0519,-1.2148,1.0729,0.2304,0.4946,-0.5207],"y":[-0.2815,-0.2658,0.6104,-1.955,1.3393,0.5007,-1.4862,-0.4984,-0.6439,0.0412,-1.4217,1.791,0.211,-0.5071,-0.4971,-0.3001,-0.936,-1.8301,1.4707,0.3598,-0.2783,0.1028,-1.1526,-0.2321,-1.1474,1.0346,1.2519,1.6769,-0.756,-0.2935,0.8866,0.2346,-0.575,-1.4186,0.2946,-1.4515,-0.7871,-0.7735,0.537,-1.0904,-0.1594,0.4187,0.4492,1.457,0.3536,0.5426,-1.0823,-0.7746,-0.4443,0.6143,-0.4962,1.9453,0.6301,-0.8593,1.023,-1.6386,-1.0003,-0.086,0.9633,-0.7518,-0.1179,1.4685,0.3895,1.0854,-0.7047,1.7804,0.2615,-1.2695,0.1426,-0.7684,-0.3878,1.0303,-1.0628,-0.6978,0.0285,-1.5989,0.3379,-0.5363,-0.1433,0.1261,1.2266,-0.5554,1.7002,0.2671,0.0114,0.8775,0.1534,0.8689,-0.2074,0.7198,0.3935,-0.6971,-0.4874,1.2039,0.4152,-0.1521,0.1091,1.2022,-1.5912,0.6849]}}]}
-  </script>
+  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Quarto Presentations</h1>
-  <p class="subtitle">Create beautiful interactive slide decks with Reveal.js</p>
+  <h1 class="title">Econ 5120 Macroeconomic Theory</h1>
+  <p class="subtitle">Introduction to class</p>
 </section>
 
-<section id="hello-there" class="slide level2">
-<h2>Hello, There</h2>
-<p>This presentation will show you examples of what you can do with Quarto and <a href="https://revealjs.com">Reveal.js</a>, including:</p>
-<ul>
-<li>Presenting code and LaTeX equations</li>
-<li>Including computations in slide output</li>
-<li>Image, video, and iframe backgrounds</li>
-<li>Fancy transitions and animations</li>
-<li>Printing to PDF</li>
-</ul>
-<p>…and much more</p>
-</section>
-<section id="u.s.-treasury-yields" class="slide level2">
-<h2>U.S. Treasury Yields</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/DGS10">Market Yield on U.S. 10 Year</a></p>
-</div>
-</section>
-<section id="u.s.-treasury-yields-yoy-change" class="slide level2">
-<h2>U.S. Treasury Yields YoY Change</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/DGS10">Market Yield on U.S. 10 Year</a></p>
-</div>
-</section>
-<section id="u.s.-30-year-treasury-vs-mortgage" class="slide level2">
-<h2>U.S. 30 Year Treasury vs Mortgage</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/DGS10">Market Yield on U.S. 10 Year</a></p>
-</div>
-</section>
-<section id="u.s.-30-year-treasury-vs-mortgage-1" class="slide level2">
-<h2>U.S. 30 Year Treasury vs Mortgage</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/DGS10">Market Yield on U.S. 10 Year</a></p>
-</div>
-</section>
-<section id="u.s.-fed-balance-sheet" class="slide level2">
-<h2>U.S. Fed Balance Sheet</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/TREAST">Fed Treasury Securities</a> | <a href="https://fred.stlouisfed.org/series/WSHOMCB">Fed Mortgage Backed Securities</a></p>
-</div>
-</section>
-<section id="u.s.-30-year-treasury-vs-mortgage-scatter" class="slide level2">
-<h2>U.S. 30 Year Treasury vs Mortgage Scatter</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/DGS10">Market Yield on U.S. 10 Year</a></p>
-</div>
-</section>
-<section id="pretty-code" class="slide level2">
-<h2>Pretty Code</h2>
-<ul>
-<li>Over 20 syntax highlighting themes available</li>
-<li>Default theme optimized for accessibility</li>
-</ul>
-<div class="sourceCode" id="cb1" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># Define a server for the Shiny app</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="cf">function</span>(input, output) {</span>
-<span id="cb1-4"><a href="#cb1-4"></a>  </span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="co"># Fill in the spot we created for a plot</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>  output<span class="sc">$</span>phonePlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="co"># Render a barplot</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>  })</span>
-<span id="cb1-9"><a href="#cb1-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/output-formats/html-code.html#highlighting">Syntax Highlighting</a></p>
-</div>
-</section>
-<section id="code-animations" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Code Animations</h2>
-<ul>
-<li>Over 20 syntax highlighting themes available</li>
-<li>Default theme optimized for accessibility</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href="#cb2-1"></a><span class="co"># Define a server for the Shiny app</span></span>
-<span id="cb2-2" class="hljs-ln-code"><a href="#cb2-2"></a><span class="cf">function</span>(input, output) {</span>
-<span id="cb2-3" class="hljs-ln-code"><a href="#cb2-3"></a>  </span>
-<span id="cb2-4" class="hljs-ln-code"><a href="#cb2-4"></a>  <span class="co"># Fill in the spot we created for a plot</span></span>
-<span id="cb2-5" class="hljs-ln-code"><a href="#cb2-5"></a>  output<span class="sc">$</span>phonePlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb2-6" class="hljs-ln-code"><a href="#cb2-6"></a>    <span class="co"># Render a barplot</span></span>
-<span id="cb2-7" class="hljs-ln-code"><a href="#cb2-7"></a>    <span class="fu">barplot</span>(WorldPhones[,input<span class="sc">$</span>region]<span class="sc">*</span><span class="dv">1000</span>, </span>
-<span id="cb2-8" class="hljs-ln-code"><a href="#cb2-8"></a>            <span class="at">main=</span>input<span class="sc">$</span>region,</span>
-<span id="cb2-9" class="hljs-ln-code"><a href="#cb2-9"></a>            <span class="at">ylab=</span><span class="st">"Number of Telephones"</span>,</span>
-<span id="cb2-10" class="hljs-ln-code"><a href="#cb2-10"></a>            <span class="at">xlab=</span><span class="st">"Year"</span>)</span>
-<span id="cb2-11" class="hljs-ln-code"><a href="#cb2-11"></a>  })</span>
-<span id="cb2-12" class="hljs-ln-code"><a href="#cb2-12"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/advanced.html#code-animations">Code Animations</a></p>
-</div>
-</section>
-<section id="testing-math" class="slide level2">
-<h2>Testing math</h2>
-<p><span class="math display">\[
-\sum_{i=1}^{100}x_i
-\]</span></p>
-</section>
-<section id="line-highlighting" class="slide level2">
-<h2>Line Highlighting</h2>
-<ul>
-<li>Highlight specific lines for emphasis</li>
-<li>Incrementally highlight additional lines</li>
-</ul>
-<div class="sourceCode" id="cb3" data-code-line-numbers="4-5|7|10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb3-6"><a href="#cb3-6"></a>fig, ax <span class="op">=</span> plt.subplots(subplot_kw<span class="op">=</span>{<span class="st">'projection'</span>: <span class="st">'polar'</span>})</span>
-<span id="cb3-7"><a href="#cb3-7"></a>ax.plot(theta, r)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb3-9"><a href="#cb3-9"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb3-10"><a href="#cb3-10"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/#line-highlighting">Line Highlighting</a></p>
-</div>
-</section>
-<section id="executable-code" class="slide level2">
-<h2>Executable Code</h2>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(hp, mpg, <span class="at">color =</span> am)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/#executable-code">Executable Code</a></p>
+<ul>
+<li><p>Scott Payseur, PhD (scott@email.com)</p></li>
+<li><p>Class Times: Wednesdays 5:00 - 8:15pm</p></li>
+<li><p>Location: TBD</p></li>
+<li><p>Canvas: [link]</p></li>
+</ul>
+</section>
+<section id="class-layout" class="slide level2">
+<h2>Class Layout</h2>
+<div>
+<ul>
+<li class="fragment"><p>Home Time:</p>
+<ul>
+<li class="fragment"><p>Reading</p></li>
+<li class="fragment"><p>Assignments</p></li>
+</ul></li>
+<li class="fragment"><p>Class Time (3 hours):</p>
+<ul>
+<li class="fragment"><p>Lecture / Discussion</p></li>
+<li class="fragment"><p>Lab / Exploration</p></li>
+</ul></li>
+<li class="fragment"><p>Syllabus</p></li>
+</ul>
 </div>
 </section>
-<section id="latex-equations" class="slide level2">
-<h2>LaTeX Equations</h2>
-<p><a href="https://www.mathjax.org/">MathJax</a> rendering of equations to HTML</p>
+<section id="economic-refresher" class="slide level2">
+<h2>Economic Refresher</h2>
+<div>
+<ul>
+<li class="fragment"><p>Positive vs Normative</p></li>
+<li class="fragment"><p>Data Aggregation</p></li>
+<li class="fragment"><p>Data Measurement - high vs low frequency</p></li>
+<li class="fragment"><p>Economic Models - <em>ceterus paribus</em>, assumptions</p></li>
+<li class="fragment"><p>Expectations - market, experts</p></li>
+</ul>
+</div>
+</section>
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1><img data-src="images/chapter_1.png" width="800"></h1>
+
+</section>
+<section id="what-is-macroeconomics" class="slide level2">
+<h2>What is Macroeconomics?</h2>
+<div>
+<ul>
+<li class="fragment"><p>Study of a collection of people &amp; firms</p></li>
+<li class="fragment"><p>Defined region</p></li>
+<li class="fragment"><p>Microfoundations build to macroeconomics</p></li>
+<li class="fragment"><p>Government inteventions</p></li>
+<li class="fragment"><p>Examples</p></li>
+</ul>
+</div>
+</section>
+<section id="gdp-per-person" class="slide level2">
+<h2>GDP Per Person</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">\begin</span>{<span class="ex">gather*</span>}</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="ss">a_1=b_1+c_1</span><span class="sc">\\</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="ss">a_2=b_2+c_2-d_2+e_2</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">\end</span>{<span class="ex">gather*</span>}</span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="ss">a_{11}&amp; =b_{11}&amp;</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="ss">  a_{12}&amp; =b_{12}</span><span class="sc">\\</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="ss">a_{21}&amp; =b_{21}&amp;</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="ss">  a_{22}&amp; =b_{22}+c_{22}</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:60%;">
-<span class="math display">\[\begin{gather*}
-a_1=b_1+c_1\\
-a_2=b_2+c_2-d_2+e_2
-\end{gather*}\]</span>
-<span class="math display">\[\begin{align}
-a_{11}&amp; =b_{11}&amp;
-  a_{12}&amp; =b_{12}\\
-a_{21}&amp; =b_{21}&amp;
-  a_{22}&amp; =b_{22}+c_{22}
-\end{align}\]</span>
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">LaTeX Equations</a></p>
-</div>
-</section>
-<section id="column-layout" class="slide level2 smaller">
-<h2>Column Layout</h2>
-<p>Arrange content into columns of varying widths:</p>
-<div class="columns">
-<div class="column" style="width:35%;">
-<h4 id="motor-trend-car-road-tests">Motor Trend Car Road Tests</h4>
-<p>The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.</p>
-</div><div class="column" style="width:3%;">
-
-</div><div class="column" style="width:62%;">
-<div class="cell">
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">mpg</th>
-<th style="text-align: right;">cyl</th>
-<th style="text-align: right;">disp</th>
-<th style="text-align: right;">hp</th>
-<th style="text-align: right;">wt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Mazda RX4</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">2.620</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mazda RX4 Wag</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">2.875</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Datsun 710</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">108</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">2.320</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hornet 4 Drive</td>
-<td style="text-align: right;">21.4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">258</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.215</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Hornet Sportabout</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: right;">3.440</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Valiant</td>
-<td style="text-align: right;">18.1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">225</td>
-<td style="text-align: right;">105</td>
-<td style="text-align: right;">3.460</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/#multiple-columns">Multiple Columns</a></p>
-</div>
-</section>
-<section id="incremental-lists" class="slide level2">
-<h2>Incremental Lists</h2>
-<p>Lists can optionally be displayed incrementally:</p>
-<div>
+<div class="column" style="width:60%;">
+<p><img data-src="images/figure_1_1.png" class="absolute" style="width: 50%; "></p>
+</div><div class="column" style="width:40%;">
 <ul>
-<li class="fragment">First item</li>
-<li class="fragment">Second item</li>
-<li class="fragment">Third item</li>
+<li>hie hihsfasf</li>
 </ul>
 </div>
-<div class="fragment">
-<p><br> Insert pauses to make other types of content display incrementally.</p>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/#incremental-lists">Incremental Lists</a></p>
-</div>
-</div>
-</section>
-<section id="fragments" class="slide level2">
-<h2>Fragments</h2>
-<p>Incremental text display and animation with fragments:</p>
-<p><br></p>
-<div class="fragment fade-in">
-<p>Fade in</p>
-</div>
-<div class="fragment fade-up">
-<p>Slide up while fading in</p>
-</div>
-<div class="fragment fade-left">
-<p>Slide left while fading in</p>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<p>Fade in then semi out</p>
-</div>
-<div class="fragment">
-<div class="fragment strike">
-<p>Strike</p>
-</div>
-<div class="fragment highlight-red">
-<p>Highlight red</p>
 </div>
 <div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/advanced.html#fragments">Fragments</a></p>
-</div>
-</div>
-</section>
-<section id="slide-backgrounds" class="slide level2" data-background="#43464B">
-<h2>Slide Backgrounds</h2>
-<p>Set the <code>background</code> attribute on a slide to change the background color (all CSS color formats are supported).</p>
-<p>Different background transitions are available via the <code>background-transition</code> option.</p>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/#color-backgrounds">Slide Backgrounds</a></p>
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
-<section id="media-backgrounds" class="slide level2" data-background="#43464B" data-background-image="images/milky-way.jpeg">
-<h2>Media Backgrounds</h2>
-<p>You can also use the following as a slide background:</p>
-<ul>
-<li><p>An image: <code>background-image</code></p></li>
-<li><p>A video: <code>background-video</code></p></li>
-<li><p>An iframe: <code>background-iframe</code></p></li>
-</ul>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/#image-backgrounds">Media Backgrounds</a></p>
-</div>
-</section>
-<section id="absolute-position" class="slide level2">
-<h2>Absolute Position</h2>
-<p>Position images or other elements at precise locations</p>
-<p><img data-src="mini/images/kitten-400-350.jpeg" class="absolute" style="top: 170px; left: 30px; width: 400px; height: 400px; "></p>
-<p><img data-src="mini/images/kitten-450-250.jpeg" class="absolute fragment" style="top: 150px; right: 80px; width: 450px; "></p>
-<p><img data-src="mini/images/kitten-300-200.jpeg" class="absolute fragment" style="bottom: 110px; right: 130px; width: 300px; "></p>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/advanced.html#absolute-position">Absolute Position</a></p>
-</div>
-</section>
-<section id="auto-animate" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Auto-Animate</h2>
-<p>Automatically animate matching elements across slides with Auto-Animate.</p>
-<div class="r-hstack">
-<div data-id="box1" data-auto-animate-delay="0" style="background: #2780e3; width: 200px; height: 150px; margin: 10px;">
-
-</div>
-<div data-id="box2" data-auto-animate-delay="0.1" style="background: #3fb618; width: 200px; height: 150px; margin: 10px;">
-
-</div>
-<div data-id="box3" data-auto-animate-delay="0.2" style="background: #e83e8c; width: 200px; height: 150px; margin: 10px;">
-
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate">Auto-Animate</a></p>
-</div>
-</section>
-<section id="auto-animate-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Auto-Animate</h2>
-<p>Automatically animate matching elements across slides with Auto-Animate.</p>
-<div class="r-stack">
-<div data-id="box1" style="background: #2780e3; width: 350px; height: 350px; border-radius: 200px;">
-
-</div>
-<div data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;">
-
-</div>
-<div data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;">
-
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate">Auto-Animate</a></p>
-</div>
-</section>
-<section id="slide-transitions" class="slide level2 smaller">
-<h2>Slide Transitions</h2>
-<p>The next few slides will transition using the <code>slide</code> transition</p>
-<table>
-<colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Transition</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>none</code></td>
-<td>No transition (default, switch instantly)</td>
-</tr>
-<tr class="even">
-<td><code>fade</code></td>
-<td>Cross fade</td>
-</tr>
-<tr class="odd">
-<td><code>slide</code></td>
-<td>Slide horizontally</td>
-</tr>
-<tr class="even">
-<td><code>convex</code></td>
-<td>Slide at a convex angle</td>
-</tr>
-<tr class="odd">
-<td><code>concave</code></td>
-<td>Slide at a concave angle</td>
-</tr>
-<tr class="even">
-<td><code>zoom</code></td>
-<td>Scale the incoming slide so it grows in from the center of the screen.</td>
-</tr>
-</tbody>
-</table>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/advanced.html#slide-transitions">Slide Transitions</a></p>
-</div>
-</section>
-<section id="tabsets" class="slide level2 smaller scrollable" data-transition="slide">
-<h2>Tabsets</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Data</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="cell-output-display">
-<table style="width:100%;">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 6%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 6%">
-<col style="width: 6%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">mpg</th>
-<th style="text-align: right;">cyl</th>
-<th style="text-align: right;">disp</th>
-<th style="text-align: right;">hp</th>
-<th style="text-align: right;">drat</th>
-<th style="text-align: right;">wt</th>
-<th style="text-align: right;">qsec</th>
-<th style="text-align: right;">vs</th>
-<th style="text-align: right;">am</th>
-<th style="text-align: right;">gear</th>
-<th style="text-align: right;">carb</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Mazda RX4</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.90</td>
-<td style="text-align: right;">2.620</td>
-<td style="text-align: right;">16.46</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mazda RX4 Wag</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.90</td>
-<td style="text-align: right;">2.875</td>
-<td style="text-align: right;">17.02</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Datsun 710</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">108.0</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">3.85</td>
-<td style="text-align: right;">2.320</td>
-<td style="text-align: right;">18.61</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hornet 4 Drive</td>
-<td style="text-align: right;">21.4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">258.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.08</td>
-<td style="text-align: right;">3.215</td>
-<td style="text-align: right;">19.44</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Hornet Sportabout</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360.0</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: right;">3.15</td>
-<td style="text-align: right;">3.440</td>
-<td style="text-align: right;">17.02</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Valiant</td>
-<td style="text-align: right;">18.1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">225.0</td>
-<td style="text-align: right;">105</td>
-<td style="text-align: right;">2.76</td>
-<td style="text-align: right;">3.460</td>
-<td style="text-align: right;">20.22</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Duster 360</td>
-<td style="text-align: right;">14.3</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360.0</td>
-<td style="text-align: right;">245</td>
-<td style="text-align: right;">3.21</td>
-<td style="text-align: right;">3.570</td>
-<td style="text-align: right;">15.84</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Merc 240D</td>
-<td style="text-align: right;">24.4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">146.7</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">3.69</td>
-<td style="text-align: right;">3.190</td>
-<td style="text-align: right;">20.00</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Merc 230</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">140.8</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">3.150</td>
-<td style="text-align: right;">22.90</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Merc 280</td>
-<td style="text-align: right;">19.2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">167.6</td>
-<td style="text-align: right;">123</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">3.440</td>
-<td style="text-align: right;">18.30</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Merc 280C</td>
-<td style="text-align: right;">17.8</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">167.6</td>
-<td style="text-align: right;">123</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">3.440</td>
-<td style="text-align: right;">18.90</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Merc 450SE</td>
-<td style="text-align: right;">16.4</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">275.8</td>
-<td style="text-align: right;">180</td>
-<td style="text-align: right;">3.07</td>
-<td style="text-align: right;">4.070</td>
-<td style="text-align: right;">17.40</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Merc 450SL</td>
-<td style="text-align: right;">17.3</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">275.8</td>
-<td style="text-align: right;">180</td>
-<td style="text-align: right;">3.07</td>
-<td style="text-align: right;">3.730</td>
-<td style="text-align: right;">17.60</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Merc 450SLC</td>
-<td style="text-align: right;">15.2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">275.8</td>
-<td style="text-align: right;">180</td>
-<td style="text-align: right;">3.07</td>
-<td style="text-align: right;">3.780</td>
-<td style="text-align: right;">18.00</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Cadillac Fleetwood</td>
-<td style="text-align: right;">10.4</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">472.0</td>
-<td style="text-align: right;">205</td>
-<td style="text-align: right;">2.93</td>
-<td style="text-align: right;">5.250</td>
-<td style="text-align: right;">17.98</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Lincoln Continental</td>
-<td style="text-align: right;">10.4</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">460.0</td>
-<td style="text-align: right;">215</td>
-<td style="text-align: right;">3.00</td>
-<td style="text-align: right;">5.424</td>
-<td style="text-align: right;">17.82</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Chrysler Imperial</td>
-<td style="text-align: right;">14.7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">440.0</td>
-<td style="text-align: right;">230</td>
-<td style="text-align: right;">3.23</td>
-<td style="text-align: right;">5.345</td>
-<td style="text-align: right;">17.42</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fiat 128</td>
-<td style="text-align: right;">32.4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">78.7</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">4.08</td>
-<td style="text-align: right;">2.200</td>
-<td style="text-align: right;">19.47</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Honda Civic</td>
-<td style="text-align: right;">30.4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">75.7</td>
-<td style="text-align: right;">52</td>
-<td style="text-align: right;">4.93</td>
-<td style="text-align: right;">1.615</td>
-<td style="text-align: right;">18.52</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Toyota Corolla</td>
-<td style="text-align: right;">33.9</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">71.1</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: right;">4.22</td>
-<td style="text-align: right;">1.835</td>
-<td style="text-align: right;">19.90</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Toyota Corona</td>
-<td style="text-align: right;">21.5</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">120.1</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">3.70</td>
-<td style="text-align: right;">2.465</td>
-<td style="text-align: right;">20.01</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dodge Challenger</td>
-<td style="text-align: right;">15.5</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">318.0</td>
-<td style="text-align: right;">150</td>
-<td style="text-align: right;">2.76</td>
-<td style="text-align: right;">3.520</td>
-<td style="text-align: right;">16.87</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">AMC Javelin</td>
-<td style="text-align: right;">15.2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">304.0</td>
-<td style="text-align: right;">150</td>
-<td style="text-align: right;">3.15</td>
-<td style="text-align: right;">3.435</td>
-<td style="text-align: right;">17.30</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Camaro Z28</td>
-<td style="text-align: right;">13.3</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">350.0</td>
-<td style="text-align: right;">245</td>
-<td style="text-align: right;">3.73</td>
-<td style="text-align: right;">3.840</td>
-<td style="text-align: right;">15.41</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Pontiac Firebird</td>
-<td style="text-align: right;">19.2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">400.0</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: right;">3.08</td>
-<td style="text-align: right;">3.845</td>
-<td style="text-align: right;">17.05</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fiat X1-9</td>
-<td style="text-align: right;">27.3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">79.0</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">4.08</td>
-<td style="text-align: right;">1.935</td>
-<td style="text-align: right;">18.90</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Porsche 914-2</td>
-<td style="text-align: right;">26.0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">120.3</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">4.43</td>
-<td style="text-align: right;">2.140</td>
-<td style="text-align: right;">16.70</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Lotus Europa</td>
-<td style="text-align: right;">30.4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">95.1</td>
-<td style="text-align: right;">113</td>
-<td style="text-align: right;">3.77</td>
-<td style="text-align: right;">1.513</td>
-<td style="text-align: right;">16.90</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ford Pantera L</td>
-<td style="text-align: right;">15.8</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">351.0</td>
-<td style="text-align: right;">264</td>
-<td style="text-align: right;">4.22</td>
-<td style="text-align: right;">3.170</td>
-<td style="text-align: right;">14.50</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ferrari Dino</td>
-<td style="text-align: right;">19.7</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">145.0</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: right;">3.62</td>
-<td style="text-align: right;">2.770</td>
-<td style="text-align: right;">15.50</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Maserati Bora</td>
-<td style="text-align: right;">15.0</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">301.0</td>
-<td style="text-align: right;">335</td>
-<td style="text-align: right;">3.54</td>
-<td style="text-align: right;">3.570</td>
-<td style="text-align: right;">14.60</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Volvo 142E</td>
-<td style="text-align: right;">21.4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">121.0</td>
-<td style="text-align: right;">109</td>
-<td style="text-align: right;">4.11</td>
-<td style="text-align: right;">2.780</td>
-<td style="text-align: right;">18.60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/#tabsets">Tabsets</a></p>
-</div>
-</section>
-<section id="interactive-slides" class="slide level2 smaller" data-transition="slide">
-<h2>Interactive Slides</h2>
-<p>Include Jupyter widgets and htmlwidgets in your presentations</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-136c81ace2bed6fe4699" style="width:960px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-136c81ace2bed6fe4699">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[-36.852,174.768,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"The birthplace of R",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-36.852,-36.852],"lng":[174.768,174.768]}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/interactive/widgets/jupyter.html">Jupyter widgets</a>, <a href="https://quarto.org/docs/interactive/widgets/htmlwidgets.html">htmlwidgets</a></p>
-</div>
-</section>
-<section id="interactive-slides-1" class="slide level2 smaller" data-transition="slide">
-<h2>Interactive Slides</h2>
-<p>Turn presentations into applications with Observable and Shiny. Use component layout to position inputs and outputs.</p>
-<div class="cell">
-
-</div>
-<div class="layout-sidebar layout-sidebar-left">
-<div class="cell panel-sidebar">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="623" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 622;"><span id="cb6-623"><a href="#cb6-623"></a>viewof talentWeight <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"talent weight"</span> })</span>
-<span id="cb6-624"><a href="#cb6-624"></a>viewof looksWeight <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"looks weight"</span> })</span>
-<span id="cb6-625"><a href="#cb6-625"></a>viewof minimum <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"min fame"</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
-<div class="cell panel-fill">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="630" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 629;"><span id="cb7-630"><a href="#cb7-630"></a><span class="im">import</span> { plotActors } <span class="im">from</span> <span class="st">'./actors.js'</span><span class="op">;</span></span>
-<span id="cb7-631"><a href="#cb7-631"></a><span class="fu">plotActors</span>(actors<span class="op">,</span> talentWeight<span class="op">,</span> looksWeight<span class="op">,</span> minimum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/interactive/ojs/">Observable</a>, <a href="https://quarto.org/docs/interactive/shiny/">Shiny</a>, <a href="https://quarto.org/docs/interactive/layout.html">Component Layout</a></p>
-</div>
-</section>
-<section id="preview-links" class="slide level2">
-<h2>Preview Links</h2>
-<p>Navigate to hyperlinks without disrupting the flow of your presentation.</p>
-<p>Use the <code>preview-links</code> option to open links in an iframe on top of your slides. Try clicking the link below for a demonstration:</p>
-<div style="text-align: center; margin-top: 1em">
-<p><a href="https://matplotlib.org/" data-preview-link="true" style="text-align: center">Matplotlib: Visualization with Python</a></p>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/presenting.html#preview-links">Preview Links</a></p>
-</div>
-</section>
-<section id="themes" class="slide level2">
-<h2>Themes</h2>
-<p>10 Built-in Themes (or <a href="https://quarto.org/docs/presentations/revealjs/themes.html#creating-themes">create your own</a>)</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="images/moon.png"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="images/sky.png"></p>
-</div>
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/themes.html">Themes</a></p>
-</div>
-</section>
-<section id="easy-navigation" class="slide level2">
-<h2>Easy Navigation</h2>
-<div style="margin-bottom: 0.9em;">
-<p>Quickly jump to other parts of your presentation</p>
-</div>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
-<p><img data-src="images/presentation-menu.png" width="41"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 95.2%;justify-content: center;">
-<p>Toggle the slide menu with the menu button (bottom left of slide) to go to other slides and access presentation tools.</p>
-</div>
-</div>
-</div>
-<p>You can also press <code>m</code> to toggle the menu open and closed.</p>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/presenting.html#navigation-menu">Navigation</a></p>
-</div>
-</section>
-<section id="chalkboard" class="slide level2" data-chalkboard-buttons="true">
-<h2>Chalkboard</h2>
-<div style="margin-bottom: 0.9em;">
-<p>Free form drawing and slide annotations</p>
-</div>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
-<p><img data-src="images/presentation-chalkboard.png" width="41"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 95.2%;justify-content: center;">
-<p>Use the chalkboard button at the bottom left of the slide to toggle the chalkboard.</p>
-</div>
-</div>
-</div>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
-<p><img data-src="images/presentation-notes-canvas.png" width="41"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 95.2%;justify-content: center;">
-<p>Use the notes canvas button at the bottom left of the slide to toggle drawing on top of the current slide.</p>
-</div>
-</div>
-</div>
-<p>You can also press <code>b</code> to toggle the chalkboard or <code>c</code> to toggle the notes canvas.</p>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/presenting.html#chalkboard">Chalkboard</a></p>
-</div>
-</section>
-<section id="point-of-view" class="slide level2">
-<h2>Point of View</h2>
-<p>Press <code>o</code> to toggle overview mode:</p>
-
-<img data-src="images/overview-mode.png" class="border r-stretch"><p>Hold down the <code>Alt</code> key (or <code>Ctrl</code> in Linux) and click on any element to zoom towards it—try it now on this slide.</p>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/presenting.html#overview-mode">Overview Mode</a>, <a href="https://quarto.org/docs/presentations/revealjs/presenting.html#slide-zoom">Slide Zoom</a></p>
-</div>
-</section>
-<section id="speaker-view" class="slide level2">
-<h2>Speaker View</h2>
-<p>Press <code>s</code> (or use the presentation menu) to open speaker view</p>
-
-<img data-src="images/speaker-view.png" width="780" class="r-stretch quarto-figure-center"><div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/presenting.html#speaker-view">Speaker View</a></p>
-</div>
-</section>
-<section id="authoring-tools" class="slide level2 smaller">
-<h2>Authoring Tools</h2>
-<p>Live side-by-side preview for any notebook or text editor including Jupyter and VS Code</p>
+<section id="changes-in-u.s.-unemployment-per-person" class="slide level2">
+<h2>Changes in U.S. Unemployment Per Person</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="images/jupyter-edit.png" class="border border-thick"></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
+</div>
+</div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="images/jupyter-preview.png" class="border border-thick"></p>
-</div>
-</div>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/tools/jupyter-lab.html">Jupyter</a>, <a href="https://quarto.org/docs/tools/vscode.html">VS Code</a>, <a href="https://quarto.org/docs/tools/text-editors.html">Text Editors</a></p>
-</div>
-</section>
-<section id="authoring-tools-1" class="slide level2 smaller">
-<h2>Authoring Tools</h2>
-<p>RStudio includes an integrated presentation preview pane</p>
-
-<img data-src="images/rstudio.png" class="border r-stretch" width="900"><div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/tools/rstudio.html">RStudio</a></p>
-</div>
-</section>
-<section id="and-more" class="slide level2">
-<h2>And More…</h2>
 <ul>
-<li><a href="https://quarto.org/docs/presentations/revealjs/advanced.html#touch-navigation">Touch</a> optimized (presentations look great on mobile, swipe to navigate slides)</li>
-<li><a href="https://quarto.org/docs/presentations/revealjs/#footer-logo">Footer &amp; Logo</a> (optionally specify custom footer per-slide)</li>
-<li><a href="https://quarto.org/docs/presentations/revealjs/presenting.html#auto-slide">Auto-Slide</a> (step through slides automatically, without any user input)</li>
-<li><a href="https://quarto.org/docs/presentations/revealjs/presenting.html#multiplex">Multiplex</a> (allows your audience to follow the slides of the presentation you are controlling on their own phone, tablet or laptop).</li>
+<li>hi</li>
 </ul>
-<div class="footer">
-<p>Learn more: <a href="https://quarto.org/docs/presentations/revealjs/">Quarto Presentations</a></p>
 </div>
+</div>
+<div class="footer">
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/PAYEMS">All Employees, Total Nonfarm</a></p>
+</div>
+</section>
+<section id="inflation-rates" class="slide level2">
+<h2>Inflation Rates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>hi</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/GBRCPIALLMINMEI">UK CPI</a> | <a href="https://fred.stlouisfed.org/series/USACPIALLMINMEI">US CPI</a></p>
+</div>
+</section>
+<section id="inflation-rates-1" class="slide level2">
+<h2>Inflation Rates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="480"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>hi</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/GBRCPIALLMINMEI">UK CPI</a> | <a href="https://fred.stlouisfed.org/series/USACPIALLMINMEI">US CPI</a></p>
+</div>
+</section>
+<section id="inflation-rates-2" class="slide level2">
+<h2>Inflation Rates</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="480"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>hi</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/GBRCPIALLMINMEI">UK CPI</a> | <a href="https://fred.stlouisfed.org/series/USACPIALLMINMEI">US CPI</a> | <a href="https://fred.stlouisfed.org/series/CHNCPIALLMINMEI">China</a></p>
+</div>
+</section>
+<section id="unemployment-per-country" class="slide level2">
+<h2>Unemployment per Country</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/figure_1_4.png" class="absolute" style="width: 483px; "></p>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>hie hihsfasf</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="us-deficits" class="slide level2">
+<h2>US Deficits</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/figure_1_5.png" class="absolute" style="width: 600px; "></p>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>hie hihsfasf</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="structure-of-economic-models" class="slide level2">
+<h2>Structure of Economic Models</h2>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+  A(Parameters &amp; Exogenous Variables) --&gt; B[Model] --&gt; C(Endogenous Variables)
+ 
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment"><p>Inputs - parameters, exogenous variables, …</p></li>
+<li class="fragment"><p>Model -</p>
+<ul>
+<li class="fragment"><p>Document facts</p></li>
+<li class="fragment"><p>Develop a model</p></li>
+<li class="fragment"><p>Compare predictions with model and original facts</p></li>
+<li class="fragment"><p>Use the model to produce outcomes / predictions</p></li>
+</ul></li>
+<li class="fragment"><p>Outcomes - endogenous variables</p></li>
+</ul>
+</div>
+</section>
+<section id="supply-and-demand-review" class="slide level2">
+<h2>Supply and Demand Review</h2>
+<p>Labor supply: <span class="math inline">\(L^s = 2 w + 30\)</span></p>
+<p>Labor demand: <span class="math inline">\(L^d = 60 - w\)</span></p>
+<p>Find equilibrium wage and quantity of labor (<span class="math inline">\(w^*\)</span> and <span class="math inline">\(L^*\)</span>).</p>
+</section>
+<section id="supply-and-demand-review-1" class="slide level2">
+<h2>Supply and Demand Review</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/figure_1_8.png" class="absolute" style="width: 500px; "></p>
+</div><div class="column" style="width:40%;">
+<p>Labor supply: <span class="math inline">\(L^s = 2 w + 30\)</span></p>
+<p>Labor demand: <span class="math inline">\(L^d = 60 - w\)</span></p>
+<blockquote>
+<div class="column" style="width:40%;">
+<p><span class="math inline">\(2w+30 = 60 - w\)</span></p>
+<p><span class="math inline">\(w^*=10\)</span></p>
+<p><span class="math inline">\(L^* = 50\)</span></p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+
+<img data-src="images/chapter_2.png" width="800" class="r-stretch"></section>
+<section id="measurement-of-gdp" class="slide level2">
+<h2>Measurement of GDP</h2>
+<ul>
+<li><p>Key measure of the economy is gross domestic product.</p></li>
+<li><p>The market value of final goods and services over a certain period.</p>
+<br>
+<blockquote>
+<p>Production = Expenditure = Income</p>
+</blockquote></li>
+</ul>
+</section>
+<section id="gdp-expenditure-approach" class="slide level2">
+<h2>GDP: Expenditure Approach</h2>
+<blockquote>
+<p>Y = C + I + G + NX</p>
+</blockquote>
+<br>
+<blockquote>
+<p>Y = GDP (in dollars)</p>
+<p>C = Consumption</p>
+<p>I = Investment</p>
+<p>G = Government Purchases</p>
+<p>NX = Net Export = exports - imports</p>
+<h2 id="section-2"></h2>
+</blockquote>
+</section>
+<section id="gdp-expenditure-approach-1" class="slide level2">
+<h2>GDP: Expenditure Approach</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/table_2_1.png" width="443"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/figure_2_1.png" width="500"></p>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="gdp-income-approach" class="slide level2">
+<h2>GDP: Income Approach</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/table_2_2.png" width="500"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/figure_2_3.png" width="500"></p>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="gdp-production-approach" class="slide level2">
+<h2>GDP: Production Approach</h2>
+<ul>
+<li><p>hi</p></li>
+<li><p>d</p></li>
+</ul>
+</section>
+<section id="gdp-nominal-vs-real" class="slide level2">
+<h2>GDP: Nominal vs Real</h2>
+<p>How do we compare GDP from 2021 against GDP from 1970?</p>
+<p>GDP is a function of <u>price</u> and <u>quantity</u>.</p>
+<br>
+<blockquote>
+<p>nominal GDP = (price level) X (real GDP)</p>
+</blockquote>
+<br>
+<blockquote>
+<p>real GDP = (nominal GDP) / (price level)</p>
+</blockquote>
+</section>
+<section id="data-aggregation" class="slide level2">
+<h2>Data Aggregation</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"><div class="footer">
+<p>Fred Data: <a href="https://www.clevelandfed.org/en/our-research/indicators-and-data/median-cpi.aspx">Median CPI</a></p>
+</div>
+</section>
+<section id="gdp-per-person-1" class="slide level2">
+<h2>GDP Per Person</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"><div class="footer">
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/NYGDPPCAPKDUSA">Per Capita GDP US</a></p>
+</div>
+</section>
+<section id="gdp-per-person-2" class="slide level2">
+<h2>GDP Per Person</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"><div class="footer">
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/NYGDPPCAPKDUSA">Per Capita GDP US</a></p>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+</section>
+<section id="simple-economy" class="slide level2">
+<h2>Simple Economy</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/apples.png" class="absolute" style="width: 50%; "></p>
+</div><div class="column" style="width:40%;">
+<p>hie hihsfasf</p>
+</div>
+</div>
+</section>
+<section id="asdf" class="slide level2">
+<h2>asdf</h2>
+<p><img data-src="images/apples.png" class="absolute" style="width: 50%; "></p>
+</section></section>
+<section>
+<section id="economic-models" class="title-slide slide level1 center">
+<h1>Economic Models</h1>
+
+</section>
+<section id="measurement" class="slide level2">
+<h2>Measurement</h2>
+<p>GDP - nowcasts</p>
+<p>analyst forecasts</p>
+<p>market forecasts</p>
+<p>expert forecasts</p>
 
 <img src="images/ne.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>ECON 5120 | Scott Payseur</p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -1728,16 +908,6 @@ a_{21}&amp; =b_{21}&amp;
           RevealZoom
         ]
       });
-    </script>
-    <script type="ojs-module-contents">
-    {"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof talentWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: \"talent weight\" })\nviewof looksWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: \"looks weight\" })\nviewof minimum = Inputs.range([-2, 2], { value: 1, step: 0.01, label: \"min fame\" })\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"import { plotActors } from './actors.js';\nplotActors(actors, talentWeight, looksWeight, minimum)\n"},{"methodName":"interpretQuiet","source":"shinyInput('talentWeight')"},{"methodName":"interpretQuiet","source":"shinyInput('looksWeight')"},{"methodName":"interpretQuiet","source":"shinyInput('minimum')"}]}
-    </script>
-    <script type="module">
-    window._ojs.paths.runtimeToDoc = "../../..";
-    window._ojs.paths.runtimeToRoot = "../../..";
-    window._ojs.paths.docToRoot = "";
-    window._ojs.selfContained = false;
-    window._ojs.runtime.interpretFromScriptTags();
     </script>
     
     <script>

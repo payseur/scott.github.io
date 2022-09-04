@@ -1,0 +1,30 @@
+---
+title: "Links & Information"
+author: "Scott Payseur"
+format: html
+editor: visual
+---
+
+## R Information
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Macroeconomic Data
+
+[Survey of Professional Forecasters Documentation](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/survey-of-professional-forecasters/spf-documentation.pdf?)
+
+[ISM PMI](https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/)
+
+[Fred St Louis Fed: Economic Data](https://fred.stlouisfed.org/)
+
+[Producer Price Index - BLS](https://www.bls.gov/ppi/overview.htm)
+
+[Inflation: Nowcast - Cleveland Fed](https://www.clevelandfed.org/our-research/indicators-and-data/inflation-nowcasting.aspx)
+
+[GDP: Nowcast - Atlanta Fed](https://www.atlantafed.org/cqer/research/gdpnow)
+
+[OECD Data](https://data.oecd.org/)
+
+[World Bank Data](https://data.worldbank.org/)
+
+[IMF Data](https://data.imf.org/)

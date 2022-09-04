@@ -1,6 +1,6 @@
 ---
-title: "Quarto Presentations"
-subtitle: "Create beautiful interactive slide decks with Reveal.js"
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Introduction to class"
 format:
   revealjs: 
     slide-number: true
@@ -16,58 +16,7 @@ params:
   refresh_fred: FALSE
 ---
 
-## Hello, There
-
-This presentation will show you examples of what you can do with Quarto and [Reveal.js](https://revealjs.com), including:
-
--   Presenting code and LaTeX equations
--   Including computations in slide output
--   Image, video, and iframe backgrounds
--   Fancy transitions and animations
--   Printing to PDF
-
-...and much more
-
-## U.S. Treasury Yields
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-library(purrr)
-library(stringr)
-library(lubridate)
-library(ggplot2)
-library(dplyr)
-library(readr)
-
-fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
-library(fredr)
-fredr_set_key(fred_key)
-
-fetch <- c("DGS1", "DGS10","DGS3","DGS30")
-if(params$refresh_fred  || !file.exists("data/int_rates.RDS")){
-  dat <- map_df(fetch, fredr, frequency="m", observation_start=ymd(19600101))
-  write_rds(dat, "data/int_rates.RDS")
-}else{
-  dat <- read_rds("data/int_rates.RDS")
-}
-
-dat %>% 
-  select(-realtime_start, -realtime_end) %>% 
-  ggplot(mapping = aes(x=date, y=value, color=series_id)) + 
-  geom_line() + 
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("")
-```
-
-::: footer
-Fred Data: [Market Yield on U.S. 10 Year](https://fred.stlouisfed.org/series/DGS10)
-:::
-
-## U.S. Treasury Yields YoY Change
+## Introduction
 
 ```{r}
 #| echo: false
@@ -75,693 +24,637 @@ Fred Data: [Market Yield on U.S. 10 Year](https://fred.stlouisfed.org/series/DGS
 #| fig-width: 10
 #| fig-height: 4.5
 #| message: false
-library(purrr)
-library(stringr)
-library(lubridate)
-library(ggplot2)
+library(macroTools)
+library(fredr)
 library(dplyr)
-library(readr)
+library(ggplot2)
+library(lubridate)
 
 fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
-library(fredr)
 fredr_set_key(fred_key)
-
-data_file_name <- "int_rates_yoy"
-fetch <- c("DGS1", "DGS10","DGS3","DGS30")
-
-# add rename
-
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch, fredr, frequency="m", observation_start=ymd(19600101), units="ch1")
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>% 
-  select(-realtime_start, -realtime_end) %>% 
-  ggplot(mapping = aes(x=date, y=value, color=series_id)) + 
-  geom_line() + 
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") 
 ```
 
-::: footer
-Fred Data: [Market Yield on U.S. 10 Year](https://fred.stlouisfed.org/series/DGS10)
-:::
+-   Scott Payseur, PhD (scott\@email.com)
 
-## U.S. 30 Year Treasury vs Mortgage
+-   Class Times: Wednesdays 5:00 - 8:15pm
 
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "treas_v_mort"
+-   Location: TBD
 
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "DGS30", "30 Year Treasury",
-  "MORTGAGE30US", "30 Year Mortgage"
-)
+-   Canvas: \[link\]
 
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19750101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%  
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))
-```
-
-::: footer
-Fred Data: [Market Yield on U.S. 10 Year](https://fred.stlouisfed.org/series/DGS10)
-:::
-
-## U.S. 30 Year Treasury vs Mortgage
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "inter_risk_premium"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "DGS10", "10 Year Treasury",
-  "BAMLC0A1CAAAEY", "ICE BofA AAA",
-  "BAMLC0A4CBBBEY", "ICE BofA BBB",
-  "BAMLH0A0HYM2EY", "ICE BofA High Yield"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19970101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%  
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))
-```
-
-::: footer
-Fred Data: [Market Yield on U.S. 10 Year](https://fred.stlouisfed.org/series/DGS10)
-:::
-
-## U.S. Fed Balance Sheet
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "fed_balance_sheet"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "TREAST", "Treasuries",
-  "WSHOMCB", "MBS"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(20040101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%  
-  ggplot(mapping = aes(x=date, y=value, color=series_name, fill=series_name)) + 
-  geom_bar(position="stack", stat="identity") + 
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(fill = guide_legend(title = ""))
-```
-
-::: footer
-Fred Data: [Fed Treasury Securities](https://fred.stlouisfed.org/series/TREAST) \| [Fed Mortgage Backed Securities](https://fred.stlouisfed.org/series/WSHOMCB)
-:::
-
-## U.S. 30 Year Treasury vs Mortgage Scatter
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "treas_v_mort"
-fetch <- c("DGS30","MORTGAGE30US")
-# add rename
-
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch, fredr, frequency="m", observation_start=ymd(19750101))
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>% 
-  mutate(value = value/100) %>% 
-  tidyr::pivot_wider(names_from=series_id, values_from=value) %>% 
-  select(-realtime_start, -realtime_end) %>% 
-  ggplot(mapping = aes(x=DGS30, y=MORTGAGE30US, color=date)) + 
-  geom_point() + 
-  geom_abline(intercept=0, slop=1) +
-  geom_smooth(formula = y ~ x, method = "loess") +
-  scale_y_continuous(labels = scales::percent) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") 
-```
-
-::: footer
-Fred Data: [Market Yield on U.S. 10 Year](https://fred.stlouisfed.org/series/DGS10)
-:::
-
-## Pretty Code
-
--   Over 20 syntax highlighting themes available
--   Default theme optimized for accessibility
-
-``` {.r code-line-numbers="2"}
-
-# Define a server for the Shiny app
-function(input, output) {
-  
-  # Fill in the spot we created for a plot
-  output$phonePlot <- renderPlot({
-    # Render a barplot
-  })
-}
-```
-
-::: footer
-Learn more: [Syntax Highlighting](https://quarto.org/docs/output-formats/html-code.html#highlighting)
-:::
-
-## Code Animations {auto-animate="true"}
-
--   Over 20 syntax highlighting themes available
--   Default theme optimized for accessibility
-
-``` r
-# Define a server for the Shiny app
-function(input, output) {
-  
-  # Fill in the spot we created for a plot
-  output$phonePlot <- renderPlot({
-    # Render a barplot
-    barplot(WorldPhones[,input$region]*1000, 
-            main=input$region,
-            ylab="Number of Telephones",
-            xlab="Year")
-  })
-}
-```
-
-::: footer
-Learn more: [Code Animations](https://quarto.org/docs/presentations/revealjs/advanced.html#code-animations)
-:::
-
-## Testing math
-
-$$
-\sum_{i=1}^{100}x_i
-$$
-
-## Line Highlighting
-
--   Highlight specific lines for emphasis
--   Incrementally highlight additional lines
-
-``` {.python code-line-numbers="4-5|7|10"}
-import numpy as np
-import matplotlib.pyplot as plt
-
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
-```
-
-::: footer
-Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#line-highlighting)
-:::
-
-## Executable Code
-
-```{r}
-#| echo: true
-#| fig-width: 10
-#| fig-height: 4.5
-library(ggplot2)
-ggplot(mtcars, aes(hp, mpg, color = am)) +
-  geom_point() +  
-  geom_smooth(formula = y ~ x, method = "loess")
-```
-
-::: footer
-Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#executable-code)
-:::
-
-## LaTeX Equations
-
-[MathJax](https://www.mathjax.org/) rendering of equations to HTML
-
-::: columns
-::: {.column width="40%"}
-``` tex
-\begin{gather*}
-a_1=b_1+c_1\\
-a_2=b_2+c_2-d_2+e_2
-\end{gather*}
-
-\begin{align}
-a_{11}& =b_{11}&
-  a_{12}& =b_{12}\\
-a_{21}& =b_{21}&
-  a_{22}& =b_{22}+c_{22}
-\end{align}
-```
-:::
-
-::: {.column width="60%"}
-```{=tex}
-\begin{gather*}
-a_1=b_1+c_1\\
-a_2=b_2+c_2-d_2+e_2
-\end{gather*}
-```
-```{=tex}
-\begin{align}
-a_{11}& =b_{11}&
-  a_{12}& =b_{12}\\
-a_{21}& =b_{21}&
-  a_{22}& =b_{22}+c_{22}
-\end{align}
-```
-:::
-:::
-
-::: footer
-Learn more: [LaTeX Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
-:::
-
-## Column Layout {.smaller}
-
-Arrange content into columns of varying widths:
-
-::: columns
-::: {.column width="35%"}
-#### Motor Trend Car Road Tests
-
-The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.
-:::
-
-::: {.column width="3%"}
-:::
-
-::: {.column width="62%"}
-```{r}
-knitr::kable(head(mtcars)[,c("mpg",	"cyl", "disp", "hp", "wt")])
-```
-:::
-:::
-
-::: footer
-Learn more: [Multiple Columns](https://quarto.org/docs/presentations/revealjs/#multiple-columns)
-:::
-
-## Incremental Lists
-
-Lists can optionally be displayed incrementally:
+## Class Layout
 
 ::: incremental
--   First item
--   Second item
--   Third item
+-   Home Time:
+
+    -   Reading
+
+    -   Assignments
+
+-   Class Time (3 hours):
+
+    -   Lecture / Discussion
+
+    -   Lab / Exploration
+
+-   Syllabus
 :::
 
-. . .
+## Economic Refresher
 
-<br/> Insert pauses to make other types of content display incrementally.
+::: incremental
+-   Positive vs Normative
 
-::: footer
-Learn more: [Incremental Lists](https://quarto.org/docs/presentations/revealjs/#incremental-lists)
+-   Data Aggregation
+
+-   Data Measurement - high vs low frequency
+
+-   Economic Models - *ceterus paribus*, assumptions
+
+-   Expectations - market, experts
 :::
 
-## Fragments
+# ![](images/chapter_1.png){width="800"}
 
-Incremental text display and animation with fragments:
+## What is Macroeconomics?
 
-<br/>
+::: incremental
+-   Study of a collection of people & firms
 
-::: {.fragment .fade-in}
-Fade in
+-   Defined region
+
+-   Microfoundations build to macroeconomics
+
+-   Government inteventions
+
+-   Examples
 :::
 
-::: {.fragment .fade-up}
-Slide up while fading in
+## GDP Per Person
+
+::: columns
+::: {.column width="60%"}
+![](images/figure_1_1.png){.absolute width="50%"}
 :::
 
-::: {.fragment .fade-left}
-Slide left while fading in
-:::
-
-::: {.fragment .fade-in-then-semi-out}
-Fade in then semi out
-:::
-
-. . .
-
-::: {.fragment .strike}
-Strike
-:::
-
-::: {.fragment .highlight-red}
-Highlight red
-:::
-
-::: footer
-Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
-:::
-
-## Slide Backgrounds {background="#43464B"}
-
-Set the `background` attribute on a slide to change the background color (all CSS color formats are supported).
-
-Different background transitions are available via the `background-transition` option.
-
-::: footer
-Learn more: [Slide Backgrounds](https://quarto.org/docs/presentations/revealjs/#color-backgrounds)
-:::
-
-## Media Backgrounds {background="#43464B" background-image="images/milky-way.jpeg"}
-
-You can also use the following as a slide background:
-
--   An image: `background-image`
-
--   A video: `background-video`
-
--   An iframe: `background-iframe`
-
-::: footer
-Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#image-backgrounds)
-:::
-
-## Absolute Position
-
-Position images or other elements at precise locations
-
-![](mini/images/kitten-400-350.jpeg){.absolute top="170" left="30" width="400" height="400"}
-
-![](mini/images/kitten-450-250.jpeg){.absolute .fragment top="150" right="80" width="450"}
-
-![](mini/images/kitten-300-200.jpeg){.absolute .fragment bottom="110" right="130" width="300"}
-
-::: footer
-Learn more: [Absolute Position](https://quarto.org/docs/presentations/revealjs/advanced.html#absolute-position)
-:::
-
-## Auto-Animate {auto-animate="true" auto-animate-easing="ease-in-out"}
-
-Automatically animate matching elements across slides with Auto-Animate.
-
-::: r-hstack
-::: {data-id="box1" auto-animate-delay="0" style="background: #2780e3; width: 200px; height: 150px; margin: 10px;"}
-:::
-
-::: {data-id="box2" auto-animate-delay="0.1" style="background: #3fb618; width: 200px; height: 150px; margin: 10px;"}
-:::
-
-::: {data-id="box3" auto-animate-delay="0.2" style="background: #e83e8c; width: 200px; height: 150px; margin: 10px;"}
+::: {.column width="40%"}
+-   hie hihsfasf
 :::
 :::
 
 ::: footer
-Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Auto-Animate {auto-animate="true" auto-animate-easing="ease-in-out"}
-
-Automatically animate matching elements across slides with Auto-Animate.
-
-::: r-stack
-::: {data-id="box1" style="background: #2780e3; width: 350px; height: 350px; border-radius: 200px;"}
-:::
-
-::: {data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;"}
-:::
-
-::: {data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;"}
-:::
-:::
-
-::: footer
-Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
-:::
-
-## Slide Transitions {.smaller}
-
-The next few slides will transition using the `slide` transition
-
-| Transition | Description                                                            |
-|--------------------|----------------------------------------------------|
-| `none`     | No transition (default, switch instantly)                              |
-| `fade`     | Cross fade                                                             |
-| `slide`    | Slide horizontally                                                     |
-| `convex`   | Slide at a convex angle                                                |
-| `concave`  | Slide at a concave angle                                               |
-| `zoom`     | Scale the incoming slide so it grows in from the center of the screen. |
-
-::: footer
-Learn more: [Slide Transitions](https://quarto.org/docs/presentations/revealjs/advanced.html#slide-transitions)
-:::
-
-## Tabsets {.smaller .scrollable transition="slide"}
-
-::: panel-tabset
-### Plot
-
-```{r}
-library(ggplot2)
-ggplot(mtcars, aes(hp, mpg, color = am)) +
-  geom_point() +  geom_smooth(formula = y ~ x, method = "loess")
-```
-
-### Data
-
-```{r}
-knitr::kable(mtcars)
-```
-:::
-
-::: footer
-Learn more: [Tabsets](https://quarto.org/docs/presentations/revealjs/#tabsets)
-:::
-
-## Interactive Slides {.smaller transition="slide"}
-
-Include Jupyter widgets and htmlwidgets in your presentations
-
-```{r}
-#| echo: false
-#| fig-height: 5
-library(leaflet)
-leaflet() %>%
-  addTiles() %>%  # Add default OpenStreetMap map tiles
-  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
-```
-
-::: footer
-Learn more: [Jupyter widgets](https://quarto.org/docs/interactive/widgets/jupyter.html), [htmlwidgets](https://quarto.org/docs/interactive/widgets/htmlwidgets.html)
-:::
-
-## Interactive Slides {.smaller transition="slide"}
-
-Turn presentations into applications with Observable and Shiny. Use component layout to position inputs and outputs.
-
-```{r}
-ojs_define(actors = data.frame(
-  x = rnorm(100),
-  y = rnorm(100)
-))
-```
-
-```{ojs}
-//| panel: sidebar
-viewof talentWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: "talent weight" })
-viewof looksWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: "looks weight" })
-viewof minimum = Inputs.range([-2, 2], { value: 1, step: 0.01, label: "min fame" })
-```
-
-```{ojs}
-//| panel: fill
-import { plotActors } from './actors.js';
-plotActors(actors, talentWeight, looksWeight, minimum)
-```
-
-::: footer
-Learn more: [Observable](https://quarto.org/docs/interactive/ojs/), [Shiny](https://quarto.org/docs/interactive/shiny/), [Component Layout](https://quarto.org/docs/interactive/layout.html)
-:::
-
-## Preview Links
-
-Navigate to hyperlinks without disrupting the flow of your presentation.
-
-Use the `preview-links` option to open links in an iframe on top of your slides. Try clicking the link below for a demonstration:
-
-::: {style="text-align: center; margin-top: 1em"}
-[Matplotlib: Visualization with Python](https://matplotlib.org/){preview-link="true" style="text-align: center"}
-:::
-
-::: footer
-Learn more: [Preview Links](https://quarto.org/docs/presentations/revealjs/presenting.html#preview-links)
-:::
-
-## Themes
-
-10 Built-in Themes (or [create your own](https://quarto.org/docs/presentations/revealjs/themes.html#creating-themes))
-
-::: {layout-ncol="2"}
-![](images/moon.png)
-
-![](images/sky.png)
-:::
-
-::: footer
-Learn more: [Themes](https://quarto.org/docs/presentations/revealjs/themes.html)
-:::
-
-## Easy Navigation
-
-::: {style="margin-bottom: 0.9em;"}
-Quickly jump to other parts of your presentation
-:::
-
-::: {layout="[1, 20]"}
-![](images/presentation-menu.png){width="41"}
-
-Toggle the slide menu with the menu button (bottom left of slide) to go to other slides and access presentation tools.
-:::
-
-You can also press `m` to toggle the menu open and closed.
-
-::: footer
-Learn more: [Navigation](https://quarto.org/docs/presentations/revealjs/presenting.html#navigation-menu)
-:::
-
-## Chalkboard {chalkboard-buttons="true"}
-
-::: {style="margin-bottom: 0.9em;"}
-Free form drawing and slide annotations
-:::
-
-::: {layout="[1, 20]"}
-![](images/presentation-chalkboard.png){width="41"}
-
-Use the chalkboard button at the bottom left of the slide to toggle the chalkboard.
-:::
-
-::: {layout="[1, 20]"}
-![](images/presentation-notes-canvas.png){width="41"}
-
-Use the notes canvas button at the bottom left of the slide to toggle drawing on top of the current slide.
-:::
-
-You can also press `b` to toggle the chalkboard or `c` to toggle the notes canvas.
-
-::: footer
-Learn more: [Chalkboard](https://quarto.org/docs/presentations/revealjs/presenting.html#chalkboard)
-:::
-
-## Point of View
-
-Press `o` to toggle overview mode:
-
-![](images/overview-mode.png){.border}
-
-Hold down the `Alt` key (or `Ctrl` in Linux) and click on any element to zoom towards it---try it now on this slide.
-
-::: footer
-Learn more: [Overview Mode](https://quarto.org/docs/presentations/revealjs/presenting.html#overview-mode), [Slide Zoom](https://quarto.org/docs/presentations/revealjs/presenting.html#slide-zoom)
-:::
-
-## Speaker View
-
-Press `s` (or use the presentation menu) to open speaker view
-
-![](images/speaker-view.png){fig-align="center" style="border: 3px solid #dee2e6;" width="780"}
-
-::: footer
-Learn more: [Speaker View](https://quarto.org/docs/presentations/revealjs/presenting.html#speaker-view)
-:::
-
-## Authoring Tools {.smaller}
-
-Live side-by-side preview for any notebook or text editor including Jupyter and VS Code
+## Changes in U.S. Unemployment Per Person
 
 ::: columns
 ::: {.column width="50%"}
-![](images/jupyter-edit.png){.border .border-thick}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "employment"
+title <- "US Employment"
+sub_title <- "(Monthly Change)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "PAYEMS", "US Employment"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="m", 
+                   observation_start=ymd(19800101), 
+                   units = "pch") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
 :::
 
 ::: {.column width="50%"}
-![](images/jupyter-preview.png){.border .border-thick}
+-   hi
 :::
 :::
 
 ::: footer
-Learn more: [Jupyter](https://quarto.org/docs/tools/jupyter-lab.html), [VS Code](https://quarto.org/docs/tools/vscode.html), [Text Editors](https://quarto.org/docs/tools/text-editors.html)
+Fred Data: [All Employees, Total Nonfarm](https://fred.stlouisfed.org/series/PAYEMS)
 :::
 
-## Authoring Tools {.smaller}
+## Inflation Rates
 
-RStudio includes an integrated presentation preview pane
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "inflation_short"
+title <- "Inflation"
+sub_title <- "(Annualized % Change)"
 
-![](images/rstudio.png){.border width="900"}
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "USACPICORMINMEI", "US Core CPI",
+  "GBRCPIALLMINMEI", "UK Core CPI"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="m", 
+                   observation_start=ymd(20000101), 
+                   units = "pc1") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column width="50%"}
+-   hi
+:::
+:::
 
 ::: footer
-Learn more: [RStudio](https://quarto.org/docs/tools/rstudio.html)
+Fred Data: [UK CPI](https://fred.stlouisfed.org/series/GBRCPIALLMINMEI) \| [US CPI](https://fred.stlouisfed.org/series/USACPIALLMINMEI)
 :::
 
-## And More...
+## Inflation Rates
 
--   [Touch](https://quarto.org/docs/presentations/revealjs/advanced.html#touch-navigation) optimized (presentations look great on mobile, swipe to navigate slides)
--   [Footer & Logo](https://quarto.org/docs/presentations/revealjs/#footer-logo) (optionally specify custom footer per-slide)
--   [Auto-Slide](https://quarto.org/docs/presentations/revealjs/presenting.html#auto-slide) (step through slides automatically, without any user input)
--   [Multiplex](https://quarto.org/docs/presentations/revealjs/presenting.html#multiplex) (allows your audience to follow the slides of the presentation you are controlling on their own phone, tablet or laptop).
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "inflation_long_uk_us"
+title <- "Inflation"
+sub_title <- "(Annualized % Change)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "USACPICORMINMEI", "US Core CPI",
+  "GBRCPIALLMINMEI", "UK Core CPI"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="m", 
+                   observation_start=ymd(19600101), 
+                   units = "pc1") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column width="50%"}
+-   hi
+:::
+:::
 
 ::: footer
-Learn more: [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/)
+Fred Data: [UK CPI](https://fred.stlouisfed.org/series/GBRCPIALLMINMEI) \| [US CPI](https://fred.stlouisfed.org/series/USACPIALLMINMEI)
 :::
+
+## Inflation Rates
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "inflation_long_china"
+title <- "Inflation"
+sub_title <- "(Annualized % Change)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "USACPICORMINMEI", "US Core CPI",
+  "GBRCPIALLMINMEI", "UK Core CPI",
+  "CHNCPIALLMINMEI", "China Core CPI"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="m", 
+                   observation_start=ymd(19950101), 
+                   units = "pc1") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column width="50%"}
+-   hi
+:::
+:::
+
+::: footer
+Fred Data: [UK CPI](https://fred.stlouisfed.org/series/GBRCPIALLMINMEI) \| [US CPI](https://fred.stlouisfed.org/series/USACPIALLMINMEI) \| [China](https://fred.stlouisfed.org/series/CHNCPIALLMINMEI)
+:::
+
+## Unemployment per Country
+
+::: columns
+::: {.column width="60%"}
+![](images/figure_1_4.png){.absolute width="483"}
+:::
+
+::: {.column width="40%"}
+-   hie hihsfasf
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## US Deficits
+
+::: columns
+::: {.column width="60%"}
+![](images/figure_1_5.png){.absolute width="600"}
+:::
+
+::: {.column width="40%"}
+-   hie hihsfasf
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Structure of Economic Models
+
+```{mermaid}
+flowchart LR
+  A(Parameters & Exogenous Variables) --> B[Model] --> C(Endogenous Variables)
+ 
+```
+
+::: incremental
+-   Inputs - parameters, exogenous variables, ...
+
+-   Model -
+
+    -   Document facts
+
+    -   Develop a model
+
+    -   Compare predictions with model and original facts
+
+    -   Use the model to produce outcomes / predictions
+
+-   Outcomes - endogenous variables
+:::
+
+## Supply and Demand Review
+
+Labor supply: $L^s = 2 w + 30$
+
+Labor demand: $L^d = 60 - w$
+
+Find equilibrium wage and quantity of labor ($w^*$ and $L^*$).
+
+## Supply and Demand Review
+
+::: columns
+::: {.column width="60%"}
+![](images/figure_1_8.png){.absolute width="500"}
+:::
+
+::: {.column width="40%"}
+Labor supply: $L^s = 2 w + 30$
+
+Labor demand: $L^d = 60 - w$
+
+> ::: {.column width="40%"}
+> $2w+30 = 60 - w$
+>
+> $w^*=10$
+>
+> $L^* = 50$
+> :::
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## 
+
+![](images/chapter_2.png){width="800"}
+
+## Measurement of GDP
+
+-   Key measure of the economy is gross domestic product.
+
+-   The market value of final goods and services over a certain period.
+
+    ```{=html}
+    <br>
+    ```
+    >
+    > Production = Expenditure = Income
+
+## GDP: Expenditure Approach
+
+> Y = C + I + G + NX
+
+```{=html}
+<br>
+```
+> Y = GDP (in dollars)
+>
+> C = Consumption
+>
+> I = Investment
+>
+> G = Government Purchases
+>
+> NX = Net Export = exports - imports
+>
+> ## 
+
+##  GDP: Expenditure Approach
+
+::: columns
+::: {.column width="50%"}
+![](images/table_2_1.png){width="443"}
+:::
+
+::: {.column width="50%"}
+![](images/figure_2_1.png){width="500"}
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## GDP: Income Approach
+
+::: columns
+::: {.column width="50%"}
+![](images/table_2_2.png){width="500"}
+:::
+
+::: {.column width="50%"}
+![](images/figure_2_3.png){width="500"}
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## GDP: Production Approach
+
+-   hi
+
+-   d
+
+## GDP: Nominal vs Real
+
+How do we compare GDP from 2021 against GDP from 1970?
+
+GDP is a function of [price]{.underline} and [quantity]{.underline}.
+
+```{=html}
+<br>
+```
+> nominal GDP = (price level) X (real GDP)
+
+```{=html}
+<br>
+```
+> real GDP = (nominal GDP) / (price level)
+
+## Data Aggregation
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "median_cpi"
+title <- "Median CPI"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "TRMMEANCPIM094SFRBCLE", "16% Trimmed-Mean CPI",
+  "MEDCPIM094SFRBCLE", "Median CPI",
+  "CPIAUCSL", "CPI",
+  "USACPICORMINMEI", "Core CPI"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="m", 
+                   observation_start=ymd(20130101), 
+                   units = "pc1") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title)
+```
+
+::: footer
+Fred Data: [Median CPI](https://www.clevelandfed.org/en/our-research/indicators-and-data/median-cpi.aspx)
+:::
+
+## GDP Per Person
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "gdp_per_capita"
+title <- "GDP per Person"
+sub_title <- "(2010 Dollars, ratio scale)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "NYGDPPCAPKDUSA", "USA",
+  "NYGDPPCAPKDCHN", "China",
+  "NYGDPPCAPKDJPN", "Japan",
+  "NYGDPPCAPKDWLD", "World",
+  "NYGDPPCAPKDGBR", "UK",
+  "NYGDPPCAPKDIND", "India"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="a", 
+                   observation_start=ymd(19700101), 
+                   units = "lin") 
+
+dat <- dat %>% mutate(value = log2(value))
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") + 
+  scale_y_continuous(breaks = c(log2(1000), log2(2000), log2(4000), log2(8000), log2(16000), log2(32000), log2(64000)),
+                     labels = c("$1,000", "$2,000", "$4,000", "$8,000", "16,000", "$32,000", "$64,000")) + 
+ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Per Capita GDP US](https://fred.stlouisfed.org/series/NYGDPPCAPKDUSA)
+:::
+
+## GDP Per Person
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "gdp_per_capita"
+title <- "GDP per Person"
+sub_title <- "(2010 Dollars)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "NYGDPPCAPKDUSA", "USA",
+  "NYGDPPCAPKDCHN", "China",
+  "NYGDPPCAPKDJPN", "Japan",
+  "NYGDPPCAPKDWLD", "World",
+  "NYGDPPCAPKDGBR", "UK",
+  "NYGDPPCAPKDIND", "India"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="a", 
+                   observation_start=ymd(19700101), 
+                   units = "lin") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") + 
+  scale_y_continuous(labels = scales::dollar_format()) + 
+ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Per Capita GDP US](https://fred.stlouisfed.org/series/NYGDPPCAPKDUSA)
+:::
+
+## 
+
+## Simple Economy
+
+::: columns
+::: {.column width="60%"}
+![](images/apples.png){.absolute width="50%"}
+:::
+
+::: {.column width="40%"}
+hie hihsfasf
+:::
+:::
+
+## asdf
+
+![](images/apples.png){.absolute width="50%"}
+
+# Economic Models
+
+## Measurement
+
+GDP - nowcasts
+
+analyst forecasts
+
+market forecasts
+
+expert forecasts
