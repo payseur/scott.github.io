@@ -5,11 +5,11 @@ format: html
 editor: visual
 ---
 
-## R Information
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
 ## Macroeconomic Data
+
+[Economic Release Calendar - NY Fed](https://www.newyorkfed.org/research/calendars/nationalecon_cal.html)
+
+[Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/?lang=en)
 
 [Survey of Professional Forecasters Documentation](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/survey-of-professional-forecasters/spf-documentation.pdf?)
 
