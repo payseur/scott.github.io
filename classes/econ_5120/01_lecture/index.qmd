@@ -34,24 +34,24 @@ fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
 fredr_set_key(fred_key)
 ```
 
--   Scott Payseur, PhD (scott\@email.com)
+-   Scott Payseur, PhD
+
+-   Email: s.payseur\@northeastern.com
 
 -   Class Times: Wednesdays 5:00 - 8:15pm
 
 -   Location: TBD
 
--   Canvas: \[link\]
-
 ## Class Layout
 
 ::: incremental
--   Home Time:
+-   Home Time
 
     -   Reading
 
     -   Assignments
 
--   Class Time (3 hours):
+-   Class Time (3 hours)
 
     -   Lecture / Discussion
 
@@ -71,7 +71,7 @@ fredr_set_key(fred_key)
 
 -   Economic Models - *ceterus paribus*, assumptions
 
--   Expectations - market, experts
+-   Expectations - market, experts, models
 :::
 
 # ![](images/chapter_1.png){width="800"}
@@ -83,9 +83,9 @@ fredr_set_key(fred_key)
 
 -   Defined region
 
--   Microfoundations build to macroeconomics
+-   Micro-foundations build to macroeconomics
 
--   Government inteventions
+-   Government interventions
 
 -   Examples
 :::
@@ -98,7 +98,8 @@ fredr_set_key(fred_key)
 :::
 
 ::: {.column width="40%"}
--   hie hihsfasf
+-   GDP per person shows economic health at a glance.
+-   What does it leave out?
 :::
 :::
 
@@ -106,7 +107,7 @@ fredr_set_key(fred_key)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Changes in U.S. Unemployment Per Person
+## U.S. employment changes
 
 ::: columns
 ::: {.column width="50%"}
@@ -148,7 +149,66 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
--   hi
+-   Number of workers in the U.S. excluding farm workers.
+
+-   Collected by the Bureau of Labor Statistics (BLS).
+
+-   Monthly "Employment Situation" report, which also includes the unemployment rate.
+:::
+:::
+
+::: footer
+Fred Data: [All Employees, Total Nonfarm](https://fred.stlouisfed.org/series/PAYEMS)
+:::
+
+## U.S. employment changes
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "employment_short_stop"
+title <- "US Employment"
+sub_title <- "(Monthly Change)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "PAYEMS", "US Employment"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="m", 
+                   observation_start=ymd(19800101),
+                   observation_end= ymd(20200101),
+                   units = "pch") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column width="50%"}
+-   Number of workers in the U.S. excluding farm workers.
+
+-   Collected by the Bureau of Labor Statistics (BLS).
+
+-   Monthly "Employment Situation" report, which also includes the unemployment rate.
 :::
 :::
 
@@ -199,7 +259,9 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
--   hi
+-   Large spike in inflation
+-   Driven by: Energy, Housing, ...
+-   [Dive into CPI](https://www.bls.gov/cpi/)
 :::
 :::
 
@@ -250,7 +312,7 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
--   hi
+-   History changes scale
 :::
 :::
 
@@ -302,12 +364,57 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
--   hi
+-   The world is heterogeneous
+-   Why might China have lower CPI?
 :::
 :::
 
 ::: footer
 Fred Data: [UK CPI](https://fred.stlouisfed.org/series/GBRCPIALLMINMEI) \| [US CPI](https://fred.stlouisfed.org/series/USACPIALLMINMEI) \| [China](https://fred.stlouisfed.org/series/CHNCPIALLMINMEI)
+:::
+
+## Median CPI
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+data_file_name <- "median_cpi"
+title <- "Median CPI"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "TRMMEANCPIM094SFRBCLE", "16% Trimmed-Mean CPI",
+  "MEDCPIM094SFRBCLE", "Median CPI",
+  "CPIAUCSL", "CPI",
+  "USACPICORMINMEI", "Core CPI"
+)
+
+dat <- getFredData(fetch_symbols = fetch$series_id, 
+                   data_file_name = data_file_name, 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred, 
+                   frequency="m", 
+                   observation_start=ymd(20130101), 
+                   units = "pc1") 
+
+dat %>%  
+  left_join(fetch, by = "series_id") %>% 
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = "")) + 
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title)
+```
+
+::: footer
+Fred Data: [Median CPI](https://www.clevelandfed.org/en/our-research/indicators-and-data/median-cpi.aspx)
 :::
 
 ## Unemployment per Country
@@ -318,7 +425,7 @@ Fred Data: [UK CPI](https://fred.stlouisfed.org/series/GBRCPIALLMINMEI) \| [US C
 :::
 
 ::: {.column width="40%"}
--   hie hihsfasf
+-   The book data up to 2020
 :::
 :::
 
@@ -334,7 +441,8 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ::: {.column width="40%"}
--   hie hihsfasf
+-   Budget deficit - fiscal spending
+-   Trade deficit
 :::
 :::
 
@@ -410,19 +518,16 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 -   The market value of final goods and services over a certain period.
 
-    ```{=html}
     <br>
-    ```
-    >
+
     > Production = Expenditure = Income
 
 ## GDP: Expenditure Approach
 
 > Y = C + I + G + NX
 
-```{=html}
 <br>
-```
+
 > Y = GDP (in dollars)
 >
 > C = Consumption
@@ -435,7 +540,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 >
 > ## 
 
-##  GDP: Expenditure Approach
+## GDP: Expenditure Approach
 
 ::: columns
 ::: {.column width="50%"}
@@ -469,9 +574,9 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## GDP: Production Approach
 
--   hi
+-   Value fo goods and services produced in economy
 
--   d
+-   No double counting
 
 ## GDP: Nominal vs Real
 
@@ -479,17 +584,83 @@ How do we compare GDP from 2021 against GDP from 1970?
 
 GDP is a function of [price]{.underline} and [quantity]{.underline}.
 
-```{=html}
 <br>
-```
+
 > nominal GDP = (price level) X (real GDP)
 
-```{=html}
 <br>
-```
+
 > real GDP = (nominal GDP) / (price level)
 
-## Data Aggregation
+## Apples & Computers Economy
+
+$$GDP_{Nominal} = P_{apples}\times Q_{apples} +  P_{computers}\times Q_{computers} $$
+
+Real GDP [does not]{.underline} change:
+
+$$GDP^{2025} = $1\times 500 +  $900\times 5 = $5,000$$
+
+$$GDP^{2026} = $2\times 500 +  $1,000\times 5 = $6,000$$
+
+## Apples & Computers Economy
+
+$$GDP_{Nominal} = P_{apples}\times Q_{apples} +  P_{computers}\times Q_{computers} $$
+
+$$GDP^{2025} = $1\times 500 +  $900\times 5 = $5,000$$
+
+$$GDP^{2026} = $2\times 500 +  $1,000\times 5 = $6,000$$
+
+Real GDP [does]{.underline} change:
+
+$$GDP^{2027} = $3\times 550 +  $1,000\times 6 = $7,650$$
+
+## How to calculate real GDP
+
+-   Laspeyres Index - uses initial prices
+
+-   Paasche Index - uses final prices
+
+-   Chain weighted (Fisher index) - average of Laspeyres and Paasche % change
+
+## Apples & Computers Economy
+
+![](images/apples.png)
+
+## 
+
+![](images/apples_2.png)
+
+## Apples & Computers Economy
+
+![](images/apples_3.png)
+
+## Apples & Computers Economy
+
+::: columns
+::: {.column width="50%"}
+![](images/apples_3.png)
+:::
+
+::: {.column width="50%"}
+-   Laspeyres Index
+
+-   Paasche Index: $$3\times 500 +  $1,000\times 5 = $5,550$$
+
+-   Chain weighted Index:
+
+    $$\frac{18.3 + 19}{2} = 18.65$$
+
+    $$\frac{6,483}{1.1865} = $5,464$$
+:::
+:::
+
+## GDP Implicit Deflator
+
+-   [FRED GDP Implicit Deflator](https://fred.stlouisfed.org/series/USAGDPDEFQISMEI)
+
+-   [CPI vs GDP Price level](https://www.bls.gov/opub/mlr/2016/article/comparing-the-cpi-with-the-gdp-price-index-and-gdp-implicit-price-deflator.htm)
+
+## GDP Per Person
 
 ```{r}
 #| echo: false
@@ -497,24 +668,27 @@ GDP is a function of [price]{.underline} and [quantity]{.underline}.
 #| fig-width: 10
 #| fig-height: 4.5
 #| message: false
-data_file_name <- "median_cpi"
-title <- "Median CPI"
+data_file_name <- "gdp_per_capita"
+title <- "GDP per Person"
+sub_title <- "(2010 Dollars)"
 
 fetch <- tribble(
   ~series_id, ~series_name,
-  "TRMMEANCPIM094SFRBCLE", "16% Trimmed-Mean CPI",
-  "MEDCPIM094SFRBCLE", "Median CPI",
-  "CPIAUCSL", "CPI",
-  "USACPICORMINMEI", "Core CPI"
+  "NYGDPPCAPKDUSA", "USA",
+  "NYGDPPCAPKDCHN", "China",
+  "NYGDPPCAPKDJPN", "Japan",
+  "NYGDPPCAPKDWLD", "World",
+  "NYGDPPCAPKDGBR", "UK",
+  "NYGDPPCAPKDIND", "India"
 )
 
 dat <- getFredData(fetch_symbols = fetch$series_id, 
                    data_file_name = data_file_name, 
                    data_dir = "data", 
                    force_refresh = params$refresh_fred, 
-                   frequency="m", 
-                   observation_start=ymd(20130101), 
-                   units = "pc1") 
+                   frequency="a", 
+                   observation_start=ymd(19700101), 
+                   units = "lin") 
 
 dat %>%  
   left_join(fetch, by = "series_id") %>% 
@@ -524,13 +698,13 @@ dat %>%
   ylab("") +
   xlab("") +
   guides(color = guide_legend(title = "")) + 
-  theme(legend.position="top") +
-  scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title)
+  theme(legend.position="top") + 
+  scale_y_continuous(labels = scales::dollar_format()) + 
+ggtitle(title, subtitle = sub_title)
 ```
 
 ::: footer
-Fred Data: [Median CPI](https://www.clevelandfed.org/en/our-research/indicators-and-data/median-cpi.aspx)
+Fred Data: [Per Capita GDP US](https://fred.stlouisfed.org/series/NYGDPPCAPKDUSA)
 :::
 
 ## GDP Per Person
@@ -582,79 +756,6 @@ ggtitle(title, subtitle = sub_title)
 Fred Data: [Per Capita GDP US](https://fred.stlouisfed.org/series/NYGDPPCAPKDUSA)
 :::
 
-## GDP Per Person
+## Next Week
 
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-#| message: false
-data_file_name <- "gdp_per_capita"
-title <- "GDP per Person"
-sub_title <- "(2010 Dollars)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "NYGDPPCAPKDUSA", "USA",
-  "NYGDPPCAPKDCHN", "China",
-  "NYGDPPCAPKDJPN", "Japan",
-  "NYGDPPCAPKDWLD", "World",
-  "NYGDPPCAPKDGBR", "UK",
-  "NYGDPPCAPKDIND", "India"
-)
-
-dat <- getFredData(fetch_symbols = fetch$series_id, 
-                   data_file_name = data_file_name, 
-                   data_dir = "data", 
-                   force_refresh = params$refresh_fred, 
-                   frequency="a", 
-                   observation_start=ymd(19700101), 
-                   units = "lin") 
-
-dat %>%  
-  left_join(fetch, by = "series_id") %>% 
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = "")) + 
-  theme(legend.position="top") + 
-  scale_y_continuous(labels = scales::dollar_format()) + 
-ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [Per Capita GDP US](https://fred.stlouisfed.org/series/NYGDPPCAPKDUSA)
-:::
-
-## 
-
-## Simple Economy
-
-::: columns
-::: {.column width="60%"}
-![](images/apples.png){.absolute width="50%"}
-:::
-
-::: {.column width="40%"}
-hie hihsfasf
-:::
-:::
-
-## asdf
-
-![](images/apples.png){.absolute width="50%"}
-
-# Economic Models
-
-## Measurement
-
-GDP - nowcasts
-
-analyst forecasts
-
-market forecasts
-
-expert forecasts
+-   Read chapters 1-3.
