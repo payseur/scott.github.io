@@ -1,0 +1,277 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Long Run: Growth and Production"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: FALSE
+---
+
+## .
+
+![](images/ch_3.png){fig-align="center"}
+
+## Very Long Run
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+library(macroTools)
+library(fredr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+```
+
+![](images/figure_3_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Modern Economic Growth
+
+$$
+y_{2022} - y_{2021} = \bar{g} \times y_{2021}
+$$ {#eq-1}
+
+$$
+\bar{g} = \frac{y_{2022}-y_{2021}}{y_{2021}} = \frac{y_{2022}}{y_{2021}}-1 
+$$ {#eq-2}
+
+Generalized:
+
+$$
+\bar{g} = \frac{y_{t+1}-y_{t}}{y_{t}} = \frac{y_{t+1}}{y_{t}}-1 
+$$ \## Constant Growth Rule
+
+$$
+y_{t+1} = y_t(1+\bar{g})
+$$ $$
+y_{t+2} = y_t(1+\bar{g})(1+\bar{g}) = (1+\bar{g})^2
+$$ Generalized: $$
+y_t = y_0(1+\bar{g})^t
+$$ \## Doublin rule of 70
+
+$$
+y_t = 2y_0 = y_0(1+\bar{g})^t
+$$ $$
+2 = (1+\bar{g})^t
+$$
+
+$$
+ln(2) = ln[(1+\bar{g})^t] = t \times ln(1+\bar{g})
+$$
+
+$$
+t = \frac{ln(2) }{ln(1+\bar{g})} \approx \frac{0.7}{\bar{g}}
+$$ \## Ratio Scale
+
+## ![](images/figure_3_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## GDP on Ratio Scale
+
+![](images/figure_3_5.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Average Annual Growth Rate
+
+$$
+y_t = y_0(1+\bar{g})^t
+$$
+
+Solve for $\bar{g}$:
+
+$$
+\bar{g} = \left(\frac{y_t}{y_0}\right)^{\frac{1}{t}}-1
+$$
+
+Apply to per capita numbers:
+
+$$
+\left(\frac{$61,000}{$3,600}\right)^{\frac{1}{148}} - 1 = 0.0193 
+$$
+
+## Modern Growth
+
+![](images/figure_3_6.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Across the World
+
+![](images/figure_3_7.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Growth Rates
+
+![](images/cap_3.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Growth Rates
+
+![](images/figure_3_9.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Growth Rates
+
+![](images/table_3_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Benefits of Economic Growth
+
+::: incremental
+-   Increased life expectancy
+
+-   Higher incomes
+
+-   Reduced infant mortality
+
+-   Expansion of available goods & services
+
+-   ...
+:::
+
+## Costs of Economic Growth
+
+::: incremental
+-   Environment
+
+-   Depletion of natural resources
+
+-   Income inequality (across/with-in)
+
+-   Job loss
+:::
+
+## In Class Exploration
+
+-   [Microsoft Excel](https://office365.northeastern.edu/)
+
+-   [Fred - US GDP Per Capita](https://fred.stlouisfed.org/series/A939RX0Q048SBEA#0)
+
+-   [Fred - China GDP Per Capita](https://fred.stlouisfed.org/series/PCAGDPCNA646NWDB)
+
+## .
+
+![](images/ch_4.png){fig-align="center"}
+
+## Diminishing Marginal Product of Capital
+
+![](images/figure_4_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## General Equilibrium
+
+![](images/table_4_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Capital and Labor Markets
+
+![](images/figure_4_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Production Model Solution
+
+![](images/table_4_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Per Capita Prediction
+
+![](images/table_4_3.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Per Capita Prediction
+
+![](images/figure_4_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Per Capita Prediction
+
+![](images/figure_4_5.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Implied TFP
+
+![](images/table_4_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Production Functions
+
+![](images/figure_4_6.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Implied TFP 
+
+![](images/figure_4_7.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Next Week
+
+-   Read chapters 1-3.
