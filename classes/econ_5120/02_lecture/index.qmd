@@ -58,7 +58,9 @@ Generalized:
 
 $$
 \bar{g} = \frac{y_{t+1}-y_{t}}{y_{t}} = \frac{y_{t+1}}{y_{t}}-1 
-$$ \## Constant Growth Rule
+$$ \
+
+## Constant Growth Rule
 
 $$
 y_{t+1} = y_t(1+\bar{g})
@@ -187,6 +189,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 -   [Fred - US GDP Per Capita](https://fred.stlouisfed.org/series/A939RX0Q048SBEA#0)
 
 -   [Fred - China GDP Per Capita](https://fred.stlouisfed.org/series/PCAGDPCNA646NWDB)
+
 
 ## .
 
