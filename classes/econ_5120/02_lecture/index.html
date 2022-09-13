@@ -355,11 +355,19 @@ y_{2022} - y_{2021} = \bar{g} \times y_{2021}
 </section>
 <section id="constant-growth-rule" class="slide level2">
 <h2>Constant Growth Rule</h2>
-<p>$$ y_{t+1} = y_t(1+{g})</p>
-<p><span class="math display">\[ \]</span></p>
-<p>y_{t+2} = y_t(1+{g})(1+{g}) = (1+{g})^2</p>
-<p><span class="math display">\[ Generalized: \]</span></p>
-<p>y_t = y_0(1+{g})^t $$ ## Doublin rule of 70</p>
+<p><span class="math display">\[
+y_{t+1} = y_t(1+\bar{g})
+\]</span></p>
+<p><span class="math display">\[
+y_{t+2} = y_t(1+\bar{g})(1+\bar{g}) = (1+\bar{g})^2
+\]</span></p>
+<p>Generalized:</p>
+<p><span class="math display">\[
+y_t = y_0(1+\bar{g})^t
+\]</span></p>
+</section>
+<section id="doubling-rule-of-70" class="slide level2">
+<h2>Doubling rule of 70</h2>
 <p>$$ y_t = 2y_0 = y_0(1+{g})^t</p>
 <p><span class="math display">\[ \]</span></p>
 <p>2 = (1+{g})^t $$</p>
@@ -368,7 +376,11 @@ ln(2) = ln[(1+\bar{g})^t] = t \times ln(1+\bar{g})
 \]</span></p>
 <p><span class="math display">\[
 t = \frac{ln(2) }{ln(1+\bar{g})} \approx \frac{0.7}{\bar{g}}
-\]</span> ## Ratio Scale</p>
+\]</span><br>
+</p>
+</section>
+<section id="ratio-scale" class="slide level2">
+<h2>Ratio Scale</h2>
 </section>
 <section id="section-1" class="slide level2">
 <h2><img data-src="images/figure_3_4.png" data-fig-align="center"></h2>
@@ -467,6 +479,121 @@ y_t = y_0(1+\bar{g})^t
 <h2>.</h2>
 
 <img data-src="images/ch_4.png" class="r-stretch quarto-figure-center"></section>
+<section id="a-model-of-production" class="slide level2">
+<h2>A Model of Production</h2>
+<div>
+<ul>
+<li class="fragment"><p>Why do different economies produce different outcomes?</p></li>
+<li class="fragment"><p>Introduce model</p></li>
+<li class="fragment"><p>Solution: general equilibrium</p></li>
+<li class="fragment"><p>Model fit</p></li>
+<li class="fragment"><p>Learn from model</p></li>
+</ul>
+</div>
+</section>
+<section id="different-economies-with-different-outcomes" class="slide level2">
+<h2>Different Economies with Different Outcomes</h2>
+<div>
+<p>People in the US are</p>
+<ul>
+<li class="fragment">~ 3 times richer than in Argentina</li>
+</ul>
+<!-- -->
+<ul>
+<li class="fragment"><p>~ 4 times richer than in China</p></li>
+<li class="fragment"><p>~ 50 times richer than poorest countries</p></li>
+</ul>
+</div>
+</section>
+<section id="models-vs-the-real-world" class="slide level2">
+<h2>Models vs the Real World</h2>
+<div>
+<p>Vastly simplifying assumptions lead to questions of efficacy.</p>
+<ul>
+<li class="fragment"><p>Climate change - ignore local geographical features</p></li>
+<li class="fragment"><p>Asteroid orbits - ignoring far away planets</p></li>
+<li class="fragment"><p>Supply &amp; Demand - ignore outside influences</p></li>
+</ul>
+</div>
+</section>
+<section id="a-model-of-production-1" class="slide level2">
+<h2>A Model of Production</h2>
+<div>
+<ul>
+<li class="fragment"><p>Labor - <span class="math inline">\(\bar{L}\)</span> - number of working people.</p>
+<ul>
+<li class="fragment">Available to make ice cream.</li>
+</ul></li>
+<li class="fragment"><p>Capital - <span class="math inline">\(\bar{K}\)</span> - number of capital assets.</p>
+<ul>
+<li class="fragment">Ice cream Machines</li>
+</ul></li>
+<li class="fragment"><p>Letters with bar - fixed exogenous parameters.</p></li>
+</ul>
+</div>
+</section>
+<section id="production-function" class="slide level2">
+<h2>Production Function</h2>
+<p><span id="eq-productionmodel"><span class="math display">\[
+Y = F(K, L) = \bar{A}K^{1/3}L^{2/3}
+\qquad(3)\]</span></span></p>
+<ul>
+<li><p><span class="math inline">\(\bar{A}\)</span> - Productivity parameter.</p></li>
+<li><p><span class="math inline">\(K\)</span> - Capital</p></li>
+<li><p><span class="math inline">\(r\)</span> - Rental price of capital</p></li>
+<li><p><span class="math inline">\(L\)</span> - Labor</p></li>
+<li><p><span class="math inline">\(w\)</span> - Wage</p></li>
+</ul>
+<p>Cobb-Douglass (<a href="https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf">link</a>): <span class="math inline">\(Y = K^{a}L^{1-a}\)</span></p>
+</section>
+<section id="returns-to-scale" class="slide level2">
+<h2>Returns to Scale</h2>
+<div>
+<ul>
+<li>Constant returns to scale: <span class="math inline">\(F(2K,2L) = 2F(K,L)\)</span></li>
+</ul>
+<p><span class="math display">\[ 2Y = F(2K, 2L) \]</span></p>
+<p><span class="math display">\[
+= \bar{A}2K^{1/3}2L^{2/3}
+\]</span></p>
+<p><span class="math display">\[
+= 2\bar{A}K^{1/3}L^{2/3}
+\]</span></p>
+<p><span class="math display">\[
+=2F(K,L)
+\]</span></p>
+</div>
+</section>
+<section id="returns-to-scale-1" class="slide level2">
+<h2>Returns to Scale</h2>
+<ul>
+<li><p>Decreasing returns to scale: <span class="math inline">\(F(2K, 2L) &lt; 1\)</span></p></li>
+<li><p>Increasing returns to scale: <span class="math inline">\(F(2K, 2L) &gt; 1\)</span></p></li>
+<li><p>Note: components have <u>decreasing</u> returns to scale:</p>
+<ul>
+<li><p><span class="math inline">\(K^{1/3}\)</span></p></li>
+<li><p><span class="math inline">\(L^{2/3}\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="profit-maximization" class="slide level2">
+<h2>Profit Maximization</h2>
+<p><span class="math display">\[
+max_{K,L}\Pi= F(K,L) - rK -wL
+\]</span></p>
+<ul>
+<li><p>Prices for example stay in units of ice cream</p>
+<ul>
+<li>Ice cream is the <em>numeraire.</em></li>
+</ul></li>
+<li><p>Solution:</p>
+<ul>
+<li><p>Hire labor until marginal product of labor (MLP) = 0</p></li>
+<li><p>Hire capital until marginal product of capital (MKP)= 0</p></li>
+</ul></li>
+<li><p>Marginal - extra output added with 1 extra unit, ceterus paribus</p></li>
+</ul>
+</section>
 <section id="diminishing-marginal-product-of-capital" class="slide level2">
 <h2>Diminishing Marginal Product of Capital</h2>
 

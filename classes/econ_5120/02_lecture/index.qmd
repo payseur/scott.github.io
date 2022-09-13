@@ -58,17 +58,23 @@ Generalized:
 
 $$
 \bar{g} = \frac{y_{t+1}-y_{t}}{y_{t}} = \frac{y_{t+1}}{y_{t}}-1 
-$$ \
+$$\
 
 ## Constant Growth Rule
 
 $$
 y_{t+1} = y_t(1+\bar{g})
-$$ $$
+$$ 
+
+$$
 y_{t+2} = y_t(1+\bar{g})(1+\bar{g}) = (1+\bar{g})^2
-$$ Generalized: $$
+$$ 
+Generalized: 
+$$
 y_t = y_0(1+\bar{g})^t
-$$ \## Doublin rule of 70
+$$
+
+## Doubling rule of 70
 
 $$
 y_t = 2y_0 = y_0(1+\bar{g})^t
@@ -82,7 +88,9 @@ $$
 
 $$
 t = \frac{ln(2) }{ln(1+\bar{g})} \approx \frac{0.7}{\bar{g}}
-$$ \## Ratio Scale
+$$ \
+
+## Ratio Scale
 
 ## ![](images/figure_3_4.png){fig-align="center"}
 
@@ -190,10 +198,133 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 -   [Fred - China GDP Per Capita](https://fred.stlouisfed.org/series/PCAGDPCNA646NWDB)
 
-
 ## .
 
 ![](images/ch_4.png){fig-align="center"}
+
+## A Model of Production
+
+::: incremental
+-   Why do different economies produce different outcomes?
+
+-   Introduce model
+
+-   Solution: general equilibrium
+
+-   Model fit
+
+-   Learn from model
+:::
+
+## Different Economies with Different Outcomes
+
+::: incremental
+People in the US are
+
+-   \~ 3 times richer than in Argentina
+
+<!-- -->
+
+-   \~ 4 times richer than in China
+
+-   \~ 50 times richer than poorest countries
+:::
+
+## Models vs the Real World
+
+::: incremental
+Vastly simplifying assumptions lead to questions of efficacy.
+
+-   Climate change - ignore local geographical features
+
+-   Asteroid orbits - ignoring far away planets
+
+-   Supply & Demand - ignore outside influences
+:::
+
+## A Model of Production
+
+::: incremental
+-   Labor - $\bar{L}$ - number of working people.
+
+    -   Available to make ice cream.
+
+-   Capital - $\bar{K}$ - number of capital assets.
+
+    -   Ice cream Machines
+
+-   Letters with bar - fixed exogenous parameters.
+:::
+
+## Production Function
+
+$$
+Y = F(K, L) = \bar{A}K^{1/3}L^{2/3} 
+$$ {#eq-productionmodel}
+
+-   $\bar{A}$ - Productivity parameter.
+
+-   $K$ - Capital
+
+-   $r$ - Rental price of capital
+
+-   $L$ - Labor
+
+-   $w$ - Wage
+
+Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf)): $Y = K^{a}L^{1-a}$
+
+## Returns to Scale
+
+<div>
+
+-   Constant returns to scale: $F(2K,2L) = 2F(K,L)$
+
+$$ 2Y = F(2K, 2L) $$
+
+$$
+ = \bar{A}2K^{1/3}2L^{2/3} 
+$$
+
+$$
+= 2\bar{A}K^{1/3}L^{2/3} 
+$$
+
+$$
+=2F(K,L)
+$$
+
+</div>
+
+## Returns to Scale
+
+-   Decreasing returns to scale: $F(2K, 2L) < 1$
+
+-   Increasing returns to scale: $F(2K, 2L) > 1$
+
+-   Note: components have [decreasing]{.underline} returns to scale:
+
+    -   $K^{1/3}$
+
+    -   $L^{2/3}$
+
+## Profit Maximization
+
+$$
+max_{K,L}\Pi= F(K,L) - rK -wL
+$$
+
+-   Prices for example stay in units of ice cream
+
+    -   Ice cream is the *numeraire.*
+
+-   Solution:
+
+    -   Hire labor until marginal product of labor (MLP) = 0
+
+    -   Hire capital until marginal product of capital (MKP)= 0
+
+-   Marginal - extra output added with 1 extra unit, ceterus paribus
 
 ## Diminishing Marginal Product of Capital
 
@@ -267,7 +398,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Implied TFP 
+## Implied TFP
 
 ![](images/figure_4_7.png){fig-align="center"}
 
