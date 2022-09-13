@@ -16,6 +16,24 @@ params:
   refresh_fred: FALSE
 ---
 
+## Survey of Consumer Expectations
+
+[Calendar](https://www.newyorkfed.org/research/calendars/nationalecon_cal.html) \| [Survey Link](https://www.newyorkfed.org/microeconomics/sce#/finsit-1)
+
+![](images/cs.png){fig-align="center"}
+
+## Inflation: Yesterday's CPI
+
+![](images/cpi_table.png){fig-align="center"}
+
+## Inflation: Yesterday's CPI
+
+![](images/cpi_month.png){fig-align="center"}
+
+## Inflation: Yesterday's CPI
+
+![](images/cpi_ann.png){fig-align="center"}
+
 ## .
 
 ![](images/ch_3.png){fig-align="center"}
@@ -48,11 +66,11 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 $$
 y_{2022} - y_{2021} = \bar{g} \times y_{2021}
-$$ {#eq-1}
+$$
 
 $$
 \bar{g} = \frac{y_{2022}-y_{2021}}{y_{2021}} = \frac{y_{2022}}{y_{2021}}-1 
-$$ {#eq-2}
+$$
 
 Generalized:
 
@@ -64,12 +82,14 @@ $$\
 
 $$
 y_{t+1} = y_t(1+\bar{g})
-$$ 
+$$
 
 $$
 y_{t+2} = y_t(1+\bar{g})(1+\bar{g}) = (1+\bar{g})^2
-$$ 
-Generalized: 
+$$
+
+Generalized:
+
 $$
 y_t = y_0(1+\bar{g})^t
 $$
@@ -88,7 +108,7 @@ $$
 
 $$
 t = \frac{ln(2) }{ln(1+\bar{g})} \approx \frac{0.7}{\bar{g}}
-$$ \
+$$\
 
 ## Ratio Scale
 
@@ -320,9 +340,9 @@ $$
 
 -   Solution:
 
-    -   Hire labor until marginal product of labor (MLP) = 0
+    -   Hire labor until marginal product of labor (MLP) = $w$
 
-    -   Hire capital until marginal product of capital (MKP)= 0
+    -   Hire capital until marginal product of capital (MPK)= $r$
 
 -   Marginal - extra output added with 1 extra unit, ceterus paribus
 
@@ -333,6 +353,28 @@ $$
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
+
+## Marginal Product of Capital
+
+$$
+\frac{\delta Y}{\delta K} = \frac{\delta (\bar{A}K^{1/3}L^{2/3})}{\delta K} 
+$$
+
+$$
+= \frac{1}{3}\bar{A}K^{-2/3}L^{2/3}
+$$
+
+Substitute $Y = \bar{A}K^{1/3}L^{2/3}$
+
+$$
+\frac{1}{3} \frac{Y}{K}
+$$
+
+## Profit Maximizing Solution
+
+-   Hire labor until  (MLP), $\frac{2}{3} \frac{Y}{L}$ = $w$
+
+-   Hire capital until  (MPK), $\frac{1}{3} \frac{Y}{K}$= $r$
 
 ## General Equilibrium
 
@@ -357,6 +399,8 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
+
+
 
 ## Per Capita Prediction
 
