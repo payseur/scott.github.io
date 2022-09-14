@@ -35,9 +35,11 @@ params:
 ![](images/cpi_ann.png){fig-align="center"}
 
 ## Inflation: Today's PPI
+
 ![](images/ppi1.png){fig-align="center"}
 
 ## Inflation: Today's PPI
+
 ![](images/ppi2.png){fig-align="center"}
 
 ## .
@@ -104,7 +106,7 @@ $$
 
 $$
 y_t = 2y_0 = y_0(1+\bar{g})^t
-$$ 
+$$
 
 $$
 2 = (1+\bar{g})^t
@@ -220,11 +222,13 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## In Class Exploration
 
--   [Microsoft Excel](https://office365.northeastern.edu/)
+-   Download: [Microsoft Excel](https://office365.northeastern.edu/)
 
 -   [Fred - US GDP Per Capita](https://fred.stlouisfed.org/series/A939RX0Q048SBEA#0)
 
 -   [Fred - China GDP Per Capita](https://fred.stlouisfed.org/series/PCAGDPCNA646NWDB)
+
+-   [In Class Worksheet](./Growth_Worksheet_Empty.xlsx)
 
 ## .
 
@@ -304,28 +308,18 @@ Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/
 
 ## Returns to Scale
 
-<div>
-
+::: incremental
 -   Constant returns to scale: $F(2K,2L) = 2F(K,L)$
+-   $= F(2K, 2L)$
+-   $= \bar{A}2K^{1/3}2L^{2/3}$
+-   $= 2\bar{A}K^{1/3}L^{2/3}$
+-   $= 2F(K,L)$
 
-$$ 2Y = F(2K, 2L) $$
-
-$$
- = \bar{A}2K^{1/3}2L^{2/3} 
-$$
-
-$$
-= 2\bar{A}K^{1/3}L^{2/3} 
-$$
-
-$$
-=2F(K,L)
-$$
-
-</div>
+:::
 
 ## Returns to Scale
 
+::: incremental
 -   Decreasing returns to scale: $F(2K, 2L) < 2Y$
 
 -   Increasing returns to scale: $F(2K, 2L) > 2Y$
@@ -336,8 +330,11 @@ $$
 
     -   $L^{2/3}$
 
+:::
+
 ## Profit Maximization
 
+::: incremental
 $$
 max_{K,L}\Pi= F(K,L) - rK -wL
 $$
@@ -353,6 +350,8 @@ $$
     -   Hire capital until marginal product of capital (MPK)= $r$
 
 -   Marginal - extra output added with 1 extra unit, ceterus paribus
+
+:::
 
 ## Diminishing Marginal Product of Capital
 
@@ -408,6 +407,82 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
+## Interpreting the Solution
+
+::: incremental
+$$
+Y^* = F(\bar{K},\bar{L})=\bar{A}\bar{K}^{1/3}\bar{L}^{2/3}
+$$
+
+-   An economy that is endowed with more capital (machines) and/or more people will achieve higher level of production.
+
+-   Equilibrium wage and rental rate $\rightarrow$
+
+    $$
+    \frac{w^*L^*}{Y^*}=\frac{2}{3}, \frac{r^*K^*}{Y^*}=\frac{1}{3}
+    $$
+
+-   One third paid to capital
+
+-   Two thirds paid to labor
+:::
+
+## Two Thirds Paid to Labor
+
+![](images/figure_2_3.png){fig-align="center"}
+
+## Measurement of GDP
+
+> Production = Expenditure = Income
+
+$$
+w^*L^*+r^*K^*=Y^*
+$$
+
+-   Perfect competition - zero profits
+
+## Welfare of Countries
+
+::: incremental
+-   Solved for total aggregate output
+
+-   Interested in measure of welfare
+
+    -   Per capita output
+
+-   Note: in the model we assume everyone is working
+:::
+
+## Output Per Person
+
+::: incremental
+-   Output per person: $y\equiv Y/L$
+
+-   Capital per person: $k\equiv K/L$
+
+-   Output per person in equilibrium:
+
+    -   $y^*\equiv \frac{Y^*}{L^*} = \frac{\bar{A}\bar{K}^{1/3}\bar{L}^{2/3}}{\bar{L}}=\frac{\bar{A}\bar{K}^{1/3}}{\bar{L}^{1/3}} = \bar{A}\bar{k}^{1/3}$
+    -   Output per person is a function of:
+        -   Capital per person
+
+        -   Productivity parameter
+:::
+
+## Empirical Fit of the Production Model
+
+::: incremental
+-   Use development accounting - use model to account for differences between countries.
+
+-   Replace ice cream with real economy.
+
+-   Capital per person, $\bar{k}$, measured in economies stock of housing, factories, tractors, computers, machines and other capital goods.
+
+-   Focus on $y^*=\bar{A}\bar{k}^{1/3}$
+
+-   Assume $\bar{A}=1$
+:::
+
 ## Per Capita Prediction
 
 ![](images/table_4_3.png){fig-align="center"}
@@ -432,6 +507,14 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
+## Per Capita Prediction
+
+![](images/figure_4_5_ann.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Implied TFP
 
 ![](images/table_4_4.png){fig-align="center"}
@@ -439,6 +522,18 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
+
+## Total Factor Productivity (TFP)
+
+$$
+y^* = \bar{A}\bar{k}^{1/3}
+$$
+
+Implies
+
+$$
+\bar{A}= \frac{y^*}{\bar{k}^{1/3}}
+$$
 
 ## Production Functions
 
@@ -456,6 +551,50 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
+## TFP Differences per Country
+
+::: incremental
+-   Human capital
+
+-   Technology
+
+-   Institutions
+
+-   Misallocation
+:::
+
+## Evaluating the Production Model
+
+$$
+y^*=\bar{A}\bar{k}^{1/3}
+$$
+
+GDP per capita will be higher in countries that:
+
+::: incremental
+-   Have high quantities of capital per person
+
+-   Use capital efficiently
+:::
+
+## Evaluating the Production Model
+
+$$
+y^*=\bar{A}\bar{k}^{1/3}
+$$
+
+::: incremental
+-   Constant returns to scale in capital + labor
+
+    -   Standard replication argument
+
+-   Diminishing returns to capital
+
+    -   Double capital per person, amount of output will less than double.
+
+    -   Exponent of $1/3 \implies$ diminishing returns are quite strong
+:::
+
 ## Next Week
 
--   Read chapters 1-3.
+-   Read chapters 4-5.
