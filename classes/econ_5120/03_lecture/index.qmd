@@ -1,0 +1,51 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Long Run: Growth and Production"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: FALSE
+---
+
+## Empire State Manufacturing Survey
+
+[Survey Link](https://www.newyorkfed.org/medialibrary/media/survey/empire/empire2022/esms_2022_09.pdf?la=en)
+
+![](images/empire.png){fig-align="center"}
+
+## Census Bureau Business Inventories
+
+[Survey Link](https://www.census.gov/economic-indicators/)
+
+![](images/bi.png){fig-align="center" width="381"}
+
+## Production Function
+
+$$
+Y = F(K, L) = \bar{A}K^{1/3}L^{2/3} 
+$$ {#eq-productionmodel}
+
+-   $\bar{A}$ - Productivity parameter.
+
+-   $K$ - Capital
+
+-   $r$ - Rental price of capital
+
+-   $L$ - Labor
+
+-   $w$ - Wage
+
+Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf)): $Y = K^{a}L^{1-a}$
+
+## Next Week
+
+-   Read chapters 4-5.
