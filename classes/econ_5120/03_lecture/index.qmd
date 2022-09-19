@@ -28,6 +28,14 @@ params:
 
 ![](images/bi.png){fig-align="center" width="381"}
 
+## Chapters 4, 5, 6
+
+-   4 - Introduce a production model
+
+-   5 - Add investment, consumption, and depreciation (Solow)
+
+-   6 - Production model of ideas (Romer)
+
 ## Production Function
 
 $$
@@ -45,6 +53,333 @@ $$ {#eq-productionmodel}
 -   $w$ - Wage
 
 Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf)): $Y = K^{a}L^{1-a}$
+
+## General Equilibrium
+
+![](images/table_4_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Production Model Solution
+
+![](images/table_4_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Output Per Person
+
+<div>
+
+-   Output per person: $y\equiv Y/L$
+
+-   Capital per person: $k\equiv K/L$
+
+-   Output per person in equilibrium:
+
+    -   $y^*\equiv \frac{Y^*}{L^*} = \frac{\bar{A}\bar{K}^{1/3}\bar{L}^{2/3}}{\bar{L}}=\frac{\bar{A}\bar{K}^{1/3}}{\bar{L}^{1/3}} = \bar{A}\bar{k}^{1/3}$
+    -   Output per person is a function of:
+        -   Capital per person
+
+        -   Productivity parameter
+
+</div>
+
+## Empirical Fit of the Production Model
+
+<div>
+
+-   Use development accounting - use model to account for differences between countries.
+
+-   Replace ice cream with real economy.
+
+-   Capital per person, $\bar{k}$, measured in economies stock of housing, factories, tractors, computers, machines and other capital goods.
+
+-   Focus on $y^*=\bar{A}\bar{k}^{1/3}$
+
+-   Assume $\bar{A}=1$
+
+</div>
+
+## Per Capita Prediction
+
+![](images/table_4_3.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Per Capita Prediction
+
+![](images/figure_4_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Per Capita Prediction
+
+![](images/figure_4_5.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Per Capita Prediction
+
+![](images/figure_4_5_ann.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Total Factor Productivity (TFP)
+
+$$
+y^* = \bar{A}\bar{k}^{1/3}
+$$
+
+Implies
+
+$$
+\bar{A}= \frac{y^*}{\bar{k}^{1/3}}
+$$
+
+## Implied TFP
+
+![](images/table_4_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## 
+
+## Production Functions
+
+![](images/figure_4_6.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Implied TFP
+
+![](images/figure_4_7.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Growth Accounting Burundi
+
+$$
+\frac{y^*_{rich}}{y^*_{poor}}=\frac{\bar{A}_{rich}}{\bar{A}_{poor}}\left(\frac{\bar{k}_{rich}}{\bar{k}_{poor}}\right)^{1/3}
+$$
+
+From charts numerators = 1, $\bar{A}_{poor} = \frac{1}{13}$, $\bar{k}_{poor}^{\frac{1}{3}} = \frac{1}{5}$.
+
+$$
+\frac{y^*_{US}}{y^*_{Burundi}}=\frac{1}{\frac{1}{12}}\left(\frac{1}{\frac{1}{6}}\right) = 12 \times 6
+$$
+
+Per capita gdp difference explained by 67% TFP, and 33% by capital per person.
+
+## Production Model Summary
+
+::: incremental
+-   Constant returns to scale production function: $Y = \bar{A}K^{1/3}L^{2/3}$
+
+-   Kept $L$ exogenous: $L = \bar{L}$
+
+-   Explored replacing $\bar{A}$ with $TFP$.
+
+-   What is missing?
+:::
+
+## Chapter 5: Solow Growth Model
+
+::: incremental
+-   Capital goods depreciate
+
+-   Investment happens
+
+-   Why do we see massive wealth growth in some countries but not others?
+
+-   Introduce steady state and transition dynamics
+:::
+
+## South Korea and Philippines
+
+::: incremental
+-   1960 - similar per capita GDP \~ \$1,500 in each country
+
+-   Similar populations / industries
+
+-   Between 1960 and 2017 economies diverged drastically
+
+-   Annual GDP per capita growth - PH **2.5%**, S. Korea **6%**
+
+-   2017 per capita GDP - PH **\$7,700**, S.Korea **\$36,000**
+
+-   Why? Solow: capital accumulation!
+:::
+
+## Solow Model
+
+$$
+Y = F(K, L) = \bar{A}K_t^{1/3}L_t^{2/3} 
+$$
+
+Resource constraint:
+
+$$
+C_t+I_t=Y_t
+$$
+
+Capital accumulation:
+
+$$
+K_{t+1}=K_t+I_t-\bar{d}K_t
+$$
+
+## Depreciation
+
+::: incremental
+-   $\bar{d}$ : depreciation of capital each period in percentage terms
+
+-   Capital goods wear out / or are used up each period
+
+    -   Computers / Machines / Facilities
+
+-   Economists think of $\bar{d}$ to be somewhere between 7-10% a year
+
+-   Define: $\Delta K_{t+1} \equiv K_{t+1} - K_t$
+
+-   Change over time: $\Delta K_{t+1} = I_t - \bar{d}K_t$.
+:::
+
+## Capital Stock Example
+
+::: incremental
+-   Initial capital stock, $\bar{K_0}$, or capital at time $t=0$, is equal to 1,000.
+
+-   Depreciation rate, $\bar{d}$, is equal to 10%.
+
+-   Investment, $I_t$, is a constant of 200 per period.
+
+-   How does the capital stock evolve over time?
+:::
+
+## Capital Stock Example
+
+![](images/table_5_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Allocation of output - Investment.
+
+::: incremental
+-   In the Solow Growth Model resources can go to Consumption, $C_t$, or Investment, $I_t$.
+
+    -   Note: Government, $G_t$, and Trade, $NX_t$, is not in the model.
+
+-   Define $\bar{s} \in [0,1]$ as the fraction of output that is invested each period.
+:::
+
+## Allocation of Output - Investment
+
+$$
+I_t=\bar{s}Y_t
+$$
+
+Plug into resource constraint:
+
+$$
+C_t=(1-\bar{s})Y_t
+$$
+
+## Solow Growth Model Equations
+
+![](images/table_5_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Compare to Production Model
+
+::: incremental
+-   No prices, $w$ or $r$.
+
+-   Time subscript, $t$.
+
+-   Capital stock is not constant.
+
+    -   Capital growth is a function of savings/investment rate, $\bar{s}$.
+
+    -   Capital loss is a function of depreciation, $\bar{d}$.
+
+-   Choice between allocation of output, consumption or investment.
+
+-   Keep labor exogenous, $L_t=\bar{L}$.
+:::
+
+## Real Interest Rate
+
+Real interest rate is the amount a person can earn by saving one unit of output for a year, or the amount that a person must pay to borrow one unit of output for the year.
+
+$$
+\underbrace{Y_t -C_t}_{saving} = \underbrace{I_t}_{investment}
+$$
+
+The real interest rate equals the rental price of capital that clears the capital market, which in turn is equal to the marginal product of capital.
+
+## Solving the Solow Model
+
+Dynamic model that cannot be solved like the production model, but we can do two things:
+
+::: incremental
+1.  Show what a solution looks like graphically.
+2.  Solve the model in the ***Long Run***.
+:::
+
+## Solving the Solow Model
+
+$$
+\underbrace{\Delta K_{t+1}}_{change-in-capital}=\underbrace{\bar{s}Y_t-\bar{d}K_t}_{net-investment}
+$$
+
+The change in capital stock is equal to the change in investment $I_t=\bar{s}Y_t$ less depreciation \$\\bar{d}K_t\$. $I_t=\bar{d}K_t$ is often called *net investment*.
+
+$$
+Y_t = \bar{A}K_t^{1/3}\bar{L}^{2/3}
+$$
+
+Two unknowns: $K_t$ and $Y_t$.
+
+## Solow Diagram
+
+![](images/figure_5_1.png){fig-align="center"}
+
+::: footer 
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326) 
+:::
+
+## Solow Diagram
+
+## Solow: Ouput & Consumption
+
+![](images/figure_5_2.png){fig-align="center" width="556"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## Next Week
 
