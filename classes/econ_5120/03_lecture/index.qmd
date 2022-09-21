@@ -196,8 +196,6 @@ $$
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## 
-
 ## Production Functions
 
 ![](images/figure_4_6.png){fig-align="center"}
