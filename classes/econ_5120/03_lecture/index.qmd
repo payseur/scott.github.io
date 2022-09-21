@@ -16,6 +16,12 @@ params:
   refresh_fred: FALSE
 ---
 
+## Today's Fed Decision
+
+Fed increase rate 0.75% to range 3.0% to 3.25%.
+
+![](images/dot.png){fig-align="center" width="751"}
+
 ## Empire State Manufacturing Survey
 
 [Survey Link](https://www.newyorkfed.org/medialibrary/media/survey/empire/empire2022/esms_2022_09.pdf?la=en)
@@ -234,6 +240,100 @@ Per capita gdp difference explained by 67% TFP, and 33% by capital per person.
 -   What is missing?
 :::
 
+## Recreating Exhibits (Excel & R)
+
+-   Use Table 4.3 to recreate
+
+    -   Figure 4.5 \| Table 4.4 \| Figure 4.7
+
+-   Excel
+
+    -   [Excel Download](./Production.xlsx)
+
+-   R - Tidyverse
+
+    -   [R for Data Science](https://r4ds.had.co.nz/)
+
+    -   [Data Download](./figure_4_3.RDS)
+
+## R Setup
+
+-   Install R - [link](https://cran.r-project.org/)
+-   Install RStudio - [link](https://www.rstudio.com/products/rstudio/download/)
+-   Install Libraries
+
+``` r
+install.packages("tidyverse")
+install.packages("readr")
+install.packages("ggplot2")
+```
+
+## R Example
+
+```{r, echo=T}
+library(readr)
+library(dplyr)
+
+figure_4_3 <- readRDS("figure_4_3.RDS")
+print(figure_4_3)
+```
+
+## R Example
+
+```{r, echo=T}
+library(ggplot2)
+figure_4_3 %>% 
+  ggplot(aes(x=y, y=y_predict)) + 
+  geom_point()
+```
+
+## R Example
+
+```{r, echo=T}
+library(ggplot2)
+figure_4_3 %>% 
+  ggplot(aes(x=y, y=y_predict)) + 
+  geom_point() +
+  geom_abline(slope=1, intercept=0, color="blue")
+```
+
+## R Example
+
+```{r, echo=T}
+library(ggplot2)
+figure_4_3 %>% 
+  ggplot(aes(x=y, y=y_predict)) + 
+  geom_point() +
+  geom_abline(slope=1, intercept=0, color="blue") +
+  geom_text(mapping=aes(x=y, y=y_predict,label=country))
+```
+
+## R Example
+
+```{r, echo=T}
+library(ggplot2)
+
+figure_4_3 <- readRDS("figure_4_3.RDS")
+print(figure_4_3)
+```
+
+## R Example
+
+```{r, echo=T}
+figure_4_7 <- figure_4_3 %>% 
+  mutate(Implied_TFP = y/(k_bar^(1/3)))
+print(figure_4_7)
+```
+
+## R Example
+
+```{r, echo=T}
+figure_4_7 %>% 
+  ggplot(aes(x=y, y=Implied_TFP)) + 
+  geom_point() +
+  geom_text(mapping=aes(x=y, y=Implied_TFP,label=country))
+```
+
 ## Chapter 5: Solow Growth Model
 
 ::: incremental
@@ -425,6 +525,8 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 -   Solve for $K^*$
 
 -   Solve for $Y^*$
+
+-   [Solow Exploration](./Solow.xlsx)
 :::
 
 ## Steady State
