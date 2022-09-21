@@ -503,8 +503,6 @@ Two unknowns: $K_t$ and $Y_t$.
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Solow Diagram
-
 ## Solow: Ouput & Consumption
 
 ![](images/figure_5_2.png){fig-align="center" width="556"}
