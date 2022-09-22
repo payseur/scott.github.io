@@ -1,0 +1,800 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Long Run: Solow and Romer"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: FALSE
+---
+
+## Introduction
+-   one
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+library(macroTools)
+library(fredr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(purrr)
+library(readr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+
+recs <- getFredRecessionData(fetch_symbol = "USREC", 
+                   data_file_name = "us_recession", 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred) 
+
+```
+
+## Chapters 4, 5, 6
+
+-   4 - Introduce a production model
+
+-   5 - Add investment, consumption, and depreciation (Solow)
+
+-   6 - Production model of ideas (Romer)
+
+## Production Function
+
+$$
+Y = F(K, L) = \bar{A}K^{1/3}L^{2/3} 
+$$ {#eq-productionmodel}
+
+-   $\bar{A}$ - Productivity parameter.
+
+-   $K$ - Capital
+
+-   $r$ - Rental price of capital
+
+-   $L$ - Labor
+
+-   $w$ - Wage
+
+Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf)): $Y = K^{a}L^{1-a}$
+
+## Output Per Person
+
+<div>
+
+-   Output per person: $y\equiv Y/L$
+
+-   Capital per person: $k\equiv K/L$
+
+-   Output per person in equilibrium:
+
+    -   $y^*\equiv \frac{Y^*}{L^*} = \frac{\bar{A}\bar{K}^{1/3}\bar{L}^{2/3}}{\bar{L}}=\frac{\bar{A}\bar{K}^{1/3}}{\bar{L}^{1/3}} = \bar{A}\bar{k}^{1/3}$
+    -   Output per person is a function of:
+        -   Capital per person
+
+        -   Productivity parameter
+
+</div>
+
+## Chapter 5: Solow Growth Model
+
+::: incremental
+-   Capital goods depreciate
+
+-   Investment happens
+
+-   Why do we see massive wealth growth in some countries but not others?
+
+-   Introduce steady state and transition dynamics
+:::
+
+## South Korea and Philippines
+
+::: incremental
+-   1960 - similar per capita GDP \~ \$1,500 in each country
+
+-   Similar populations / industries
+
+-   Between 1960 and 2017 economies diverged drastically
+
+-   Annual GDP per capita growth - PH **2.5%**, S. Korea **6%**
+
+-   2017 per capita GDP - PH **\$7,700**, S.Korea **\$36,000**
+
+-   Why? Solow: capital accumulation!
+:::
+
+## Solow Model
+
+$$
+Y = F(K, L) = \bar{A}K_t^{1/3}L_t^{2/3} 
+$$
+
+Resource constraint:
+
+$$
+C_t+I_t=Y_t
+$$
+
+Capital accumulation:
+
+$$
+K_{t+1}=K_t+I_t-\bar{d}K_t
+$$
+
+## Depreciation
+
+::: incremental
+-   $\bar{d}$ : depreciation of capital each period in percentage terms
+
+-   Capital goods wear out / or are used up each period
+
+    -   Computers / Machines / Facilities
+
+-   Economists think of $\bar{d}$ to be somewhere between 7-10% a year
+
+-   Define: $\Delta K_{t+1} \equiv K_{t+1} - K_t$
+
+-   Change over time: $\Delta K_{t+1} = I_t - \bar{d}K_t$.
+:::
+
+## Capital Stock Example
+
+::: incremental
+-   Initial capital stock, $\bar{K_0}$, or capital at time $t=0$, is equal to 1,000.
+
+-   Depreciation rate, $\bar{d}$, is equal to 10%.
+
+-   Investment, $I_t$, is a constant of 200 per period.
+
+-   How does the capital stock evolve over time?
+:::
+
+## Capital Stock Example
+
+![](images/table_5_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Allocation of output - Investment.
+
+::: incremental
+-   In the Solow Growth Model resources can go to Consumption, $C_t$, or Investment, $I_t$.
+
+    -   Note: Government, $G_t$, and Trade, $NX_t$, is not in the model.
+
+-   Define $\bar{s} \in [0,1]$ as the fraction of output that is invested each period.
+:::
+
+## Allocation of Output - Investment
+
+$$
+I_t=\bar{s}Y_t
+$$
+
+Plug into resource constraint:
+
+$$
+C_t=(1-\bar{s})Y_t
+$$
+
+## Solow Growth Model Equations
+
+![](images/table_5_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Compare to Production Model
+
+::: incremental
+-   No prices, $w$ or $r$.
+
+-   Time subscript, $t$.
+
+-   Capital stock is not constant.
+
+    -   Capital growth is a function of savings/investment rate, $\bar{s}$.
+
+    -   Capital loss is a function of depreciation, $\bar{d}$.
+
+-   Choice between allocation of output, consumption or investment.
+
+-   Keep labor exogenous, $L_t=\bar{L}$.
+:::
+
+## Real Interest Rate
+
+Real interest rate is the amount a person can earn by saving one unit of output for a year, or the amount that a person must pay to borrow one unit of output for the year.
+
+$$
+\underbrace{Y_t -C_t}_{saving} = \underbrace{I_t}_{investment}
+$$
+
+The real interest rate equals the rental price of capital that clears the capital market, which in turn is equal to the marginal product of capital.
+
+## Solving the Solow Model
+
+Dynamic model that cannot be solved like the production model, but we can do two things:
+
+::: incremental
+1.  Show what a solution looks like graphically.
+2.  Solve the model in the ***Long Run***.
+:::
+
+## Solving the Solow Model
+
+$$
+\underbrace{\Delta K_{t+1}}_{change-in-capital}=\underbrace{\bar{s}Y_t-\bar{d}K_t}_{net-investment}
+$$
+
+The change in capital stock is equal to the change in investment $I_t=\bar{s}Y_t$ less depreciation \$\\bar{d}K_t\$. $I_t=\bar{d}K_t$ is often called *net investment*.
+
+$$
+Y_t = \bar{A}K_t^{1/3}\bar{L}^{2/3}
+$$
+
+Two unknowns: $K_t$ and $Y_t$.
+
+## Solow Diagram
+
+![](images/figure_5_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Solow: Ouput & Consumption
+
+![](images/figure_5_2.png){fig-align="center" width="556"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Steady State
+
+::: incremental
+-   Steady-state level of capital, $K^*$, is determined at: $\bar{s}Y^* = \bar{d}K*$.
+
+-   Substituting from the production function we find $\bar{s}\bar{A}K^{*1/3}\bar{L}^{2/3}=\bar{d}K^*$
+
+-   Solve for $K^*$
+
+-   Solve for $Y^*$
+
+-   [Solow Exploration](./Solow.xlsx)
+:::
+
+## Steady State
+
+$$
+K^*= \left( \frac{\bar{s}\bar{A}}{\bar{d}} \right)^{3/2}\bar{L}
+$$
+
+$$
+Y^*=\left(\frac{\bar{s}}{\bar{d}} \right)^{1/2}\bar{A}^{3/2}\bar{L}
+$$
+
+$$
+y^* \equiv \left( \frac{Y^*}{L^*} \right) = \bar{A}^{3/2} \left( \frac{\bar{s}}{\bar{d}} \right)^{1/2} 
+$$
+
+## Comparing Models
+
+$$
+y^* = \bar{A}^{3/2} \left( \frac{\bar{s}}{\bar{d}} \right)^{1/2} 
+$$
+
+$$
+y^*=\bar{A}\bar{k}^{*1/3}
+$$\
+
+::: incremental
+-   Productivity parameter, $\bar{A}$ , in Solow model the capital stock depends on productivity.
+
+-   Capital per person is endogenized
+:::
+
+## Capital-Output Ratio
+
+Steady-state:
+
+$$
+\frac{K^*}{Y^*} = \frac{\bar{s}}{\bar{d}}
+$$
+
+::: incremental
+-   In reality different countries have different savings rates.
+
+    -   South Korea (30 years): 35% of GDP
+
+    -   USA: 25% of GDP
+
+    -   Philippines: 18% of GDP
+:::
+
+## Capital-Output Ratio
+
+![](images/figure_5_3.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Comparing Y/L
+
+Assuming $\bar{d}$ is constant. (Fred links: [Phil](https://fred.stlouisfed.org/series/NYGDPPCAPKDPHL) \| [Korea](https://fred.stlouisfed.org/series/NYGDPPCAPKDKOR))
+
+$$
+\frac{y^*_{rich}}{y^*_{poor}}=\left(\frac{\bar{A}_{rich}}{\bar{A}_{poor}}\right)^{3/2}\left(\frac{\bar{s}_{rich}}{\bar{s}_{poor}}\right)^{1/2}
+$$
+
+$$\frac{y^*_{SKorea}}{y^*_{Phil}}=\underbrace{\overbrace{\frac{$30,307}{$3,338}}^{Fred}}_{9.1}=\underbrace{\left(\frac{\bar{A}_{rich}}{\bar{A}_{poor}}\right)^{3/2}}_7\underbrace{\overbrace{\left(\frac{35}{20}\right)^{1/2}}^{Figure-5.3}}_{1.14}
+$$
+
+## South Korea and Philippines
+
+![](images/figure_5_10.png){fig-align="center"}
+
+## Steady State Observations
+
+::: incremental
+-   Production exhibits diminishing returns to capital accumulation
+
+-   Each addition to capital stock increases production less and less
+
+    -   Increases investment less and less
+
+    -   Increases depreciation by the same amount
+
+-   Eventually net investment = 0
+
+-   Note: No long run growth! Capital accumulation not an engine for long run growth
+:::
+
+## Increased Investment
+
+![](images/figure_5_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Increased Investment
+
+![](images/figure_5_5.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Rise in Depreciation
+
+![](images/figure_5_6.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Rise in Depreciation
+
+![](images/figure_5_7.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Transition Dynamics
+
+::: incremental
+-   If economy is below steady-state, $K_t<K^*$, it grows.
+
+-   If economy is above steady-state, $K_t>K^*$, it shrinks.
+
+-   Principal of transition dynamics:
+
+    -   the farther below steady state - the faster the economy will grow.
+
+    -   the closer to steady state - slower growth
+:::
+
+## Differences in Growth Rates
+
+![](images/figure_5_8.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Differences in Growth Rates
+
+![](images/figure_5_9.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Solow: Strengths
+
+::: incremental
+-   Production function depends on investment and depreciation
+
+-   Provides steady-state, countries will be richer when:
+
+    -   high rate of investment
+
+    -   high TFP level
+
+    -   low rate of depreciation
+
+-   Transition Dynamics - farther from steady-state, faster the growth
+:::
+
+## Solow Weaknesses
+
+::: incremental
+-   Physical capital is main mechanism for growth
+
+    -   Quantitatively this only explains a small portion of country differences
+
+-   Why do countries have different productivity levels and investment rates?
+
+-   Does not provide a theory for long run growth.
+:::
+
+## Chapter 6: Growth and Ideas
+
+::: incremental
+-   Two types of goods
+
+    -   Objects - Land, cell phones, oil, jet planes, pencils, ...
+
+    -   Ideas - algorithms, formulas, practices, papers, books
+
+-   Ideas -\> nonrivalry -\> increasing returns -\> pure competition
+:::
+
+## Intangible Assets
+
+![](images/Intang.png){fig-align="center" width="405"}
+
+## Nonrivalry
+
+::: incremental
+-   Rival goods - if I am using it you cannot.
+
+-   Nonrival goods - ideas, if I am using an idea so can you.
+
+-   Computer
+
+    -   Rival - if I am using the computer your use is limited
+
+    -   Nonrival - the design for manufacturing the computer
+:::
+
+## Increasing Returns
+
+Suppose a new production function:
+
+$$
+Y_t=F(K_t, L_t, A_t) = A_tK_t^{1/3}L_t^{2/3}
+$$
+
+If we double the inputs:
+
+$$
+F(2K, 2L,2A)= 4F(K, L, A)
+$$
+
+increasing returns to scale to ideas and objects taken together.
+
+## Fixed Cost - Increasing Returns
+
+![](images/figure_6_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Pure Competition
+
+::: incremental
+-   What is the incentive for innovation?
+
+-   If we force firms to sell at marginal cost what happens?
+
+-   Patents, copywrites, trade secrets
+
+-   How can the government help lower costs?
+:::
+
+## Romer Model
+
+$$
+Y_t=A_tL_{yt}
+$$
+
+$$
+\Delta A_{t+1}=\bar{z}A_tL_{at}
+$$
+
+Resource constraint:
+
+$$
+\bar{L} = L_{yt} + L_{at}
+$$
+
+Allocation of labor:
+
+$$
+L_{at}=\bar{l}\bar{L}
+$$
+
+## Romer Model
+
+![](images/table_6_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Romer Model Solution
+
+Output per person:
+
+$$
+ y_t \equiv \frac{Y_t}{\bar{L}}=A_t(1-\bar{l})
+$$
+
+Growth rate of ideas:
+
+$$
+\bar{g} \equiv \frac{\Delta A_{t+1}}{A_t}=\bar{z}L_{at}=\bar{z}\bar{l}\bar{L}
+$$
+
+Productivity parameter: $\bar{z}$, labor spend on ideas: $\bar{l}$ .
+
+## Romer Model Solution
+
+Because the growth rate is constant at $\bar{z}\bar{l}\bar{L}$ the stock of knowledge is:
+
+$$ 
+A_t=\bar{A_0}(1+\bar{g})^t
+$$
+
+Output per person:
+
+$$
+y_t=A_0(1-\bar{l})(1+\bar{g})^t
+$$
+
+## Romer Output per Person
+
+![](images/figure_6_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Experiment: Increase Population
+
+![](images/figure_6_3.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Experiment: Changing Research Allocation
+
+![](images/figure_6_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Industrial Commodities
+
+![](images/figure_6_5.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## U.S. Unemployment Rate
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_unemployment"
+title <- "U.S. Employment"
+sub_title <- "(unemployed / labor force)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "UNRATE", "U.S. Unemployment Rate"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [U.S. Unemployment Rate](https://fred.stlouisfed.org/series/UNRATE)
+:::
+
+## U.S. Unemployment Level
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_unemployment_level"
+title <- "Unemployment Level"
+sub_title <- "(Thousands of Persons)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "UNEMPLOY", "Unemployment Level"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+ #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [U.S. Unemployment Level](https://fred.stlouisfed.org/series/UNEMPLOY)
+:::
+
+
+## U.S. Labor Force
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_participation"
+title <- "Labor Force Participation Rate"
+sub_title <- "(Civilian)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CIVPART", "Labor Force Participation Rate"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+## U.S. Labor Force
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_participation_2020"
+title <- "Labor Force Participation Rate"
+sub_title <- "(Civilian)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CIVPART", "Labor Force Participation Rate"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(20200101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+
+
+
+## Next Week
+CNP16OV
+-   Read chapters 6-7.
