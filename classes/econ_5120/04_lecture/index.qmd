@@ -413,7 +413,148 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Labor Market
+## In Class Exercise
+
+::: incremental
+-   Explore Fred Data \[[link](https://fred.stlouisfed.org/)\]
+
+-   Create Fred API Key \[[link](https://fred.stlouisfed.org/docs/api/api_key.html)\]
+
+-   Download R Fred Library \[[documentation](https://cran.r-project.org/web/packages/fredr/vignettes/fredr.html)\]
+
+-   Explore GDP per capita and Unemployment
+:::
+
+## Explore Fred Data
+
+::: incremental
+-   Real GDP per capita \[[link](https://fred.stlouisfed.org/series/A939RX0Q048SBEA)\]
+
+-   Unemployment rate \[[link](https://fred.stlouisfed.org/series/UNRATE)\]
+
+-   Create Fred API Key \[[link](https://fred.stlouisfed.org/docs/api/api_key.html)\]
+:::
+
+## Fredr Library
+
+```{r, echo=T, eval= FALSE}
+install.packages("fredr")
+library(fredr)
+
+fred_key <- "" # your api key
+fredr_set_key(fred_key)
+
+?fredr
+```
+
+-   Link to fredr function documentation \[[link](https://www.rdocumentation.org/packages/fredr/versions/2.1.0/topics/fredr_series_observations)\]
+
+## Fredr Library
+
+```{r, echo=T, eval= TRUE}
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+
+UNEMPLOYMENT_ID <- "UNRATE"
+GDP_PC <- "A939RX0Q048SBEA"
+
+unemployment <- fredr(UNEMPLOYMENT_ID, 
+                      observation_start = ymd(19900101),
+                      observation_end = ymd(20220401),
+                      frequency="q")
+
+print(unemployment, n = 5)
+```
+
+## Download GDP Per Capita
+
+```{r, echo=T, eval= TRUE}
+gdppc <- fredr(GDP_PC, 
+               observation_start = ymd(19900101),
+               observation_end = ymd(20220401),
+               frequency="q",
+               units="pc1")
+
+print(gdppc, n = 5)
+```
+
+## Clean up data series
+
+```{r, echo=T, eval= TRUE}
+gdppc <- gdppc %>% 
+  select(date, series_id, value) %>% 
+  mutate(series_id = "GDP_PC")
+
+unemployment <- unemployment %>% 
+  select(date, series_id, value) %>% 
+  mutate(series_id = "UNEMPLOYMENT")
+
+print(unemployment, n = 5)
+```
+
+
+
+## Join data series
+
+```{r, echo=T, eval= TRUE}
+dat <- gdppc %>% rbind(unemployment)
+
+dat %>% head(5) %>% print()
+dat %>% tail(5) %>% print()
+```
+
+## Plot Time-Series
+
+```{r, echo=T, eval= TRUE}
+dat %>% 
+  ggplot(aes(x=date, y=value, color=series_id)) +
+  geom_line()
+```
+## Wide Data
+
+```{r, echo=T, eval= TRUE}
+library(tidyr)
+
+dat_wide <- dat %>% 
+  tidyr::pivot_wider(names_from = c("series_id"))
+
+dat_wide %>%
+  print(n=10)
+```
+
+## Plot Scatter 
+
+```{r, echo=T, eval= TRUE}
+dat_wide %>% 
+  ggplot(aes(x = GDP_PC, y = UNEMPLOYMENT)) +
+  geom_point() 
+```
+## Historical Scatter 
+
+```{r, echo=T, eval= TRUE}
+cur_plot <- dat_wide %>% 
+  filter(date > ymd(20181231)) %>% 
+  ggplot(aes(x=GDP_PC, y=UNEMPLOYMENT, color=date)) +
+  geom_point() 
+cur_plot
+```
+## Historical Scatter 
+
+```{r, echo=T, eval= TRUE}
+cur_plot <- cur_plot + 
+  geom_path() 
+cur_plot
+```
+
+## Historical Scatter 
+
+```{r, echo=T, eval= TRUE}
+cur_plot <- cur_plot + 
+  geom_text(aes(label = paste(year(date),month(date), sep="-")))
+cur_plot
+```
+## Chapter 7: Labor Market
 
 ::: incremental
 -   Labor market explained by supply and demand
@@ -514,6 +655,8 @@ dat %>%
 ::: footer
 Fred Data: [U.S. Unemployment Rate](https://fred.stlouisfed.org/series/UNRATE)
 :::
+
+## 
 
 ## Composition of Labor Force
 
@@ -1031,6 +1174,82 @@ $$
 $$
 pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1+0.03)}} = \$1.59 Million
 $$
+
+## Rising Return to Education
+
+![](images/figure_7_8.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Rising Return to Education
+
+![](images/figure_7_9.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Globalization & US Manufacturing
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "manufacturing"
+title <- "U.S. Employment in Manufacturing"
+sub_title <- "(Millions)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "LNU04032232", "U.S. Manufacturing"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+ # scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [US Manufacturing Employment](https://fred.stlouisfed.org/series/LNU04032232)
+:::
+
+## Income Inequality
+
+![](images/figure_7_11.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Income Inequality
+
+![](images/figure_7_12.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## Next Week
 
