@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-*.RDS
+.RDS
 classes/econ_5120/01_lecture/data/*
 classes/econ_5120/01_lecture/indexbk_files/*

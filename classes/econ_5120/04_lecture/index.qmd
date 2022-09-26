@@ -13,10 +13,11 @@ format:
 resources:
   - demo.pdf
 params:
-  refresh_fred: FALSE
+  refresh_fred: TRUE
 ---
 
 ## Introduction
+
 -   one
 
 ```{r}
@@ -32,6 +33,7 @@ library(ggplot2)
 library(lubridate)
 library(purrr)
 library(readr)
+library(tidyr)
 
 fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
 fredr_set_key(fred_key)
@@ -51,7 +53,7 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 -   6 - Production model of ideas (Romer)
 
-## Production Function
+## Chapter 4: Production Function
 
 $$
 Y = F(K, L) = \bar{A}K^{1/3}L^{2/3} 
@@ -89,34 +91,6 @@ Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/
 
 ## Chapter 5: Solow Growth Model
 
-::: incremental
--   Capital goods depreciate
-
--   Investment happens
-
--   Why do we see massive wealth growth in some countries but not others?
-
--   Introduce steady state and transition dynamics
-:::
-
-## South Korea and Philippines
-
-::: incremental
--   1960 - similar per capita GDP \~ \$1,500 in each country
-
--   Similar populations / industries
-
--   Between 1960 and 2017 economies diverged drastically
-
--   Annual GDP per capita growth - PH **2.5%**, S. Korea **6%**
-
--   2017 per capita GDP - PH **\$7,700**, S.Korea **\$36,000**
-
--   Why? Solow: capital accumulation!
-:::
-
-## Solow Model
-
 $$
 Y = F(K, L) = \bar{A}K_t^{1/3}L_t^{2/3} 
 $$
@@ -132,109 +106,6 @@ Capital accumulation:
 $$
 K_{t+1}=K_t+I_t-\bar{d}K_t
 $$
-
-## Depreciation
-
-::: incremental
--   $\bar{d}$ : depreciation of capital each period in percentage terms
-
--   Capital goods wear out / or are used up each period
-
-    -   Computers / Machines / Facilities
-
--   Economists think of $\bar{d}$ to be somewhere between 7-10% a year
-
--   Define: $\Delta K_{t+1} \equiv K_{t+1} - K_t$
-
--   Change over time: $\Delta K_{t+1} = I_t - \bar{d}K_t$.
-:::
-
-## Capital Stock Example
-
-::: incremental
--   Initial capital stock, $\bar{K_0}$, or capital at time $t=0$, is equal to 1,000.
-
--   Depreciation rate, $\bar{d}$, is equal to 10%.
-
--   Investment, $I_t$, is a constant of 200 per period.
-
--   How does the capital stock evolve over time?
-:::
-
-## Capital Stock Example
-
-![](images/table_5_1.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Allocation of output - Investment.
-
-::: incremental
--   In the Solow Growth Model resources can go to Consumption, $C_t$, or Investment, $I_t$.
-
-    -   Note: Government, $G_t$, and Trade, $NX_t$, is not in the model.
-
--   Define $\bar{s} \in [0,1]$ as the fraction of output that is invested each period.
-:::
-
-## Allocation of Output - Investment
-
-$$
-I_t=\bar{s}Y_t
-$$
-
-Plug into resource constraint:
-
-$$
-C_t=(1-\bar{s})Y_t
-$$
-
-## Solow Growth Model Equations
-
-![](images/table_5_2.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Compare to Production Model
-
-::: incremental
--   No prices, $w$ or $r$.
-
--   Time subscript, $t$.
-
--   Capital stock is not constant.
-
-    -   Capital growth is a function of savings/investment rate, $\bar{s}$.
-
-    -   Capital loss is a function of depreciation, $\bar{d}$.
-
--   Choice between allocation of output, consumption or investment.
-
--   Keep labor exogenous, $L_t=\bar{L}$.
-:::
-
-## Real Interest Rate
-
-Real interest rate is the amount a person can earn by saving one unit of output for a year, or the amount that a person must pay to borrow one unit of output for the year.
-
-$$
-\underbrace{Y_t -C_t}_{saving} = \underbrace{I_t}_{investment}
-$$
-
-The real interest rate equals the rental price of capital that clears the capital market, which in turn is equal to the marginal product of capital.
-
-## Solving the Solow Model
-
-Dynamic model that cannot be solved like the production model, but we can do two things:
-
-::: incremental
-1.  Show what a solution looks like graphically.
-2.  Solve the model in the ***Long Run***.
-:::
 
 ## Solving the Solow Model
 
@@ -310,63 +181,6 @@ $$\
 -   Capital per person is endogenized
 :::
 
-## Capital-Output Ratio
-
-Steady-state:
-
-$$
-\frac{K^*}{Y^*} = \frac{\bar{s}}{\bar{d}}
-$$
-
-::: incremental
--   In reality different countries have different savings rates.
-
-    -   South Korea (30 years): 35% of GDP
-
-    -   USA: 25% of GDP
-
-    -   Philippines: 18% of GDP
-:::
-
-## Capital-Output Ratio
-
-![](images/figure_5_3.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Comparing Y/L
-
-Assuming $\bar{d}$ is constant. (Fred links: [Phil](https://fred.stlouisfed.org/series/NYGDPPCAPKDPHL) \| [Korea](https://fred.stlouisfed.org/series/NYGDPPCAPKDKOR))
-
-$$
-\frac{y^*_{rich}}{y^*_{poor}}=\left(\frac{\bar{A}_{rich}}{\bar{A}_{poor}}\right)^{3/2}\left(\frac{\bar{s}_{rich}}{\bar{s}_{poor}}\right)^{1/2}
-$$
-
-$$\frac{y^*_{SKorea}}{y^*_{Phil}}=\underbrace{\overbrace{\frac{$30,307}{$3,338}}^{Fred}}_{9.1}=\underbrace{\left(\frac{\bar{A}_{rich}}{\bar{A}_{poor}}\right)^{3/2}}_7\underbrace{\overbrace{\left(\frac{35}{20}\right)^{1/2}}^{Figure-5.3}}_{1.14}
-$$
-
-## South Korea and Philippines
-
-![](images/figure_5_10.png){fig-align="center"}
-
-## Steady State Observations
-
-::: incremental
--   Production exhibits diminishing returns to capital accumulation
-
--   Each addition to capital stock increases production less and less
-
-    -   Increases investment less and less
-
-    -   Increases depreciation by the same amount
-
--   Eventually net investment = 0
-
--   Note: No long run growth! Capital accumulation not an engine for long run growth
-:::
-
 ## Increased Investment
 
 ![](images/figure_5_4.png){fig-align="center"}
@@ -411,22 +225,6 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
     -   the farther below steady state - the faster the economy will grow.
 
     -   the closer to steady state - slower growth
-:::
-
-## Differences in Growth Rates
-
-![](images/figure_5_8.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Differences in Growth Rates
-
-![](images/figure_5_9.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Solow: Strengths
@@ -615,6 +413,64 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
+## Labor Market
+
+::: incremental
+-   Labor market explained by supply and demand
+
+-   Distortions: taxes and firing costs
+
+-   Compute present discounted values
+
+-   Value your human capital
+
+-   Return to college education
+:::
+
+## U.S. Employment to Population
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_employment_2_pop"
+title <- "Ratio of Employment to Population"
+sub_title <- "(employed / labor force)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "EMRATIO", "U.S. Employment Ratio"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [U.S. Employment Rate](https://fred.stlouisfed.org/series/EMRATIO)
+:::
+
 ## U.S. Unemployment Rate
 
 ```{r}
@@ -659,6 +515,18 @@ dat %>%
 Fred Data: [U.S. Unemployment Rate](https://fred.stlouisfed.org/series/UNRATE)
 :::
 
+## Composition of Labor Force
+
+|                             | February 2019 | August 2022 |
+|-----------------------------|---------------|-------------|
+| Civilian Population, \>16yr | 258 Million   | 264 Million |
+| Labor Force                 | 163 Million   | 164 Million |
+| Employed                    | 157 Million   | 158 Million |
+| Unemployed                  | 6.5 Million   | 6 Million   |
+| Not in Labor Force          | 95 Million    | 99 Million  |
+
+: Bureau of Labor Statistics
+
 ## U.S. Unemployment Level
 
 ```{r}
@@ -702,7 +570,6 @@ dat %>%
 ::: footer
 Fred Data: [U.S. Unemployment Level](https://fred.stlouisfed.org/series/UNEMPLOY)
 :::
-
 
 ## U.S. Labor Force
 
@@ -792,9 +659,379 @@ dat %>%
 Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
 :::
 
+## U.S. Population
 
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_population"
+title <- "Population"
+sub_title <- "(Civilian 16 and over)"
 
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CNP16OV", "Population",
+  "CIVPART", "Labor Force Participation Rate",
+  "UNEMPLOY", "Unemployment Level"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+employ <- dat %>% 
+  select(date, series_id, value) %>% 
+  tidyr::pivot_wider(names_from = c("series_id")) %>% 
+  mutate(CNP16OV = CNP16OV*1000) %>% 
+  mutate(Unemployed = UNEMPLOY*1000) %>% 
+  mutate(Working = CNP16OV*(CIVPART/100)-Unemployed) %>% 
+  mutate(NotInWorkforce = CNP16OV - Working - Unemployed) %>% 
+  select(date, Unemployed, Working, NotInWorkforce) %>% 
+  tidyr::pivot_longer(!date)
+#dat %>%
+#  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+##  geom_line() + 
+#  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+#            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+#            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+#  ggplot2::theme_light() +
+#  ylab("") +
+#  xlab("") +
+#  guides(color = guide_legend(title = ""))+
+#  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+#  ggtitle(title, subtitle = sub_title)
+
+employ %>%  
+  mutate(value = round(value/1000000,0)) %>% 
+  ggplot(mapping = aes(x=date, y=value, fill=name)) + 
+  geom_bar(position="stack", stat="identity") + 
+  ggplot2::theme_light() +
+  ylab("Millions") +
+  xlab("") +
+  guides(fill = guide_legend(title = ""))
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+## U.S. Population
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_population"
+title <- "Population"
+sub_title <- "(Civilian 16 and over)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CNP16OV", "Population",
+  "CIVPART", "Labor Force Participation Rate",
+  "UNEMPLOY", "Unemployment Level"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+employ <- dat %>% filter(date > ymd(20190101)) %>% 
+  select(date, series_id, value) %>% 
+  tidyr::pivot_wider(names_from = c("series_id")) %>% 
+  mutate(CNP16OV = CNP16OV*1000) %>% 
+  mutate(Unemployed = UNEMPLOY*1000) %>% 
+  mutate(Working = CNP16OV*(CIVPART/100)-Unemployed) %>% 
+  mutate(NotInWorkforce = CNP16OV - Working - Unemployed) %>% 
+  select(date, Unemployed, Working, NotInWorkforce) %>% 
+  tidyr::pivot_longer(!date)
+#dat %>%
+#  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+##  geom_line() + 
+#  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+#            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+#            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+#  ggplot2::theme_light() +
+#  ylab("") +
+#  xlab("") +
+#  guides(color = guide_legend(title = ""))+
+#  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+#  ggtitle(title, subtitle = sub_title)
+
+employ %>%  
+  mutate(value = round(value/1000000,0)) %>% 
+  ggplot(mapping = aes(x=date, y=value, fill=name)) + 
+  geom_bar(position="stack", stat="identity") + 
+  ggplot2::theme_light() +
+  ylab("Millions") +
+  xlab("") +
+  guides(fill = guide_legend(title = ""))
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+## Supply and Demand
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Not static
+
+-   Jobs created and destroyed monthly
+
+    -   Example 2018-December: +5.9M, -5.55M
+
+-   Most unemployment is transitory
+:::
+:::
+
+## Change in Labor Supply
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Suppose an income tax of $\tau$ per worker
+
+    -   Worker only keeps: $w(1-\tau)$
+
+-   How does this effect long term unemployment?
+
+-   Who pays the tax?
+:::
+:::
+
+## Change in Labor Demand
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Decrease in labor demand
+:::
+:::
+
+## Wage Rigidity
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Decrease in labor demand
+
+-   Wage is rigid
+
+    -   Hard to pay lower
+
+    -   Government policies
+
+        -   Minimum wage
+
+-   Important role in understanding economic fluxuations
+:::
+:::
+
+## Different Types of Unemployment
+
+$$
+ actual\: unemployent = \underbrace{(frictional + structural)}_{natural} + cyclical
+$$
+
+::: incremental
+-   Natural - rate that prevails if economy is neither boom nor recession.
+
+-   Frictional - Employees changing jobs in a dynamic economy.
+
+-   Structural - hiring/firing costs, unemployment benefits, minimum wage.
+
+-   Cyclical - difference between actual and natural rates of unemployment
+:::
+
+## Bathtub Model of Unemployment
+
+$$
+ E_t - U_t = \bar{L}
+$$
+
+$$
+\Delta U_{t+1} = \underbrace{\bar{s}E_t}_{emp\:lose\:jobs} - \underbrace{\bar{f}U_t}_{unemp\:find\: new\: jobs}
+$$
+
+::: incremental
+-   Job separation rate: $\bar{s}$
+
+-   Job finding rate: $\bar{f}$
+
+-   Steady State: $\Delta U_{t+1} = 0$
+
+-   Imaging bathtub with water on and drain open.
+:::
+
+## Bathtub Model of Unemployment
+
+In steady state:
+
+$$
+ U^* = \frac{\bar{s}\bar{L}}{\bar{f}+\bar{s}}, \: \: \:u^* \equiv \frac{U^*}{\bar{L}} = \frac{\bar{s}}{\bar{f}+\bar{s}}
+$$\
+
+Natural rate of unemployment when $\bar{s} = 0.01$ and $\bar{f}=0.2$ is:
+
+$$
+ u^* = \frac{.01}{.2+.01}= 0.048 \approx 5\%
+$$
+
+## World Labor Markets
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "world_unemployment"
+title <- "World Labor Market: Unemployment"
+sub_title <- "(Civilian > 16yr)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "LRHUTTTTJPM156S", "Japan",
+  "LRHUTTTTESM156S", "Spain",
+  "LRHUTTTTUSM156S", "U.S.",
+  "LRHUTTTTGBM156S", "U.K."
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/LRHUTTTTJPM156S)
+:::
+
+## World Labor Markets
+
+::: incremental
+-   Adverse shocks
+
+-   Inefficient Labor Institutions
+
+    -   US, Japan, UK replace \~30% of labor income
+
+    -   Spain, France, Denmark \~ 60% of labor income
+
+    -   US \~ 6 months, Europe \~ 5 years
+
+-   Different Covid-19 strategies
+
+-   Data issues - western economies more transparent
+:::
+
+## Hours of Work
+
+![](images/table_7_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Present Discounted Value
+
+What is \$1,000 in five years worth today?
+
+$$
+ pdv \times (1+R)^5 = $1,000
+$$
+
+$$
+pdv= \frac{\$1,000}{(1+R)^5}
+$$
+
+if R = 10%, $pdv = \$621$.
+
+## Present Discounted Value
+
+What is a stream of \$100 for 20 years worth today?
+
+$$
+pdv = \$100\times \frac{1-\left(\frac{1}{(1+R)}\right)^{20}}{1-\frac{1}{(1+R)}}
+$$
+
+if R = 10%, $pdv = \$936$.
+
+## Present Discounted Value
+
+One time pdv:
+
+$$
+ present\:discounted\:value=\frac{future\:value}{(1+interest\:rate)^T}
+$$
+
+Stream of payments pdv:
+
+$$
+pdv = payment\times \frac{1-\left(\frac{1}{(1+R)}\right)^{T}}{1-\frac{1}{(1+R)}}
+$$
+
+## Your Human Capital
+
+-   Average worker in the economy.
+
+    -   Annual wage \$63,000
+
+    -   Start working at 22 and retire at 65 (work 45 years)
+
+-   Assume R = 3%
+
+$$
+pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1+0.03)}} = \$1.59 Million
+$$
 
 ## Next Week
-CNP16OV
--   Read chapters 6-7.
+
+CNP16OV - Read chapters 6-7.
