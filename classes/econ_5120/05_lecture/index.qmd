@@ -1,0 +1,993 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Inflation, Short Run Intro"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: TRUE
+---
+
+## Introduction
+
+::: incremental
+-   High frequency data
+
+-   Quick review of production and Solow
+
+-   Romer model (Romer + Solow)
+
+-   In class R exercise
+
+-   Employment
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+library(macroTools)
+library(fredr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(purrr)
+library(readr)
+library(tidyr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+
+recs <- getFredRecessionData(fetch_symbol = "USREC", 
+                   data_file_name = "us_recession", 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred) 
+
+```
+
+## High Freq: Initial Claims
+
+[Link](https://www.dol.gov/ui/data.pdf)
+
+![](images/initial_claims.png){fig-align="center" width="1144"}
+
+## Chapter 8: Inflation
+
+$$
+Y = F(K, L) = \bar{A}K^{1/3}L^{2/3} 
+$$ {#eq-productionmodel}
+
+-   $\bar{A}$ - Productivity parameter.
+
+-   $K$ - Capital
+
+-   $r$ - Rental price of capital
+
+-   $L$ - Labor
+
+-   $w$ - Wage
+
+Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf)): $Y = K^{a}L^{1-a}$
+
+
+## Inflation Rate in the U.S.
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_inflation_rate"
+title <- "Inflation Rate"
+sub_title <- "United States"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CPIAUCSL", "U.S. CPI All Items"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", units = "pc1", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+
+::: footer
+Fred Data: [CPI All Items](https://fred.stlouisfed.org/series/CPIAUCSL)
+:::
+
+
+## In Class Exercise
+
+::: incremental
+-   Explore Fred Data \[[link](https://fred.stlouisfed.org/)\]
+
+-   Create Fred API Key \[[link](https://fred.stlouisfed.org/docs/api/api_key.html)\]
+
+-   Download R Fred Library \[[documentation](https://cran.r-project.org/web/packages/fredr/vignettes/fredr.html)\]
+
+-   Explore GDP per capita and Unemployment
+:::
+
+## Explore Fred Data
+
+::: incremental
+-   Real GDP per capita \[[link](https://fred.stlouisfed.org/series/A939RX0Q048SBEA)\]
+
+-   Unemployment rate \[[link](https://fred.stlouisfed.org/series/UNRATE)\]
+
+-   Create Fred API Key \[[link](https://fred.stlouisfed.org/docs/api/api_key.html)\]
+:::
+
+## Fredr Library
+
+```{r, echo=T, eval= FALSE}
+install.packages("fredr")
+library(fredr)
+
+fred_key <- "" # your api key
+fredr_set_key(fred_key)
+
+?fredr
+```
+
+-   Link to fredr function documentation \[[link](https://www.rdocumentation.org/packages/fredr/versions/2.1.0/topics/fredr_series_observations)\]
+
+## Fredr Library
+
+```{r, echo=T, eval= TRUE}
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+
+UNEMPLOYMENT_ID <- "UNRATE"
+GDP_PC <- "A939RX0Q048SBEA"
+
+unemployment <- fredr(UNEMPLOYMENT_ID, 
+                      observation_start = ymd(19900101),
+                      observation_end = ymd(20220401),
+                      frequency="q")
+
+print(unemployment, n = 5)
+```
+
+## Download GDP Per Capita
+
+```{r, echo=T, eval= TRUE}
+gdppc <- fredr(GDP_PC, 
+               observation_start = ymd(19900101),
+               observation_end = ymd(20220401),
+               frequency="q",
+               units="pc1")
+
+print(gdppc, n = 5)
+```
+
+## Clean up data series
+
+```{r, echo=T, eval= TRUE}
+gdppc <- gdppc %>% 
+  select(date, series_id, value) %>% 
+  mutate(series_id = "GDP_PC")
+
+unemployment <- unemployment %>% 
+  select(date, series_id, value) %>% 
+  mutate(series_id = "UNEMPLOYMENT")
+
+print(unemployment, n = 5)
+```
+
+## Join data series
+
+```{r, echo=T, eval= TRUE}
+dat <- gdppc %>% rbind(unemployment)
+
+dat %>% head(5) %>% print()
+dat %>% tail(5) %>% print()
+```
+
+## Plot Time-Series
+
+```{r, echo=T, eval= TRUE}
+dat %>% 
+  ggplot(aes(x=date, y=value, color=series_id)) +
+  geom_line()
+```
+
+## Wide Data
+
+```{r, echo=T, eval= TRUE}
+library(tidyr)
+
+dat_wide <- dat %>% 
+  tidyr::pivot_wider(names_from = c("series_id"))
+
+dat_wide %>%
+  print(n=10)
+```
+
+## Plot Scatter
+
+```{r, echo=T, eval= TRUE}
+dat_wide %>% 
+  ggplot(aes(x = GDP_PC, y = UNEMPLOYMENT)) +
+  geom_point() 
+```
+
+## Historical Scatter
+
+```{r, echo=T, eval= TRUE}
+cur_plot <- dat_wide %>% 
+  filter(date > ymd(20181231)) %>% 
+  ggplot(aes(x=GDP_PC, y=UNEMPLOYMENT, color=date)) +
+  geom_point() 
+cur_plot
+```
+
+## Historical Scatter
+
+```{r, echo=T, eval= TRUE}
+cur_plot <- cur_plot + 
+  geom_path() 
+cur_plot
+```
+
+## Historical Scatter
+
+```{r, echo=T, eval= TRUE}
+cur_plot <- cur_plot + 
+  geom_text(aes(label = paste(year(date),month(date), sep="-")))
+cur_plot
+```
+
+## Chapter 7: Labor Market
+
+::: incremental
+-   Labor market explained by supply and demand
+
+-   Distortions: taxes and firing costs
+
+-   Compute present discounted values
+
+-   Value your human capital
+
+-   Return to college education
+:::
+
+## U.S. Employment to Population
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_employment_2_pop"
+title <- "Ratio of Employment to Population"
+sub_title <- "(employed / labor force)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "EMRATIO", "U.S. Employment Ratio"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [U.S. Employment Rate](https://fred.stlouisfed.org/series/EMRATIO)
+:::
+
+## U.S. Unemployment Rate
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_unemployment"
+title <- "U.S. Employment"
+sub_title <- "(unemployed / labor force)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "UNRATE", "U.S. Unemployment Rate"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [U.S. Unemployment Rate](https://fred.stlouisfed.org/series/UNRATE)
+:::
+
+## 
+
+## Composition of Labor Force
+
+|                             | February 2019 | August 2022 |
+|-----------------------------|---------------|-------------|
+| Civilian Population, \>16yr | 258 Million   | 264 Million |
+| Labor Force                 | 163 Million   | 164 Million |
+| Employed                    | 157 Million   | 158 Million |
+| Unemployed                  | 6.5 Million   | 6 Million   |
+| Not in Labor Force          | 95 Million    | 99 Million  |
+
+: Bureau of Labor Statistics
+
+## U.S. Unemployment Level
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_unemployment_level"
+title <- "Unemployment Level"
+sub_title <- "(Thousands of Persons)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "UNEMPLOY", "Unemployment Level"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+ #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [U.S. Unemployment Level](https://fred.stlouisfed.org/series/UNEMPLOY)
+:::
+
+## U.S. Labor Force
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_participation"
+title <- "Labor Force Participation Rate"
+sub_title <- "(Civilian)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CIVPART", "Labor Force Participation Rate"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+## U.S. Labor Force
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_participation_2020"
+title <- "Labor Force Participation Rate"
+sub_title <- "(Civilian)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CIVPART", "Labor Force Participation Rate"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(20200101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+## U.S. Population
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_population"
+title <- "Population"
+sub_title <- "(Civilian 16 and over)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CNP16OV", "Population",
+  "CIVPART", "Labor Force Participation Rate",
+  "UNEMPLOY", "Unemployment Level"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+employ <- dat %>% 
+  select(date, series_id, value) %>% 
+  tidyr::pivot_wider(names_from = c("series_id")) %>% 
+  mutate(CNP16OV = CNP16OV*1000) %>% 
+  mutate(Unemployed = UNEMPLOY*1000) %>% 
+  mutate(Working = CNP16OV*(CIVPART/100)-Unemployed) %>% 
+  mutate(NotInWorkforce = CNP16OV - Working - Unemployed) %>% 
+  select(date, Unemployed, Working, NotInWorkforce) %>% 
+  tidyr::pivot_longer(!date)
+#dat %>%
+#  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+##  geom_line() + 
+#  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+#            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+#            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+#  ggplot2::theme_light() +
+#  ylab("") +
+#  xlab("") +
+#  guides(color = guide_legend(title = ""))+
+#  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+#  ggtitle(title, subtitle = sub_title)
+
+employ %>%  
+  mutate(value = round(value/1000000,0)) %>% 
+  ggplot(mapping = aes(x=date, y=value, fill=name)) + 
+  geom_bar(position="stack", stat="identity") + 
+  ggplot2::theme_light() +
+  ylab("Millions") +
+  xlab("") +
+  guides(fill = guide_legend(title = ""))
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+## U.S. Population
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "us_population"
+title <- "Population"
+sub_title <- "(Civilian 16 and over)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CNP16OV", "Population",
+  "CIVPART", "Labor Force Participation Rate",
+  "UNEMPLOY", "Unemployment Level"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+employ <- dat %>% filter(date > ymd(20190101)) %>% 
+  select(date, series_id, value) %>% 
+  tidyr::pivot_wider(names_from = c("series_id")) %>% 
+  mutate(CNP16OV = CNP16OV*1000) %>% 
+  mutate(Unemployed = UNEMPLOY*1000) %>% 
+  mutate(Working = CNP16OV*(CIVPART/100)-Unemployed) %>% 
+  mutate(NotInWorkforce = CNP16OV - Working - Unemployed) %>% 
+  select(date, Unemployed, Working, NotInWorkforce) %>% 
+  tidyr::pivot_longer(!date)
+#dat %>%
+#  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+##  geom_line() + 
+#  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+#            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+#            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+#  ggplot2::theme_light() +
+#  ylab("") +
+#  xlab("") +
+#  guides(color = guide_legend(title = ""))+
+#  theme(legend.position="top") +
+  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
+#  ggtitle(title, subtitle = sub_title)
+
+employ %>%  
+  mutate(value = round(value/1000000,0)) %>% 
+  ggplot(mapping = aes(x=date, y=value, fill=name)) + 
+  geom_bar(position="stack", stat="identity") + 
+  ggplot2::theme_light() +
+  ylab("Millions") +
+  xlab("") +
+  guides(fill = guide_legend(title = ""))
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
+:::
+
+## Supply and Demand
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Not static
+
+-   Jobs created and destroyed monthly
+
+    -   Example 2018-December: +5.9M, -5.55M
+
+-   Most unemployment is transitory
+:::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Change in Labor Supply
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Suppose an income tax of $\tau$ per worker
+
+    -   Worker only keeps: $w(1-\tau)$
+
+-   How does this effect long term unemployment?
+
+-   Who pays the tax?
+:::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Change in Labor Demand
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Decrease in labor demand
+:::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Wage Rigidity
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_7_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Decrease in labor demand
+
+-   Wage is rigid
+
+    -   Hard to pay lower
+
+    -   Government policies
+
+        -   Minimum wage
+
+-   Important role in understanding economic fluxuations
+:::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Different Types of Unemployment
+
+$$
+ actual\: unemployent = \underbrace{(frictional + structural)}_{natural} + cyclical
+$$
+
+::: incremental
+-   Natural - rate that prevails if economy is neither boom nor recession.
+
+-   Frictional - Employees changing jobs in a dynamic economy.
+
+-   Structural - hiring/firing costs, unemployment benefits, minimum wage.
+
+-   Cyclical - difference between actual and natural rates of unemployment
+:::
+
+## Bathtub Model of Unemployment
+
+$$
+ E_t - U_t = \bar{L}
+$$
+
+$$
+\Delta U_{t+1} = \underbrace{\bar{s}E_t}_{emp\:lose\:jobs} - \underbrace{\bar{f}U_t}_{unemp\:find\: new\: jobs}
+$$
+
+::: incremental
+-   Job separation rate: $\bar{s}$
+
+-   Job finding rate: $\bar{f}$
+
+-   Steady State: $\Delta U_{t+1} = 0$
+
+-   Imaging bathtub with water on and drain open.
+:::
+
+## Bathtub Model of Unemployment
+
+In steady state:
+
+$$
+ U^* = \frac{\bar{s}\bar{L}}{\bar{f}+\bar{s}}, \: \: \:u^* \equiv \frac{U^*}{\bar{L}} = \frac{\bar{s}}{\bar{f}+\bar{s}}
+$$\
+
+Natural rate of unemployment when $\bar{s} = 0.01$ and $\bar{f}=0.2$ is:
+
+$$
+ u^* = \frac{.01}{.2+.01}= 0.048 \approx 5\%
+$$
+
+## World Labor Markets
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "world_unemployment"
+title <- "World Labor Market: Unemployment"
+sub_title <- "(Civilian > 16yr)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "LRHUTTTTJPM156S", "Japan",
+  "LRHUTTTTESM156S", "Spain",
+  "LRHUTTTTUSM156S", "U.S.",
+  "LRHUTTTTGBM156S", "U.K."
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/LRHUTTTTJPM156S)
+:::
+
+## World Labor Markets
+
+::: incremental
+-   Adverse shocks
+
+-   Inefficient Labor Institutions
+
+    -   US, Japan, UK replace \~30% of labor income
+
+    -   Spain, France, Denmark \~ 60% of labor income
+
+    -   US \~ 6 months, Europe \~ 5 years
+
+-   Different Covid-19 strategies
+
+-   Data issues - western economies more transparent
+:::
+
+## Hours of Work
+
+![](images/table_7_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Present Discounted Value
+
+What is \$1,000 in five years worth today?
+
+$$
+ pdv \times (1+R)^5 = $1,000
+$$
+
+$$
+pdv= \frac{\$1,000}{(1+R)^5}
+$$
+
+if R = 10%, $pdv = \$621$.
+
+## Present Discounted Value
+
+What is a stream of \$100 for 20 years worth today?
+
+$$
+pdv = \$100\times \frac{1-\left(\frac{1}{(1+R)}\right)^{20}}{1-\frac{1}{(1+R)}}
+$$
+
+if R = 10%, $pdv = \$936$.
+
+## Present Discounted Value
+
+One time pdv:
+
+$$
+ present\:discounted\:value=\frac{future\:value}{(1+interest\:rate)^T}
+$$
+
+Stream of payments pdv:
+
+$$
+pdv = payment\times \frac{1-\left(\frac{1}{(1+R)}\right)^{T}}{1-\frac{1}{(1+R)}}
+$$
+
+## Your Human Capital
+
+-   Average worker in the economy.
+
+    -   Annual wage \$63,000
+
+    -   Start working at 22 and retire at 65 (work 45 years)
+
+-   Assume R = 3%
+
+$$
+pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1+0.03)}} = \$1.59 Million
+$$
+
+## Rising Return to Education
+
+![](images/figure_7_8.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Rising Return to Education
+
+![](images/figure_7_9.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Globalization & US Manufacturing
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "manufacturing"
+title <- "U.S. Employment in Manufacturing"
+sub_title <- "(Millions)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "LNU04032232", "U.S. Manufacturing"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+ # scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [US Manufacturing Employment](https://fred.stlouisfed.org/series/LNU04032232)
+:::
+
+## Income Inequality
+
+![](images/figure_7_11.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Income Inequality
+
+![](images/figure_7_12.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Next Week
+
+- Read chapters 8-9
+
+- Assignment 1 due
