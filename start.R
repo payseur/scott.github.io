@@ -30,3 +30,9 @@ vols <- rbind(vix, move)
 vols %>% ggplot(aes(x=date, y=close, color=symbol)) + geom_line()
 
 test  %>% ggplot(aes(x=date, y=close))+geom_point()
+
+
+PE_Ratio <- Quandl("MULTPL/SP500_PE_RATIO_MONTH") 
+Shiller_PE_Ratio <- Quandl("MULTPL/SHILLER_PE_RATIO_MONTH")
+
+Shiller_PE_Ratio %>% ggplot(aes(x=Date, y=Value)) + geom_line()

@@ -386,18 +386,44 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Econ 5120 Macroeconomic Theory</h1>
-  <p class="subtitle">Long Run: Solow and Romer</p>
+  <p class="subtitle">Romer, Unemployment</p>
 </section>
 
 <section id="introduction" class="slide level2">
 <h2>Introduction</h2>
+<div>
 <ul>
-<li>one</li>
+<li class="fragment"><p>High frequency data</p></li>
+<li class="fragment"><p>Quick review of production and Solow</p></li>
+<li class="fragment"><p>Romer model (Romer + Solow)</p></li>
+<li class="fragment"><p>In class R exercise</p></li>
+<li class="fragment"><p>Employment</p></li>
 </ul>
+</div>
 <div class="cell">
 
 </div>
 </section>
+<section id="high-freq-initial-claims" class="slide level2">
+<h2>High Freq: Initial Claims</h2>
+<p><a href="https://www.dol.gov/ui/data.pdf">Link</a></p>
+
+<img data-src="images/initial_claims.png" width="1144" class="r-stretch quarto-figure-center"></section>
+<section id="high-freq-national-activity-index" class="slide level2">
+<h2>High Freq: National Activity Index</h2>
+<p><a href="https://www.chicagofed.org/research/data/cfnai/current-data">Link</a></p>
+
+<img data-src="images/activity.png" width="1144" class="r-stretch quarto-figure-center"></section>
+<section id="high-freq-consumer-confidence" class="slide level2">
+<h2>High Freq: Consumer Confidence</h2>
+<p><a href="https://www.conference-board.org/topics/consumer-confidence">Link</a></p>
+
+<img data-src="images/conf.png" width="1144" class="r-stretch quarto-figure-center"></section>
+<section id="high-freq-pmis" class="slide level2">
+<h2>High Freq: PMIs</h2>
+<p><a href="https://ihsmarkit.com/research-analysis/us-downturn-eases-in-september-amid-cooling-price-pressures-and-fewer-supply-delays-Sep22.html">Link</a></p>
+
+<img data-src="images/pmis.png" class="r-stretch quarto-figure-center"></section>
 <section id="chapters-4-5-6" class="slide level2">
 <h2>Chapters 4, 5, 6</h2>
 <ul>
@@ -478,18 +504,6 @@ Y_t = \bar{A}K_t^{1/3}\bar{L}^{2/3}
 </div>
 </section>
 <section id="steady-state" class="slide level2">
-<h2>Steady State</h2>
-<div>
-<ul>
-<li class="fragment"><p>Steady-state level of capital, <span class="math inline">\(K^*\)</span>, is determined at: <span class="math inline">\(\bar{s}Y^* = \bar{d}K*\)</span>.</p></li>
-<li class="fragment"><p>Substituting from the production function we find <span class="math inline">\(\bar{s}\bar{A}K^{*1/3}\bar{L}^{2/3}=\bar{d}K^*\)</span></p></li>
-<li class="fragment"><p>Solve for <span class="math inline">\(K^*\)</span></p></li>
-<li class="fragment"><p>Solve for <span class="math inline">\(Y^*\)</span></p></li>
-<li class="fragment"><p><a href="./Solow.xlsx">Solow Exploration</a></p></li>
-</ul>
-</div>
-</section>
-<section id="steady-state-1" class="slide level2">
 <h2>Steady State</h2>
 <p><span class="math display">\[
 K^*= \left( \frac{\bar{s}\bar{A}}{\bar{d}} \right)^{3/2}\bar{L}
@@ -723,6 +737,82 @@ y_t=A_0(1-\bar{l})(1+\bar{g})^t
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
+<section id="romer-solow" class="slide level2">
+<h2>Romer + Solow</h2>
+<div>
+<ul>
+<li class="fragment"><p>Richer model for explaining gdp per capita growth</p></li>
+<li class="fragment"><p>Nonrivalry of ideas of Romer</p></li>
+<li class="fragment"><p>Transition dynamics of Solow</p></li>
+</ul>
+</div>
+</section>
+<section id="growth-accounting-in-the-us" class="slide level2">
+<h2>Growth Accounting in the US</h2>
+<p>Production function:</p>
+<p><span class="math display">\[
+Y_t= A_t K_t^{1/3}L_{yt}^{2/3}
+\]</span></p>
+<p>Growth rate of production:</p>
+<p><span class="math display">\[
+\underbrace{g_{Y_t}}_{production\:growth}=\underbrace{g_{A_t}}_{TFP\:growth\:rate}+\underbrace{\frac{1}{3}g_{K_t}}_{capital\:growth\:contr}+\underbrace{\frac{2}{3}g_{L_{yt}}}_{labor\:growth\:contr}
+\]</span></p>
+</section>
+<section id="growth-accounting-in-the-us-1" class="slide level2">
+<h2>Growth Accounting in the US</h2>
+<p>Growth rate of production per person, <span class="math inline">\(Y/L\)</span>:</p>
+<p><span class="math display">\[
+\underbrace{g_{Y_t}-g_{L_t}}_{growth\:of\: Y/L}=\underbrace{g_{A_t}}_{TFP\:growth}+\underbrace{\frac{1}{3}(g_{K_t}-g_{L_t})}_{contr \: from \: capital}+\underbrace{\frac{2}{3}(g_{L_{yt}}-g_{L_t})}_{labor\:composition}
+\]</span></p>
+
+<img data-src="images/table_6_2.png" width="637" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="slowing-economic-growth" class="slide level2">
+<h2>Slowing Economic Growth?</h2>
+
+<img data-src="images/figure_6_6.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="long-run-growth-conclusions" class="slide level2">
+<h2>Long Run Growth Conclusions</h2>
+<div>
+<ul>
+<li class="fragment"><p>Romer: Discovery of nonrival ideas - increase total stock of knowledge.</p></li>
+<li class="fragment"><p>Think of each country as a Solow economy sitting on top of the Romer long run trend.</p>
+<ul>
+<li class="fragment"><p>Growth in knowledge accounts for overall trend</p></li>
+<li class="fragment"><p>Transition dynamics dictated by Solow</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="long-run-growth-conclusions-1" class="slide level2">
+<h2>Long Run Growth Conclusions</h2>
+
+<img data-src="images/figure_6_8.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="long-run-growth-conclusions-2" class="slide level2">
+<h2>Long Run Growth Conclusions</h2>
+<div>
+<ul>
+<li class="fragment"><p>South Korea has grown faster than the US since 1950</p>
+<ul>
+<li class="fragment"><p>Structural changes have shifted growth path sharply upward (<span class="math inline">\(\uparrow \bar{s}\)</span>)</p></li>
+<li class="fragment"><p>Institutions have taken advantage of nonrival knowledge.</p></li>
+</ul></li>
+<li class="fragment"><p>Nigeria has moved from 15% of US per capita GDP to 3%</p>
+<ul>
+<li class="fragment"><p>Decline in investment rate, <span class="math inline">\(\bar{s}\)</span>.</p></li>
+<li class="fragment"><p>Absence of institutions led to companies unwilling to invest.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="in-class-exercise" class="slide level2">
 <h2>In Class Exercise</h2>
 <div>
@@ -779,11 +869,11 @@ y_t=A_0(1-\bar{l})(1+\bar{g})^t
 <pre><code># A tibble: 130 × 5
   date       series_id value realtime_start realtime_end
   &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1990-01-01 UNRATE      5.3 2022-09-26     2022-09-26  
-2 1990-04-01 UNRATE      5.3 2022-09-26     2022-09-26  
-3 1990-07-01 UNRATE      5.7 2022-09-26     2022-09-26  
-4 1990-10-01 UNRATE      6.1 2022-09-26     2022-09-26  
-5 1991-01-01 UNRATE      6.6 2022-09-26     2022-09-26  
+1 1990-01-01 UNRATE      5.3 2022-09-27     2022-09-27  
+2 1990-04-01 UNRATE      5.3 2022-09-27     2022-09-27  
+3 1990-07-01 UNRATE      5.7 2022-09-27     2022-09-27  
+4 1990-10-01 UNRATE      6.1 2022-09-27     2022-09-27  
+5 1991-01-01 UNRATE      6.6 2022-09-27     2022-09-27  
 # … with 125 more rows</code></pre>
 </div>
 </div>
@@ -802,11 +892,11 @@ y_t=A_0(1-\bar{l})(1+\bar{g})^t
 <pre><code># A tibble: 130 × 5
   date       series_id        value realtime_start realtime_end
   &lt;date&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1990-01-01 A939RX0Q048SBEA  1.80  2022-09-26     2022-09-26  
-2 1990-04-01 A939RX0Q048SBEA  1.31  2022-09-26     2022-09-26  
-3 1990-07-01 A939RX0Q048SBEA  0.552 2022-09-26     2022-09-26  
-4 1990-10-01 A939RX0Q048SBEA -0.641 2022-09-26     2022-09-26  
-5 1991-01-01 A939RX0Q048SBEA -2.25  2022-09-26     2022-09-26  
+1 1990-01-01 A939RX0Q048SBEA  1.80  2022-09-27     2022-09-27  
+2 1990-04-01 A939RX0Q048SBEA  1.31  2022-09-27     2022-09-27  
+3 1990-07-01 A939RX0Q048SBEA  0.552 2022-09-27     2022-09-27  
+4 1990-10-01 A939RX0Q048SBEA -0.641 2022-09-27     2022-09-27  
+5 1991-01-01 A939RX0Q048SBEA -2.25  2022-09-27     2022-09-27  
 # … with 125 more rows</code></pre>
 </div>
 </div>
@@ -1064,6 +1154,9 @@ y_t=A_0(1-\bar{l})(1+\bar{g})^t
 </ul>
 </div>
 </div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="change-in-labor-supply" class="slide level2">
 <h2>Change in Labor Supply</h2>
@@ -1085,6 +1178,9 @@ y_t=A_0(1-\bar{l})(1+\bar{g})^t
 </ul>
 </div>
 </div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="change-in-labor-demand" class="slide level2">
 <h2>Change in Labor Demand</h2>
@@ -1100,6 +1196,9 @@ y_t=A_0(1-\bar{l})(1+\bar{g})^t
 <li class="fragment">Decrease in labor demand</li>
 </ul>
 </div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
 <section id="wage-rigidity" class="slide level2">
@@ -1125,6 +1224,9 @@ y_t=A_0(1-\bar{l})(1+\bar{g})^t
 <li class="fragment"><p>Important role in understanding economic fluxuations</p></li>
 </ul>
 </div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
 <section id="different-types-of-unemployment" class="slide level2">
@@ -1281,7 +1383,10 @@ pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1
 </section>
 <section id="next-week" class="slide level2">
 <h2>Next Week</h2>
-<p>CNP16OV - Read chapters 6-7.</p>
+<ul>
+<li><p>Read chapters 8-9</p></li>
+<li><p>Assignment 1 due</p></li>
+</ul>
 
 <img src="images/ne.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>ECON 5120 | Scott Payseur</p>

@@ -1,6 +1,6 @@
 ---
 title: "Econ 5120 Macroeconomic Theory"
-subtitle: "Long Run: Solow and Romer"
+subtitle: "Romer, Unemployment"
 format:
   revealjs: 
     slide-number: true
@@ -18,7 +18,17 @@ params:
 
 ## Introduction
 
--   one
+::: incremental
+-   High frequency data
+
+-   Quick review of production and Solow
+
+-   Romer model (Romer + Solow)
+
+-   In class R exercise
+
+-   Employment
+:::
 
 ```{r}
 #| echo: false
@@ -44,6 +54,30 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
                    force_refresh = params$refresh_fred) 
 
 ```
+
+## High Freq: Initial Claims
+
+[Link](https://www.dol.gov/ui/data.pdf)
+
+![](images/initial_claims.png){fig-align="center" width="1144"}
+
+## High Freq: National Activity Index 
+
+[Link](https://www.chicagofed.org/research/data/cfnai/current-data)
+
+![](images/activity.png){fig-align="center" width="1144"}
+
+## High Freq: Consumer Confidence 
+
+[Link](https://www.conference-board.org/topics/consumer-confidence)
+
+![](images/conf.png){fig-align="center" width="1144"}
+
+## High Freq: PMIs
+
+[Link](https://ihsmarkit.com/research-analysis/us-downturn-eases-in-september-amid-cooling-price-pressures-and-fewer-supply-delays-Sep22.html)
+
+![](images/pmis.png){fig-align="center"}
 
 ## Chapters 4, 5, 6
 
@@ -137,19 +171,6 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Steady State
-
-::: incremental
--   Steady-state level of capital, $K^*$, is determined at: $\bar{s}Y^* = \bar{d}K*$.
-
--   Substituting from the production function we find $\bar{s}\bar{A}K^{*1/3}\bar{L}^{2/3}=\bar{d}K^*$
-
--   Solve for $K^*$
-
--   Solve for $Y^*$
-
--   [Solow Exploration](./Solow.xlsx)
-:::
 
 ## Steady State
 
@@ -413,6 +434,88 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
+## Romer + Solow
+
+::: incremental
+-   Richer model for explaining gdp per capita growth
+
+-   Nonrivalry of ideas of Romer
+
+-   Transition dynamics of Solow
+:::
+
+## Growth Accounting in the US
+
+Production function:
+
+$$
+ Y_t= A_t K_t^{1/3}L_{yt}^{2/3}
+$$
+
+Growth rate of production:
+
+$$
+ \underbrace{g_{Y_t}}_{production\:growth}=\underbrace{g_{A_t}}_{TFP\:growth\:rate}+\underbrace{\frac{1}{3}g_{K_t}}_{capital\:growth\:contr}+\underbrace{\frac{2}{3}g_{L_{yt}}}_{labor\:growth\:contr}
+$$
+
+## Growth Accounting in the US
+
+Growth rate of production per person, $Y/L$:
+
+$$
+ \underbrace{g_{Y_t}-g_{L_t}}_{growth\:of\: Y/L}=\underbrace{g_{A_t}}_{TFP\:growth}+\underbrace{\frac{1}{3}(g_{K_t}-g_{L_t})}_{contr \: from \: capital}+\underbrace{\frac{2}{3}(g_{L_{yt}}-g_{L_t})}_{labor\:composition}
+$$
+
+![](images/table_6_2.png){fig-align="center" width="637"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Slowing Economic Growth?
+
+![](images/figure_6_6.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Long Run Growth Conclusions
+
+::: incremental
+-   Romer: Discovery of nonrival ideas - increase total stock of knowledge.
+
+-   Think of each country as a Solow economy sitting on top of the Romer long run trend.
+
+    -   Growth in knowledge accounts for overall trend
+
+    -   Transition dynamics dictated by Solow
+:::
+
+## Long Run Growth Conclusions
+
+![](images/figure_6_8.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Long Run Growth Conclusions
+
+::: incremental
+-   South Korea has grown faster than the US since 1950
+
+    -   Structural changes have shifted growth path sharply upward ($\uparrow \bar{s}$)
+
+    -   Institutions have taken advantage of nonrival knowledge.
+
+-   Nigeria has moved from 15% of US per capita GDP to 3%
+
+    -   Decline in investment rate, $\bar{s}$.
+
+    -   Absence of institutions led to companies unwilling to invest.
+:::
+
 ## In Class Exercise
 
 ::: incremental
@@ -493,8 +596,6 @@ unemployment <- unemployment %>%
 print(unemployment, n = 5)
 ```
 
-
-
 ## Join data series
 
 ```{r, echo=T, eval= TRUE}
@@ -511,6 +612,7 @@ dat %>%
   ggplot(aes(x=date, y=value, color=series_id)) +
   geom_line()
 ```
+
 ## Wide Data
 
 ```{r, echo=T, eval= TRUE}
@@ -523,14 +625,15 @@ dat_wide %>%
   print(n=10)
 ```
 
-## Plot Scatter 
+## Plot Scatter
 
 ```{r, echo=T, eval= TRUE}
 dat_wide %>% 
   ggplot(aes(x = GDP_PC, y = UNEMPLOYMENT)) +
   geom_point() 
 ```
-## Historical Scatter 
+
+## Historical Scatter
 
 ```{r, echo=T, eval= TRUE}
 cur_plot <- dat_wide %>% 
@@ -539,7 +642,8 @@ cur_plot <- dat_wide %>%
   geom_point() 
 cur_plot
 ```
-## Historical Scatter 
+
+## Historical Scatter
 
 ```{r, echo=T, eval= TRUE}
 cur_plot <- cur_plot + 
@@ -547,13 +651,14 @@ cur_plot <- cur_plot +
 cur_plot
 ```
 
-## Historical Scatter 
+## Historical Scatter
 
 ```{r, echo=T, eval= TRUE}
 cur_plot <- cur_plot + 
   geom_text(aes(label = paste(year(date),month(date), sep="-")))
 cur_plot
 ```
+
 ## Chapter 7: Labor Market
 
 ::: incremental
@@ -948,6 +1053,11 @@ Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/C
 :::
 :::
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Change in Labor Supply
 
 ::: columns
@@ -966,6 +1076,11 @@ Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/C
 :::
 :::
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Change in Labor Demand
 
 ::: columns
@@ -976,6 +1091,11 @@ Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/C
 ::: {.column .incremental width="50%"}
 -   Decrease in labor demand
 :::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Wage Rigidity
@@ -998,6 +1118,11 @@ Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/C
 
 -   Important role in understanding economic fluxuations
 :::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Different Types of Unemployment
@@ -1253,4 +1378,6 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Next Week
 
-CNP16OV - Read chapters 6-7.
+- Read chapters 8-9
+
+- Assignment 1 due
