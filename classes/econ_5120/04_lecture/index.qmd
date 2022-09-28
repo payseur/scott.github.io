@@ -147,7 +147,7 @@ $$
 \underbrace{\Delta K_{t+1}}_{change-in-capital}=\underbrace{\bar{s}Y_t-\bar{d}K_t}_{net-investment}
 $$
 
-The change in capital stock is equal to the change in investment $I_t=\bar{s}Y_t$ less depreciation \$\\bar{d}K_t\$. $I_t=\bar{d}K_t$ is often called *net investment*.
+The change in capital stock is equal to the change in investment $I_t=\bar{s}Y_t$ less depreciation $\bar{d}K_t$. $I_t=\bar{d}K_t$ is often called *net investment*.
 
 $$
 Y_t = \bar{A}K_t^{1/3}\bar{L}^{2/3}
@@ -760,8 +760,6 @@ dat %>%
 ::: footer
 Fred Data: [U.S. Unemployment Rate](https://fred.stlouisfed.org/series/UNRATE)
 :::
-
-## 
 
 ## Composition of Labor Force
 
