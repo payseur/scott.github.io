@@ -79,7 +79,6 @@ $$ {#eq-productionmodel}
 
 Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf)): $Y = K^{a}L^{1-a}$
 
-
 ## Inflation Rate in the U.S.
 
 ```{r}
@@ -120,874 +119,396 @@ dat %>%
   ggtitle(title, subtitle = sub_title)
 ```
 
-
 ::: footer
 Fred Data: [CPI All Items](https://fred.stlouisfed.org/series/CPIAUCSL)
 :::
 
-
-## In Class Exercise
-
-::: incremental
--   Explore Fred Data \[[link](https://fred.stlouisfed.org/)\]
-
--   Create Fred API Key \[[link](https://fred.stlouisfed.org/docs/api/api_key.html)\]
-
--   Download R Fred Library \[[documentation](https://cran.r-project.org/web/packages/fredr/vignettes/fredr.html)\]
-
--   Explore GDP per capita and Unemployment
-:::
-
-## Explore Fred Data
-
-::: incremental
--   Real GDP per capita \[[link](https://fred.stlouisfed.org/series/A939RX0Q048SBEA)\]
-
--   Unemployment rate \[[link](https://fred.stlouisfed.org/series/UNRATE)\]
-
--   Create Fred API Key \[[link](https://fred.stlouisfed.org/docs/api/api_key.html)\]
-:::
-
-## Fredr Library
-
-```{r, echo=T, eval= FALSE}
-install.packages("fredr")
-library(fredr)
-
-fred_key <- "" # your api key
-fredr_set_key(fred_key)
-
-?fredr
-```
-
--   Link to fredr function documentation \[[link](https://www.rdocumentation.org/packages/fredr/versions/2.1.0/topics/fredr_series_observations)\]
-
-## Fredr Library
-
-```{r, echo=T, eval= TRUE}
-library(ggplot2)
-library(lubridate)
-library(dplyr)
-
-UNEMPLOYMENT_ID <- "UNRATE"
-GDP_PC <- "A939RX0Q048SBEA"
-
-unemployment <- fredr(UNEMPLOYMENT_ID, 
-                      observation_start = ymd(19900101),
-                      observation_end = ymd(20220401),
-                      frequency="q")
-
-print(unemployment, n = 5)
-```
-
-## Download GDP Per Capita
-
-```{r, echo=T, eval= TRUE}
-gdppc <- fredr(GDP_PC, 
-               observation_start = ymd(19900101),
-               observation_end = ymd(20220401),
-               frequency="q",
-               units="pc1")
-
-print(gdppc, n = 5)
-```
-
-## Clean up data series
-
-```{r, echo=T, eval= TRUE}
-gdppc <- gdppc %>% 
-  select(date, series_id, value) %>% 
-  mutate(series_id = "GDP_PC")
-
-unemployment <- unemployment %>% 
-  select(date, series_id, value) %>% 
-  mutate(series_id = "UNEMPLOYMENT")
-
-print(unemployment, n = 5)
-```
-
-## Join data series
-
-```{r, echo=T, eval= TRUE}
-dat <- gdppc %>% rbind(unemployment)
-
-dat %>% head(5) %>% print()
-dat %>% tail(5) %>% print()
-```
-
-## Plot Time-Series
-
-```{r, echo=T, eval= TRUE}
-dat %>% 
-  ggplot(aes(x=date, y=value, color=series_id)) +
-  geom_line()
-```
-
-## Wide Data
-
-```{r, echo=T, eval= TRUE}
-library(tidyr)
-
-dat_wide <- dat %>% 
-  tidyr::pivot_wider(names_from = c("series_id"))
-
-dat_wide %>%
-  print(n=10)
-```
-
-## Plot Scatter
-
-```{r, echo=T, eval= TRUE}
-dat_wide %>% 
-  ggplot(aes(x = GDP_PC, y = UNEMPLOYMENT)) +
-  geom_point() 
-```
-
-## Historical Scatter
-
-```{r, echo=T, eval= TRUE}
-cur_plot <- dat_wide %>% 
-  filter(date > ymd(20181231)) %>% 
-  ggplot(aes(x=GDP_PC, y=UNEMPLOYMENT, color=date)) +
-  geom_point() 
-cur_plot
-```
-
-## Historical Scatter
-
-```{r, echo=T, eval= TRUE}
-cur_plot <- cur_plot + 
-  geom_path() 
-cur_plot
-```
-
-## Historical Scatter
-
-```{r, echo=T, eval= TRUE}
-cur_plot <- cur_plot + 
-  geom_text(aes(label = paste(year(date),month(date), sep="-")))
-cur_plot
-```
-
-## Chapter 7: Labor Market
-
-::: incremental
--   Labor market explained by supply and demand
-
--   Distortions: taxes and firing costs
-
--   Compute present discounted values
-
--   Value your human capital
-
--   Return to college education
-:::
-
-## U.S. Employment to Population
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "us_employment_2_pop"
-title <- "Ratio of Employment to Population"
-sub_title <- "(employed / labor force)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "EMRATIO", "U.S. Employment Ratio"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))+
-  theme(legend.position="top") +
-  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [U.S. Employment Rate](https://fred.stlouisfed.org/series/EMRATIO)
-:::
-
-## U.S. Unemployment Rate
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "us_unemployment"
-title <- "U.S. Employment"
-sub_title <- "(unemployed / labor force)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "UNRATE", "U.S. Unemployment Rate"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))+
-  theme(legend.position="top") +
-  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [U.S. Unemployment Rate](https://fred.stlouisfed.org/series/UNRATE)
-:::
-
-## 
-
-## Composition of Labor Force
-
-|                             | February 2019 | August 2022 |
-|-----------------------------|---------------|-------------|
-| Civilian Population, \>16yr | 258 Million   | 264 Million |
-| Labor Force                 | 163 Million   | 164 Million |
-| Employed                    | 157 Million   | 158 Million |
-| Unemployed                  | 6.5 Million   | 6 Million   |
-| Not in Labor Force          | 95 Million    | 99 Million  |
-
-: Bureau of Labor Statistics
-
-## U.S. Unemployment Level
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "us_unemployment_level"
-title <- "Unemployment Level"
-sub_title <- "(Thousands of Persons)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "UNEMPLOY", "Unemployment Level"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))+
-  theme(legend.position="top") +
- #scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [U.S. Unemployment Level](https://fred.stlouisfed.org/series/UNEMPLOY)
-:::
-
-## U.S. Labor Force
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "us_participation"
-title <- "Labor Force Participation Rate"
-sub_title <- "(Civilian)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "CIVPART", "Labor Force Participation Rate"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))+
-  theme(legend.position="top") +
-  scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
-:::
-
-## U.S. Labor Force
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "us_participation_2020"
-title <- "Labor Force Participation Rate"
-sub_title <- "(Civilian)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "CIVPART", "Labor Force Participation Rate"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(20200101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))+
-  theme(legend.position="top") +
-  scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
-:::
-
-## U.S. Population
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "us_population"
-title <- "Population"
-sub_title <- "(Civilian 16 and over)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "CNP16OV", "Population",
-  "CIVPART", "Labor Force Participation Rate",
-  "UNEMPLOY", "Unemployment Level"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-employ <- dat %>% 
-  select(date, series_id, value) %>% 
-  tidyr::pivot_wider(names_from = c("series_id")) %>% 
-  mutate(CNP16OV = CNP16OV*1000) %>% 
-  mutate(Unemployed = UNEMPLOY*1000) %>% 
-  mutate(Working = CNP16OV*(CIVPART/100)-Unemployed) %>% 
-  mutate(NotInWorkforce = CNP16OV - Working - Unemployed) %>% 
-  select(date, Unemployed, Working, NotInWorkforce) %>% 
-  tidyr::pivot_longer(!date)
-#dat %>%
-#  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-##  geom_line() + 
-#  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-#            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-#            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-#  ggplot2::theme_light() +
-#  ylab("") +
-#  xlab("") +
-#  guides(color = guide_legend(title = ""))+
-#  theme(legend.position="top") +
-  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
-#  ggtitle(title, subtitle = sub_title)
-
-employ %>%  
-  mutate(value = round(value/1000000,0)) %>% 
-  ggplot(mapping = aes(x=date, y=value, fill=name)) + 
-  geom_bar(position="stack", stat="identity") + 
-  ggplot2::theme_light() +
-  ylab("Millions") +
-  xlab("") +
-  guides(fill = guide_legend(title = ""))
-```
-
-::: footer
-Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
-:::
-
-## U.S. Population
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "us_population"
-title <- "Population"
-sub_title <- "(Civilian 16 and over)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "CNP16OV", "Population",
-  "CIVPART", "Labor Force Participation Rate",
-  "UNEMPLOY", "Unemployment Level"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19500101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-employ <- dat %>% filter(date > ymd(20190101)) %>% 
-  select(date, series_id, value) %>% 
-  tidyr::pivot_wider(names_from = c("series_id")) %>% 
-  mutate(CNP16OV = CNP16OV*1000) %>% 
-  mutate(Unemployed = UNEMPLOY*1000) %>% 
-  mutate(Working = CNP16OV*(CIVPART/100)-Unemployed) %>% 
-  mutate(NotInWorkforce = CNP16OV - Working - Unemployed) %>% 
-  select(date, Unemployed, Working, NotInWorkforce) %>% 
-  tidyr::pivot_longer(!date)
-#dat %>%
-#  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-##  geom_line() + 
-#  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-#            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-#            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-#  ggplot2::theme_light() +
-#  ylab("") +
-#  xlab("") +
-#  guides(color = guide_legend(title = ""))+
-#  theme(legend.position="top") +
-  #scale_y_continuous(labels = scales::percent_format(scale = 1))+
-#  ggtitle(title, subtitle = sub_title)
-
-employ %>%  
-  mutate(value = round(value/1000000,0)) %>% 
-  ggplot(mapping = aes(x=date, y=value, fill=name)) + 
-  geom_bar(position="stack", stat="identity") + 
-  ggplot2::theme_light() +
-  ylab("Millions") +
-  xlab("") +
-  guides(fill = guide_legend(title = ""))
-```
-
-::: footer
-Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/CIVPART)
-:::
-
-## Supply and Demand
+## High Inflation
 
 ::: columns
 ::: {.column width="50%"}
-![](images/figure_7_3.png){fig-align="center"}
+![](images/figure_8_2.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="50%"}
--   Not static
+::: {.column .inclusion width="50%"}
+-   Massive inflation in Germany one factor leading to Nazi movement.
 
--   Jobs created and destroyed monthly
+-   Russia early 1990s.
 
-    -   Example 2018-December: +5.9M, -5.55M
+-   Latin America 1980s and 1990s.
 
--   Most unemployment is transitory
+-   Zimbabwe - November 2008 doubling every 24 hours.
 :::
 :::
-
 
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Change in Labor Supply
+## Zimbabwe
+
+![](images/zim.jpg){fig-align="center"}
+
+## In Current Dollars
+
+1950 a gas cost \$0.27, in 2018 it cost \$2.50. Compare?
+
+![](images/table_8_1.png){fig-align="center" width="562"}
+
+$$
+0.27 \: in \: $_{1950} \times \frac{100 \: in \: $_{2018}}{9.59 \: in \: $_{2050}}= 2.82 \: in \: $_{2018} 
+$$
+
+## Measures of Money Supply
+
+![](images/table_8_2.png){fig-align="center" width="874"}
+
+-   Fred data: [C](https://fred.stlouisfed.org/series/CURRCIR) \| [MB](https://fred.stlouisfed.org/series/BOGMBASE) \| [M1](https://fred.stlouisfed.org/series/WM1NS) \| [M2](https://fred.stlouisfed.org/series/WM2NS)
+
+## The Quantity Equation
+
+$$
+M_t V_t = P_t Y_t
+$$
+
+-   $M_t$: amount of money
+
+-   $V_t$: velocity of money
+
+-   $P_t$: price level
+
+-   $Y_t$: real GDP
+
+## Quantity Theory of Money
+
+![](images/table_8_3.png){fig-align="center"}
+
+## Quantity Theory of Money
+
+Solution:
+
+$$
+P_t^* = \frac{\bar{M_t}\bar{V}}{\bar{Y_t}}
+$$
+
+In the long run:
+
+-   velocity of money and real GDP are taken as given.
+
+-   a key determinant of price level is the money supply.
+
+## Quantity Theory for Inflation
+
+$$
+M_t V_t = P_t Y_t 
+$$
+
+In growth rates:
+
+$$
+\bar{g_M} + \bar{g_V} = g_P + \bar{g_Y}
+$$
+
+Assume $\bar{g_V} = 0$ and inflation or growth in price level, $g_P$, is renamed $\pi$ .
+
+$$
+ \pi^* = \bar{g_M} -\bar{g_Y}
+$$
+
+## Quantity Theory for Inflation
+
+Quantity theory implies that in the long run, changes in growth rate lead one-for-one to changes in inflation rate.
+
+::: incremental
+-   Example: $\bar{g_M}$ = 7%, $\bar{g_Y}$ = 4%, $\implies$ Inflation rate will be 3%
+
+    -   Central bank increases money supply to 10% per year $\implies$ inflation rate 6%.
+
+*Inflation is always and everywhere a monetary phenomenon.* - Milton Friedman
+:::
+
+## Monetary Growth and Inflation
 
 ::: columns
 ::: {.column width="50%"}
-![](images/figure_7_4.png){fig-align="center"}
+![](images/figure_8_3.png){fig-align="center"}
 :::
 
 ::: {.column .incremental width="50%"}
--   Suppose an income tax of $\tau$ per worker
+-   Positive correlation
 
-    -   Worker only keeps: $w(1-\tau)$
+-   1970s, 1910s, and 1940s high M2 and high Inflation
 
--   How does this effect long term unemployment?
+-   Deflation in five decades
 
--   Who pays the tax?
+-   Current situation: [M2](https://fred.stlouisfed.org/series/WM2NS#0) \| [CPI](https://fred.stlouisfed.org/series/CPIAUCSL)
 :::
 :::
 
+## Monetary Growth and Inflation
 
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+![](images/figure_8_4.png){fig-align="center"}
+
+## Classical Dichotomy
+
+::: incremental
+-   Classical Dichotomy: real and nominal sides are separate in the **long run**.
+
+-   Green paper to blue paper
+
+-   Doubles money supply:
+
+    -   all prices double
+
+    -   relative prices are the same
+
+    -   quantity produced and allocation does not change
 :::
 
-## Change in Labor Demand
+## Real and Nominal Interest Rates
+
+::: incremental
+-   Real interest rate - paid in goods
+
+    -   Equal to the marginal product of capital.
+
+    -   Total amount of consumption goods earned by:
+
+        -   purchasing a unit of capital
+
+        -   investing
+
+-   Nominal interest rate - paid in currency
+
+-   Price level helps us convert between the two.
+:::
+
+## Real and Nominal Interest Rates
+
+The Fisher equation:
+
+$$
+i = R + \pi
+$$
+
+-   $R$ - Real interest rate
+
+-   $i$ - Nominal interest rate
+
+-   $\pi$ - Inflation rate
+
+## Real and Nominal Interest Rates
+
+$$
+i = R + \pi
+$$
+
+::: incremental
+-   Example: $R$ = 5% and $\pi$ =3% $\implies$  $i$ = 8%.
+
+    -   Machine costs \$100
+
+    -   Inflation $\implies$ in one year can sell it for \$103.
+
+    -   Real interest rate $\implies$ can produce \$5 in one year.
+
+    -   \$8 or 8% is the nominal interest rate.
+:::
+
+## Real and Nominal Interest Rates
+
+Don't observe $R$.
+
+$$
+ R=i-\pi
+$$
+
+![](images/figure_8_5.png){fig-align="center" width="640"}
+
+## Costs of Inflation
+
+Mr Gambino - Fixed Pension
+
+::: incremental
+-   Started work in the 1940s - retired in 1970
+
+-   Defined benefit pension of \$10,000 / yr
+
+-   Eroded by inflation that pension was only worth \$4,000 in 1970's dollars
+
+    -   Bought the same amount that \$4,000 would buy
+:::
+
+## Costs of Inflation
+
+Ms Gaga - Bank Owner
+
+::: incremental
+-   Owns a bank - pays interest on bank deposits and lends to farmers
+
+-   Loans are for 5, 10, 30 year fixed rates
+
+-   Inflation rate increase leads to customers wanting more interest
+
+    -   She increases interest or they leave
+:::
+
+## Costs of Inflation
+
+Ms Swift - Home Owner
+
+::: incremental
+-   Buys a house with a floating rate mortgage ([current fixed](https://fred.stlouisfed.org/series/MORTGAGE30US))
+
+    -   inflation is 3% and short-term interest rates 5%
+
+    -   \$100,000 / month mortgage
+
+-   Her income is \$200,000 after tax
+
+-   Inflation jumps to 8% and short-term interest rates rise to 10%
+
+-   Monthly payment is now \$200,000
+:::
+
+## Costs of Inflation
+
+::: incremental
+-   Low inflation leads to stability - people and institutions know what to expect.
+
+-   Unexpected inflation - causes instability, spiraling behavior, economic distortions
+
+-   **Shoe leather costs** - people don't want to hold cash.
+
+-   **Menu costs** - hard to change prices for some companies.
+:::
+
+## Fiscal Causes of High Inflation
+
+Traditionally money is printed to fund government spending. The government budget constraint is:
+
+$$
+\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}
+$$
+
+-   $G$ : goventment spending
+
+-   $T$: tax revenue
+
+-   $\Delta B$: change in stock of debt, amount of new borrowing
+
+-   $\Delta M$: change in money stock, new money printed
+
+## Inflation Tax
+
+$$
+\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}
+$$
+
+Example:
+
+::: incremental
+-   Government decides to spend an extra \$100 million for social security
+
+-   Option 1: Raise taxes, $T$
+
+-   Option 2: Borrow money, $\Delta B$ \> 0
+
+-   Option 3: Print money, $\Delta M$ \> 0, **seignorage** or **inflation tax.**
+:::
+
+## Inflation Tax
+
+$$
+\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}
+$$
+
+Who pays **inflation tax**:
+
+::: incremental
+-   Suppose government decides to double the money supply.
+
+-   Initially everyone has \$200.
+
+-   In the long run, the price level, $P_t$ , doubles.
+
+-   People holding currency must pay twice as much for goods.
+
+-   What about people that invested in land? (only impacts currency holders)
+:::
+
+## Government Finances
+
+::: incremental
+-   Governments should finance spending through taxes and borrowing.
+
+    -   As some governments borrow more they must pay higher interest rates.
+
+    -   If deficit is \> 5% of GDP might find it hard politically to raise taxes.
+
+-   This leads governments to print money leading to inflation taxes.
+
+-   In some cases this can spiral and cause hyper inflation.
+
+-   Central bank independence
+
+*Inflation is always and everywhere a fiscal phenomenon.* - Thomas Sargent
+:::
+
+## 1970s Inflation: Nixon Freeze
 
 ::: columns
 ::: {.column width="50%"}
-![](images/figure_7_5.png){fig-align="center"}
+![](images/figure_8_1_71.png){fig-align="center"}
 :::
 
 ::: {.column .incremental width="50%"}
--   Decrease in labor demand
+-   Economy that averaged 2% inflation a year was now seeing 5%.
+
+-   Feared a wage-price spiral (strong unions, manufacturing in USA)
+
+-   8/1971: President Nixon announced a 90 day price freeze on wages and prices
+
+-   Seemed to work, but OPEC came in roughly 1973
 :::
 :::
 
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Wage Rigidity
+## 1970s Inflation: OPEC
 
 ::: columns
 ::: {.column width="50%"}
-![](images/figure_7_6.png){fig-align="center"}
+![](images/figure_8_1.png){fig-align="center"}
 :::
 
 ::: {.column .incremental width="50%"}
--   Decrease in labor demand
+-   OPEC - supplied a worldwide oil price shock
 
--   Wage is rigid
+-   Was not due to government spending
 
-    -   Hard to pay lower
+-   Tried price controls - supply did not meet demand
 
-    -   Government policies
+    -   Led to rationing
 
-        -   Minimum wage
-
--   Important role in understanding economic fluxuations
+-   Policy toolkit was not fully developed
 :::
 :::
 
+## Hyper-inflation 
 
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+::: columns
+::: {.column width="50%"}
+![](images/figure_8_6.png){fig-align="center"}
 :::
 
-## Different Types of Unemployment
-
-$$
- actual\: unemployent = \underbrace{(frictional + structural)}_{natural} + cyclical
-$$
-
-::: incremental
--   Natural - rate that prevails if economy is neither boom nor recession.
-
--   Frictional - Employees changing jobs in a dynamic economy.
-
--   Structural - hiring/firing costs, unemployment benefits, minimum wage.
-
--   Cyclical - difference between actual and natural rates of unemployment
+::: {.column width="50%"}
+![](images/figure_8_7.png){fig-align="center"}
+:::
 :::
 
-## Bathtub Model of Unemployment
-
-$$
- E_t - U_t = \bar{L}
-$$
-
-$$
-\Delta U_{t+1} = \underbrace{\bar{s}E_t}_{emp\:lose\:jobs} - \underbrace{\bar{f}U_t}_{unemp\:find\: new\: jobs}
-$$
-
-::: incremental
--   Job separation rate: $\bar{s}$
-
--   Job finding rate: $\bar{f}$
-
--   Steady State: $\Delta U_{t+1} = 0$
-
--   Imaging bathtub with water on and drain open.
-:::
-
-## Bathtub Model of Unemployment
-
-In steady state:
-
-$$
- U^* = \frac{\bar{s}\bar{L}}{\bar{f}+\bar{s}}, \: \: \:u^* \equiv \frac{U^*}{\bar{L}} = \frac{\bar{s}}{\bar{f}+\bar{s}}
-$$\
-
-Natural rate of unemployment when $\bar{s} = 0.01$ and $\bar{f}=0.2$ is:
-
-$$
- u^* = \frac{.01}{.2+.01}= 0.048 \approx 5\%
-$$
-
-## World Labor Markets
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "world_unemployment"
-title <- "World Labor Market: Unemployment"
-sub_title <- "(Civilian > 16yr)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "LRHUTTTTJPM156S", "Japan",
-  "LRHUTTTTESM156S", "Spain",
-  "LRHUTTTTUSM156S", "U.S.",
-  "LRHUTTTTGBM156S", "U.K."
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))+
-  theme(legend.position="top") +
-  scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/LRHUTTTTJPM156S)
-:::
-
-## World Labor Markets
-
-::: incremental
--   Adverse shocks
-
--   Inefficient Labor Institutions
-
-    -   US, Japan, UK replace \~30% of labor income
-
-    -   Spain, France, Denmark \~ 60% of labor income
-
-    -   US \~ 6 months, Europe \~ 5 years
-
--   Different Covid-19 strategies
-
--   Data issues - western economies more transparent
-:::
-
-## Hours of Work
-
-![](images/table_7_2.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Present Discounted Value
-
-What is \$1,000 in five years worth today?
-
-$$
- pdv \times (1+R)^5 = $1,000
-$$
-
-$$
-pdv= \frac{\$1,000}{(1+R)^5}
-$$
-
-if R = 10%, $pdv = \$621$.
-
-## Present Discounted Value
-
-What is a stream of \$100 for 20 years worth today?
-
-$$
-pdv = \$100\times \frac{1-\left(\frac{1}{(1+R)}\right)^{20}}{1-\frac{1}{(1+R)}}
-$$
-
-if R = 10%, $pdv = \$936$.
-
-## Present Discounted Value
-
-One time pdv:
-
-$$
- present\:discounted\:value=\frac{future\:value}{(1+interest\:rate)^T}
-$$
-
-Stream of payments pdv:
-
-$$
-pdv = payment\times \frac{1-\left(\frac{1}{(1+R)}\right)^{T}}{1-\frac{1}{(1+R)}}
-$$
-
-## Your Human Capital
-
--   Average worker in the economy.
-
-    -   Annual wage \$63,000
-
-    -   Start working at 22 and retire at 65 (work 45 years)
-
--   Assume R = 3%
-
-$$
-pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1+0.03)}} = \$1.59 Million
-$$
-
-## Rising Return to Education
-
-![](images/figure_7_8.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Rising Return to Education
-
-![](images/figure_7_9.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Globalization & US Manufacturing
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-width: 10
-#| fig-height: 4.5
-data_file_name <- "manufacturing"
-title <- "U.S. Employment in Manufacturing"
-sub_title <- "(Millions)"
-
-fetch <- tribble(
-  ~series_id, ~series_name,
-  "LNU04032232", "U.S. Manufacturing"
-)
-
-data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
-if(params$refresh_fred  || !file.exists(data_file_path)){
-  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
-    left_join(fetch) 
-  write_rds(dat, data_file_path)
-}else{
-  dat <- read_rds(data_file_path)
-}
-
-dat %>%
-  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
-  geom_line() + 
-  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
-            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
-            fill='blue', alpha=0.2,inherit.aes = FALSE) +
-  ggplot2::theme_light() +
-  ylab("") +
-  xlab("") +
-  guides(color = guide_legend(title = ""))+
-  theme(legend.position="top") +
- # scale_y_continuous(labels = scales::percent_format(scale = 1))+
-  ggtitle(title, subtitle = sub_title)
-```
-
-::: footer
-Fred Data: [US Manufacturing Employment](https://fred.stlouisfed.org/series/LNU04032232)
-:::
-
-## Income Inequality
-
-![](images/figure_7_11.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Income Inequality
-
-![](images/figure_7_12.png){fig-align="center"}
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
+How does it end? Austerity. Lower spending, higher taxes, more borrowing.
 
 ## Next Week
 
-- Read chapters 8-9
+-   Read chapters 8-9
 
-- Assignment 1 due
+-   Assignment 1 due

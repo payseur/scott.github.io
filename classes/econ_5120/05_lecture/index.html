@@ -22,70 +22,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="styles.css">
@@ -427,347 +363,24 @@ Y = F(K, L) = \bar{A}K^{1/3}L^{2/3}
 <h2>Inflation Rate in the U.S.</h2>
 
 <img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CPIAUCSL">Labor Force Participation Rate</a></p>
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CPIAUCSL">CPI All Items</a></p>
 </div>
 </section>
-<section id="in-class-exercise" class="slide level2">
-<h2>In Class Exercise</h2>
-<div>
-<ul>
-<li class="fragment"><p>Explore Fred Data [<a href="https://fred.stlouisfed.org/">link</a>]</p></li>
-<li class="fragment"><p>Create Fred API Key [<a href="https://fred.stlouisfed.org/docs/api/api_key.html">link</a>]</p></li>
-<li class="fragment"><p>Download R Fred Library [<a href="https://cran.r-project.org/web/packages/fredr/vignettes/fredr.html">documentation</a>]</p></li>
-<li class="fragment"><p>Explore GDP per capita and Unemployment</p></li>
-</ul>
-</div>
-</section>
-<section id="explore-fred-data" class="slide level2">
-<h2>Explore Fred Data</h2>
-<div>
-<ul>
-<li class="fragment"><p>Real GDP per capita [<a href="https://fred.stlouisfed.org/series/A939RX0Q048SBEA">link</a>]</p></li>
-<li class="fragment"><p>Unemployment rate [<a href="https://fred.stlouisfed.org/series/UNRATE">link</a>]</p></li>
-<li class="fragment"><p>Create Fred API Key [<a href="https://fred.stlouisfed.org/docs/api/api_key.html">link</a>]</p></li>
-</ul>
-</div>
-</section>
-<section id="fredr-library" class="slide level2">
-<h2>Fredr Library</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"fredr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(fredr)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>fred_key <span class="ot">&lt;-</span> <span class="st">""</span> <span class="co"># your api key</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">fredr_set_key</span>(fred_key)</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>?fredr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Link to fredr function documentation [<a href="https://www.rdocumentation.org/packages/fredr/versions/2.1.0/topics/fredr_series_observations">link</a>]</li>
-</ul>
-</section>
-<section id="fredr-library-1" class="slide level2">
-<h2>Fredr Library</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>UNEMPLOYMENT_ID <span class="ot">&lt;-</span> <span class="st">"UNRATE"</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>GDP_PC <span class="ot">&lt;-</span> <span class="st">"A939RX0Q048SBEA"</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a>unemployment <span class="ot">&lt;-</span> <span class="fu">fredr</span>(UNEMPLOYMENT_ID, </span>
-<span id="cb2-9"><a href="#cb2-9"></a>                      <span class="at">observation_start =</span> <span class="fu">ymd</span>(<span class="dv">19900101</span>),</span>
-<span id="cb2-10"><a href="#cb2-10"></a>                      <span class="at">observation_end =</span> <span class="fu">ymd</span>(<span class="dv">20220401</span>),</span>
-<span id="cb2-11"><a href="#cb2-11"></a>                      <span class="at">frequency=</span><span class="st">"q"</span>)</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="fu">print</span>(unemployment, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 130 × 5
-  date       series_id value realtime_start realtime_end
-  &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1990-01-01 UNRATE      5.3 2022-09-27     2022-09-27  
-2 1990-04-01 UNRATE      5.3 2022-09-27     2022-09-27  
-3 1990-07-01 UNRATE      5.7 2022-09-27     2022-09-27  
-4 1990-10-01 UNRATE      6.1 2022-09-27     2022-09-27  
-5 1991-01-01 UNRATE      6.6 2022-09-27     2022-09-27  
-# … with 125 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="download-gdp-per-capita" class="slide level2">
-<h2>Download GDP Per Capita</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gdppc <span class="ot">&lt;-</span> <span class="fu">fredr</span>(GDP_PC, </span>
-<span id="cb4-2"><a href="#cb4-2"></a>               <span class="at">observation_start =</span> <span class="fu">ymd</span>(<span class="dv">19900101</span>),</span>
-<span id="cb4-3"><a href="#cb4-3"></a>               <span class="at">observation_end =</span> <span class="fu">ymd</span>(<span class="dv">20220401</span>),</span>
-<span id="cb4-4"><a href="#cb4-4"></a>               <span class="at">frequency=</span><span class="st">"q"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>               <span class="at">units=</span><span class="st">"pc1"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">print</span>(gdppc, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 130 × 5
-  date       series_id        value realtime_start realtime_end
-  &lt;date&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1990-01-01 A939RX0Q048SBEA  1.80  2022-09-27     2022-09-27  
-2 1990-04-01 A939RX0Q048SBEA  1.31  2022-09-27     2022-09-27  
-3 1990-07-01 A939RX0Q048SBEA  0.552 2022-09-27     2022-09-27  
-4 1990-10-01 A939RX0Q048SBEA -0.641 2022-09-27     2022-09-27  
-5 1991-01-01 A939RX0Q048SBEA -2.25  2022-09-27     2022-09-27  
-# … with 125 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="clean-up-data-series" class="slide level2">
-<h2>Clean up data series</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gdppc <span class="ot">&lt;-</span> gdppc <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">select</span>(date, series_id, value) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">mutate</span>(<span class="at">series_id =</span> <span class="st">"GDP_PC"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a>unemployment <span class="ot">&lt;-</span> unemployment <span class="sc">%&gt;%</span> </span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">select</span>(date, series_id, value) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-7"><a href="#cb6-7"></a>  <span class="fu">mutate</span>(<span class="at">series_id =</span> <span class="st">"UNEMPLOYMENT"</span>)</span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">print</span>(unemployment, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 130 × 3
-  date       series_id    value
-  &lt;date&gt;     &lt;chr&gt;        &lt;dbl&gt;
-1 1990-01-01 UNEMPLOYMENT   5.3
-2 1990-04-01 UNEMPLOYMENT   5.3
-3 1990-07-01 UNEMPLOYMENT   5.7
-4 1990-10-01 UNEMPLOYMENT   6.1
-5 1991-01-01 UNEMPLOYMENT   6.6
-# … with 125 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="join-data-series" class="slide level2">
-<h2>Join data series</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>dat <span class="ot">&lt;-</span> gdppc <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(unemployment)</span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a>dat <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 3
-  date       series_id  value
-  &lt;date&gt;     &lt;chr&gt;      &lt;dbl&gt;
-1 1990-01-01 GDP_PC     1.80 
-2 1990-04-01 GDP_PC     1.31 
-3 1990-07-01 GDP_PC     0.552
-4 1990-10-01 GDP_PC    -0.641
-5 1991-01-01 GDP_PC    -2.25 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>dat <span class="sc">%&gt;%</span> <span class="fu">tail</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 3
-  date       series_id    value
-  &lt;date&gt;     &lt;chr&gt;        &lt;dbl&gt;
-1 2021-04-01 UNEMPLOYMENT   5.9
-2 2021-07-01 UNEMPLOYMENT   5.1
-3 2021-10-01 UNEMPLOYMENT   4.2
-4 2022-01-01 UNEMPLOYMENT   3.8
-5 2022-04-01 UNEMPLOYMENT   3.6</code></pre>
-</div>
-</div>
-</section>
-<section id="plot-time-series" class="slide level2">
-<h2>Plot Time-Series</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>dat <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>value, <span class="at">color=</span>series_id)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
-<section id="wide-data" class="slide level2">
-<h2>Wide Data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>dat_wide <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span> </span>
-<span id="cb13-4"><a href="#cb13-4"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">"series_id"</span>))</span>
-<span id="cb13-5"><a href="#cb13-5"></a></span>
-<span id="cb13-6"><a href="#cb13-6"></a>dat_wide <span class="sc">%&gt;%</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">print</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 130 × 3
-   date       GDP_PC UNEMPLOYMENT
-   &lt;date&gt;      &lt;dbl&gt;        &lt;dbl&gt;
- 1 1990-01-01  1.80           5.3
- 2 1990-04-01  1.31           5.3
- 3 1990-07-01  0.552          5.7
- 4 1990-10-01 -0.641          6.1
- 5 1991-01-01 -2.25           6.6
- 6 1991-04-01 -1.85           6.8
- 7 1991-07-01 -1.43           6.9
- 8 1991-10-01 -0.165          7.1
- 9 1992-01-01  1.52           7.4
-10 1992-04-01  1.81           7.6
-# … with 120 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="plot-scatter" class="slide level2">
-<h2>Plot Scatter</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>dat_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> GDP_PC, <span class="at">y =</span> UNEMPLOYMENT)) <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
-<section id="historical-scatter" class="slide level2">
-<h2>Historical Scatter</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>cur_plot <span class="ot">&lt;-</span> dat_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;</span> <span class="fu">ymd</span>(<span class="dv">20181231</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>GDP_PC, <span class="at">y=</span>UNEMPLOYMENT, <span class="at">color=</span>date)) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">geom_point</span>() </span>
-<span id="cb16-5"><a href="#cb16-5"></a>cur_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
-<section id="historical-scatter-1" class="slide level2">
-<h2>Historical Scatter</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>cur_plot <span class="ot">&lt;-</span> cur_plot <span class="sc">+</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">geom_path</span>() </span>
-<span id="cb17-3"><a href="#cb17-3"></a>cur_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
-<section id="historical-scatter-2" class="slide level2">
-<h2>Historical Scatter</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>cur_plot <span class="ot">&lt;-</span> cur_plot <span class="sc">+</span> </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">year</span>(date),<span class="fu">month</span>(date), <span class="at">sep=</span><span class="st">"-"</span>)))</span>
-<span id="cb18-3"><a href="#cb18-3"></a>cur_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"></section>
-<section id="chapter-7-labor-market" class="slide level2">
-<h2>Chapter 7: Labor Market</h2>
-<div>
-<ul>
-<li class="fragment"><p>Labor market explained by supply and demand</p></li>
-<li class="fragment"><p>Distortions: taxes and firing costs</p></li>
-<li class="fragment"><p>Compute present discounted values</p></li>
-<li class="fragment"><p>Value your human capital</p></li>
-<li class="fragment"><p>Return to college education</p></li>
-</ul>
-</div>
-</section>
-<section id="u.s.-employment-to-population" class="slide level2">
-<h2>U.S. Employment to Population</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/EMRATIO">U.S. Employment Rate</a></p>
-</div>
-</section>
-<section id="u.s.-unemployment-rate" class="slide level2">
-<h2>U.S. Unemployment Rate</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-30-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/UNRATE">U.S. Unemployment Rate</a></p>
-</div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-</section>
-<section id="composition-of-labor-force" class="slide level2">
-<h2>Composition of Labor Force</h2>
-<table>
-<caption>Bureau of Labor Statistics</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th>February 2019</th>
-<th>August 2022</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Civilian Population, &gt;16yr</td>
-<td>258 Million</td>
-<td>264 Million</td>
-</tr>
-<tr class="even">
-<td>Labor Force</td>
-<td>163 Million</td>
-<td>164 Million</td>
-</tr>
-<tr class="odd">
-<td>Employed</td>
-<td>157 Million</td>
-<td>158 Million</td>
-</tr>
-<tr class="even">
-<td>Unemployed</td>
-<td>6.5 Million</td>
-<td>6 Million</td>
-</tr>
-<tr class="odd">
-<td>Not in Labor Force</td>
-<td>95 Million</td>
-<td>99 Million</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="u.s.-unemployment-level" class="slide level2">
-<h2>U.S. Unemployment Level</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/UNEMPLOY">U.S. Unemployment Level</a></p>
-</div>
-</section>
-<section id="u.s.-labor-force" class="slide level2">
-<h2>U.S. Labor Force</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CIVPART">Labor Force Participation Rate</a></p>
-</div>
-</section>
-<section id="u.s.-labor-force-1" class="slide level2">
-<h2>U.S. Labor Force</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CIVPART">Labor Force Participation Rate</a></p>
-</div>
-</section>
-<section id="u.s.-population" class="slide level2">
-<h2>U.S. Population</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-38-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CIVPART">Labor Force Participation Rate</a></p>
-</div>
-</section>
-<section id="u.s.-population-1" class="slide level2">
-<h2>U.S. Population</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-40-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CIVPART">Labor Force Participation Rate</a></p>
-</div>
-</section>
-<section id="supply-and-demand" class="slide level2">
-<h2>Supply and Demand</h2>
+<section id="high-inflation" class="slide level2">
+<h2>High Inflation</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/figure_7_3.png"></p>
+<p><img data-src="images/figure_8_2.png"></p>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column inclusion" style="width:50%;">
 <ul>
-<li class="fragment"><p>Not static</p></li>
-<li class="fragment"><p>Jobs created and destroyed monthly</p>
-<ul>
-<li class="fragment">Example 2018-December: +5.9M, -5.55M</li>
-</ul></li>
-<li class="fragment"><p>Most unemployment is transitory</p></li>
+<li><p>Massive inflation in Germany one factor leading to Nazi movement.</p></li>
+<li><p>Russia early 1990s.</p></li>
+<li><p>Latin America 1980s and 1990s.</p></li>
+<li><p>Zimbabwe - November 2008 doubling every 24 hours.</p></li>
 </ul>
 </div>
 </div>
@@ -775,228 +388,347 @@ Y = F(K, L) = \bar{A}K^{1/3}L^{2/3}
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
-<section id="change-in-labor-supply" class="slide level2">
-<h2>Change in Labor Supply</h2>
+<section id="zimbabwe" class="slide level2">
+<h2>Zimbabwe</h2>
+
+<img data-src="images/zim.jpg" class="r-stretch quarto-figure-center"></section>
+<section id="in-current-dollars" class="slide level2">
+<h2>In Current Dollars</h2>
+<p>1950 a gas cost $0.27, in 2018 it cost $2.50. Compare?</p>
+
+<img data-src="images/table_8_1.png" width="562" class="r-stretch quarto-figure-center"><p><span class="math display">\[
+0.27 \: in \: $_{1950} \times \frac{100 \: in \: $_{2018}}{9.59 \: in \: $_{2050}}= 2.82 \: in \: $_{2018}
+\]</span></p>
+</section>
+<section id="measures-of-money-supply" class="slide level2">
+<h2>Measures of Money Supply</h2>
+
+<img data-src="images/table_8_2.png" width="874" class="r-stretch quarto-figure-center"><ul>
+<li>Fred data: <a href="https://fred.stlouisfed.org/series/CURRCIR">C</a> | <a href="https://fred.stlouisfed.org/series/BOGMBASE">MB</a> | <a href="https://fred.stlouisfed.org/series/WM1NS">M1</a> | <a href="https://fred.stlouisfed.org/series/WM2NS">M2</a></li>
+</ul>
+</section>
+<section id="the-quantity-equation" class="slide level2">
+<h2>The Quantity Equation</h2>
+<p><span class="math display">\[
+M_t V_t = P_t Y_t
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(M_t\)</span>: amount of money</p></li>
+<li><p><span class="math inline">\(V_t\)</span>: velocity of money</p></li>
+<li><p><span class="math inline">\(P_t\)</span>: price level</p></li>
+<li><p><span class="math inline">\(Y_t\)</span>: real GDP</p></li>
+</ul>
+</section>
+<section id="quantity-theory-of-money" class="slide level2">
+<h2>Quantity Theory of Money</h2>
+
+<img data-src="images/table_8_3.png" class="r-stretch quarto-figure-center"></section>
+<section id="quantity-theory-of-money-1" class="slide level2">
+<h2>Quantity Theory of Money</h2>
+<p>Solution:</p>
+<p><span class="math display">\[
+P_t^* = \frac{\bar{M_t}\bar{V}}{\bar{Y_t}}
+\]</span></p>
+<p>In the long run:</p>
+<ul>
+<li><p>velocity of money and real GDP are taken as given.</p></li>
+<li><p>a key determinant of price level is the money supply.</p></li>
+</ul>
+</section>
+<section id="quantity-theory-for-inflation" class="slide level2">
+<h2>Quantity Theory for Inflation</h2>
+<p><span class="math display">\[
+M_t V_t = P_t Y_t
+\]</span></p>
+<p>In growth rates:</p>
+<p><span class="math display">\[
+\bar{g_M} + \bar{g_V} = g_P + \bar{g_Y}
+\]</span></p>
+<p>Assume <span class="math inline">\(\bar{g_V} = 0\)</span> and inflation or growth in price level, <span class="math inline">\(g_P\)</span>, is renamed <span class="math inline">\(\pi\)</span> .</p>
+<p><span class="math display">\[
+\pi^* = \bar{g_M} -\bar{g_Y}
+\]</span></p>
+</section>
+<section id="quantity-theory-for-inflation-1" class="slide level2">
+<h2>Quantity Theory for Inflation</h2>
+<p>Quantity theory implies that in the long run, changes in growth rate lead one-for-one to changes in inflation rate.</p>
+<div>
+<ul>
+<li class="fragment"><p>Example: <span class="math inline">\(\bar{g_M}\)</span> = 7%, <span class="math inline">\(\bar{g_Y}\)</span> = 4%, <span class="math inline">\(\implies\)</span> Inflation rate will be 3%</p>
+<ul>
+<li class="fragment">Central bank increases money supply to 10% per year <span class="math inline">\(\implies\)</span> inflation rate 6%.</li>
+</ul></li>
+</ul>
+<p><em>Inflation is always and everywhere a monetary phenomenon.</em> - Milton Friedman</p>
+</div>
+</section>
+<section id="monetary-growth-and-inflation" class="slide level2">
+<h2>Monetary Growth and Inflation</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/figure_7_4.png"></p>
+<p><img data-src="images/figure_8_3.png"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
-<li class="fragment"><p>Suppose an income tax of <span class="math inline">\(\tau\)</span> per worker</p>
-<ul>
-<li class="fragment">Worker only keeps: <span class="math inline">\(w(1-\tau)\)</span></li>
-</ul></li>
-<li class="fragment"><p>How does this effect long term unemployment?</p></li>
-<li class="fragment"><p>Who pays the tax?</p></li>
+<li class="fragment"><p>Positive correlation</p></li>
+<li class="fragment"><p>1970s, 1910s, and 1940s high M2 and high Inflation</p></li>
+<li class="fragment"><p>Deflation in five decades</p></li>
+<li class="fragment"><p>Current situation: <a href="https://fred.stlouisfed.org/series/WM2NS#0">M2</a> | <a href="https://fred.stlouisfed.org/series/CPIAUCSL">CPI</a></p></li>
 </ul>
 </div>
 </div>
-<div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</section>
+<section id="monetary-growth-and-inflation-1" class="slide level2">
+<h2>Monetary Growth and Inflation</h2>
+
+<img data-src="images/figure_8_4.png" class="r-stretch quarto-figure-center"></section>
+<section id="classical-dichotomy" class="slide level2">
+<h2>Classical Dichotomy</h2>
+<div>
+<ul>
+<li class="fragment"><p>Classical Dichotomy: real and nominal sides are separate in the <strong>long run</strong>.</p></li>
+<li class="fragment"><p>Green paper to blue paper</p></li>
+<li class="fragment"><p>Doubles money supply:</p>
+<ul>
+<li class="fragment"><p>all prices double</p></li>
+<li class="fragment"><p>relative prices are the same</p></li>
+<li class="fragment"><p>quantity produced and allocation does not change</p></li>
+</ul></li>
+</ul>
 </div>
 </section>
-<section id="change-in-labor-demand" class="slide level2">
-<h2>Change in Labor Demand</h2>
+<section id="real-and-nominal-interest-rates" class="slide level2">
+<h2>Real and Nominal Interest Rates</h2>
+<div>
+<ul>
+<li class="fragment"><p>Real interest rate - paid in goods</p>
+<ul>
+<li class="fragment"><p>Equal to the marginal product of capital.</p></li>
+<li class="fragment"><p>Total amount of consumption goods earned by:</p>
+<ul>
+<li class="fragment"><p>purchasing a unit of capital</p></li>
+<li class="fragment"><p>investing</p></li>
+</ul></li>
+</ul></li>
+<li class="fragment"><p>Nominal interest rate - paid in currency</p></li>
+<li class="fragment"><p>Price level helps us convert between the two.</p></li>
+</ul>
+</div>
+</section>
+<section id="real-and-nominal-interest-rates-1" class="slide level2">
+<h2>Real and Nominal Interest Rates</h2>
+<p>The Fisher equation:</p>
+<p><span class="math display">\[
+i = R + \pi
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> - Real interest rate</p></li>
+<li><p><span class="math inline">\(i\)</span> - Nominal interest rate</p></li>
+<li><p><span class="math inline">\(\pi\)</span> - Inflation rate</p></li>
+</ul>
+</section>
+<section id="real-and-nominal-interest-rates-2" class="slide level2">
+<h2>Real and Nominal Interest Rates</h2>
+<p><span class="math display">\[
+i = R + \pi
+\]</span></p>
+<div>
+<ul>
+<li class="fragment"><p>Example: <span class="math inline">\(R\)</span> = 5% and <span class="math inline">\(\pi\)</span> =3% <span class="math inline">\(\implies\)</span> <span class="math inline">\(i\)</span> = 8%.</p>
+<ul>
+<li class="fragment"><p>Machine costs $100</p></li>
+<li class="fragment"><p>Inflation <span class="math inline">\(\implies\)</span> in one year can sell it for $103.</p></li>
+<li class="fragment"><p>Real interest rate <span class="math inline">\(\implies\)</span> can produce $5 in one year.</p></li>
+<li class="fragment"><p>$8 or 8% is the nominal interest rate.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="real-and-nominal-interest-rates-3" class="slide level2">
+<h2>Real and Nominal Interest Rates</h2>
+<p>Don’t observe <span class="math inline">\(R\)</span>.</p>
+<p><span class="math display">\[
+R=i-\pi
+\]</span></p>
+
+<img data-src="images/figure_8_5.png" width="640" class="r-stretch quarto-figure-center"></section>
+<section id="costs-of-inflation" class="slide level2">
+<h2>Costs of Inflation</h2>
+<p>Mr Gambino - Fixed Pension</p>
+<div>
+<ul>
+<li class="fragment"><p>Started work in the 1940s - retired in 1970</p></li>
+<li class="fragment"><p>Defined benefit pension of $10,000 / yr</p></li>
+<li class="fragment"><p>Eroded by inflation that pension was only worth $4,000 in 1970’s dollars</p>
+<ul>
+<li class="fragment">Bought the same amount that $4,000 would buy</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="costs-of-inflation-1" class="slide level2">
+<h2>Costs of Inflation</h2>
+<p>Ms Gaga - Bank Owner</p>
+<div>
+<ul>
+<li class="fragment"><p>Owns a bank - pays interest on bank deposits and lends to farmers</p></li>
+<li class="fragment"><p>Loans are for 5, 10, 30 year fixed rates</p></li>
+<li class="fragment"><p>Inflation rate increase leads to customers wanting more interest</p>
+<ul>
+<li class="fragment">She increases interest or they leave</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="costs-of-inflation-2" class="slide level2">
+<h2>Costs of Inflation</h2>
+<p>Ms Swift - Home Owner</p>
+<div>
+<ul>
+<li class="fragment"><p>Buys a house with a floating rate mortgage (<a href="https://fred.stlouisfed.org/series/MORTGAGE30US">current fixed</a>)</p>
+<ul>
+<li class="fragment"><p>inflation is 3% and short-term interest rates 5%</p></li>
+<li class="fragment"><p>$100,000 / month mortgage</p></li>
+</ul></li>
+<li class="fragment"><p>Her income is $200,000 after tax</p></li>
+<li class="fragment"><p>Inflation jumps to 8% and short-term interest rates rise to 10%</p></li>
+<li class="fragment"><p>Monthly payment is now $200,000</p></li>
+</ul>
+</div>
+</section>
+<section id="costs-of-inflation-3" class="slide level2">
+<h2>Costs of Inflation</h2>
+<div>
+<ul>
+<li class="fragment"><p>Low inflation leads to stability - people and institutions know what to expect.</p></li>
+<li class="fragment"><p>Unexpected inflation - causes instability, spiraling behavior, economic distortions</p></li>
+<li class="fragment"><p><strong>Shoe leather costs</strong> - people don’t want to hold cash.</p></li>
+<li class="fragment"><p><strong>Menu costs</strong> - hard to change prices for some companies.</p></li>
+</ul>
+</div>
+</section>
+<section id="fiscal-causes-of-high-inflation" class="slide level2">
+<h2>Fiscal Causes of High Inflation</h2>
+<p>Traditionally money is printed to fund government spending. The government budget constraint is:</p>
+<p><span class="math display">\[
+\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(G\)</span> : goventment spending</p></li>
+<li><p><span class="math inline">\(T\)</span>: tax revenue</p></li>
+<li><p><span class="math inline">\(\Delta B\)</span>: change in stock of debt, amount of new borrowing</p></li>
+<li><p><span class="math inline">\(\Delta M\)</span>: change in money stock, new money printed</p></li>
+</ul>
+</section>
+<section id="inflation-tax" class="slide level2">
+<h2>Inflation Tax</h2>
+<p><span class="math display">\[
+\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}
+\]</span></p>
+<p>Example:</p>
+<div>
+<ul>
+<li class="fragment"><p>Government decides to spend an extra $100 million for social security</p></li>
+<li class="fragment"><p>Option 1: Raise taxes, <span class="math inline">\(T\)</span></p></li>
+<li class="fragment"><p>Option 2: Borrow money, <span class="math inline">\(\Delta B\)</span> &gt; 0</p></li>
+<li class="fragment"><p>Option 3: Print money, <span class="math inline">\(\Delta M\)</span> &gt; 0, <strong>seignorage</strong> or <strong>inflation tax.</strong></p></li>
+</ul>
+</div>
+</section>
+<section id="inflation-tax-1" class="slide level2">
+<h2>Inflation Tax</h2>
+<p><span class="math display">\[
+\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}
+\]</span></p>
+<p>Who pays <strong>inflation tax</strong>:</p>
+<div>
+<ul>
+<li class="fragment"><p>Suppose government decides to double the money supply.</p></li>
+<li class="fragment"><p>Initially everyone has $200.</p></li>
+<li class="fragment"><p>In the long run, the price level, <span class="math inline">\(P_t\)</span> , doubles.</p></li>
+<li class="fragment"><p>People holding currency must pay twice as much for goods.</p></li>
+<li class="fragment"><p>What about people that invested in land? (only impacts currency holders)</p></li>
+</ul>
+</div>
+</section>
+<section id="government-finances" class="slide level2">
+<h2>Government Finances</h2>
+<div>
+<ul>
+<li class="fragment"><p>Governments should finance spending through taxes and borrowing.</p>
+<ul>
+<li class="fragment"><p>As some governments borrow more they must pay higher interest rates.</p></li>
+<li class="fragment"><p>If deficit is &gt; 5% of GDP might find it hard politically to raise taxes.</p></li>
+</ul></li>
+<li class="fragment"><p>This leads governments to print money leading to inflation taxes.</p></li>
+<li class="fragment"><p>In some cases this can spiral and cause hyper inflation.</p></li>
+<li class="fragment"><p>Central bank independence</p></li>
+</ul>
+<p><em>Inflation is always and everywhere a fiscal phenomenon.</em> - Thomas Sargent</p>
+</div>
+</section>
+<section id="s-inflation-nixon-freeze" class="slide level2">
+<h2>1970s Inflation: Nixon Freeze</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/figure_7_5.png"></p>
+<p><img data-src="images/figure_8_1_71.png"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
-<li class="fragment">Decrease in labor demand</li>
+<li class="fragment"><p>Economy that averaged 2% inflation a year was now seeing 5%.</p></li>
+<li class="fragment"><p>Feared a wage-price spiral (strong unions, manufacturing in USA)</p></li>
+<li class="fragment"><p>8/1971: President Nixon announced a 90 day price freeze on wages and prices</p></li>
+<li class="fragment"><p>Seemed to work, but OPEC came in roughly 1973</p></li>
 </ul>
 </div>
 </div>
-<div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
 </section>
-<section id="wage-rigidity" class="slide level2">
-<h2>Wage Rigidity</h2>
+<section id="s-inflation-opec" class="slide level2">
+<h2>1970s Inflation: OPEC</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/figure_7_6.png"></p>
+<p><img data-src="images/figure_8_1.png"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
-<li class="fragment"><p>Decrease in labor demand</p></li>
-<li class="fragment"><p>Wage is rigid</p>
+<li class="fragment"><p>OPEC - supplied a worldwide oil price shock</p></li>
+<li class="fragment"><p>Was not due to government spending</p></li>
+<li class="fragment"><p>Tried price controls - supply did not meet demand</p>
 <ul>
-<li class="fragment"><p>Hard to pay lower</p></li>
-<li class="fragment"><p>Government policies</p>
-<ul>
-<li class="fragment">Minimum wage</li>
+<li class="fragment">Led to rationing</li>
 </ul></li>
-</ul></li>
-<li class="fragment"><p>Important role in understanding economic fluxuations</p></li>
+<li class="fragment"><p>Policy toolkit was not fully developed</p></li>
 </ul>
 </div>
 </div>
-<div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</section>
+<section id="hyper-inflation" class="slide level2">
+<h2>Hyper-inflation</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_8_6.png"></p>
+</figure>
 </div>
-</section>
-<section id="different-types-of-unemployment" class="slide level2">
-<h2>Different Types of Unemployment</h2>
-<p><span class="math display">\[
-actual\: unemployent = \underbrace{(frictional + structural)}_{natural} + cyclical
-\]</span></p>
-<div>
-<ul>
-<li class="fragment"><p>Natural - rate that prevails if economy is neither boom nor recession.</p></li>
-<li class="fragment"><p>Frictional - Employees changing jobs in a dynamic economy.</p></li>
-<li class="fragment"><p>Structural - hiring/firing costs, unemployment benefits, minimum wage.</p></li>
-<li class="fragment"><p>Cyclical - difference between actual and natural rates of unemployment</p></li>
-</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_8_7.png"></p>
+</figure>
 </div>
-</section>
-<section id="bathtub-model-of-unemployment" class="slide level2">
-<h2>Bathtub Model of Unemployment</h2>
-<p><span class="math display">\[
-E_t - U_t = \bar{L}
-\]</span></p>
-<p><span class="math display">\[
-\Delta U_{t+1} = \underbrace{\bar{s}E_t}_{emp\:lose\:jobs} - \underbrace{\bar{f}U_t}_{unemp\:find\: new\: jobs}
-\]</span></p>
-<div>
-<ul>
-<li class="fragment"><p>Job separation rate: <span class="math inline">\(\bar{s}\)</span></p></li>
-<li class="fragment"><p>Job finding rate: <span class="math inline">\(\bar{f}\)</span></p></li>
-<li class="fragment"><p>Steady State: <span class="math inline">\(\Delta U_{t+1} = 0\)</span></p></li>
-<li class="fragment"><p>Imaging bathtub with water on and drain open.</p></li>
-</ul>
 </div>
-</section>
-<section id="bathtub-model-of-unemployment-1" class="slide level2">
-<h2>Bathtub Model of Unemployment</h2>
-<p>In steady state:</p>
-<p><span class="math display">\[
-U^* = \frac{\bar{s}\bar{L}}{\bar{f}+\bar{s}}, \: \: \:u^* \equiv \frac{U^*}{\bar{L}} = \frac{\bar{s}}{\bar{f}+\bar{s}}
-\]</span><br>
-</p>
-<p>Natural rate of unemployment when <span class="math inline">\(\bar{s} = 0.01\)</span> and <span class="math inline">\(\bar{f}=0.2\)</span> is:</p>
-<p><span class="math display">\[
-u^* = \frac{.01}{.2+.01}= 0.048 \approx 5\%
-\]</span></p>
-</section>
-<section id="world-labor-markets" class="slide level2">
-<h2>World Labor Markets</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-42-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/LRHUTTTTJPM156S">Labor Force Participation Rate</a></p>
 </div>
-</section>
-<section id="world-labor-markets-1" class="slide level2">
-<h2>World Labor Markets</h2>
-<div>
-<ul>
-<li class="fragment"><p>Adverse shocks</p></li>
-<li class="fragment"><p>Inefficient Labor Institutions</p>
-<ul>
-<li class="fragment"><p>US, Japan, UK replace ~30% of labor income</p></li>
-<li class="fragment"><p>Spain, France, Denmark ~ 60% of labor income</p></li>
-<li class="fragment"><p>US ~ 6 months, Europe ~ 5 years</p></li>
-</ul></li>
-<li class="fragment"><p>Different Covid-19 strategies</p></li>
-<li class="fragment"><p>Data issues - western economies more transparent</p></li>
-</ul>
-</div>
-</section>
-<section id="hours-of-work" class="slide level2">
-<h2>Hours of Work</h2>
-
-<img data-src="images/table_7_2.png" class="r-stretch quarto-figure-center"><div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
-</section>
-<section id="present-discounted-value" class="slide level2">
-<h2>Present Discounted Value</h2>
-<p>What is $1,000 in five years worth today?</p>
-<p><span class="math display">\[
-pdv \times (1+R)^5 = $1,000
-\]</span></p>
-<p><span class="math display">\[
-pdv= \frac{\$1,000}{(1+R)^5}
-\]</span></p>
-<p>if R = 10%, <span class="math inline">\(pdv = \$621\)</span>.</p>
-</section>
-<section id="present-discounted-value-1" class="slide level2">
-<h2>Present Discounted Value</h2>
-<p>What is a stream of $100 for 20 years worth today?</p>
-<p><span class="math display">\[
-pdv = \$100\times \frac{1-\left(\frac{1}{(1+R)}\right)^{20}}{1-\frac{1}{(1+R)}}
-\]</span></p>
-<p>if R = 10%, <span class="math inline">\(pdv = \$936\)</span>.</p>
-</section>
-<section id="present-discounted-value-2" class="slide level2">
-<h2>Present Discounted Value</h2>
-<p>One time pdv:</p>
-<p><span class="math display">\[
-present\:discounted\:value=\frac{future\:value}{(1+interest\:rate)^T}
-\]</span></p>
-<p>Stream of payments pdv:</p>
-<p><span class="math display">\[
-pdv = payment\times \frac{1-\left(\frac{1}{(1+R)}\right)^{T}}{1-\frac{1}{(1+R)}}
-\]</span></p>
-</section>
-<section id="your-human-capital" class="slide level2">
-<h2>Your Human Capital</h2>
-<ul>
-<li><p>Average worker in the economy.</p>
-<ul>
-<li><p>Annual wage $63,000</p></li>
-<li><p>Start working at 22 and retire at 65 (work 45 years)</p></li>
-</ul></li>
-<li><p>Assume R = 3%</p></li>
-</ul>
-<p><span class="math display">\[
-pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1+0.03)}} = \$1.59 Million
-\]</span></p>
-</section>
-<section id="rising-return-to-education" class="slide level2">
-<h2>Rising Return to Education</h2>
-
-<img data-src="images/figure_7_8.png" class="r-stretch quarto-figure-center"><div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
-</section>
-<section id="rising-return-to-education-1" class="slide level2">
-<h2>Rising Return to Education</h2>
-
-<img data-src="images/figure_7_9.png" class="r-stretch quarto-figure-center"><div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
-</section>
-<section id="globalization-us-manufacturing" class="slide level2">
-<h2>Globalization &amp; US Manufacturing</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-44-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/LNU04032232">US Manufacturing Employment</a></p>
-</div>
-</section>
-<section id="income-inequality" class="slide level2">
-<h2>Income Inequality</h2>
-
-<img data-src="images/figure_7_11.png" class="r-stretch quarto-figure-center"><div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
-</section>
-<section id="income-inequality-1" class="slide level2">
-<h2>Income Inequality</h2>
-
-<img data-src="images/figure_7_12.png" class="r-stretch quarto-figure-center"><div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
+<p>How does it end? Austerity. Lower spending, higher taxes, more borrowing.</p>
 </section>
 <section id="next-week" class="slide level2">
 <h2>Next Week</h2>
