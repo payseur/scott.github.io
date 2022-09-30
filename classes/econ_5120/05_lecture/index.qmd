@@ -13,7 +13,7 @@ format:
 resources:
   - demo.pdf
 params:
-  refresh_fred: TRUE
+  refresh_fred: FALSE
 ---
 
 ## Introduction
@@ -60,6 +60,257 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 [Link](https://www.dol.gov/ui/data.pdf)
 
 ![](images/initial_claims.png){fig-align="center" width="1144"}
+
+## Different Types of Unemployment
+
+$$
+ actual\: unemployent = \underbrace{(frictional + structural)}_{natural} + cyclical
+$$
+
+::: incremental
+-   Natural - rate that prevails if economy is neither boom nor recession.
+
+-   Frictional - Employees changing jobs in a dynamic economy.
+
+-   Structural - hiring/firing costs, unemployment benefits, minimum wage.
+
+-   Cyclical - difference between actual and natural rates of unemployment
+:::
+
+## Bathtub Model of Unemployment
+
+$$
+ E_t - U_t = \bar{L}
+$$
+
+$$
+\Delta U_{t+1} = \underbrace{\bar{s}E_t}_{emp\:lose\:jobs} - \underbrace{\bar{f}U_t}_{unemp\:find\: new\: jobs}
+$$
+
+::: incremental
+-   Job separation rate: $\bar{s}$
+
+-   Job finding rate: $\bar{f}$
+
+-   Steady State: $\Delta U_{t+1} = 0$
+
+-   Imaging bathtub with water on and drain open.
+:::
+
+## Bathtub Model of Unemployment
+
+In steady state:
+
+$$
+ U^* = \frac{\bar{s}\bar{L}}{\bar{f}+\bar{s}}, \: \: \:u^* \equiv \frac{U^*}{\bar{L}} = \frac{\bar{s}}{\bar{f}+\bar{s}}
+$$\
+
+Natural rate of unemployment when $\bar{s} = 0.01$ and $\bar{f}=0.2$ is:
+
+$$
+ u^* = \frac{.01}{.2+.01}= 0.048 \approx 5\%
+$$
+
+## World Labor Markets
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "world_unemployment"
+title <- "World Labor Market: Unemployment"
+sub_title <- "(Civilian > 16yr)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "LRHUTTTTJPM156S", "Japan",
+  "LRHUTTTTESM156S", "Spain",
+  "LRHUTTTTUSM156S", "U.S.",
+  "LRHUTTTTGBM156S", "U.K."
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [Labor Force Participation Rate](https://fred.stlouisfed.org/series/LRHUTTTTJPM156S)
+:::
+
+## World Labor Markets
+
+::: incremental
+-   Adverse shocks
+
+-   Inefficient Labor Institutions
+
+    -   US, Japan, UK replace \~30% of labor income
+
+    -   Spain, France, Denmark \~ 60% of labor income
+
+    -   US \~ 6 months, Europe \~ 5 years
+
+-   Different Covid-19 strategies
+
+-   Data issues - western economies more transparent
+:::
+
+## Hours of Work
+
+![](images/table_7_2.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Present Discounted Value
+
+What is \$1,000 in five years worth today?
+
+$$
+ pdv \times (1+R)^5 = $1,000
+$$
+
+$$
+pdv= \frac{\$1,000}{(1+R)^5}
+$$
+
+if R = 10%, $pdv = \$621$.
+
+## Present Discounted Value
+
+What is a stream of \$100 for 20 years worth today?
+
+$$
+pdv = \$100\times \frac{1-\left(\frac{1}{(1+R)}\right)^{20}}{1-\frac{1}{(1+R)}}
+$$
+
+if R = 10%, $pdv = \$936$.
+
+## Present Discounted Value
+
+One time pdv:
+
+$$
+ present\:discounted\:value=\frac{future\:value}{(1+interest\:rate)^T}
+$$
+
+Stream of payments pdv:
+
+$$
+pdv = payment\times \frac{1-\left(\frac{1}{(1+R)}\right)^{T}}{1-\frac{1}{(1+R)}}
+$$
+
+## Your Human Capital
+
+-   Average worker in the economy.
+
+    -   Annual wage \$63,000
+
+    -   Start working at 22 and retire at 65 (work 45 years)
+
+-   Assume R = 3%
+
+$$
+pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1+0.03)}} = \$1.59 Million
+$$
+
+## Rising Return to Education
+
+![](images/figure_7_8.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Rising Return to Education
+
+![](images/figure_7_9.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Globalization & US Manufacturing
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "manufacturing"
+title <- "U.S. Employment in Manufacturing"
+sub_title <- "(Millions)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "LNU04032232", "U.S. Manufacturing"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19800101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+ # scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [US Manufacturing Employment](https://fred.stlouisfed.org/series/LNU04032232)
+:::
+
+## Income Inequality
+
+![](images/figure_7_11.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Income Inequality
+
+![](images/figure_7_12.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## Chapter 8: Inflation
 
@@ -304,7 +555,7 @@ i = R + \pi
 $$
 
 ::: incremental
--   Example: $R$ = 5% and $\pi$ =3% $\implies$  $i$ = 8%.
+-   Example: $R$ = 5% and $\pi$ =3% $\implies$ $i$ = 8%.
 
     -   Machine costs \$100
 
@@ -493,7 +744,7 @@ Who pays **inflation tax**:
 :::
 :::
 
-## Hyper-inflation 
+## Hyper-inflation
 
 ::: columns
 ::: {.column width="50%"}
@@ -506,6 +757,198 @@ Who pays **inflation tax**:
 :::
 
 How does it end? Austerity. Lower spending, higher taxes, more borrowing.
+
+## Chapter 9: Intro to Short Run
+
+::: incremental
+-   Long run: how the economy behaves on average.
+
+-   Short Run:
+
+    -   The economy is constantly being hit by shocks
+
+    -   Monetary and fiscal policy affect output
+
+    -   Dynamic trade-off between output and inflation
+:::
+
+## Long Run vs Short Run
+
+```{=html}
+<iframe width="800" height="515" src="https://www.youtube.com/embed/PHe0bXAIuk0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+## Long-Run vs Short-Run
+
+::: incremental
+-   Long-Run
+
+    -   Potential output (Solow, Romer model)
+
+    -   Long run inflation
+
+    -   Long run unemployment
+
+-   Short-Run
+
+    -   Current output
+
+    -   Current inflation
+
+    -   Current unemployment
+:::
+
+## Trend vs Cycles
+
+$$
+ \underbrace{actual\:output}_{Y_t} = \underbrace{long-run\:outout}_{\bar{Y_t}} +  \underbrace{short-run\:fluxuations}_{\tilde{Y_t}} 
+$$
+
+Cycles in percentage terms:
+
+$$
+\tilde{Y_t}=\frac{Y_t-\bar{Y_t}}{\bar{Y_t}}
+$$
+
+$\tilde{Y_t}$ is called: short-run output, detrended output, short-run cycle
+
+## Economic Fluctuations
+
+![](images/figure_9_1.png){fig-align="center"}
+
+## Potential GDP
+
+![](images/figure_9_2.png){fig-align="center"}
+
+## U.S. Economic Fluctuations
+
+::: incremental
+-   In general a recession begins when actual output falls below potential output
+
+    -   (short-run output \< 0)
+
+-   In practice recessions are called based on this and
+
+    -   level of employment
+
+    -   retail and wholesale sales
+
+    -   output created by manufacturing sector
+
+-   Business cycles are called from Peak to Trough
+:::
+
+## U.S. Economic Fluctuations
+
+![](images/figure_9_3.png){fig-align="center"}
+
+## U.S. Economic Fluctuations
+
+[Fred Link](https://fred.stlouisfed.org/graph/?g=UkrZ)
+
+```{=html}
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UkrZ&width=870&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+```
+## Recesssion Costs
+
+::: incremental
+-   In the GFC recession output lost:
+
+    -   GDP was close to \$20 Trillion
+
+    -   Short-run output was close to -6% or \~ \$1 Trillion
+
+    -   \$3,000 per person or \$12,000 per household
+
+-   In the GFC recession jobs lost:
+
+    -   8.2 million
+:::
+
+## Changes in Employment
+
+![](images/figure_9_4.png){fig-align="center"}
+
+## Measuring Potential Output
+
+::: incremental
+-   Is not observable!
+
+-   Take GDP and look at smooth trend
+
+-   Congressional Budget Office uses a version of the Solow Model
+
+    -   Feature of this approach: slowdown in investment following the GFC means potential output as slowed as well.
+
+-   Models are tuned and updated based on HF data
+
+-   What is a change in potential output vs a short-run fluctuation?
+:::
+
+## Phillips Curve
+
+Dynamic trade-off between output and inflation.
+
+::: incremental
+-   Government can stimulate economy
+
+    -   Booming economy today (producing more than potential output)
+
+        -   Leads to an increase in the inflation rate
+
+-   If inflation rate is high policy makers can lower it
+
+    -   A recession is typically required (producing less than potential output)
+:::
+
+## Phillips Curve
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_9_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Booming economy, $\tilde{Y}>0$, results in higher inflation, $\Delta \pi >0$ .
+-   Recession, $\tilde{Y}<0$, results in higher inflation, $\Delta \pi < 0$ .
+-   Next two chapters discuss how monetary policy is used to change $\tilde{Y}$.
+:::
+:::
+
+## Phillips Curve
+
+In the short-run a booming economy leads to increased inflation, and a slumping economy leads to decreased inflation.
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_9_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%"}
+-   Slope is roughly 1/3
+
+-   When output exceeds potential $\implies$ inflation rate increase by 1%
+:::
+:::
+
+## Okun's Law
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_9_10.png){fig-align="center" width="974"}
+:::
+
+::: {.column width="50%"}
+Output and Unemployment
+
+$$
+ u-\bar{u} = -\frac{1}{2} \times \tilde{Y}
+$$
+
+$u$ : unemployment
+
+$\bar{u}$ : natural rate of unemployment
+:::
+:::
 
 ## Next Week
 
