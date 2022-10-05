@@ -71,8 +71,6 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ![](images/corelogic.png){fig-align="center"}
 
-## 
-
 ## High Freq: ADP
 
 [Link](https://adpemploymentreport.com/)
@@ -624,7 +622,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 [Fred link](https://fred.stlouisfed.org/graph/?g=UtQk)
 
 ```{=html}
-<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UtQk&width=870&height=555" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:555px;" allowTransparency="true" loading="lazy"></iframe>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UtQk&width=870&height=575" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:575px;" allowTransparency="true" loading="lazy"></iframe>
 ```
 ## Yield Curve
 
