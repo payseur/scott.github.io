@@ -21,13 +21,11 @@ params:
 ::: incremental
 -   High frequency data
 
--   Quick review of production and Solow
+-   Long run employment continued
 
--   Romer model (Romer + Solow)
+-   Long run inflation
 
--   In class R exercise
-
--   Employment
+-   Introduction to the short-run
 :::
 
 ```{r}
@@ -55,11 +53,31 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ```
 
-## High Freq: Initial Claims
+## High Freq: PMI Manufacturing
 
-[Link](https://www.dol.gov/ui/data.pdf)
+[Link](https://www.ismworld.org/globalassets/pub/research-and-surveys/rob/pmi/rob202210pmi.pdf)
 
-![](images/initial_claims.png){fig-align="center" width="1144"}
+![](images/pmim.png){fig-align="center"}
+
+## High Freq: PMI Services
+
+[Link](https://www.ismworld.org/globalassets/pub/research-and-surveys/rob/nmi/rob202209svcs.pdf)
+
+![](images/pmi.png){fig-align="center"}
+
+## High Freq: CoreLogic
+
+[Link](https://www.corelogic.com/intelligence/u-s-home-price-insights-october-2022/)
+
+![](images/corelogic.png){fig-align="center"}
+
+## 
+
+## High Freq: ADP
+
+[Link](https://adpemploymentreport.com/)
+
+![](images/adp.png){fig-align="center"}
 
 ## Different Types of Unemployment
 
@@ -314,21 +332,19 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Chapter 8: Inflation
 
-$$
-Y = F(K, L) = \bar{A}K^{1/3}L^{2/3} 
-$$ {#eq-productionmodel}
+::: incremental
+-   Inflation Rate
 
--   $\bar{A}$ - Productivity parameter.
+-   Compare different time periods
 
--   $K$ - Capital
+-   Quantity theory of money
 
--   $r$ - Rental price of capital
+-   Real and nominal interest rates
 
--   $L$ - Labor
+-   Costs of inflation
 
--   $w$ - Wage
-
-Cobb-Douglass ([link](https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf)): $Y = K^{a}L^{1-a}$
+-   Monetary vs Fiscal
+:::
 
 ## Inflation Rate in the U.S.
 
@@ -402,7 +418,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## In Current Dollars
 
-1950 a gas cost \$0.27, in 2018 it cost \$2.50. Compare?
+1950 a gas cost \$0.27, in 2018 it cost \$2.50. ([Fred link](https://fred.stlouisfed.org/series/CPIAUCSL))
 
 ![](images/table_8_1.png){fig-align="center" width="562"}
 
@@ -410,11 +426,21 @@ $$
 0.27 \: in \: $_{1950} \times \frac{100 \: in \: $_{2018}}{9.59 \: in \: $_{2050}}= 2.82 \: in \: $_{2018} 
 $$
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Measures of Money Supply
 
 ![](images/table_8_2.png){fig-align="center" width="874"}
 
 -   Fred data: [C](https://fred.stlouisfed.org/series/CURRCIR) \| [MB](https://fred.stlouisfed.org/series/BOGMBASE) \| [M1](https://fred.stlouisfed.org/series/WM1NS) \| [M2](https://fred.stlouisfed.org/series/WM2NS)
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## The Quantity Equation
 
@@ -433,6 +459,10 @@ $$
 ## Quantity Theory of Money
 
 ![](images/table_8_3.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## Quantity Theory of Money
 
@@ -496,9 +526,18 @@ Quantity theory implies that in the long run, changes in growth rate lead one-fo
 :::
 :::
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Monetary Growth and Inflation
 
 ![](images/figure_8_4.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## Classical Dichotomy
 
@@ -576,7 +615,38 @@ $$
 
 ![](images/figure_8_5.png){fig-align="center" width="640"}
 
-## Costs of Inflation
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Real and Nominal Interest Rates 
+
+[Fred link](https://fred.stlouisfed.org/graph/?g=UtQk)
+
+```{=html}
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UtQk&width=870&height=555" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:555px;" allowTransparency="true" loading="lazy"></iframe>
+```
+## Yield Curve
+
+![](images/figure_12_6.png){fig-align="center"}
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Yield Curve
+
+![](images/yc.png){fig-align="center"}
+
+## Breakeven Inflation
+
+[Fred link](https://fred.stlouisfed.org/graph/?g=UtVz)
+
+```{=html}
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UtVz&width=870&height=555" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:555px;" allowTransparency="true" loading="lazy"></iframe>
+```
+##  Costs of Inflation
 
 Mr Gambino - Fixed Pension
 
@@ -724,6 +794,11 @@ Who pays **inflation tax**:
 :::
 :::
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## 1970s Inflation: OPEC
 
 ::: columns
@@ -744,6 +819,11 @@ Who pays **inflation tax**:
 :::
 :::
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Hyper-inflation
 
 ::: columns
@@ -757,6 +837,11 @@ Who pays **inflation tax**:
 :::
 
 How does it end? Austerity. Lower spending, higher taxes, more borrowing.
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## Chapter 9: Intro to Short Run
 
@@ -815,9 +900,19 @@ $\tilde{Y_t}$ is called: short-run output, detrended output, short-run cycle
 
 ![](images/figure_9_1.png){fig-align="center"}
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Potential GDP
 
 ![](images/figure_9_2.png){fig-align="center"}
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## U.S. Economic Fluctuations
 
@@ -841,6 +936,11 @@ $\tilde{Y_t}$ is called: short-run output, detrended output, short-run cycle
 
 ![](images/figure_9_3.png){fig-align="center"}
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## U.S. Economic Fluctuations
 
 [Fred Link](https://fred.stlouisfed.org/graph/?g=UkrZ)
@@ -848,7 +948,7 @@ $\tilde{Y_t}$ is called: short-run output, detrended output, short-run cycle
 ```{=html}
 <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UkrZ&width=870&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
 ```
-## Recesssion Costs
+## Recession Costs
 
 ::: incremental
 -   In the GFC recession output lost:
@@ -867,6 +967,11 @@ $\tilde{Y_t}$ is called: short-run output, detrended output, short-run cycle
 ## Changes in Employment
 
 ![](images/figure_9_4.png){fig-align="center"}
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## Measuring Potential Output
 
@@ -909,9 +1014,14 @@ Dynamic trade-off between output and inflation.
 
 ::: {.column .incremental width="50%"}
 -   Booming economy, $\tilde{Y}>0$, results in higher inflation, $\Delta \pi >0$ .
--   Recession, $\tilde{Y}<0$, results in higher inflation, $\Delta \pi < 0$ .
+-   Recession, $\tilde{Y}<0$, results in lower inflation, $\Delta \pi < 0$ .
 -   Next two chapters discuss how monetary policy is used to change $\tilde{Y}$.
 :::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Phillips Curve
@@ -928,6 +1038,11 @@ In the short-run a booming economy leads to increased inflation, and a slumping 
 
 -   When output exceeds potential $\implies$ inflation rate increase by 1%
 :::
+:::
+
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Okun's Law
@@ -950,8 +1065,13 @@ $\bar{u}$ : natural rate of unemployment
 :::
 :::
 
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Next Week
 
 -   Read chapters 10-11
 
--   Assignment 1 due @ midnight
+-   Assignment 1 due \@ midnight

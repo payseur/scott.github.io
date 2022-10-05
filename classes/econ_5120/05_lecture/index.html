@@ -330,21 +330,38 @@
 <div>
 <ul>
 <li class="fragment"><p>High frequency data</p></li>
-<li class="fragment"><p>Quick review of production and Solow</p></li>
-<li class="fragment"><p>Romer model (Romer + Solow)</p></li>
-<li class="fragment"><p>In class R exercise</p></li>
-<li class="fragment"><p>Employment</p></li>
+<li class="fragment"><p>Long run employment continued</p></li>
+<li class="fragment"><p>Long run inflation</p></li>
+<li class="fragment"><p>Introduction to the short-run</p></li>
 </ul>
 </div>
 <div class="cell">
 
 </div>
 </section>
-<section id="high-freq-initial-claims" class="slide level2">
-<h2>High Freq: Initial Claims</h2>
-<p><a href="https://www.dol.gov/ui/data.pdf">Link</a></p>
+<section id="high-freq-pmi-manufacturing" class="slide level2">
+<h2>High Freq: PMI Manufacturing</h2>
+<p><a href="https://www.ismworld.org/globalassets/pub/research-and-surveys/rob/pmi/rob202210pmi.pdf">Link</a></p>
 
-<img data-src="images/initial_claims.png" width="1144" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/pmim.png" class="r-stretch quarto-figure-center"></section>
+<section id="high-freq-pmi-services" class="slide level2">
+<h2>High Freq: PMI Services</h2>
+<p><a href="https://www.ismworld.org/globalassets/pub/research-and-surveys/rob/nmi/rob202209svcs.pdf">Link</a></p>
+
+<img data-src="images/pmi.png" class="r-stretch quarto-figure-center"></section>
+<section id="high-freq-corelogic" class="slide level2">
+<h2>High Freq: CoreLogic</h2>
+<p><a href="https://www.corelogic.com/intelligence/u-s-home-price-insights-october-2022/">Link</a></p>
+
+<img data-src="images/corelogic.png" class="r-stretch quarto-figure-center"></section>
+<section id="section" class="slide level2">
+<h2></h2>
+</section>
+<section id="high-freq-adp" class="slide level2">
+<h2>High Freq: ADP</h2>
+<p><a href="https://adpemploymentreport.com/">Link</a></p>
+
+<img data-src="images/adp.png" class="r-stretch quarto-figure-center"></section>
 <section id="different-types-of-unemployment" class="slide level2">
 <h2>Different Types of Unemployment</h2>
 <p><span class="math display">\[
@@ -499,17 +516,16 @@ pdv = \$63,000\times \frac{1-\left(\frac{1}{(1+0.03)}\right)^{45}}{1-\frac{1}{(1
 </section>
 <section id="chapter-8-inflation" class="slide level2">
 <h2>Chapter 8: Inflation</h2>
-<p><span id="eq-productionmodel"><span class="math display">\[
-Y = F(K, L) = \bar{A}K^{1/3}L^{2/3}
-\qquad(1)\]</span></span></p>
+<div>
 <ul>
-<li><p><span class="math inline">\(\bar{A}\)</span> - Productivity parameter.</p></li>
-<li><p><span class="math inline">\(K\)</span> - Capital</p></li>
-<li><p><span class="math inline">\(r\)</span> - Rental price of capital</p></li>
-<li><p><span class="math inline">\(L\)</span> - Labor</p></li>
-<li><p><span class="math inline">\(w\)</span> - Wage</p></li>
+<li class="fragment"><p>Inflation Rate</p></li>
+<li class="fragment"><p>Compare different time periods</p></li>
+<li class="fragment"><p>Quantity theory of money</p></li>
+<li class="fragment"><p>Real and nominal interest rates</p></li>
+<li class="fragment"><p>Costs of inflation</p></li>
+<li class="fragment"><p>Monetary vs Fiscal</p></li>
 </ul>
-<p>Cobb-Douglass (<a href="https://assets.aeaweb.org/asset-server/journals/aer/top20/18.1.139-165.pdf">link</a>): <span class="math inline">\(Y = K^{a}L^{1-a}\)</span></p>
+</div>
 </section>
 <section id="inflation-rate-in-the-u.s." class="slide level2">
 <h2>Inflation Rate in the U.S.</h2>
@@ -546,11 +562,14 @@ Y = F(K, L) = \bar{A}K^{1/3}L^{2/3}
 <img data-src="images/zim.jpg" class="r-stretch quarto-figure-center"></section>
 <section id="in-current-dollars" class="slide level2">
 <h2>In Current Dollars</h2>
-<p>1950 a gas cost $0.27, in 2018 it cost $2.50. Compare?</p>
+<p>1950 a gas cost $0.27, in 2018 it cost $2.50. (<a href="https://fred.stlouisfed.org/series/CPIAUCSL">Fred link</a>)</p>
 
 <img data-src="images/table_8_1.png" width="562" class="r-stretch quarto-figure-center"><p><span class="math display">\[
 0.27 \: in \: $_{1950} \times \frac{100 \: in \: $_{2018}}{9.59 \: in \: $_{2050}}= 2.82 \: in \: $_{2018}
 \]</span></p>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="measures-of-money-supply" class="slide level2">
 <h2>Measures of Money Supply</h2>
@@ -558,6 +577,9 @@ Y = F(K, L) = \bar{A}K^{1/3}L^{2/3}
 <img data-src="images/table_8_2.png" width="874" class="r-stretch quarto-figure-center"><ul>
 <li>Fred data: <a href="https://fred.stlouisfed.org/series/CURRCIR">C</a> | <a href="https://fred.stlouisfed.org/series/BOGMBASE">MB</a> | <a href="https://fred.stlouisfed.org/series/WM1NS">M1</a> | <a href="https://fred.stlouisfed.org/series/WM2NS">M2</a></li>
 </ul>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="the-quantity-equation" class="slide level2">
 <h2>The Quantity Equation</h2>
@@ -574,7 +596,10 @@ M_t V_t = P_t Y_t
 <section id="quantity-theory-of-money" class="slide level2">
 <h2>Quantity Theory of Money</h2>
 
-<img data-src="images/table_8_3.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/table_8_3.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
 <section id="quantity-theory-of-money-1" class="slide level2">
 <h2>Quantity Theory of Money</h2>
 <p>Solution:</p>
@@ -632,11 +657,17 @@ M_t V_t = P_t Y_t
 </ul>
 </div>
 </div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="monetary-growth-and-inflation-1" class="slide level2">
 <h2>Monetary Growth and Inflation</h2>
 
-<img data-src="images/figure_8_4.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/figure_8_4.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
 <section id="classical-dichotomy" class="slide level2">
 <h2>Classical Dichotomy</h2>
 <div>
@@ -706,7 +737,31 @@ i = R + \pi
 R=i-\pi
 \]</span></p>
 
-<img data-src="images/figure_8_5.png" width="640" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/figure_8_5.png" width="640" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="real-and-nominal-interest-rates-4" class="slide level2">
+<h2>Real and Nominal Interest Rates</h2>
+<p><a href="https://fred.stlouisfed.org/graph/?g=UtQk">Fred link</a></p>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UtQk&amp;width=870&amp;height=555" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:555px;" allowtransparency="true" loading="lazy"></iframe>
+</section>
+<section id="yield-curve" class="slide level2">
+<h2>Yield Curve</h2>
+
+<img data-src="images/figure_12_6.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="yield-curve-1" class="slide level2">
+<h2>Yield Curve</h2>
+
+<img data-src="images/yc.png" class="r-stretch quarto-figure-center"></section>
+<section id="breakeven-inflation" class="slide level2">
+<h2>Breakeven Inflation</h2>
+<p><a href="https://fred.stlouisfed.org/graph/?g=UtVz">Fred link</a></p>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UtVz&amp;width=870&amp;height=555" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:555px;" allowtransparency="true" loading="lazy"></iframe>
+</section>
 <section id="costs-of-inflation" class="slide level2">
 <h2>Costs of Inflation</h2>
 <p>Mr Gambino - Fixed Pension</p>
@@ -840,6 +895,9 @@ R=i-\pi
 </ul>
 </div>
 </div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="s-inflation-opec" class="slide level2">
 <h2>1970s Inflation: OPEC</h2>
@@ -862,6 +920,9 @@ R=i-\pi
 </ul>
 </div>
 </div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="hyper-inflation" class="slide level2">
 <h2>Hyper-inflation</h2>
@@ -881,6 +942,9 @@ R=i-\pi
 </div>
 </div>
 <p>How does it end? Austerity. Lower spending, higher taxes, more borrowing.</p>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="chapter-9-intro-to-short-run" class="slide level2">
 <h2>Chapter 9: Intro to Short Run</h2>
@@ -933,11 +997,17 @@ R=i-\pi
 <section id="economic-fluctuations" class="slide level2">
 <h2>Economic Fluctuations</h2>
 
-<img data-src="images/figure_9_1.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/figure_9_1.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
 <section id="potential-gdp" class="slide level2">
 <h2>Potential GDP</h2>
 
-<img data-src="images/figure_9_2.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/figure_9_2.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
 <section id="u.s.-economic-fluctuations" class="slide level2">
 <h2>U.S. Economic Fluctuations</h2>
 <div>
@@ -959,14 +1029,17 @@ R=i-\pi
 <section id="u.s.-economic-fluctuations-1" class="slide level2">
 <h2>U.S. Economic Fluctuations</h2>
 
-<img data-src="images/figure_9_3.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/figure_9_3.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
 <section id="u.s.-economic-fluctuations-2" class="slide level2">
 <h2>U.S. Economic Fluctuations</h2>
 <p><a href="https://fred.stlouisfed.org/graph/?g=UkrZ">Fred Link</a></p>
 <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=UkrZ&amp;width=870&amp;height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:525px;" allowtransparency="true" loading="lazy"></iframe>
 </section>
-<section id="recesssion-costs" class="slide level2">
-<h2>Recesssion Costs</h2>
+<section id="recession-costs" class="slide level2">
+<h2>Recession Costs</h2>
 <div>
 <ul>
 <li class="fragment"><p>In the GFC recession output lost:</p>
@@ -985,7 +1058,10 @@ R=i-\pi
 <section id="changes-in-employment" class="slide level2">
 <h2>Changes in Employment</h2>
 
-<img data-src="images/figure_9_4.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/figure_9_4.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
 <section id="measuring-potential-output" class="slide level2">
 <h2>Measuring Potential Output</h2>
 <div>
@@ -1032,10 +1108,13 @@ R=i-\pi
 </div><div class="column" style="width:50%;">
 <ul>
 <li class="fragment">Booming economy, <span class="math inline">\(\tilde{Y}&gt;0\)</span>, results in higher inflation, <span class="math inline">\(\Delta \pi &gt;0\)</span> .</li>
-<li class="fragment">Recession, <span class="math inline">\(\tilde{Y}&lt;0\)</span>, results in higher inflation, <span class="math inline">\(\Delta \pi &lt; 0\)</span> .</li>
+<li class="fragment">Recession, <span class="math inline">\(\tilde{Y}&lt;0\)</span>, results in lower inflation, <span class="math inline">\(\Delta \pi &lt; 0\)</span> .</li>
 <li class="fragment">Next two chapters discuss how monetary policy is used to change <span class="math inline">\(\tilde{Y}\)</span>.</li>
 </ul>
 </div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
 <section id="phillips-curve-2" class="slide level2">
@@ -1055,6 +1134,9 @@ R=i-\pi
 </ul>
 </div>
 </div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
 </section>
 <section id="okuns-law" class="slide level2">
 <h2>Okun’s Law</h2>
@@ -1073,6 +1155,9 @@ u-\bar{u} = -\frac{1}{2} \times \tilde{Y}
 <p><span class="math inline">\(u\)</span> : unemployment</p>
 <p><span class="math inline">\(\bar{u}\)</span> : natural rate of unemployment</p>
 </div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
 <section id="next-week" class="slide level2">

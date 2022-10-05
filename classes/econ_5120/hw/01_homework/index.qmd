@@ -18,7 +18,17 @@ $$
 
 ![](files/cp4e5.png){fig-align="center"}
 
+[Excel Link](./files/01_hw.xlsx)
+
 ## Chapter 4, Exercise 7
+
+![](files/cp4e7.png){fig-align="center"}
+
+b\) 60% from TFP, 40% from Capital
+
+c\) 70% from TFP, 30% from Capital
+
+[Excel Link](./files/01_hw.xlsx)
 
 ## Chapter 5, Exercise 8
 
