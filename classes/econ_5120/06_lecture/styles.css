@@ -1,0 +1,23 @@
+
+
+.border {
+  border: 1px solid #dee2e6;
+}
+
+.border-thick {
+  border-width: 30px;
+}
+
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 22px;
+  max-height: 2.2rem;
+  height: 100%;
+  width: auto;
+}
+
+.reveal .footer a {
+  color: #ff0022
+}
