@@ -346,7 +346,7 @@
 <img data-src="images/rstudio.png" class="r-stretch quarto-figure-center"></section>
 <section id="the-is-curve" class="slide level2">
 <h2>The IS Curve</h2>
-<div style="font-size: 30px; text-align: center; background-color: #D3D3D3">
+<div style="font-size: 30px; text-align: center">
 <p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
 </div>
 <div class="columns">
@@ -398,7 +398,7 @@
 </dd>
 <dt class="fragment">Investment</dt>
 <dd class="fragment">
-<p><span class="math inline">\(\frac{I_t}{\bar{Y_t}} = \bar{a} - \bar{b}(R_t-\bar{r})\)</span></p>
+<p><span class="math inline">\(\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})\)</span></p>
 </dd>
 </dl>
 </div>
@@ -419,13 +419,175 @@
 <li class="fragment"><p>Life-cycle (LC) model of consumption</p></li>
 <li class="fragment"><p>LC/PI <span class="math inline">\(\implies\)</span> set consumption equal to potential output not actual output</p>
 <ul>
-<li class="fragment"><span class="math inline">\(C_t=\bar{a_C}\bar{Y_t}\)</span></li>
+<li class="fragment"><span class="math inline">\(C_t=\bar{a}_c\bar{Y_t}\)</span></li>
+</ul></li>
+<li class="fragment"><p>Note: <span class="math inline">\(\bar{a}_g, \bar{a}_{ex}, \bar{a}_{im}\)</span> are all assumed to be a constant fraction of potential output.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="investment-equation" class="slide level2">
+<h2>Investment Equation</h2>
+<div style="font-size: 30px; text-align: center">
+<p><span class="math inline">\(\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})\)</span></p>
+</div>
+<div style="font-size: 30px">
+<ul>
+<li class="fragment"><p>Long-run fraction of potential output that goes to investment: <span class="math inline">\(\bar{a}_i\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\bar{b}(R_t-\bar{r})\)</span> : Amount of investment depends on the gap between the real interest rate, <span class="math inline">\(R_t\)</span> and the marginal product of capital, <span class="math inline">\(\bar{r}\)</span>.</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(R_t\)</span> is the rate the firms can borrow</p></li>
+<li class="fragment"><p><span class="math inline">\(\bar{r}\)</span> the additional output the firm can produce by investing in an additional unit of capital</p></li>
+<li class="fragment"><p>Amount that firms invest depends the gap between real interest rate and MPC.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="investment-equation-1" class="slide level2">
+<h2>Investment Equation</h2>
+<div style="font-size: 30px; text-align: center">
+<p><span class="math inline">\(\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})\)</span></p>
+</div>
+<div style="font-size: 30px">
+<ul>
+<li class="fragment"><p>If MPC is low relative to real interest rate then firms are better off saving retained earnings</p>
+<ul>
+<li class="fragment">For instance, investing in treasury bonds</li>
+</ul></li>
+<li class="fragment"><p>If MPC is high relative to real interest rate then borrow and invest into capital leading to higher investment</p></li>
+<li class="fragment"><p>Example: <span class="math inline">\(R_t\)</span> = 10% and <span class="math inline">\(\bar{r}\)</span>=15%</p>
+<ul>
+<li class="fragment"><p>Firm borrows 100 units of capital</p></li>
+<li class="fragment"><p>Yields an extra 15 units</p></li>
+<li class="fragment"><p>Pay back 110 and profits 5 units</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="investment-equation-2" class="slide level2">
+<h2>Investment Equation</h2>
+<div style="font-size: 30px; text-align: center">
+<p><span class="math inline">\(\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})\)</span></p>
+</div>
+<div style="font-size: 30px">
+<ul>
+<li class="fragment"><p>The parameter <span class="math inline">\(\bar{b}\)</span> tells us how sensitive investment is to a change in <span class="math inline">\((R_t-\bar{r})\)</span>.</p>
+<ul>
+<li class="fragment">A high value for <span class="math inline">\(\bar{b}\)</span> means that small differences between the interest rate a MPC lead to big changes in investment.</li>
+</ul></li>
+<li class="fragment"><p>In the long-run real interest rate must equal marginal product of capital: <span class="math inline">\(R_t=\bar{r}\)</span>.</p>
+<ul>
+<li class="fragment">In the short-run: new capital takes time.</li>
+</ul></li>
+<li class="fragment"><p>In the long-run <span class="math inline">\(R_t=\bar{r}\)</span> and the investment share of potential output, $\bar{Y}<em>t$, is</em> <span class="math inline">\(\bar{a}_i\)</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="deriving-the-is-curve" class="slide level2">
+<h2>Deriving the IS Curve</h2>
+<div style="font-size: 30px; text-align: center">
+<p><span class="math inline">\(\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})\)</span></p>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/table_11_1.png"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size: 30px;">
+<ul>
+<li class="fragment"><p><span class="math inline">\(\frac{Y_t}{\bar{Y}_t} = \frac{C_t}{\bar{Y}_t}+\frac{I_t}{\bar{Y}_t}+\frac{G_t}{\bar{Y}_t}+\frac{EM_t}{\bar{Y}_t}-\frac{IM_t}{\bar{Y}_t}\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\frac{Y_t}{\bar{Y}_t} = \bar{a}_c + \bar{a}_i -\bar{b}(R_t-\bar{r}) + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im}\)</span></p></li>
+<li class="fragment"><p>Remember: <span class="math inline">\(\tilde{Y}_t \equiv \frac{Y_t-\bar{Y}_t}{\bar{Y}_t} = \frac{Y_t}{\bar{Y}_t}-1\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\underbrace{\frac{Y_t}{\bar{Y}_t}-1}_{\tilde{Y}_t} = \underbrace{\bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im}-1}_{\bar{a}} -\bar{b}(R_t-\bar{r})\)</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="why-is-it-called-the-is-curve" class="slide level2">
+<h2>Why is it called the IS Curve?</h2>
+<div style="font-size: 30px; text-align: center">
+<p><span class="math inline">\(Y = C + I + G + EX - IM\)</span></p>
+</div>
+<div>
+<ul>
+<li class="fragment"><p>IS stands for <em>investment equals savings.</em></p></li>
+<li class="fragment"><p>Rearrange national identity equation: <span class="math inline">\(Y - C -G + (IM - EX) = I\)</span></p></li>
+<li class="fragment"><p>Subtract tax revenues <span class="math inline">\(\underbrace{(Y - T - C)}_{private\:savings} + \underbrace{(T - G)}_{gov't\:savings} + \underbrace{(IM - EX)}_{foreign\:savings} = I\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="using-the-is-curve" class="slide level2">
+<h2>Using the IS Curve</h2>
+<div class="columns">
+<div class="column" style="font-size: 30px">
+<p><span class="math display">\[
+\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_11_3.png"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size: 30px;">
+<ul>
+<li><p>Curve is drawn with no aggregate demand shocks (<span class="math inline">\(\bar{a}=0\)</span>)</p></li>
+<li><p>Point A: Long-run equalibrium <span class="math inline">\((R_t = \bar{r})\)</span></p>
+<ul>
+<li>short-run output is zero</li>
+</ul></li>
+<li><p>Point B: Increase in real rates, <span class="math inline">\(R_t\)</span> , leads to a decrease in output <span class="math inline">\(\tilde{Y}'_t\)</span>.</p></li>
+<li><p>Example: <span class="math inline">\(\bar{a} = 0\)</span> , <span class="math inline">\(\bar{b}=2\)</span> , <span class="math inline">\(R=\bar{r}= 5\%\)</span>, and <span class="math inline">\(R'=6\%\)</span>.</p>
+<ul>
+<li>When real interest rate rises 1% short-run output decreases by 2%.</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<p><img src="images/ne.png" class="slide-logo"></p>
-<div class="footer footer-default">
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="aggregate-demand" class="slide level2">
+<h2>Aggregate Demand</h2>
+<div style="font-size: 30px; text-align: center">
+<p><span class="math inline">\(\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1\)</span></p>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_11_4.png"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>An increase in aggregate demand, <span class="math inline">\(\bar{a}\)</span> , shifts the IS curve out.</p></li>
+<li class="fragment"><p>Example: Covid work from home spurs increase in <span class="math inline">\(\bar{a}_c\)</span> .</p></li>
+<li class="fragment"><p>Note: Shock to potential output leaves the IS Curve unchanged.</p>
+<ul>
+<li class="fragment">Example: Destruction of capital caused by an earthquake effects long-run output, <span class="math inline">\(\bar{Y}_t\)</span> , but does not enter the short-run equation, <span class="math inline">\(\tilde{Y}_t\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="is-curve-scenarios" class="slide level2">
+<h2>IS Curve Scenarios</h2>
+<div>
+<ul>
+<li class="fragment"><p>A large recession hits Europe or Japan and foreigners reduce demand for US goods</p></li>
+<li class="fragment"><p>The federal reserve lowers the real interest rate below the marginal product of capital</p></li>
+<li class="fragment"><p>Consumers become pessimistic about the state of the economy and future productivity growth</p></li>
+<li class="fragment"><p>Improvements in technology increase productivity leading to an increase in <span class="math inline">\(\bar{r}\)</span></p></li>
+</ul>
+</div>
+
+<img src="images/ne.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>ECON 5120 | Scott Payseur</p>
 </div>
 </section>

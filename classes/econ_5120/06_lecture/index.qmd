@@ -61,7 +61,7 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ## The IS Curve
 
-::: {style="font-size: 30px; text-align: center; background-color: #D3D3D3"}
+::: {style="font-size: 30px; text-align: center"}
 $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
 :::
 
@@ -115,7 +115,7 @@ Imports
 
 Investment
 
-:   $\frac{I_t}{\bar{Y_t}} = \bar{a} - \bar{b}(R_t-\bar{r})$
+:   $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
 :::
 :::
 
@@ -133,6 +133,170 @@ Investment
 
 -   LC/PI $\implies$ set consumption equal to potential output not actual output
 
-    -   $C_t=\bar{a}_C\bar{Y_t}$
+    -   $C_t=\bar{a}_c\bar{Y_t}$
+
+-   Note: $\bar{a}_g, \bar{a}_{ex}, \bar{a}_{im}$ are all assumed to be a constant fraction of potential output.
 :::
+:::
+
+## Investment Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   Long-run fraction of potential output that goes to investment: $\bar{a}_i$
+
+-   $\bar{b}(R_t-\bar{r})$ : Amount of investment depends on the gap between the real interest rate, $R_t$ and the marginal product of capital, $\bar{r}$.
+
+    -   $R_t$ is the rate the firms can borrow
+
+    -   $\bar{r}$ the additional output the firm can produce by investing in an additional unit of capital
+
+    -   Amount that firms invest depends the gap between real interest rate and MPC.
+:::
+
+## Investment Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   If MPC is low relative to real interest rate then firms are better off saving retained earnings
+
+    -   For instance, investing in treasury bonds
+
+-   If MPC is high relative to real interest rate then borrow and invest into capital leading to higher investment
+
+-   Example: $R_t$ = 10% and $\bar{r}$=15%
+
+    -   Firm borrows 100 units of capital
+
+    -   Yields an extra 15 units
+
+    -   Pay back 110 and profits 5 units
+:::
+
+## Investment Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   The parameter $\bar{b}$ tells us how sensitive investment is to a change in $(R_t-\bar{r})$.
+
+    -   A high value for $\bar{b}$ means that small differences between the interest rate a MPC lead to big changes in investment.
+
+-   In the long-run real interest rate must equal marginal product of capital: $R_t=\bar{r}$.
+
+    -   In the short-run: new capital takes time.
+
+-   In the long-run $R_t=\bar{r}$ and the investment share of potential output, \$\\bar{Y}*t\$, is* $\bar{a}_i$.
+:::
+
+## Deriving the IS Curve
+
+::: {style="font-size: 30px; text-align: center"}
+$\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})$
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/table_11_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px;"}
+-   $\frac{Y_t}{\bar{Y}_t} = \frac{C_t}{\bar{Y}_t}+\frac{I_t}{\bar{Y}_t}+\frac{G_t}{\bar{Y}_t}+\frac{EM_t}{\bar{Y}_t}-\frac{IM_t}{\bar{Y}_t}$
+
+-   $\frac{Y_t}{\bar{Y}_t} = \bar{a}_c + \bar{a}_i -\bar{b}(R_t-\bar{r}) + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im}$
+
+-   Remember: $\tilde{Y}_t \equiv \frac{Y_t-\bar{Y}_t}{\bar{Y}_t} = \frac{Y_t}{\bar{Y}_t}-1$
+
+-   $\underbrace{\frac{Y_t}{\bar{Y}_t}-1}_{\tilde{Y}_t} = \underbrace{\bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im}-1}_{\bar{a}} -\bar{b}(R_t-\bar{r})$
+:::
+:::
+
+## Why is it called the IS Curve?
+
+::: {style="font-size: 30px; text-align: center"}
+$Y = C + I + G + EX - IM$
+:::
+
+::: incremental
+-   IS stands for *investment equals savings.*
+
+-   Rearrange national identity equation: $Y - C -G + (IM - EX) = I$
+
+-   Subtract tax revenues $\underbrace{(Y - T - C)}_{private\:savings} + \underbrace{(T - G)}_{gov't\:savings} + \underbrace{(IM - EX)}_{foreign\:savings} = I$
+:::
+
+## Using the IS Curve
+
+::: columns
+::: {.column width="40%" style="font-size: 30px"}
+$$
+\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})
+$$
+
+![](images/figure_11_3.png){fig-align="center"}
+:::
+
+::: {.column width="60%" style="font-size: 30px;"}
+-   Curve is drawn with no aggregate demand shocks ($\bar{a}=0$)
+
+-   Point A: Long-run equalibrium $(R_t = \bar{r})$
+
+    -   short-run output is zero
+
+-   Point B: Increase in real rates, $R_t$ , leads to a decrease in output $\tilde{Y}'_t$.
+
+-   Example: $\bar{a} = 0$ , $\bar{b}=2$ , $R=\bar{r}= 5\%$, and $R'=6\%$.
+
+    -   When real interest rate rises 1% short-run output decreases by 2%.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Aggregate Demand
+
+::: {style="font-size: 30px; text-align: center"}
+$\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_11_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   An increase in aggregate demand, $\bar{a}$ , shifts the IS curve out.
+
+-   Example: Covid work from home spurs increase in $\bar{a}_c$ .
+
+-   Note: Shock to potential output leaves the IS Curve unchanged.
+
+    -   Example: Destruction of capital caused by an earthquake effects long-run output, $\bar{Y}_t$ , but does not enter the short-run equation, $\tilde{Y}_t$.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## IS Curve Scenarios
+
+::: incremental
+-   A large recession hits Europe or Japan and foreigners reduce demand for US goods
+
+-   The federal reserve lowers the real interest rate below the marginal product of capital
+
+-   Consumers become pessimistic about the state of the economy and future productivity growth
+
+-   Improvements in technology increase productivity leading to an increase in $\bar{r}$
 :::
