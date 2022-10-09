@@ -61,7 +61,7 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ## The IS Curve
 
-::: {style="font-size: 25px; text-align: center; background-color: #D3D3D3"}
+::: {style="font-size: 30px; text-align: center; background-color: #D3D3D3"}
 $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
 :::
 
@@ -70,11 +70,69 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 ![](images/figure_11_1.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 25px"}
+::: {.column .incremental width="60%" style="font-size: 30px"}
 -   Central bank sets interest rate (Fed funds rate)
+
+-   
 :::
 :::
 
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Economy of a Country
+
+::: {style="font-size: 30px; text-align: center"}
+$Y_t=C_t+I_t+G_t+EX_t-IM_t$
+
+ 
+
+$\underbrace{Y_t+IM_t}_{resources\:available}=\underbrace{C_t+I_t+G_t+EX_t}_{total\:uses}$
+:::
+
+::: columns
+::: {.column .incremental width="50%" style="font-size: 30px;; text-align: center"}
+
+Consumption
+
+:   $C_t=\bar{a}_c\bar{Y}_t$
+
+Government
+
+:   $G_t=\bar{a}_g\bar{Y}_t$
+
+Exports
+
+:   $EX_t=\bar{a}_{ex}\bar{Y}_t$
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+
+Imports
+
+:   $IM_t=\bar{a}_{im}\bar{Y}_t$
+
+Investment
+
+:   $\frac{I_t}{\bar{Y_t}} = \bar{a} - \bar{b}(R_t-\bar{r})$
+:::
+:::
+
+## Consumption
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_11_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   Permanent-Income (PI) hypothesis: consumption is based on avg income over time
+
+-   Life-cycle (LC) model of consumption
+
+-   LC/PI $\implies$ set consumption equal to potential output not actual output
+
+    -   $C_t=\bar{a}_C\bar{Y_t}$
+:::
 :::
