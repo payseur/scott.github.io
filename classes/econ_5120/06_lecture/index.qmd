@@ -19,9 +19,9 @@ params:
 ## Introduction
 
 ::: incremental
--   High frequency data
+-   [Assignment 1](../hw/01_homework)
 
--   Assignment 1
+-   High frequency data
 
 -   GFC A First Look
 
@@ -53,15 +53,37 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ```
 
-## High Freq: PMI Manufacturing
+## High Freq: Employment Situtation
 
-[Link](https://www.ismworld.org/globalassets/pub/research-and-surveys/rob/pmi/rob202210pmi.pdf)
+[Link](https://www.bls.gov/news.release/empsit.nr0.htm) \| [Link](https://www.bls.gov/news.release/empsit.a.htm)
 
-![](images/rstudio.png){fig-align="center"}
+![](images/emp.png){fig-align="center"}
+
+## Equity and Bond Volatility
+
+![](images/vixmove.png){fig-align="center"}
+
+## High Freq: US Equity Market
+
+[Link](images/bbc.pdf)
+
+![](images/bbc.png){fig-align="center"}
+
+## High Freq: US 60/40
+
+![](images/6040.png){fig-align="center"}
 
 ## Chapter 10: The Great Recession
 
-wrfsa
+::: {.incremental style="font-size: 30px;"}
+-   Mortgage Backed Securities, incentive structure, sub-prime
+
+-   Rising interest rates + leverage + poor risk management
+
+-   Deleveraging in all asset classes
+
+-   Banks needed bailing out because their balance sheets had more liabilities than assets
+:::
 
 ## Sub-Prime Housing
 
@@ -71,10 +93,20 @@ wrfsa
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
+-   New economy and low interest rates fueled asset bubbles
 
--   
+-   Securitization (CDOs) of mortgages created a perverse incentive structure
+
+-   Global savings glut across the world
+
+-   Sub-prime: lending to people with poor credit records or high debt-to-income ratios
+
+-   Teaser rates, interest only, balloon payments, floating rate
 :::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Rise in Interest Rate
@@ -85,10 +117,16 @@ wrfsa
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
+-   Fed started raising interest rates from a low of 1% to 5%.
 
--   
+-   Exotic mortgage holders faced large movements in their monthly payments
+
+-   High debt-to-income borrowers were insolvent / bankrupt
 :::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Liquidity Risk: Inter-bank Lending
@@ -99,10 +137,22 @@ wrfsa
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
+-   Remarkably most CDOs were held by financial institutions at high leverage
 
--   
+-   Ratings agencies had rated MBS higher than they should: AAA, AA, etc
+
+-   Financial institutions where marking down assets daily - nobody knew who owned what.
+
+-   Banks need to keep reserves - the amount changes daily
+
+-   Loan at LIBOR rate (now SOFR)
+
+-   CDS - ING
 :::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Liquidity: Equity Markets
@@ -113,24 +163,20 @@ wrfsa
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
+-   A deleveraging event started.
 
--   
+    -   Bigger house payments less to invest
+
+    -   Banks started selling equity shares
+
+-   No demand for equities a lot of supply
+
+    -   Created a fire sale for all asset classes
 :::
 :::
 
-## Oil Shock
-
-::: columns
-::: {.column width="50%"}
-![](images/figure_10_5.png){fig-align="center"}
-:::
-
-::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
-
--   
-:::
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Employment
@@ -141,10 +187,16 @@ wrfsa
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
+-   The vicious cycle started to take place
 
--   
+-   Non-farm employment peaked at 138m in 2007
+
+-   By 2010 nearly 8.5 jobs had been lost
 :::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Short-Run Output
@@ -155,10 +207,14 @@ wrfsa
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
-
--   
+-   Short-run output fell more than 7 percent below potential output.
+-   Took nearly 10 years to reach potential output.
+-   "Lost Decade"
 :::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## U.S. Unemployment Duration
@@ -169,10 +225,14 @@ wrfsa
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
+-   Unemployment went from 4.4% to 10% at the end of 2009
 
--   
+-   Six years to get back to 4% (duration)
 :::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Great Recession
@@ -187,60 +247,72 @@ wrfsa
 :::
 :::
 
-## Employment Loss Comparision
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
-::: columns
-::: {.column width="50%"}
+## Employment Loss Comparison
+
 ![](images/figure_10_9.png){fig-align="center"}
-:::
 
-::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
-
--   
-:::
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Deflation
 
-::: columns
-::: {.column width="50%"}
 ![](images/figure_10_10.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
-
--   
-:::
-:::
-
-## Other Financial Crises
+## The Rest of the World
 
 ::: columns
 ::: {.column width="50%"}
-![](images/figure_10_1.png){fig-align="center"}
+![](images/table_10_3.png){fig-align="center"}
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
-
--   
+![](images/figure_10_11.png){fig-align="center"}
 :::
 :::
 
-## Sub-Prime Housing
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Balance Sheets
 
 ::: columns
 ::: {.column width="50%"}
-![](images/figure_10_1.png){fig-align="center"}
+![](images/table_10_4.png){fig-align="center"}
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px;"}
--   HI
+-   Assets / Liabilities
 
--   
+-   Reserve Requirement (10%)
+
+-   Equity / Net Worth / Capital
+
+    -   Total Assets - Total Liabilities
+
+-   Capital Requirement (10%)
+
+    -   Capital / Assets if \< 0 insolvent
+
+-   Leverage
+
+    -   Leverage Ratio: 1800/200 = 9
+
+    -   Bear Stearns had a leverage ratio of 35!
 :::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ## Chapter 11: The IS Curve
@@ -378,7 +450,7 @@ $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
 
     -   In the short-run: new capital takes time.
 
--   In the long-run $R_t=\bar{r}$ and the investment share of potential output, \$\\bar{Y}*t\$, is* $\bar{a}_i$.
+-   In the long-run $R_t=\bar{r}$ and the investment share of potential output, $\bar{Y}*t$, is* $\bar{a}_i$.
 :::
 
 ## Deriving the IS Curve
