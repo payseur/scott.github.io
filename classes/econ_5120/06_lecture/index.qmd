@@ -59,7 +59,191 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ![](images/rstudio.png){fig-align="center"}
 
-## The IS Curve
+## Chapter 10: The Great Recession
+
+wrfsa
+
+## Sub-Prime Housing
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Rise in Interest Rate
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Liquidity Risk: Inter-bank Lending
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Liquidity: Equity Markets
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Oil Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Employment
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Short-Run Output
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## U.S. Unemployment Duration
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Great Recession
+
+::: columns
+::: {.column width="50%"}
+![](images/table_10_1.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](images/table_10_2.png){fig-align="center"}
+:::
+:::
+
+## Employment Loss Comparision
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Deflation
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_10.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Other Financial Crises
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Sub-Prime Housing
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_10_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+-   HI
+
+-   
+:::
+:::
+
+## Chapter 11: The IS Curve
 
 ::: {style="font-size: 30px; text-align: center"}
 $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
@@ -299,4 +483,172 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 -   Consumers become pessimistic about the state of the economy and future productivity growth
 
 -   Improvements in technology increase productivity leading to an increase in $\bar{r}$
+:::
+
+## Multiplier Effects
+
+::: {style="font-size: 30px"}
+Suppose we modify our consumption equation, with $\bar{x} \in [0,1]$:
+
+$$
+\frac{C_t}{\bar{Y}t}=\bar{a}_c+\bar{x}\tilde{Y}_t
+$$ Derive IS Curve:
+
+$$ 
+\tilde{Y} = \underbrace{\frac{1}{1-\bar{x}}}_{multiplier} \times \underbrace{\left(\bar{a}-\bar{b}(R_t-\bar{r})\right)}_{original\:IS\:Curve}
+$$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   IS Curve can involve feedback loop which can be either [vicious]{.underline} or [virtuous.]{.underline}
+
+    -   A shock to the economy can multiply and create larger effects
+
+-   Doesn't change overall form of IS Curve, but coefficients larger/smaller
+:::
+
+## Investment Decisions
+
+::: {style="text-align: center;font-size: 30px"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   Firms invest based on the difference between the real interest rate and marginal product of capital
+
+-   Complications in calculating MPC
+
+    -   Corporate income taxes
+
+    -   Investment tax credits
+
+    -   Depreciation allowances
+
+-   Further complication is the political volatility around all of the above every two to four years
+:::
+
+## Investment Decisions
+
+::: {style="text-align: center;font-size: 30px"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   A firm's cash flow: amount of money has on hand after paying expenses.
+
+-   Firms with higher cash flow have lower financing costs.
+
+-   Agency problems: Adverse selection and moral hazard make lenders more careful
+
+-   Cash flow considerations are another justification for [multiplier effects]{.underline}.
+:::
+
+## Government
+
+::: {.incremental style="font-size: 30px"}
+-   Government on average accounts for about 20% of GDP
+
+    -   Infrastructure
+
+    -   Military
+
+    -   Education
+
+    -   FBI
+
+    -   FEMA
+
+    -   etc
+:::
+
+## Government Response to Shocks
+
+::: {.incremental style="font-size: 30px"}
+-   Fiscal response to shocks can occur in order to restore demand and services back to potential output.
+
+    -   Build more highways
+
+    -   Hire more government staff
+
+-   These responses increase $\bar{a}_g$ and can prevent a shock induced recession.
+
+-   They can also use transfer payments to stabilize the economy.
+
+    -   Automatic stabilizers: unemployment insurance, increased spending on medicare.
+:::
+
+## Government Examples
+
+::: {.incremental style="font-size: 33px"}
+-   American Recovery and Reinvestment Act of 2009
+
+    -   \$797 fiscal stimulus bill
+
+    -   Spending on highways, education, research and development, plus grants to state governments
+
+-   President Kennedy established an investment tax credit in 1961
+
+    -   Offset taxes corporations paid for every dollar they invest
+
+-   Economic Growth and Tax Relief Reconciliation Act of 2001
+
+    -   Cut personal income tax rates by several percentage points
+:::
+
+## Fiscal Policy Considerations
+
+::: {.incremental style="font-size: 33px"}
+-   Fiscal policy timing
+
+    -   Legislation must be drafted, passed and approved by President
+
+    -   By the time the policy is in place, the economy is farther down the road
+
+-   Government faces budget constraints
+
+    -   Higher spending today leads must be paid for
+
+    -   $\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}$
+:::
+
+## Effects of Fiscal Policy
+
+::: {.incremental style="font-size: 33px"}
+-   An increase in government purchases financed by an increase in taxes - increases the IS Curve modestly in the short-run.
+
+-   An increase financed by an unspecified change in taxes and/or spending at a future date increases the IS Curve \$.50 for each \$1 in spending.
+
+-   These effects are larger in a recession because a large fraction of the economy is underutilized (\~\$.60).
+:::
+
+## Trade Balance
+
+::: {style="font-size: 30px; text-align: center"}
+$\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+:::
+
+::: incremental
+-   An increase in exports stimulates the US economy by shifting out the IS Curve
+
+-   Americans divert their demand away from US goods and towards foreign goods the IS curve shifts in.
+
+-   More on this is covered in future chapters.
+:::
+
+## Conclusions
+
+::: {style="font-size: 30px; text-align: center"}
+$\tilde{Y} = \bar{a}-\bar{b}(R_t-\bar{r})$
+
+ 
+
+$\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+:::
+
+::: {.incremental style="font-size: 35px;"}
+-   Real interest rate has an inverse relationship with short-run output.
+
+-   Multiplier effect increases the initial shock to $\bar{a}$ .
+
+-   Fiscal policy has the power to shift the IS curve, but is not always timely.
 :::
