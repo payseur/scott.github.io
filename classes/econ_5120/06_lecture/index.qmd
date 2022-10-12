@@ -308,6 +308,8 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
     -   Leverage Ratio: 1800/200 = 9
 
     -   Bear Stearns had a leverage ratio of 35!
+
+-   Explore: [GS](https://finance.yahoo.com/quote/GS/balance-sheet?p=GS)
 :::
 :::
 
@@ -329,7 +331,9 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 ::: {.column .incremental width="60%" style="font-size: 30px"}
 -   Central bank sets interest rate (Fed funds rate)
 
--   
+-   This acts as a lever to control short-run output
+
+    -   Note: zero bound
 :::
 :::
 
@@ -387,7 +391,7 @@ Investment
 
 -   Life-cycle (LC) model of consumption
 
--   LC/PI $\implies$ set consumption equal to potential output not actual output
+-   LC/PI $\implies$ set consumption equal to a share of potential output not actual output
 
     -   $C_t=\bar{a}_c\bar{Y_t}$
 
@@ -422,7 +426,7 @@ $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
 ::: {.incremental style="font-size: 30px"}
 -   If MPC is low relative to real interest rate then firms are better off saving retained earnings
 
-    -   For instance, investing in treasury bonds
+    -   For instance, buying treasury bonds
 
 -   If MPC is high relative to real interest rate then borrow and invest into capital leading to higher investment
 
@@ -450,7 +454,7 @@ $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
 
     -   In the short-run: new capital takes time.
 
--   In the long-run $R_t=\bar{r}$ and the investment share of potential output, $\bar{Y}*t$, is* $\bar{a}_i$.
+-   In the long-run $R_t=\bar{r}$ and the investment share of potential output, $\bar{Y}^*_t$, is $\bar{a}_i$.
 :::
 
 ## Deriving the IS Curve
@@ -500,7 +504,7 @@ $$
 ![](images/figure_11_3.png){fig-align="center"}
 :::
 
-::: {.column width="60%" style="font-size: 30px;"}
+::: {.column .incremental width="60%" style="font-size: 30px;"}
 -   Curve is drawn with no aggregate demand shocks ($\bar{a}=0$)
 
 -   Point A: Long-run equalibrium $(R_t = \bar{r})$
@@ -522,7 +526,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 ## Aggregate Demand
 
 ::: {style="font-size: 30px; text-align: center"}
-$\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+$\bar{a} \equiv \bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
 :::
 
 ::: columns
@@ -537,7 +541,7 @@ $\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1
 
 -   Note: Shock to potential output leaves the IS Curve unchanged.
 
-    -   Example: Destruction of capital caused by an earthquake effects long-run output, $\bar{Y}_t$ , but does not enter the short-run equation, $\tilde{Y}_t$.
+    -   Example: Destruction of capital caused by an earthquake effects potential output, $\bar{Y}_t$ , but does not enter the short-run equation, $\tilde{Y}_t$.
 :::
 :::
 
@@ -665,6 +669,8 @@ $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
 -   Economic Growth and Tax Relief Reconciliation Act of 2001
 
     -   Cut personal income tax rates by several percentage points
+
+-   Covid - \[[link](https://www.investopedia.com/government-stimulus-efforts-to-fight-the-covid-19-crisis-4799723#toc-us-fiscal-policy)\]
 :::
 
 ## Fiscal Policy Considerations
@@ -678,7 +684,7 @@ $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
 
 -   Government faces budget constraints
 
-    -   Higher spending today leads must be paid for
+    -   Higher spending today must be paid for later
 
     -   $\underbrace{G}_{uses}=\underbrace{T + \Delta B + \Delta M}_{sources\:of\:funds}$
 :::
@@ -696,7 +702,7 @@ $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
 ## Trade Balance
 
 ::: {style="font-size: 30px; text-align: center"}
-$\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+$\bar{a} \equiv \bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
 :::
 
 ::: incremental
@@ -724,3 +730,13 @@ $\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1
 
 -   Fiscal policy has the power to shift the IS curve, but is not always timely.
 :::
+
+## IS Curve Exploration
+
+-   Data file: [is_data.RDS](is_data.RDS)
+
+-   R Script: [is_script.R](is_script.R)
+
+## Next Week
+
+-   Read Chapter 12
