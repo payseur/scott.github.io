@@ -4,6 +4,9 @@ library(lubridate)
 library(readr)
 library(tidyr)
 
+# clear memory
+rm(list=ls())
+
 #
 # Load data
 #
