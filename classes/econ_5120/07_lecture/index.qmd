@@ -283,6 +283,20 @@ $\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1
 -   Fiscal policy has the power to shift the IS curve, but is not always timely.
 :::
 
+## Ch12: Monetary Policy & Phillips Curve
+
+::: incremental
+-   hi
+:::
+
+## Structure of the Short-Run Model
+
+![](images/figure_12_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Fed Funds Rate
 
 ```{r}
@@ -327,6 +341,126 @@ dat %>%
 Fred Data: [US Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 :::
 
+## MP Curve in the IS-MP
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Raising Rates in the IS-MP Diagram
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Stabilizing the Housing Bubble
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Term Structure
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Term Structure
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/marketwatch_yield_curve.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
 ## Inflation
 
 ```{r}
@@ -334,7 +468,7 @@ Fred Data: [US Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 #| warning: false
 #| fig-width: 10
 #| fig-height: 4.5
-data_file_name <- "fed_funds"
+data_file_name <- "cpi"
 title <- "Consumer Price Idex"
 sub_title <- "(All Urban Consumers - yoy %)"
 
@@ -379,3 +513,21 @@ Fred Data: [US Consumer Price Index](https://fred.stlouisfed.org/series/CPIAUCSL
 ## Next Week
 
 -   Read Chapter 13
+
++---------------------+-----------------------+----------------------+
+| Col1                | Col2                  | Col3                 |
++=====================+=======================+======================+
+|                     | asfsadfsafa           |                      |
+|                     |                       |                      |
+|                     | fasdfsdfas            |                      |
+|                     |                       |                      |
+|                     | f                     |                      |
+|                     |                       |                      |
+|                     | afasfasdfsfasfasdfasf |                      |
++---------------------+-----------------------+----------------------+
+|                     |                       |                      |
++---------------------+-----------------------+----------------------+
+|                     |                       |                      |
++---------------------+-----------------------+----------------------+
+
+: Test
