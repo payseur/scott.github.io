@@ -1,0 +1,381 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Chpt 12: Monetary Policy and the Phillips Curve"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: TRUE
+---
+
+## Introduction
+
+::: incremental
+-   High frequency data
+
+-   IS Curve Review
+
+-   Short-Run Model
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+library(macroTools)
+library(fredr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(purrr)
+library(readr)
+library(tidyr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+
+recs <- getFredRecessionData(fetch_symbol = "USREC", 
+                   data_file_name = "us_recession", 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred) 
+
+```
+
+## High Freq: Employment Situtation
+
+[Link](https://www.bls.gov/news.release/empsit.nr0.htm) \| [Link](https://www.bls.gov/news.release/empsit.a.htm)
+
+![](images/emp.png){fig-align="center"}
+
+## Chapter 11: The IS Curve
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_11_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   Central bank sets interest rate (Fed funds rate)
+
+-   This acts as a lever to control short-run output
+
+    -   Note: zero bound
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Economy of a Country
+
+::: {style="font-size: 30px; text-align: center"}
+$Y_t=C_t+I_t+G_t+EX_t-IM_t$
+
+ 
+
+$\underbrace{Y_t+IM_t}_{resources\:available}=\underbrace{C_t+I_t+G_t+EX_t}_{total\:uses}$
+:::
+
+::: columns
+::: {.column .incremental width="50%" style="font-size: 30px;; text-align: center"}
+
+Consumption
+
+:   $C_t=\bar{a}_c\bar{Y}_t$
+
+Government
+
+:   $G_t=\bar{a}_g\bar{Y}_t$
+
+Exports
+
+:   $EX_t=\bar{a}_{ex}\bar{Y}_t$
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px;"}
+
+Imports
+
+:   $IM_t=\bar{a}_{im}\bar{Y}_t$
+
+Investment
+
+:   $\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+:::
+
+## Investment Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   Long-run fraction of potential output that goes to investment: $\bar{a}_i$
+
+-   $\bar{b}(R_t-\bar{r})$ : Amount of investment depends on the gap between the real interest rate, $R_t$ and the marginal product of capital, $\bar{r}$.
+
+    -   $R_t$ is the rate the firms can borrow
+
+    -   $\bar{r}$ the additional output the firm can produce by investing in an additional unit of capital
+
+    -   Amount that firms invest depends the gap between real interest rate and MPC.
+:::
+
+## Investment Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   If MPC is low relative to real interest rate then firms are better off saving retained earnings
+
+    -   For instance, buying treasury bonds
+
+-   If MPC is high relative to real interest rate then borrow and invest into capital leading to higher investment
+
+-   Example: $R_t$ = 10% and $\bar{r}$=15%
+
+    -   Firm borrows 100 units of capital
+
+    -   Yields an extra 15 units
+
+    -   Pay back 110 and profits 5 units
+:::
+
+## Investment Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{I_t}{\bar{Y_t}} = \bar{a}_i - \bar{b}(R_t-\bar{r})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   The parameter $\bar{b}$ tells us how sensitive investment is to a change in $(R_t-\bar{r})$.
+
+    -   A high value for $\bar{b}$ means that small differences between the interest rate a MPC lead to big changes in investment.
+
+-   In the long-run real interest rate must equal marginal product of capital: $R_t=\bar{r}$.
+
+    -   In the short-run: new capital takes time.
+
+-   In the long-run $R_t=\bar{r}$ and the investment share of potential output, $\bar{Y}^*_t$, is $\bar{a}_i$.
+:::
+
+## Deriving the IS Curve
+
+::: {style="font-size: 30px; text-align: center"}
+$\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})$
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/table_11_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px;"}
+-   $\frac{Y_t}{\bar{Y}_t} = \frac{C_t}{\bar{Y}_t}+\frac{I_t}{\bar{Y}_t}+\frac{G_t}{\bar{Y}_t}+\frac{EM_t}{\bar{Y}_t}-\frac{IM_t}{\bar{Y}_t}$
+
+-   $\frac{Y_t}{\bar{Y}_t} = \bar{a}_c + \bar{a}_i -\bar{b}(R_t-\bar{r}) + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im}$
+
+-   Remember: $\tilde{Y}_t \equiv \frac{Y_t-\bar{Y}_t}{\bar{Y}_t} = \frac{Y_t}{\bar{Y}_t}-1$
+
+-   $\underbrace{\frac{Y_t}{\bar{Y}_t}-1}_{\tilde{Y}_t} = \underbrace{\bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im}-1}_{\bar{a}} -\bar{b}(R_t-\bar{r})$
+:::
+:::
+
+## Using the IS Curve
+
+::: columns
+::: {.column width="40%" style="font-size: 30px"}
+$$
+\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})
+$$
+
+![](images/figure_11_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px;"}
+-   Curve is drawn with no aggregate demand shocks ($\bar{a}=0$)
+
+-   Point A: Long-run equalibrium $(R_t = \bar{r})$
+
+    -   short-run output is zero
+
+-   Point B: Increase in real rates, $R_t$ , leads to a decrease in output $\tilde{Y}'_t$.
+
+-   Example: $\bar{a} = 0$ , $\bar{b}=2$ , $R=\bar{r}= 5\%$, and $R'=6\%$.
+
+    -   When real interest rate rises 1% short-run output decreases by 2%.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Aggregate Demand
+
+::: {style="font-size: 30px; text-align: center"}
+$\bar{a} \equiv \bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_11_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   An increase in aggregate demand, $\bar{a}$ , shifts the IS curve out.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Government Response to Shocks
+
+::: {.incremental style="font-size: 30px"}
+-   Fiscal response to shocks can occur in order to restore demand and services back to potential output.
+
+    -   Build more highways
+
+    -   Hire more government staff
+
+-   These responses increase $\bar{a}_g$ and can prevent a shock induced recession.
+
+-   They can also use transfer payments to stabilize the economy.
+
+    -   Automatic stabilizers: unemployment insurance, increased spending on medicare.
+:::
+
+## Conclusions
+
+::: {style="font-size: 30px; text-align: center"}
+$\tilde{Y} = \bar{a}-\bar{b}(R_t-\bar{r})$
+
+ 
+
+$\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+:::
+
+::: {.incremental style="font-size: 35px;"}
+-   Real interest rate has an inverse relationship with short-run output.
+
+-   Multiplier effect increases the initial shock to $\bar{a}$ .
+
+-   Fiscal policy has the power to shift the IS curve, but is not always timely.
+:::
+
+## Fed Funds Rate
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "fed_funds"
+title <- "Federal Funds Rate"
+sub_title <- "(percentage yield)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "FEDFUNDS", "U.S. Fed Funds"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="m", observation_start=ymd(19550101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="none") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [US Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
+:::
+
+## Inflation
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "fed_funds"
+title <- "Consumer Price Idex"
+sub_title <- "(All Urban Consumers - yoy %)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CPIAUCSL", "CPI ALL"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, 
+                fredr, 
+                frequency="m", 
+                observation_start=ymd(19550101), 
+                units = "pc1"
+                ) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="none") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+::: footer
+Fred Data: [US Consumer Price Index](https://fred.stlouisfed.org/series/CPIAUCSL)
+:::
+
+## Next Week
+
+-   Read Chapter 13
