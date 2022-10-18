@@ -21,9 +21,13 @@ params:
 ::: incremental
 -   High frequency data
 
--   IS Curve Review
-
 -   Short-Run Model
+
+    -   IS Curve Review
+
+    -   MP Curve
+
+    -   Phillips Curve
 :::
 
 ```{r}
@@ -57,7 +61,15 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ![](images/emp.png){fig-align="center"}
 
-## Chapter 11: The IS Curve
+## Structure of the Short-Run Model
+
+![](images/figure_12_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## The IS Curve
 
 ::: {style="font-size: 30px; text-align: center"}
 $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
@@ -249,7 +261,7 @@ $\bar{a} \equiv \bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} 
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Government Response to Shocks
+## Fiscal Response to Shocks
 
 ::: {.incremental style="font-size: 30px"}
 -   Fiscal response to shocks can occur in order to restore demand and services back to potential output.
@@ -265,7 +277,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
     -   Automatic stabilizers: unemployment insurance, increased spending on medicare.
 :::
 
-## Conclusions
+## IS Conclusions
 
 ::: {style="font-size: 30px; text-align: center"}
 $\tilde{Y} = \bar{a}-\bar{b}(R_t-\bar{r})$
@@ -283,18 +295,54 @@ $\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1
 -   Fiscal policy has the power to shift the IS curve, but is not always timely.
 :::
 
-## Ch12: Monetary Policy & Phillips Curve
-
-::: incremental
--   hi
-:::
-
 ## Structure of the Short-Run Model
 
 ![](images/figure_12_1.png){fig-align="center"}
 
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Chapter 12: Monetary Policy Curve
+
+::: {.incremental style="font-size: 30px"}
+-   IS curve describes how real interest rate, $R_t$, determines output
+    -   Exogenous thus far - policy makers choose $R_t$.
+-   Monetary Policy (MP) Curve - describes how the central bank (CB) sets the nominal interest rate, $i_t$.
+    -   Assumed: Nominal and Real interest rates move closely in the short-run.
+-   Main CB policy instrument the fed funds rate.
+:::
+
+## Fed Reserve Conventional MP
+
+::: {.incremental style="font-size: 32px"}
+-   Fed Funds Rate - interest rate paid from one bank to another for overnight loans.
+
+-   Reserve Requirements - bank is required to hold a fraction of their deposits in reserve with the central bank itself.
+
+    -   Historically - paid no interest so banks try to hold as little as possible.
+
+    -   Fed Funds Rate is the interest rate charged on reserve loans from other banks.
+
+-   Discount Rate - interest rate charged bye the Fed on loans to commercial banks as the **lender of last resort**.
+
+    -   Banks try to avoid using **discount window** - viewed as a signal of financial stress.
+:::
+
+## Fed Funds Rate
+
+::: {.incremental style="font-size: 32px"}
+-   Key instrument of monetary policy - **short-run nominal** interest rate, Fed Funds Rate.
+
+-   The **IS curve** is a function of **short-run real** rates.
+
+-   Fisher equation: $R_t=i_t-\pi_t$.
+
+-   Assumption: short-run model inflation has inertia, so that it adjusts slowly overtime.
+
+    -   Sticky inflation assumption $\implies$ change in nominal rate leads to a change in real rate.
+
+    -   Central banks control the real rate in the short-run.
 :::
 
 ## Fed Funds Rate
@@ -341,23 +389,37 @@ dat %>%
 Fred Data: [US Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 :::
 
-## MP Curve in the IS-MP
+## 
 
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+## Fisher Model Expectations
+
+::: {.incremental style="font-size: 32px"}
+A more sophisticated Fisher model includes **expected** inflation.
+
+Ex Ante ("from before"):
+
+:   $R_t^{\:ex\:ante}=i - \pi_t^e$ Subtract **expected** inflation from the nominal interest rate. Investors used expected inflation when deciding which investments to undertake.
+
+Ex Post ("from after"):
+
+:   $R_t^{\:ex\:post}=i - \pi_t$ Subtract **observed** inflation from the nominal interest rate.
+
+-   In the short-run the distinction is not crucial and will be ignored in this chapter.
 :::
 
+## MP Curve in the IS-MP
+
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_3.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   The monetary policy (MP) curve is a horizontal line at the CB's chosen interest rate.
 
--   asdfasdfasdfasdfasdf fsadfasd
+    -   Again, real = nominal given our assumptions.
 
-    -   asdfasf f
+-   If $R_t = \bar{r}$ then the marginal product of capital is equal to the real interest rate and short-run output is zero.
 :::
 :::
 
@@ -367,21 +429,21 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Raising Rates in the IS-MP Diagram
 
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
-
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_4.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   If the CB raises the interest rate:
 
--   asdfasdfasdfasdfasdf fsadfasd
+    -   Inflation is sticky so $R_t\approx i_t$
 
-    -   asdfasf f
+    -   Real interest rate is above the MPC
+
+    -   Firms and households cut back on their investments and output declines.
+
+    -   CB can cause a recession.
 :::
 :::
 
@@ -389,23 +451,25 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Stabilizing the Housing Bubble
-
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
+## End of the Housing Bubble
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_5.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Policymakers suspect the housing bubble has burst.
 
--   asdfasdfasdfasdfasdf fsadfasd
+    -   Will lead to an aggregate demand, $\bar{a}$, **shift** in the IS Curve.
 
-    -   asdfasf f
+    -   This leads negative short-run output.
+
+-   Policymakers step in and adjust the MP curve, decreasing real rates.
+
+    -   Leads to a **movement along** the IS curve back to zero short-run output.
+
+    -   Note: difficult in practice, takes 6 to 18 months.
 :::
 :::
 
@@ -415,21 +479,21 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Term Structure
 
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
-
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_6.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   There are multiple tenors of interest rates:
 
--   asdfasdfasdfasdfasdf fsadfasd
+    -   Fed funds, 3 month bills, 6 month, 1 year, 5 year, 10 year, ..., 30 year treasuries
 
-    -   asdfasf f
+-   Suppose you have money you would like to save for the next five years.
+
+    -   Buy a 5-year bond or buy a 1-year bond and roll it every year.
+
+    -   They should have a similar yield, in a sense a 5-year bond is the average return on a series of 1-year bonds.
 :::
 :::
 
@@ -439,13 +503,106 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Term Structure
 
+::: columns
+::: {.column width="50%"}
+![](images/marketwatch_yield_curve.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   If financial markets expect short-term rates to rise over the next 5 years:
+
+    -   The 5-year must pay a higher yield than the 1-year.
+
+-   When the Fed Funds rate changes why do other tenors change?
+
+    -   Change in overnight rate persists for some time.
+    -   Change in rates today often signal a further change as policy becomes tighter or more accommodative.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Structure of the Short-Run Model
+
+![](images/figure_12_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Chapter 12: Phillips Curve
+
+::: incremental
+-   CEO of a large corporation that makes plastic goods.
+-   The past three years there was a 5% inflation rate
+-   This year the buyers are claiming the economy is weakening
+-   Normally raise prices the same as last year, this year raise them only 3% as you expect inflation only to rise that much.
+:::
+
+## Phillips Curve
+
+::: {style="font-size: 35px;"}
+$$
+\pi_t = \underbrace{\pi_t^e}_{expected\:inflation} + \underbrace{\bar{v}\tilde{Y}_t}_{demand\:conditions}
+$$
+
+In our example, $\pi^e_t$ = 3%, but for modeling we assume **adaptive expectations**:
+
+$$
+\pi_t^e=\pi_{t-1}
+$$
+
+Combine with above equation:
+
+$$
+\pi_t = \underbrace{\pi_{t-1}}_{expected\:inflation\:adap\:exp} + \underbrace{\bar{v}\tilde{Y}_t}_{demand\:conditions}
+$$
+:::
+
+## Phillips Curve
+
+::: {style="font-size: 30px; text-align: center"}
+$$
+\Delta \pi_t = \bar{v}\tilde{Y}_t
+$$
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_12_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   When the economy booms inflation rises
+
+-   When the economy contracts inflation decreases
+
+-   The sensitivity parameter, $\bar{v}$ , governs the slope of the curve.
+
+    -   A high value means price setting behavior is very sensitive to the state of the economy.
+
+    -   Low means large recession to lower inflation.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Phillips Curve Shift
+
 ::: {style="font-size: 30px; text-align: center"}
 $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
 :::
 
 ::: columns
 ::: {.column width="40%"}
-![](images/marketwatch_yield_curve.png){fig-align="center"}
+![](images/figure_12_8.png){fig-align="center"}
 :::
 
 ::: {.column .incremental width="60%" style="font-size: 30px"}
@@ -510,24 +667,241 @@ dat %>%
 Fred Data: [US Consumer Price Index](https://fred.stlouisfed.org/series/CPIAUCSL)
 :::
 
+::: footer
+:::
+
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_10.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_11.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_12.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Great Inflation of the 1970s
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_13.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## 2001 Recession
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_14.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Controlling Nominal Rates
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_15.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Controlling Nominal Rates
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_15.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Controlling Nominal Rates
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_16.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## 
+
+## Controlling Nominal Rates
+
+::: {style="font-size: 30px; text-align: center"}
+$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_17.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   asdfa asfd asd fa sdf asdf asf asf as f
+
+-   asdfasdfasdfasdfasdf fsadfasd
+
+    -   asdfasf f
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## 
+
 ## Next Week
 
 -   Read Chapter 13
-
-+---------------------+-----------------------+----------------------+
-| Col1                | Col2                  | Col3                 |
-+=====================+=======================+======================+
-|                     | asfsadfsafa           |                      |
-|                     |                       |                      |
-|                     | fasdfsdfas            |                      |
-|                     |                       |                      |
-|                     | f                     |                      |
-|                     |                       |                      |
-|                     | afasfasdfsfasfasdfasf |                      |
-+---------------------+-----------------------+----------------------+
-|                     |                       |                      |
-+---------------------+-----------------------+----------------------+
-|                     |                       |                      |
-+---------------------+-----------------------+----------------------+
-
-: Test
