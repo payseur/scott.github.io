@@ -342,11 +342,28 @@
 
 </div>
 </section>
-<section id="high-freq-employment-situtation" class="slide level2">
-<h2>High Freq: Employment Situtation</h2>
-<p><a href="https://www.bls.gov/news.release/empsit.nr0.htm">Link</a> | <a href="https://www.bls.gov/news.release/empsit.a.htm">Link</a></p>
+<section id="cpi" class="slide level2">
+<h2>CPI</h2>
+<p><a href="https://www.bls.gov/news.release/cpi.nr0.htm">Link</a></p>
 
-<img data-src="images/emp.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/CPI.png" class="r-stretch quarto-figure-center"></section>
+<section id="new-residential-construction" class="slide level2">
+<h2>New Residential Construction</h2>
+<p><a href="https://www.census.gov/economic-indicators/">Link</a></p>
+
+<img data-src="images/housing.png" class="r-stretch quarto-figure-center"></section>
+<section id="b-of-a-survey---risks" class="slide level2">
+<h2>B of A Survey - Risks</h2>
+
+<img data-src="images/bofarisks.png" class="r-stretch quarto-figure-center"></section>
+<section id="b-of-a-survey---fed-policy-change" class="slide level2">
+<h2>B of A Survey - Fed Policy Change</h2>
+
+<img data-src="images/bofapivot.png" class="r-stretch quarto-figure-center"></section>
+<section id="b-of-a-survey---fed-funds-peak" class="slide level2">
+<h2>B of A Survey - Fed Funds Peak</h2>
+
+<img data-src="images/bofapeak.png" class="r-stretch quarto-figure-center"></section>
 <section id="structure-of-the-short-run-model" class="slide level2">
 <h2>Structure of the Short-Run Model</h2>
 
@@ -865,10 +882,12 @@
 <section id="phillips-curve-shift" class="slide level2">
 <h2>Phillips Curve Shift</h2>
 <div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
+<p><span class="math display">\[
+\Delta \pi_t = \bar{v}\tilde{Y}_t + \bar{o}
+\]</span></p>
 </div>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/figure_12_8.png"></p>
@@ -876,11 +895,11 @@
 </div>
 </div><div class="column" style="font-size: 30px">
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
-<ul>
-<li class="fragment">asdfasf f</li>
-</ul></li>
+<li class="fragment"><p>Price shocks, most notably oil, are common inflation drivers.</p></li>
+<li class="fragment"><p>Cause a temporary shift of the Phillips Curve (PC) by <span class="math inline">\(\bar{o}\)</span>.</p></li>
+<li class="fragment"><p>Direct and indirect effect.</p></li>
+<li class="fragment"><p>Price shocks know as <strong>cost-push</strong> inflation. (change to <span class="math inline">\(\bar{o}\)</span>)</p></li>
+<li class="fragment"><p>Change to <span class="math inline">\(\bar{v}\tilde{Y}_t\)</span> is <strong>demand-pull</strong> inflation.</p></li>
 </ul>
 </div>
 </div>
@@ -888,23 +907,55 @@
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
-<section id="inflation" class="slide level2">
-<h2>Inflation</h2>
-
-<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CPIAUCSL">US Consumer Price Index</a></p>
-</div>
-<div class="footer">
-
-</div>
+<section id="phillips-curve-vs-quantity-theory" class="slide level2">
+<h2>Phillips Curve vs Quantity Theory</h2>
+<p>Quantity Theory (long-run) - increase in real GDP decreases the price of goods (goods growing faster than money).</p>
+<p><span class="math display">\[
+P^*_t=\frac{\bar{M}_t\bar{V}}{\bar{Y}_t}
+\]</span></p>
+<p>Phillips Curve (short-run) - increase in short-run output leads to inflation (reflects an increase in demand for goods).</p>
+<p><span class="math display">\[
+\Delta \pi_t = \bar{v}\tilde{Y}_t + \bar{o}
+\]</span></p>
 </section>
 <section id="volker-disinflation" class="slide level2">
 <h2>Volker Disinflation</h2>
 <div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
+<p>MP: <span class="math inline">\(\uparrow i_t \implies \uparrow R_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS: <span class="math inline">\(\uparrow R_t \implies \downarrow\tilde{Y}_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PC: <span class="math inline">\(\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t\)</span></p>
 </div>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>Paul Volker appointed to chair of the Fed Reserve Board of Governors in 1979.</p>
+<ul>
+<li class="fragment"><p>Inflation exceeded 10%</p>
+<ul>
+<li class="fragment"><p>Loose monetary policy</p></li>
+<li class="fragment"><p>Oil shocks 1974 and 1979</p></li>
+</ul></li>
+</ul></li>
+<li class="fragment"><p>Long-run: tight monetary policy? Sticky inflation in the short-run (<span class="math inline">\(i_t=R_t\)</span>).</p></li>
+<li class="fragment"><p>Instead Volker uses the short-run model.</p></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CPIAUCSL">US Consumer Price Index</a></p>
+</div>
+</section>
+<section id="volker-disinflation-1" class="slide level2">
+<h2>Volker Disinflation</h2>
+<div style="font-size: 30px; text-align: center">
+<p>MP: <span class="math inline">\(\uparrow i_t \implies \uparrow R_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS: <span class="math inline">\(\uparrow R_t \implies \downarrow\tilde{Y}_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PC: <span class="math inline">\(\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t\)</span></p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/figure_12_10.png"></p>
@@ -912,10 +963,11 @@
 </div>
 </div><div class="column" style="font-size: 30px">
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
+<li class="fragment"><p>Tightening monetary policy = setting <span class="math inline">\(i_t\)</span> and <span class="math inline">\(R_t\)</span> above MPC.</p></li>
+<li class="fragment"><p>Faced with a real interest rate that is higher than the MPC firms and households put their investment plans on hold.</p></li>
+<li class="fragment"><p>This leads to a drop in short-run output.</p>
 <ul>
-<li class="fragment">asdfasf f</li>
+<li class="fragment">2% in the example</li>
 </ul></li>
 </ul>
 </div>
@@ -923,14 +975,11 @@
 <div class="footer">
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
-<div class="footer">
-
-</div>
 </section>
-<section id="volker-disinflation-1" class="slide level2">
+<section id="volker-disinflation-2" class="slide level2">
 <h2>Volker Disinflation</h2>
 <div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
+<p>MP: <span class="math inline">\(\uparrow i_t \implies \uparrow R_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS: <span class="math inline">\(\uparrow R_t \implies \downarrow\tilde{Y}_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PC: <span class="math inline">\(\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t\)</span></p>
 </div>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -941,25 +990,20 @@
 </div>
 </div><div class="column" style="font-size: 30px">
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
-<ul>
-<li class="fragment">asdfasf f</li>
-</ul></li>
+<li class="fragment"><p>Using the PC: a drop in short-run output, <span class="math inline">\(\tilde{Y}_t\)</span> , leads to a drop in inflation.</p></li>
+<li class="fragment"><p>Firms see demand for their products fall - raise prices less aggressively.</p></li>
+<li class="fragment"><p>Inflation falls.</p></li>
 </ul>
 </div>
 </div>
 <div class="footer">
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
-<div class="footer">
-
-</div>
 </section>
-<section id="volker-disinflation-2" class="slide level2">
+<section id="volker-disinflation-3" class="slide level2">
 <h2>Volker Disinflation</h2>
 <div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
+<p>MP: <span class="math inline">\(\uparrow i_t \implies \uparrow R_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS: <span class="math inline">\(\uparrow R_t \implies \downarrow\tilde{Y}_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PC: <span class="math inline">\(\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t\)</span></p>
 </div>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -970,10 +1014,16 @@
 </div>
 </div><div class="column" style="font-size: 30px">
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
+<li class="fragment"><p>This Volker-style policy can keep real interest rate high.</p></li>
+<li class="fragment"><p>If real a higher interest rate is sustained, then output will remain below potential output.</p></li>
+<li class="fragment"><p>This will eventually lower the inflation rate to desired target.</p>
 <ul>
-<li class="fragment">asdfasf f</li>
+<li class="fragment"><p>At the cost of:</p>
+<ul>
+<li class="fragment"><p>Lost output</p></li>
+<li class="fragment"><p>Asset prices</p></li>
+<li class="fragment"><p>Employment</p></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -981,17 +1031,38 @@
 <div class="footer">
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
+</section>
+<section id="volker-disinflation-4" class="slide level2">
+<h2>Volker Disinflation</h2>
+<div style="font-size: 30px; text-align: center">
+<p>MP: <span class="math inline">\(\uparrow i_t \implies \uparrow R_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS: <span class="math inline">\(\uparrow R_t \implies \downarrow\tilde{Y}_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PC: <span class="math inline">\(\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t\)</span></p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>Paul Volker appointed to chair of the Fed Reserve Board of Governors in 1979.</p>
+<ul>
+<li class="fragment"><p>1981 mortgage rates 20%+</p></li>
+<li class="fragment"><p>1981 prime lending went from 5% to 19%</p></li>
+<li class="fragment"><p>Output fell below potential for years</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
 <div class="footer">
-
+<p>Fred Data: <a href="https://fred.stlouisfed.org/series/CPIAUCSL">US Consumer Price Index</a></p>
 </div>
 </section>
 <section id="great-inflation-of-the-1970s" class="slide level2">
 <h2>Great Inflation of the 1970s</h2>
-<div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
-</div>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/figure_12_13.png"></p>
@@ -999,10 +1070,15 @@
 </div>
 </div><div class="column" style="font-size: 30px">
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
+<li class="fragment"><p>Oil shock - shift in PC by <span class="math inline">\(\bar{o}\)</span> .</p></li>
+<li class="fragment"><p>Overheating of the economy by the Fed.</p>
 <ul>
-<li class="fragment">asdfasf f</li>
+<li class="fragment"><p>A lower rate of <span class="math inline">\(\bar{A}\)</span> led to a productivity slowdown.</p>
+<ul>
+<li class="fragment"><p>This changed potential output (long-run)</p></li>
+<li class="fragment"><p>Fed thought they were looking at a change in short-run output, <span class="math inline">\(\tilde{Y}_t\)</span>, a short-run recession.</p></li>
+<li class="fragment"><p>Fed decreased interest rates which increased inflation.</p></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -1010,28 +1086,24 @@
 <div class="footer">
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
-<div class="footer">
-
-</div>
 </section>
-<section id="recession" class="slide level2">
-<h2>2001 Recession</h2>
-<div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
-</div>
+<section id="nominal-rates---equilibrium" class="slide level2">
+<h2>Nominal Rates - Equilibrium</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/figure_12_14.png"></p>
+<p><img data-src="images/figure_12_15.png"></p>
 </figure>
 </div>
 </div><div class="column" style="font-size: 30px">
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
+<li class="fragment"><p>Nominal interest rate is the <strong>opportunity cost</strong> of holding money.</p></li>
+<li class="fragment"><p>If the nominal interest rate is 1% you less likely to put into savings than if it is 20%.</p>
 <ul>
-<li class="fragment">asdfasf f</li>
+<li class="fragment"><p>Money demand curve (<span class="math inline">\(M^d\)</span>): inverse relationship between money held and nominal interest rate.</p></li>
+<li class="fragment"><p>Money supply curve (<span class="math inline">\(M^s\)</span>): amount supplied by the central bank.</p></li>
+<li class="fragment"><p>Equilibrium nominal rate = <span class="math inline">\(i^*\)</span></p></li>
 </ul></li>
 </ul>
 </div>
@@ -1042,63 +1114,8 @@
 </section>
 <section id="controlling-nominal-rates" class="slide level2">
 <h2>Controlling Nominal Rates</h2>
-<div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
-</div>
 <div class="columns">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/figure_12_15.png"></p>
-</figure>
-</div>
-</div><div class="column" style="font-size: 30px">
-<ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
-<ul>
-<li class="fragment">asdfasf f</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
-</section>
-<section id="controlling-nominal-rates-1" class="slide level2">
-<h2>Controlling Nominal Rates</h2>
-<div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/figure_12_15.png"></p>
-</figure>
-</div>
-</div><div class="column" style="font-size: 30px">
-<ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
-<ul>
-<li class="fragment">asdfasf f</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
-</section>
-<section id="controlling-nominal-rates-2" class="slide level2">
-<h2>Controlling Nominal Rates</h2>
-<div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/figure_12_16.png"></p>
@@ -1106,10 +1123,14 @@
 </div>
 </div><div class="column" style="font-size: 30px">
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
+<li class="fragment"><p>How does the central bank control nominal interest rates?</p>
 <ul>
-<li class="fragment">asdfasf f</li>
+<li class="fragment"><p>Shift <span class="math inline">\(M^s\)</span> through open market operations.</p>
+<ul>
+<li class="fragment"><p>Reduce money supply - sell interest-bearing bonds for currency.</p></li>
+<li class="fragment"><p>Increase money supply - buy interest-bearing bonds for currency.</p></li>
+</ul></li>
+<li class="fragment"><p>In order to find a buyer the interest rate for the particular instrument will be adjusted (bond auctions)</p></li>
 </ul></li>
 </ul>
 </div>
@@ -1118,37 +1139,22 @@
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-</section>
-<section id="controlling-nominal-rates-3" class="slide level2">
-<h2>Controlling Nominal Rates</h2>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
 <div style="font-size: 30px; text-align: center">
-<p><span class="math inline">\(\uparrow (\downarrow)\)</span> interest rate <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> investment <span class="math inline">\(\implies \downarrow (\uparrow)\)</span> short-run output (<span class="math inline">\(\tilde{Y_t}\)</span>)</p>
+<p>MP: <span class="math inline">\(\uparrow i_t \implies \uparrow R_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IS: <span class="math inline">\(\uparrow R_t \implies \downarrow\tilde{Y}_t\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PC: <span class="math inline">\(\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t\)</span></p>
 </div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/figure_12_17.png"></p>
-</figure>
-</div>
-</div><div class="column" style="font-size: 30px">
+<div>
 <ul>
-<li class="fragment"><p>asdfa asfd asd fa sdf asdf asf asf as f</p></li>
-<li class="fragment"><p>asdfasdfasdfasdfasdf fsadfasd</p>
+<li class="fragment"><p>Short-run model - central bank can control short-run output and inflation.</p></li>
+<li class="fragment"><p>Assumptions:</p>
 <ul>
-<li class="fragment">asdfasf f</li>
+<li class="fragment"><p>Sticky inflation (<span class="math inline">\(i_t=R_t\)</span>)</p></li>
+<li class="fragment"><p>Adaptive expectations (<span class="math inline">\(\pi_t^e = \pi_{t-1}\)</span>)</p></li>
 </ul></li>
+<li class="fragment"><p>Conventional measures. (QE, QT, etc to be discussed later)</p></li>
 </ul>
 </div>
-</div>
-<div class="footer">
-<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
-</div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
 </section>
 <section id="next-week" class="slide level2">
 <h2>Next Week</h2>

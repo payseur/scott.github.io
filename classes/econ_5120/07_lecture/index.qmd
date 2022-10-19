@@ -55,11 +55,29 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ```
 
-## High Freq: Employment Situtation
+## CPI
 
-[Link](https://www.bls.gov/news.release/empsit.nr0.htm) \| [Link](https://www.bls.gov/news.release/empsit.a.htm)
+[Link](https://www.bls.gov/news.release/cpi.nr0.htm)
 
-![](images/emp.png){fig-align="center"}
+![](images/CPI.png){fig-align="center"}
+
+## New Residential Construction
+
+[Link](https://www.census.gov/economic-indicators/)
+
+![](images/housing.png){fig-align="center"}
+
+## B of A Survey - Risks
+
+![](images/bofarisks.png){fig-align="center"}
+
+## B of A Survey - Fed Policy Change 
+
+![](images/bofapivot.png){fig-align="center"}
+
+## B of A Survey - Fed Funds Peak
+
+![](images/bofapeak.png){fig-align="center"}
 
 ## Structure of the Short-Run Model
 
@@ -597,20 +615,26 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 ## Phillips Curve Shift
 
 ::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+$$
+\Delta \pi_t = \bar{v}\tilde{Y}_t + \bar{o}
+$$
 :::
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_8.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Price shocks, most notably oil, are common inflation drivers.
 
--   asdfasdfasdfasdfasdf fsadfasd
+-   Cause a temporary shift of the Phillips Curve (PC) by $\bar{o}$.
 
-    -   asdfasf f
+-   Direct and indirect effect.
+
+-   Price shocks know as **cost-push** inflation. (change to $\bar{o}$)
+
+-   Change to $\bar{v}\tilde{Y}_t$ is **demand-pull** inflation.
 :::
 :::
 
@@ -618,13 +642,33 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Inflation
+## Phillips Curve vs Quantity Theory
 
+Quantity Theory (long-run) - increase in real GDP decreases the price of goods (goods growing faster than money).
+
+$$
+P^*_t=\frac{\bar{M}_t\bar{V}}{\bar{Y}_t}
+$$
+
+Phillips Curve (short-run) - increase in short-run output leads to inflation (reflects an increase in demand for goods).
+
+$$
+ \Delta \pi_t = \bar{v}\tilde{Y}_t + \bar{o}
+$$
+
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
+:::
+
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| warning: false
 #| fig-width: 10
-#| fig-height: 4.5
+#| fig-height: 8
 data_file_name <- "cpi"
 title <- "Consumer Price Idex"
 sub_title <- "(All Urban Consumers - yoy %)"
@@ -662,31 +706,46 @@ dat %>%
   scale_y_continuous(labels = scales::percent_format(scale = 1))+
   ggtitle(title, subtitle = sub_title)
 ```
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Paul Volker appointed to chair of the Fed Reserve Board of Governors in 1979.
+
+    -   Inflation exceeded 10%
+
+        -   Loose monetary policy
+
+        -   Oil shocks 1974 and 1979
+
+-   Long-run: tight monetary policy? Sticky inflation in the short-run ($i_t=R_t$).
+
+-   Instead Volker uses the short-run model.
+:::
+:::
 
 ::: footer
 Fred Data: [US Consumer Price Index](https://fred.stlouisfed.org/series/CPIAUCSL)
 :::
 
-::: footer
-:::
-
 ## Volker Disinflation
 
 ::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
 :::
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_10.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Tightening monetary policy = setting $i_t$ and $R_t$ above MPC.
 
--   asdfasdfasdfasdfasdf fsadfasd
+-   Faced with a real interest rate that is higher than the MPC firms and households put their investment plans on hold.
 
-    -   asdfasf f
+-   This leads to a drop in short-run output.
+
+    -   2% in the example
 :::
 :::
 
@@ -694,13 +753,10 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-::: footer
-:::
-
 ## Volker Disinflation
 
 ::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
 :::
 
 ::: columns
@@ -709,11 +765,11 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 :::
 
 ::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+-   Using the PC: a drop in short-run output, $\tilde{Y}_t$ , leads to a drop in inflation.
 
--   asdfasdfasdfasdfasdf fsadfasd
+-   Firms see demand for their products fall - raise prices less aggressively.
 
-    -   asdfasf f
+-   Inflation falls.
 :::
 :::
 
@@ -721,13 +777,10 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-::: footer
-:::
-
 ## Volker Disinflation
 
 ::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
 :::
 
 ::: columns
@@ -736,11 +789,19 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 :::
 
 ::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+-   This Volker-style policy can keep real interest rate high.
 
--   asdfasdfasdfasdfasdf fsadfasd
+-   If real a higher interest rate is sustained, then output will remain below potential output.
 
-    -   asdfasf f
+-   This will eventually lower the inflation rate to desired target.
+
+    -   At the cost of:
+
+        -   Lost output
+
+        -   Asset prices
+
+        -   Employment
 :::
 :::
 
@@ -748,26 +809,92 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
+:::
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 8
+data_file_name <- "cpi"
+title <- "Consumer Price Idex"
+sub_title <- "(All Urban Consumers - yoy %)"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "CPIAUCSL", "CPI ALL"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, 
+                fredr, 
+                frequency="m", 
+                observation_start=ymd(19550101), 
+                units = "pc1"
+                ) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="none") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Paul Volker appointed to chair of the Fed Reserve Board of Governors in 1979.
+
+    -   1981 mortgage rates 20%+
+
+    -   1981 prime lending went from 5% to 19%
+
+    -   Output fell below potential for years
+:::
+:::
+
 ::: footer
+Fred Data: [US Consumer Price Index](https://fred.stlouisfed.org/series/CPIAUCSL)
 :::
 
 ## Great Inflation of the 1970s
 
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
-
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_13.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Oil shock - shift in PC by $\bar{o}$ .
 
--   asdfasdfasdfasdfasdf fsadfasd
+-   Overheating of the economy by the Fed.
 
-    -   asdfasf f
+    -   A lower rate of $\bar{A}$ led to a productivity slowdown.
+
+        -   This changed potential output (long-run)
+
+        -   Fed thought they were looking at a change in short-run output, $\tilde{Y}_t$, a short-run recession.
+
+        -   Fed decreased interest rates which increased inflation.
 :::
 :::
 
@@ -775,50 +902,23 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-::: footer
-:::
-
-## 2001 Recession
-
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
+## Nominal Rates - Equilibrium
 
 ::: columns
-::: {.column width="40%"}
-![](images/figure_12_14.png){fig-align="center"}
-:::
-
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
-
--   asdfasdfasdfasdfasdf fsadfasd
-
-    -   asdfasf f
-:::
-:::
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Controlling Nominal Rates
-
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
-
-::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_15.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Nominal interest rate is the **opportunity cost** of holding money.
 
--   asdfasdfasdfasdfasdf fsadfasd
+-   If the nominal interest rate is 1% you less likely to put into savings than if it is 20%.
 
-    -   asdfasf f
+    -   Money demand curve ($M^d$): inverse relationship between money held and nominal interest rate.
+
+    -   Money supply curve ($M^s$): amount supplied by the central bank.
+
+    -   Equilibrium nominal rate = $i^*$
 :::
 :::
 
@@ -828,45 +928,21 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Controlling Nominal Rates
 
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
-
 ::: columns
-::: {.column width="40%"}
-![](images/figure_12_15.png){fig-align="center"}
-:::
-
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
-
--   asdfasdfasdfasdfasdf fsadfasd
-
-    -   asdfasf f
-:::
-:::
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## Controlling Nominal Rates
-
-::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
-:::
-
-::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](images/figure_12_16.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   How does the central bank control nominal interest rates?
 
--   asdfasdfasdfasdfasdf fsadfasd
+    -   Shift $M^s$ through open market operations.
 
-    -   asdfasf f
+        -   Reduce money supply - sell interest-bearing bonds for currency.
+
+        -   Increase money supply - buy interest-bearing bonds for currency.
+
+    -   In order to find a buyer the interest rate for the particular instrument will be adjusted (bond auctions)
 :::
 :::
 
@@ -874,33 +950,23 @@ $\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investmen
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## 
-
-## Controlling Nominal Rates
+## Conclusion
 
 ::: {style="font-size: 30px; text-align: center"}
-$\uparrow (\downarrow)$ interest rate $\implies \downarrow (\uparrow)$ investment $\implies \downarrow (\uparrow)$ short-run output ($\tilde{Y_t}$)
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
 :::
 
-::: columns
-::: {.column width="40%"}
-![](images/figure_12_17.png){fig-align="center"}
+::: incremental
+-   Short-run model - central bank can control short-run output and inflation.
+
+-   Assumptions:
+
+    -   Sticky inflation ($i_t=R_t$)
+
+    -   Adaptive expectations ($\pi_t^e = \pi_{t-1}$)
+
+-   Conventional measures. (QE, QT, etc to be discussed later)
 :::
-
-::: {.column .incremental width="60%" style="font-size: 30px"}
--   asdfa asfd asd fa sdf asdf asf asf as f
-
--   asdfasdfasdfasdfasdf fsadfasd
-
-    -   asdfasf f
-:::
-:::
-
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
-
-## 
 
 ## Next Week
 
