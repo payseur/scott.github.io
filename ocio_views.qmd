@@ -1,0 +1,295 @@
+---
+title: "Goose Hollow Capital"
+title-block-banner: true
+format: html
+editor: visual
+page-layout: full
+toc: true
+---
+
+## Asset Allocation
+
+As of: `r format(Sys.Date(), "%a %b %d %Y")`
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 2
+library(ggplot2)
+library(dplyr)
+dat <- tribble(
+  ~group, ~name, ~value,
+  "all","Equities", 30,
+  "all","Fixed Income", 50,
+  "all","Alternatives", 20
+)
+ggplot(dat, aes(x=value, y=group, fill=name)) + 
+  geom_bar(stat = "identity") + 
+  xlab("") +
+  ylab("") 
+
+
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(formattable)
+library(kableExtra)
+library(dplyr)
+
+dat <- tribble(
+  ~name, ~percent, ~change, ~desc,
+  "Equities", 30, 5, "asdf asf asdf asd as df sdf as fasf safsd as df asf asf",
+  "Fixed Income", 50, -5, "asdf asf asdf asd as df sdf as fasf safsd as df asf asf",
+  "Alternatives", 20, 0, "asdf asf asdf asd as df sdf as fasf safsd as df asf asfdf as dfasf asdf asdf asd fas dfas df asdf ds fds as fsad fa dfas fasdf"
+) 
+
+kbl(dat, escape = F,align = c('l', 'c','c','l'),col.names = c("Asset Class","Percent","Change","")) %>%
+  kable_paper("hover", full_width = F) 
+```
+
+## Equities
+
+```{r, echo=FALSE, message=FALSE}
+library(formattable)
+library(kableExtra)
+
+formatCMV <- function(data_column) {
+  ifelse(data_column == 0, 
+         cell_spec(data_column, 
+                   background = "lightgray", 
+                   color = "white", 
+                   align = "center"),
+         ifelse(data_column >0,
+                cell_spec(data_column, 
+                          background = "lightgreen", 
+                          color = "white", 
+                          align = "center"),
+                cell_spec(data_column, 
+                          background = "pink", 
+                          color = "white", 
+                          align = "center")
+                )
+         )
+  
+}
+
+ft_dt <- mtcars[1:5, 1:4]
+ft_dt$car <- row.names(ft_dt)
+row.names(ft_dt) <- NULL
+ft_dt$rank <- 1:5
+ft_dt$mpg <- (1:5) -3 #sample(1:5, 5, TRUE) -3
+ft_dt$cyl <- sample(1:5, 5, TRUE)-3
+ft_dt$disp <- sample(1:5, 5, TRUE)-3
+
+#ft_dt$mpg <- color_tile("white", "grey")(ft_dt$mpg)
+ft_dt$mpg <- formatCMV(ft_dt$mpg)
+ft_dt$cyl <- formatCMV(ft_dt$cyl)
+ft_dt$disp <- formatCMV(ft_dt$disp)
+#   ifelse(ft_dt$mpg == 0, 
+#       cell_spec(ft_dt$mpg, 
+#                       background = "lightgray", color = "white", align = "center", popover = spec_popover(
+#   content = "NULL  dfa asdf  fa ds a f e e faes f sad fa sdf asd fasd fa sfasdf",
+#   title = "Title!",
+#   trigger = "click",
+#   position = "right"
+# )),
+#   ifelse(
+#   ft_dt$mpg >0,
+#   cell_spec(ft_dt$mpg, 
+#                       background = "lightgreen", color = "white", align = "center"),
+#   cell_spec(ft_dt$mpg, 
+#                       background = "pink", color = "white", align = "center")
+# ))
+
+# ft_dt$cyl <- ifelse(
+#   ft_dt$cyl >4,
+#   cell_spec(ft_dt$cyl, 
+#                       background = "lightgreen", color = "white", align = "center"),
+#   cell_spec(ft_dt$cyl, 
+#                       background = "pink", color = "white", align = "center")
+# )
+  
+# ft_dt$disp <- ifelse(
+#   ft_dt$disp > 200,
+#   cell_spec(ft_dt$disp, color = "red", bold = T),
+#   cell_spec(ft_dt$disp, color = "green", italic = T)
+# )
+ft_dt$hp <- color_bar("lightgreen")(ft_dt$hp)
+ft_dt <- ft_dt[c("rank","mpg","car", "mpg", "cyl", "disp", "hp")]
+ft_dt$car[1] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[2] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[3] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[4] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[5] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsfab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsfab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt <- cbind(ft_dt, ft_dt$car)
+names(ft_dt) <- c("Rank", "Change", "Asset Class", "C", "M", "V", "la", " ")
+ft_dt$`Asset Class` <- c("S&P 500", "Japan Small", "STOXX", "Russell Value", "Russell Small")
+
+kbl(ft_dt[-7], escape = F,align = c('c','c','l','c','c','c','l')) %>%
+  kable_paper("hover", full_width = F) 
+```
+
+## Fixed Income
+
+```{r, echo=FALSE, message=FALSE}
+library(formattable)
+library(kableExtra)
+
+formatCMV <- function(data_column) {
+  ifelse(data_column == 0, 
+         cell_spec(data_column, 
+                   background = "lightgray", 
+                   color = "white", 
+                   align = "center"),
+         ifelse(data_column >0,
+                cell_spec(data_column, 
+                          background = "lightgreen", 
+                          color = "white", 
+                          align = "center"),
+                cell_spec(data_column, 
+                          background = "pink", 
+                          color = "white", 
+                          align = "center")
+                )
+         )
+  
+}
+
+ft_dt <- mtcars[1:5, 1:4]
+ft_dt$car <- row.names(ft_dt)
+row.names(ft_dt) <- NULL
+ft_dt$rank <- 1:5
+ft_dt$mpg <- (1:5) -3 #sample(1:5, 5, TRUE) -3
+ft_dt$cyl <- sample(1:5, 5, TRUE)-3
+ft_dt$disp <- sample(1:5, 5, TRUE)-3
+
+#ft_dt$mpg <- color_tile("white", "grey")(ft_dt$mpg)
+ft_dt$mpg <- formatCMV(ft_dt$mpg)
+ft_dt$cyl <- formatCMV(ft_dt$cyl)
+ft_dt$disp <- formatCMV(ft_dt$disp)
+#   ifelse(ft_dt$mpg == 0, 
+#       cell_spec(ft_dt$mpg, 
+#                       background = "lightgray", color = "white", align = "center", popover = spec_popover(
+#   content = "NULL  dfa asdf  fa ds a f e e faes f sad fa sdf asd fasd fa sfasdf",
+#   title = "Title!",
+#   trigger = "click",
+#   position = "right"
+# )),
+#   ifelse(
+#   ft_dt$mpg >0,
+#   cell_spec(ft_dt$mpg, 
+#                       background = "lightgreen", color = "white", align = "center"),
+#   cell_spec(ft_dt$mpg, 
+#                       background = "pink", color = "white", align = "center")
+# ))
+
+# ft_dt$cyl <- ifelse(
+#   ft_dt$cyl >4,
+#   cell_spec(ft_dt$cyl, 
+#                       background = "lightgreen", color = "white", align = "center"),
+#   cell_spec(ft_dt$cyl, 
+#                       background = "pink", color = "white", align = "center")
+# )
+  
+# ft_dt$disp <- ifelse(
+#   ft_dt$disp > 200,
+#   cell_spec(ft_dt$disp, color = "red", bold = T),
+#   cell_spec(ft_dt$disp, color = "green", italic = T)
+# )
+ft_dt$hp <- color_bar("lightgreen")(ft_dt$hp)
+ft_dt <- ft_dt[c("rank","mpg","car", "mpg", "cyl", "disp", "hp")]
+ft_dt$car[1] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[2] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[3] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[4] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[5] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsfab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsfab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt <- cbind(ft_dt, ft_dt$car)
+names(ft_dt) <- c("Rank", "Change", "Asset Class", "C", "M", "V", "la", " ")
+ft_dt$`Asset Class` <- c("S&P 500", "Japan Small", "STOXX", "Russell Value", "Russell Small")
+
+kbl(ft_dt[-7], escape = F,align = c('c','c','l','c','c','c','l')) %>%
+  kable_paper("hover", full_width = F) 
+```
+
+## Alternatives
+
+```{r, echo=FALSE, message=FALSE}
+library(formattable)
+library(kableExtra)
+
+formatCMV <- function(data_column) {
+  ifelse(data_column == 0, 
+         cell_spec(data_column, 
+                   background = "lightgray", 
+                   color = "white", 
+                   align = "center"),
+         ifelse(data_column >0,
+                cell_spec(data_column, 
+                          background = "lightgreen", 
+                          color = "white", 
+                          align = "center"),
+                cell_spec(data_column, 
+                          background = "pink", 
+                          color = "white", 
+                          align = "center")
+                )
+         )
+  
+}
+
+ft_dt <- mtcars[1:5, 1:4]
+ft_dt$car <- row.names(ft_dt)
+row.names(ft_dt) <- NULL
+ft_dt$rank <- 1:5
+ft_dt$mpg <- (1:5) -3 #sample(1:5, 5, TRUE) -3
+ft_dt$cyl <- sample(1:5, 5, TRUE)-3
+ft_dt$disp <- sample(1:5, 5, TRUE)-3
+
+#ft_dt$mpg <- color_tile("white", "grey")(ft_dt$mpg)
+ft_dt$mpg <- formatCMV(ft_dt$mpg)
+ft_dt$cyl <- formatCMV(ft_dt$cyl)
+ft_dt$disp <- formatCMV(ft_dt$disp)
+#   ifelse(ft_dt$mpg == 0, 
+#       cell_spec(ft_dt$mpg, 
+#                       background = "lightgray", color = "white", align = "center", popover = spec_popover(
+#   content = "NULL  dfa asdf  fa ds a f e e faes f sad fa sdf asd fasd fa sfasdf",
+#   title = "Title!",
+#   trigger = "click",
+#   position = "right"
+# )),
+#   ifelse(
+#   ft_dt$mpg >0,
+#   cell_spec(ft_dt$mpg, 
+#                       background = "lightgreen", color = "white", align = "center"),
+#   cell_spec(ft_dt$mpg, 
+#                       background = "pink", color = "white", align = "center")
+# ))
+
+# ft_dt$cyl <- ifelse(
+#   ft_dt$cyl >4,
+#   cell_spec(ft_dt$cyl, 
+#                       background = "lightgreen", color = "white", align = "center"),
+#   cell_spec(ft_dt$cyl, 
+#                       background = "pink", color = "white", align = "center")
+# )
+  
+# ft_dt$disp <- ifelse(
+#   ft_dt$disp > 200,
+#   cell_spec(ft_dt$disp, color = "red", bold = T),
+#   cell_spec(ft_dt$disp, color = "green", italic = T)
+# )
+ft_dt$hp <- color_bar("lightgreen")(ft_dt$hp)
+ft_dt <- ft_dt[c("rank","mpg","car", "mpg", "cyl", "disp", "hp")]
+ft_dt$car[1] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[2] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[3] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[4] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt$car[5] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsfab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsfab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"
+ft_dt <- cbind(ft_dt, ft_dt$car)
+names(ft_dt) <- c("Rank", "Change", "Asset Class", "C", "M", "V", "la", " ")
+ft_dt$`Asset Class` <- c("S&P 500", "Japan Small", "STOXX", "Russell Value", "Russell Small")
+
+kbl(ft_dt[-7], escape = F,align = c('c','c','l','c','c','c','l')) %>%
+  kable_paper("hover", full_width = F) 
+```
