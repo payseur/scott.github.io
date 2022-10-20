@@ -1,5 +1,5 @@
 ---
-title: "Goose Hollow Capital"
+title: "GHCM OCIO Views"
 title-block-banner: true
 format: html
 editor: visual
