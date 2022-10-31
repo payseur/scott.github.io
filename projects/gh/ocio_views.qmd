@@ -11,27 +11,63 @@ toc: true
 
 As of: `r format(Sys.Date(), "%a %b %d %Y")`
 
+```{=html}
+<table><tr><td>
+```
 ```{r}
 #| echo: false
 #| warning: false
-#| fig-width: 10
-#| fig-height: 2
+#| fig-width: 4.5
+#| fig-height: 4.5
 library(ggplot2)
 library(dplyr)
-dat <- tribble(
-  ~group, ~name, ~value,
-  "all","Equities", 30,
-  "all","Fixed Income", 50,
-  "all","Alternatives", 20
+# dat <- tribble(
+#   ~group, ~name, ~value,
+#   "all","Equities", 30,
+#   "all","Fixed Income", 50,
+#   "all","Alternatives", 20
+# )
+# ggplot(dat, aes(x=value, y=group, fill=name)) + 
+#   geom_bar(stat = "identity") + 
+#   xlab("") +
+#   ylab("") 
+
+# Create test data.
+data <- data.frame(
+  category=c("Equities", "Fixed", "Alts", "Reits"),
+  count=c(30, 50, 10, 10)
 )
-ggplot(dat, aes(x=value, y=group, fill=name)) + 
-  geom_bar(stat = "identity") + 
-  xlab("") +
-  ylab("") 
+ 
+# Compute percentages
+data$fraction <- data$count / sum(data$count)
 
+# Compute the cumulative percentages (top of each rectangle)
+data$ymax <- cumsum(data$fraction)
 
+# Compute the bottom of each rectangle
+data$ymin <- c(0, head(data$ymax, n=-1))
+
+# Compute label position
+data$labelPosition <- (data$ymax + data$ymin) / 2
+
+# Compute a good label
+data$label <- paste0(data$category)
+
+# Make the plot
+ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
+  geom_rect() +
+  geom_text( x=2, aes(y=labelPosition, label=label), size=6) + # x here controls label position (inner / outer)
+  scale_fill_brewer(palette=3) +
+  scale_color_brewer(palette=3) +
+  coord_polar(theta="y") +
+  xlim(c(-1, 4)) +
+  theme_void() +
+  theme(legend.position = "none")
 ```
 
+```{=html}
+</td><td>
+```
 ```{r, echo=FALSE, message=FALSE}
 library(formattable)
 library(kableExtra)
@@ -39,15 +75,19 @@ library(dplyr)
 
 dat <- tribble(
   ~name, ~percent, ~change, ~desc,
-  "Equities", 30, 5, "asdf asf asdf asd as df sdf as fasf safsd as df asf asf",
-  "Fixed Income", 50, -5, "asdf asf asdf asd as df sdf as fasf safsd as df asf asf",
-  "Alternatives", 20, 0, "asdf asf asdf asd as df sdf as fasf safsd as df asf asfdf as dfasf asdf asdf asd fas dfas df asdf ds fds as fsad fa dfas fasdf"
+  "Equities", "30%", "+5%", "asdf asf asdf asd as df sdf as fasf safsd as df asf asf",
+  "Fixed Income", "50%", "-5%", "asdf asf asdf asd as df sdf as fasf safsd as df asf asf",
+  "Alternatives", "10%", "-", "asdf asf asdf asd as df sdf as fasf safsd as df asf asfdf as dfasf asdf asdf asd fas dfas df asdf ds fds as fsad fa dfas fasdf",
+  "Reits", "10%", "-", "asdf asf asdf asd as df sdf as fasf safsd as df asf asfdf as dfasf asdf asdf asd fas dfas df asdf ds fds as fsad fa dfas fasdf"
 ) 
 
-kbl(dat, escape = F,align = c('l', 'c','c','l'),col.names = c("Asset Class","Percent","Change","")) %>%
+kbl(dat, escape = F,align = c('l', 'c','c','l'),col.names = c("","","","")) %>%
   kable_paper("hover", full_width = F) 
 ```
 
+```{=html}
+</td></tr></table>
+```
 ## Equities
 
 ```{r, echo=FALSE, message=FALSE}
@@ -164,39 +204,9 @@ ft_dt$mpg <- (1:5) -3 #sample(1:5, 5, TRUE) -3
 ft_dt$cyl <- sample(1:5, 5, TRUE)-3
 ft_dt$disp <- sample(1:5, 5, TRUE)-3
 
-#ft_dt$mpg <- color_tile("white", "grey")(ft_dt$mpg)
 ft_dt$mpg <- formatCMV(ft_dt$mpg)
 ft_dt$cyl <- formatCMV(ft_dt$cyl)
 ft_dt$disp <- formatCMV(ft_dt$disp)
-#   ifelse(ft_dt$mpg == 0, 
-#       cell_spec(ft_dt$mpg, 
-#                       background = "lightgray", color = "white", align = "center", popover = spec_popover(
-#   content = "NULL  dfa asdf  fa ds a f e e faes f sad fa sdf asd fasd fa sfasdf",
-#   title = "Title!",
-#   trigger = "click",
-#   position = "right"
-# )),
-#   ifelse(
-#   ft_dt$mpg >0,
-#   cell_spec(ft_dt$mpg, 
-#                       background = "lightgreen", color = "white", align = "center"),
-#   cell_spec(ft_dt$mpg, 
-#                       background = "pink", color = "white", align = "center")
-# ))
-
-# ft_dt$cyl <- ifelse(
-#   ft_dt$cyl >4,
-#   cell_spec(ft_dt$cyl, 
-#                       background = "lightgreen", color = "white", align = "center"),
-#   cell_spec(ft_dt$cyl, 
-#                       background = "pink", color = "white", align = "center")
-# )
-  
-# ft_dt$disp <- ifelse(
-#   ft_dt$disp > 200,
-#   cell_spec(ft_dt$disp, color = "red", bold = T),
-#   cell_spec(ft_dt$disp, color = "green", italic = T)
-# )
 ft_dt$hp <- color_bar("lightgreen")(ft_dt$hp)
 ft_dt <- ft_dt[c("rank","mpg","car", "mpg", "cyl", "disp", "hp")]
 ft_dt$car[1] <- "ab ab asdf  dfa sd a df as fsa fasd f fa fsd f sdfd sasdf sadf asf asf asd  a sfa sdf dsf"

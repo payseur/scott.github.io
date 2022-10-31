@@ -1,0 +1,1274 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Chpt 13: Monetary Policy Rules and Aggregate Demand"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: TRUE
+---
+
+## Introduction
+
+::: incremental
+-   High frequency data
+
+-   Short-Run Model
+
+    -   IS Curve Review
+
+    -   MP Curve
+
+    -   Phillips Curve
+
+    -   AS/AD
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+library(macroTools)
+library(fredr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(purrr)
+library(readr)
+library(tidyr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+
+recs <- getFredRecessionData(fetch_symbol = "USREC", 
+                   data_file_name = "us_recession", 
+                   data_dir = "data", 
+                   force_refresh = params$refresh_fred) 
+
+```
+
+## CPI
+
+[Link](https://www.bls.gov/news.release/cpi.nr0.htm)
+
+![](images/CPI.png){fig-align="center"}
+
+## Structure of the Short-Run Model
+
+![](images/figure_12_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Using the IS Curve
+
+::: columns
+::: {.column width="40%" style="font-size: 30px"}
+$$
+\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})
+$$
+
+![](images/figure_11_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px;"}
+-   Curve is drawn with no aggregate demand shocks ($\bar{a}=0$)
+
+-   Point A: Long-run equalibrium $(R_t = \bar{r})$
+
+    -   short-run output is zero
+
+-   Point B: Increase in real rates, $R_t$ , leads to a decrease in output $\tilde{Y}'_t$.
+
+-   Example: $\bar{a} = 0$ , $\bar{b}=2$ , $R=\bar{r}= 5\%$, and $R'=6\%$.
+
+    -   When real interest rate rises 1% short-run output decreases by 2%.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Aggregate Demand
+
+::: {style="font-size: 30px; text-align: center"}
+$\bar{a} \equiv \bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_11_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   An increase in aggregate demand, $\bar{a}$ , shifts the IS curve out.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## IS Conclusions
+
+::: {style="font-size: 30px; text-align: center"}
+$\tilde{Y} = \bar{a}-\bar{b}(R_t-\bar{r})$
+
+ 
+
+$\bar{a} \equiv \bar{a} + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$
+:::
+
+::: {.incremental style="font-size: 35px;"}
+-   Real interest rate has an inverse relationship with short-run output.
+
+-   Multiplier effect increases the initial shock to $\bar{a}$ .
+
+-   Fiscal policy has the power to shift the IS curve, but is not always timely.
+:::
+
+## Structure of the Short-Run Model
+
+![](images/figure_12_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## MP Curve in the IS-MP
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_12_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   The monetary policy (MP) curve is a horizontal line at the CB's chosen interest rate.
+
+    -   Real = nominal given our sticky inflation assumptions.
+
+-   If $R_t = \bar{r}$ then the marginal product of capital is equal to the real interest rate and short-run output is zero.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Raising Rates in the IS-MP Diagram
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_12_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   If the CB raises the interest rate:
+
+    -   Inflation is sticky so $R_t\approx i_t$
+
+    -   Real interest rate is above the MPC
+
+    -   Firms and households cut back on their investments and output declines.
+
+    -   CB can cause a recession.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## End of the Housing Bubble
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_12_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Policymakers suspect the housing bubble has burst.
+
+    -   Will lead to an aggregate demand, $\bar{a}$, **shift** in the IS Curve.
+
+    -   This leads negative short-run output.
+
+-   Policymakers step in and adjust the MP curve, decreasing real rates.
+
+    -   Leads to a **movement along** the IS curve back to zero short-run output.
+
+    -   Note: difficult in practice, takes 6 to 18 months.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Structure of the Short-Run Model
+
+![](images/figure_12_1.png){fig-align="center"}
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Phillips Curve
+
+::: {style="font-size: 35px;"}
+$$
+\pi_t = \underbrace{\pi_t^e}_{expected\:inflation} + \underbrace{\bar{v}\tilde{Y}_t}_{demand\:conditions} + \underbrace{\bar{o}}_{inflation\:shock}
+$$
+
+we assume **adaptive expectations**:
+
+$$
+\pi_t^e=\pi_{t-1}
+$$
+
+Combine with above equation:
+
+$$
+\pi_t = \underbrace{\pi_{t-1}}_{expected\:inflation\:adap\:exp} + \underbrace{\bar{v}\tilde{Y}_t}_{demand\:conditions}+ \underbrace{\bar{o}}_{inflation\:shock}
+$$
+:::
+
+## Phillips Curve
+
+::: {style="font-size: 30px; text-align: center"}
+$$
+\Delta \pi_t = \bar{v}\tilde{Y}_t +\bar{o}
+$$
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_12_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   When the economy booms inflation rises
+
+-   When the economy contracts inflation decreases
+
+-   The sensitivity parameter, $\bar{v}$ , governs the slope of the curve.
+
+    -   A high value means price setting behavior is very sensitive to the state of the economy.
+
+    -   Low means large recession to lower inflation.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Phillips Curve Shift
+
+::: {style="font-size: 30px; text-align: center"}
+$$
+\Delta \pi_t = \bar{v}\tilde{Y}_t + \bar{o}
+$$
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_12_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Price shocks, most notably oil, are common inflation drivers.
+
+-   Cause a temporary shift of the Phillips Curve (PC) by $\bar{o}$.
+
+-   Direct and indirect effect.
+
+-   Price shocks know as **cost-push** inflation. (change to $\bar{o}$)
+
+-   Change to $\bar{v}\tilde{Y}_t$ is **demand-pull** inflation.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_12_10.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Tightening monetary policy = setting $i_t$ and $R_t$ above MPC.
+
+-   Faced with a real interest rate that is higher than the MPC firms and households put their investment plans on hold.
+
+-   This leads to a drop in short-run output.
+
+    -   2% in the example
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_11.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   Using the PC: a drop in short-run output, $\tilde{Y}_t$ , leads to a drop in inflation.
+
+-   Firms see demand for their products fall - raise prices less aggressively.
+
+-   Inflation falls.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Volker Disinflation
+
+::: {style="font-size: 30px; text-align: center"}
+MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \downarrow\tilde{Y}_t$      PC: $\downarrow\tilde{Y}_t \implies \downarrow \Delta \pi_t$
+:::
+
+::: columns
+::: {.column width="40%"}
+![](images/figure_12_12.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="60%" style="font-size: 30px"}
+-   This Volker-style policy can keep real interest rate high.
+
+-   If a higher interest rate is sustained, then output will remain below potential output.
+
+-   This will eventually lower the inflation rate to desired target.
+
+    -   At the cost of:
+
+        -   Lost output
+
+        -   Asset prices
+
+        -   Employment
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Short Run Model
+
+::: {.incremental style="font-size: 30px"}
+Three Basic Equations:
+
+-   IS Curve: $\tilde{Y_t} = \bar{a} - \bar{b}(R_t-\bar{r})$
+
+-   MP Curve: The central bank chooses $R_t$
+
+-   Phillips Curve: $\Delta \pi_t = \bar{v}\tilde{Y}_t +\bar{o}$
+
+-   Trade-off between high short-run output and inflation
+
+-   Central bank chooses how to make this trade-off by choosing the real interest rate
+:::
+
+## Monetary Policy Rule
+
+$$
+R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
+$$
+
+::: {.incremental style="font-size: 30px"}
+-   Simple version for this chapter, works well, but could depend on:
+
+    -   Short-run output, aggregate demand shocks, inflation shocks, ...
+
+-   $\bar{\pi}$ : inflation target
+
+    -   Since 2016 US, UK, EU and Japan all had targets of 2%
+
+    -   Is "steady-state" level of inflation
+:::
+
+## Monetary Policy Rule
+
+$$
+R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
+$$
+
+::: {.incremental style="font-size: 30px"}
+-   Policy rule: set the real interest rate, $R_t$, based on inflation above or below inflation target.
+
+    -   If inflation is above target, central banks tighten monetary policy ($R_t \uparrow$)
+
+    -   If inflation is below target, central banks stimulate the economy by decreasing $R_t$.
+
+-   Parameter $\bar{m}$ governs how aggressively monetary policy responds to inflation.
+
+    -   Example: $\bar{m}$ = .5
+:::
+
+## Aggregate Demand (AD) Curve
+
+::: {style="font-size: 30px"}
+IS Curve:
+
+$$
+\tilde{Y}_t = \bar{a} - \bar{b}(R_t -  \bar{r})
+$$
+
+Policy Rule:
+
+$$
+R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
+$$
+
+Combine $\implies$ AD Curve:
+
+$$
+\tilde{Y}_t = \bar{a} - \bar{b}\bar{m}(\pi_t-\bar{\pi})
+$$
+
+$$
+\tilde{Y}_t = \underbrace{\bar{a} +\bar{b}\bar{m}\bar{\pi}}_{shifts} - \underbrace{\bar{b}\bar{m}\pi_t}_{movement\:along}
+$$
+:::
+
+## AD Curve
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Describes how the central bank sets short-run output for each level of inflation.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## AD Curve Movement Along
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Starting at target inflation, increases to $\pi'$.
+
+-   Movement along the curve described by: $-\bar{b}\bar{m}\pi_t$
+:::
+:::
+
+## Aggressive Monetary Policy
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Aggressiveness of monetary policy, $\bar{m}$.
+
+-   Movement along the curve described by: $-\bar{b}\bar{m}\pi_t$
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Aggregate Supply (AS) Curve
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Aggregate Supply is the Phillips Curve
+
+-   Movement along the curve: $\bar{v}\tilde{Y}_t$
+
+-   Shift to the curve: $\pi_{t-1} +\bar{o}$
+
+-   Use adaptive expectations: $\pi^e = \pi_{t-1}$
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## AS / AD Framework
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Steady-state
+
+    -   Inflation is equal to target inflation
+
+    -   Output is equal to potential output
+
+    -   Inflation must be steady ($\pi_t=\pi_{t-1}=\bar{\pi}$)
+
+-   AD curve is downward sloping - as inflation **increase**, central banks raise **real** rates, **decreases** output.
+
+-   AS curve is upward sloping - price-setting behavior. If short-run output is **greater than zero** than inflation **goes up**.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Inflation Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Lasting increase in the price of oil (e.g. 1970s, 1990, 2000)
+
+-   Mathematically $\bar{o}$ is positive for one period - this raises the price level permanently.
+
+-   Monetary policy means that the **change** **in** inflation (from $\bar{\pi}$ to $\pi_1$) is **less** **than** the shock, $\bar{o}$ .
+
+-   At this point output is below potential and inflation is above target.
+
+    -   Stagflation
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Inflation Shock Next Steps
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   $\pi_1 = \bar{\pi} + \bar{v}\tilde{Y}_1+\bar{o}$
+
+    -   AS shifts up by $\bar{o}$ and central bank reacts by tightening policy $(\tilde{Y}_0 = 0 ) \rightarrow \tilde{Y}_1$ inflation moves from $\bar{\pi}$ to $\pi_1$.
+
+-   $\pi_2 = \pi_1 + \bar{v}\tilde{Y}_2+0$
+
+    -   AS shifts down by $\bar{o}-\pi_1$ and central bank loosens policy $\tilde{Y}_1 \rightarrow \tilde{Y}_2$ and inflation moves from $\pi_1$ to $\pi_2$.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Inflation Shock Next Steps
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   $\pi_3 = \pi_2 + \bar{v}\tilde{Y}_3+0$
+
+    -   AS shifts down by $\pi_1-\pi_2$ and central bank loosens policy $\tilde{Y}_2 \rightarrow \tilde{Y}_3$ and inflation moves from $\pi_2$ to $\pi_3$.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Transition Dynamics
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Transition dynamics also apply to AS/AD framework.
+
+    -   Movement back to steady state is fastest when economy is furthest from steady state.
+
+-   Inflation is raised directly - through one period shock.
+
+-   Central bank induces a recession
+
+-   Shock raises expected inflation but recession gradually cools inflation.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Disinflation
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_10.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   What happens when policy makers choose a lower inflation target, $\bar{\pi}$?
+
+-   $\tilde{Y}_t = \underbrace{\bar{a} +\bar{b}\bar{m}\bar{\pi}}_{shifts} - \underbrace{\bar{b}\bar{m}\pi_t}_{movement\:along}$: shift down of the AD curve.
+
+-   Initial response to a lower inflation target is a movement along the AS curve (lower short-run output).
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Disinflation Dynamics
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_11.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Each period until steady-state the economy is still in a recession and AS shifts in.
+
+-   Transition dynamics stop when real output is equal to potential output and $\bar{\pi}=\bar{\pi}'$ .
+
+-   Classical dichotomy and perfect information would lead to a simultaneous equilibrium when the next target is announced.
+
+    -   Sticky inflation
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Positive AD Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_12.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Shock to $\bar{a}$.
+
+-   $\tilde{Y}_t = \underbrace{\bar{a} +\bar{b}\bar{m}\bar{\pi}}_{shifts} - \underbrace{\bar{b}\bar{m}\pi_t}_{movement\:along}$: shift up of the AD curve.
+
+-   A movement along the AS curve by $\bar{v}\tilde{Y}_t$.
+
+-   Leads to higher inflation and output.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Positive AD Shock Dynamics
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_13.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Since inflation is above target during period one, firms expect higher inflation and the AS curve shifts up.
+
+-   AS continues to move until short-run output is equal to zero.
+
+-   In this example, after 8 periods AS stops moving.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Positive AD Shock Dynamics
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_14.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   The movement in AS led to higher inflation, $\pi_8$ than target $\bar{\pi}$.
+
+-   Aggregate demand shocks, by definition, are temporary.
+
+-   At some point $\bar{a}$ goes back to it's natural level. Reducing output (into a recession), and decreasing inflation.
+
+-   Transition dynamics end back at point A.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Positive AD Shock Dynamics
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_15.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Booms matched with recessions. **Business cycle**.
+
+-   Imperfect information leads to longer business cycles and **policy errors**.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Empirical Evidence
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_16.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Evaluate empirical predictions from our short run model.
+
+-   Predicting the Fed Funds Rate
+
+    -   Our simply monetary policy rule provides some guidance:$R_t -\bar{r} = \bar{m}(\pi_t -\bar{\pi})$
+
+    -   Plug in the Fisher equation, $i_t = R_t + \pi_t$ , to create the Taylor rule.
+
+    -   Taylor Rule: $i_t= \bar{r} +\pi_t+ \bar{m}(\pi_t -\bar{\pi})$.
+
+        -   John Taylor suggest using $\bar{r} = 2\%, \bar{m}=0.5, \bar{\pi}=2\%$.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Taylor Rule: US
+
+```{r, echo=T}
+## Setup Environment
+
+library(ggplot2)
+library(fredr)
+library(dplyr)
+library(lubridate)
+library(tidyr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+```
+
+## Taylor Rule: US
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+# download data
+cpi <- fredr(series_id = "CPILFESL",
+             observation_start = ymd(19600101),
+             units = "pc1")
+# Clean Data
+cpi %>% head(5) %>% print()
+
+cpi <- cpi %>% 
+  select(date, series_id, value) %>% 
+  rename(id = series_id) %>% 
+  mutate(id = "CPI")
+
+cpi %>% head(5) %>% print()
+
+```
+:::
+
+::: footer
+Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
+:::
+
+## Taylor Rule: US
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+
+# download data
+fedfunds <- fredr(series_id = "FEDFUNDS",
+             observation_start = ymd(19600101))
+# Clean Data
+fedfunds %>% head(5) %>% print()
+
+fedfunds <- fedfunds %>% 
+  select(date, series_id, value) %>% 
+  rename(id = series_id) 
+
+fedfunds %>% head(5) %>% print()
+
+```
+:::
+
+::: footer
+Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
+:::
+
+## Taylor Rule: US
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+
+# Combine two long series
+dat <- bind_rows(cpi, fedfunds)
+
+# Create wide serie 
+dat_wide <- dat %>% pivot_wider(names_from = id)
+
+dat_wide %>% head(5) %>% print()
+
+
+```
+:::
+
+::: footer
+Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
+:::
+
+## Taylor Rule: US
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+
+# Create Taylor Rule Prediction
+r_bar = 2       # MPC
+m_bar = 0.5     # Sensitivity Parameter
+pi_bar = 2      # Inflation target
+
+dat_wide <- dat_wide %>% 
+  mutate( PREDICTION = r_bar + CPI + m_bar*(CPI - pi_bar)) 
+
+dat_long <- dat_wide %>% pivot_longer(-date)
+
+```
+:::
+
+::: footer
+Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
+:::
+
+## Taylor Rule: US
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+dat_long %>% 
+  filter(name %in% c("FEDFUNDS", "PREDICTION")) %>% 
+  ggplot(aes(x=date, y=value, color=name)) +
+  geom_line()
+
+```
+:::
+
+::: footer
+Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
+:::
+
+## Taylor Rule: JAPAN
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+# download data
+inflation <- fredr(series_id = "JPNCPIALLMINMEI",
+             observation_start = ymd(19650101),
+             units = "pc1")
+# Clean Data
+inflation %>% head(5) %>% print()
+
+inflation <- inflation %>% 
+  select(date, series_id, value) %>% 
+  rename(id = series_id) %>% 
+  mutate(id = "INFLATION")
+
+inflation %>% head(5) %>% print()
+
+```
+:::
+
+::: footer
+Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
+:::
+
+## Taylor Rule: JAPAN
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+
+# download data
+overnight <- fredr(series_id = "IRSTCB01JPM156N",
+             observation_start = ymd(19650101))
+# Clean Data
+overnight %>% head(5) %>% print()
+
+overnight <- overnight %>% 
+  select(date, series_id, value) %>% 
+  rename(id = series_id) %>% 
+  mutate(id = "OVERNIGHT")
+
+overnight %>% head(5) %>% print()
+
+```
+:::
+
+::: footer
+Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
+:::
+
+## Taylor Rule: JAPAN
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+
+# Combine two long series
+dat <- bind_rows(inflation, overnight)
+
+# Create wide series
+dat_wide <- dat %>% pivot_wider(names_from = id)
+
+dat_wide %>% head(5) %>% print()
+
+
+```
+:::
+
+::: footer
+Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
+:::
+
+## Taylor Rule: JAPAN
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+
+# Create Taylor Rule Prediction
+r_bar = 2       # MPC
+m_bar = 0.5     # Sensitivity Parameter
+pi_bar = 2      # Inflation target
+
+dat_wide <- dat_wide %>% 
+  mutate( PREDICTION = r_bar + INFLATION + m_bar*(INFLATION - pi_bar)) 
+
+dat_long <- dat_wide %>% pivot_longer(-date)
+
+```
+:::
+
+::: footer
+Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
+:::
+
+## Taylor Rule: JAPAN
+
+::: {style="font-size: 30px"}
+```{r, echo=T}
+dat_long %>% 
+  filter(name %in% c("OVERNIGHT", "PREDICTION")) %>% 
+  ggplot(aes(x=date, y=value, color=name)) +
+  geom_line()
+
+```
+:::
+
+::: footer
+Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
+:::
+
+## Taylor Rule: European Union
+
+-   [Inflation Data](https://fred.stlouisfed.org/series/EA19CPALTT01GYM) \| [ECB Overnight Deposit](https://fred.stlouisfed.org/series/ECBDFR)
+
+-   Dates: 2000-01-01
+
+-   Use Monthly (frequency = "m")
+
+-   Template: [Taylor Rule US](taylor_us.R)
+
+::: footer
+Source: [Inflation Data](https://fred.stlouisfed.org/series/EA19CPALTT01GYM) \| [ECB Overnight Deposit](https://fred.stlouisfed.org/series/ECBDFR)
+:::
+
+## Taylor Rule: ECB
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+## Setup Environment
+
+library(ggplot2)
+library(fredr)
+library(dplyr)
+library(lubridate)
+library(tidyr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+
+# download data
+inflation <- fredr(series_id = "EA19CPALTT01GYM",
+             observation_start = ymd(20000101),
+             frequency = "m")
+
+inflation <- inflation %>% 
+  select(date, series_id, value) %>% 
+  rename(id = series_id) %>% 
+  mutate(id = "INFLATION")
+
+# download data
+overnight <- fredr(series_id = "ECBDFR",
+                  observation_start = ymd(20000101),
+                  frequency = "m")
+# Clean Data
+overnight <- overnight %>% 
+  select(date, series_id, value) %>% 
+  rename(id = series_id) %>% 
+  mutate(id = "OVERNIGHT")
+
+# Combine two long series
+dat <- bind_rows(inflation, overnight)
+
+# Create wide serie 
+dat_wide <- dat %>% pivot_wider(names_from = id)
+
+
+# Create Taylor Rule Prediction
+r_bar = 2       # MPC
+m_bar = 0.5     # Sensitivity Parameter
+pi_bar = 2      # Inflation target
+
+dat_wide <- dat_wide %>% 
+  mutate( PREDICTION = r_bar + INFLATION + m_bar*(INFLATION - pi_bar)) 
+
+dat_long <- dat_wide %>% pivot_longer(-date)
+
+# plot
+dat_long %>% 
+  filter(name %in% c("OVERNIGHT", "PREDICTION")) %>% 
+  ggplot(aes(x=date, y=value, color=name)) +
+  geom_line()
+
+```
+
+-   [Taylor Rule ECB](taylor_eu.R)
+
+::: footer
+Source: [Inflation Data](https://fred.stlouisfed.org/series/EA19CPALTT01GYM) \| [ECB Overnight Deposit](https://fred.stlouisfed.org/series/ECBDFR)
+:::
+
+## Inflation / Output Loops
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_17a.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   The business cycle implies counter-clockwise loops though time when plotted on the inflation/output scale.
+
+    -   Positive short-run output leads inflation rate to rise.
+
+    -   Rise in inflation leads policymakers to reduce output.
+
+-   In graph (on years time-scale)
+
+    -   Economy booms, inflation increases.
+
+    -   Inflation is high, output declines.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Inflation / Output Loops
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_17b.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   More recent history this has not held true.
+
+    -   Inflation has been incredibly stable in the 2000's
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Forecasting the Business Cycle
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_18.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Observations have a lag.
+
+    -   Use leading economic indicators to forecast.
+
+        -   Fed funds rate
+
+        -   Term structure of interest rates
+
+        -   Unemployment claims
+
+        -   Housing starts
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Example
+
+[Link](https://www.newyorkfed.org/research/policy/nowcast)
+
+![](images/nowcast.png){fig-align="center"}
+
+## Modern Monetary Policy
+
+-   World is more complicated than the short-run model
+
+-   Policy makers have discretion
+
+-   Movement toward transparency on central bank policies and targets
+
+-   Simple models work well as guidlines
+
+## Rules vs Discretion
+
+-   A strict monetary policy rule can be computerized and left alone.
+
+    -   Impossible to know what the next shock could be, 1970s oil, GFC, Covid, war, etc
+
+-   A commitment to a policy allows non-emotional decisions to be made.
+
+-   Explicit policy rules, transparency, credibility and a reputation for making the right long-run choices are important for central banks.
+
+## Rational Expectations
+
+::: {style="font-size: 30px"}
+-   Ultimate goal for an economy depends on a steady and low inflation rate.
+
+    -   Full employment, output at potential, etc
+
+-   Instead of adaptive expectations $\pi_t^e = \pi_{t-1}$ we assume rational expectations - people use all information at their disposal to make their best forecast of inflation.
+
+-   If we have a policymaker that is dedicated to a low inflation rate, either through a high value of $\bar{m}$ or other methods than $\pi_t^e$ stays low and stable. Manage $\pi_t^e$ .
+
+-   Firms know that the central bank will fight to lower prices sharply if needed.
+:::
+
+## Managing Expectations: AS/AD
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_13_20.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   If we replace $\pi_t^e = \pi_{t-1}$ then we can rewrite out AS model: $\pi_2=\pi^e_t + \bar{v}\tilde{Y}_t+\bar{o}$ .
+
+-   Consider a change in inflation target from 4% to 2%.
+
+    -   Imagine that people believe the new target will prevail and set $\pi^e$ = 2%.
+
+    -   AD shifts down
+
+    -   Expectations adjust immediately $\implies$ AS shifts down.
+
+    -   Economy moves from point A to point B without a costly recession.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Inflation Targeting
+
+-   In order to manage $\pi_t^e$ countries have started to adopt inflation targets.
+
+    -   US, Japan, UK, Australia, Brazil, Canada, Mexico, NZ, and Sweden.
+
+-   Not required to deliver on the target but it does anchor expectations.
+
+-   Target helps firms deviate from price-setting behavior in response to shocks.
+
+-   US currently set at 2%.
+
+## Great Moderation
+
+![](images/figure_13_19.png){fig-align="center"}
