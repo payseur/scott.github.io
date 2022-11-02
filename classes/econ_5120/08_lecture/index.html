@@ -1200,11 +1200,11 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <pre><code># A tibble: 5 × 5
   date       series_id value realtime_start realtime_end
   &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1960-01-01 CPILFESL   2.01 2022-10-31     2022-10-31  
-2 1960-02-01 CPILFESL   2.34 2022-10-31     2022-10-31  
-3 1960-03-01 CPILFESL   2    2022-10-31     2022-10-31  
-4 1960-04-01 CPILFESL   2    2022-10-31     2022-10-31  
-5 1960-05-01 CPILFESL   1.66 2022-10-31     2022-10-31  </code></pre>
+1 1960-01-01 CPILFESL   2.01 2022-11-02     2022-11-02  
+2 1960-02-01 CPILFESL   2.34 2022-11-02     2022-11-02  
+3 1960-03-01 CPILFESL   2    2022-11-02     2022-11-02  
+4 1960-04-01 CPILFESL   2    2022-11-02     2022-11-02  
+5 1960-05-01 CPILFESL   1.66 2022-11-02     2022-11-02  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>cpi <span class="ot">&lt;-</span> cpi <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">select</span>(date, series_id, value) <span class="sc">%&gt;%</span> </span>
@@ -1241,11 +1241,11 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <pre><code># A tibble: 5 × 5
   date       series_id value realtime_start realtime_end
   &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1960-01-01 FEDFUNDS   3.99 2022-10-31     2022-10-31  
-2 1960-02-01 FEDFUNDS   3.97 2022-10-31     2022-10-31  
-3 1960-03-01 FEDFUNDS   3.84 2022-10-31     2022-10-31  
-4 1960-04-01 FEDFUNDS   3.92 2022-10-31     2022-10-31  
-5 1960-05-01 FEDFUNDS   3.85 2022-10-31     2022-10-31  </code></pre>
+1 1960-01-01 FEDFUNDS   3.99 2022-11-02     2022-11-02  
+2 1960-02-01 FEDFUNDS   3.97 2022-11-02     2022-11-02  
+3 1960-03-01 FEDFUNDS   3.84 2022-11-02     2022-11-02  
+4 1960-04-01 FEDFUNDS   3.92 2022-11-02     2022-11-02  
+5 1960-05-01 FEDFUNDS   3.85 2022-11-02     2022-11-02  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>fedfunds <span class="ot">&lt;-</span> fedfunds <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">select</span>(date, series_id, value) <span class="sc">%&gt;%</span> </span>
@@ -1345,11 +1345,11 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <pre><code># A tibble: 5 × 5
   date       series_id       value realtime_start realtime_end
   &lt;date&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1965-01-01 JPNCPIALLMINMEI  6.87 2022-10-31     2022-10-31  
-2 1965-02-01 JPNCPIALLMINMEI  6.77 2022-10-31     2022-10-31  
-3 1965-03-01 JPNCPIALLMINMEI  6.96 2022-10-31     2022-10-31  
-4 1965-04-01 JPNCPIALLMINMEI  7.95 2022-10-31     2022-10-31  
-5 1965-05-01 JPNCPIALLMINMEI  6.84 2022-10-31     2022-10-31  </code></pre>
+1 1965-01-01 JPNCPIALLMINMEI  6.87 2022-11-02     2022-11-02  
+2 1965-02-01 JPNCPIALLMINMEI  6.77 2022-11-02     2022-11-02  
+3 1965-03-01 JPNCPIALLMINMEI  6.96 2022-11-02     2022-11-02  
+4 1965-04-01 JPNCPIALLMINMEI  7.95 2022-11-02     2022-11-02  
+5 1965-05-01 JPNCPIALLMINMEI  6.84 2022-11-02     2022-11-02  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>inflation <span class="ot">&lt;-</span> inflation <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">select</span>(date, series_id, value) <span class="sc">%&gt;%</span> </span>
@@ -1386,11 +1386,11 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <pre><code># A tibble: 5 × 5
   date       series_id       value realtime_start realtime_end
   &lt;date&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;date&gt;         &lt;date&gt;      
-1 1965-01-01 IRSTCB01JPM156N  6.21 2022-10-31     2022-10-31  
-2 1965-02-01 IRSTCB01JPM156N  6.21 2022-10-31     2022-10-31  
-3 1965-03-01 IRSTCB01JPM156N  6.21 2022-10-31     2022-10-31  
-4 1965-04-01 IRSTCB01JPM156N  5.84 2022-10-31     2022-10-31  
-5 1965-05-01 IRSTCB01JPM156N  5.84 2022-10-31     2022-10-31  </code></pre>
+1 1965-01-01 IRSTCB01JPM156N  6.21 2022-11-02     2022-11-02  
+2 1965-02-01 IRSTCB01JPM156N  6.21 2022-11-02     2022-11-02  
+3 1965-03-01 IRSTCB01JPM156N  6.21 2022-11-02     2022-11-02  
+4 1965-04-01 IRSTCB01JPM156N  5.84 2022-11-02     2022-11-02  
+5 1965-05-01 IRSTCB01JPM156N  5.84 2022-11-02     2022-11-02  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>overnight <span class="ot">&lt;-</span> overnight <span class="sc">%&gt;%</span> </span>
 <span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">select</span>(date, series_id, value) <span class="sc">%&gt;%</span> </span>
@@ -1656,13 +1656,222 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 </section>
 <section id="great-moderation" class="slide level2">
 <h2>Great Moderation</h2>
+
+<img data-src="images/figure_13_19.png" class="r-stretch quarto-figure-center"></section>
+<section id="chapter-14-gfc-short-run" class="slide level2">
+<h2>Chapter 14: GFC Short-Run</h2>
+<div style="font-size: 35px">
+<ul>
+<li><p><strong>Financial frictions</strong>: Despite fed funds rate going from 5% to ~0%, the interest rate at which households and firms could borrow was higher than before the crisis.</p></li>
+<li><p>These financial frictions can be offset by lowering target rate, but there is a zero lower bound. Which led to <strong>unconventional</strong> monetary measures.</p></li>
+<li><p>AS/AD suited for normal times, use IS/MP/PC for GFC.</p></li>
+<li><p>Deflation: Holding the nominal interest rate <strong>constant</strong> <span class="math inline">\(\implies\)</span> deflation <strong>raises</strong> real interest rates. Can lead to a vicious cycle.</p></li>
+<li><p>Faced with zero fed funds and deflation, the fed used unconventional policies: TARP, QE, and fiscal spending.</p></li>
+</ul>
+</div>
+</section>
+<section id="financial-frictions" class="slide level2">
+<h2>Financial Frictions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/figure_13_19.png"></p>
+<p><img data-src="images/figure_14_1.png"></p>
 </figure>
 </div>
-<p><img src="images/ne.png" class="slide-logo"></p>
-<div class="footer footer-default">
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>In normal times the Fed effectively sets the real interest rate. This is the rate that households and firms borrow at.</p></li>
+<li class="fragment"><p>Solvency and liquidity worries led to financial frictions.</p></li>
+<li class="fragment"><p>The spread between government securities and the interest rate that firms and households pay increased.</p></li>
+<li class="fragment"><p>10 year treasuries were ~6% below investment grade “medium” risk paper.</p></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="financial-frictions-1" class="slide level2">
+<h2>Financial Frictions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_14_1.png"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>We incorporate this into our short-run model: <span class="math inline">\(R=R^{ff}+\bar{f}\)</span>.</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\bar{f}\)</span> represents the exogenous risk premium that sits between the fed funds rate <span class="math inline">\(R^{ff}\)</span> and the real interest rate that firms borrow in financial markets.</p></li>
+<li class="fragment"><p>During normal times <span class="math inline">\(\bar{f} =0\)</span>.</p></li>
+</ul></li>
+<li class="fragment"><p>Leads to investment shock to the IS curve.</p></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="gfc-shock-to-is-curve" class="slide level2">
+<h2>GFC Shock to IS Curve</h2>
+<div style="font-size: 35px">
+<ul>
+<li><p><strong>Financial frictions</strong>: Fears over solvency and liquidity led to financial frictions.</p></li>
+<li><p>This led to interest rate spikes and a stock market downturn, in addition to the housing market downturn.</p></li>
+<li><p>Interest rates spiked resulting in a 30% decline in investment, <span class="math inline">\(\bar{a}_i \downarrow\)</span>.</p></li>
+<li><p>Stock and housing market declines reduced wealth and consumption leading to <span class="math inline">\(\bar{a}_c \downarrow\)</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="ismp-framework" class="slide level2">
+<h2>IS/MP Framework</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_14_2.png"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>In normal times an negative aggregate demand shock will shift the IS curve down. (from IS to IS’).</p></li>
+<li class="fragment"><p>In response the central bank will lower the fed funds rate, <span class="math inline">\(R^{ff}\)</span>, below the MPC, <span class="math inline">\(\bar{r}\)</span>.</p></li>
+<li class="fragment"><p>This will shift output back to potential, eliminating the recession.</p></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="ismp-framework-1" class="slide level2">
+<h2>IS/MP Framework</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_14_2b.png"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>During the GFC the Fed lowered the fed funds rate, which should have increase output.</p></li>
+<li class="fragment"><p>Households and firms saw an interest rate of <span class="math inline">\(R^{ff} + \bar{f}\)</span> .</p></li>
+<li class="fragment"><p>Despite the Fed’s actions the economy saw an even deeper recession.</p></li>
+<li class="fragment"><p>The fed lowered to zero, but still did not stimulate the economy.</p></li>
+<li class="fragment"><p>Fed then took non conventional measures.</p></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="asad-framework" class="slide level2">
+<h2>AS/AD Framework</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/figure_14_3.png"></p>
+</figure>
+</div>
+</div><div class="column" style="font-size: 30px">
+<ul>
+<li class="fragment"><p>IS Curve: <span class="math inline">\(\tilde{Y} = \bar{a} - \bar{b}(R_t - \bar{r})\)</span></p></li>
+<li class="fragment"><p>Monetary Policy Rule: <span class="math inline">\(R_t^{ff}-\bar{r}=\bar{m}(\pi_t-\bar{\pi})\)</span></p></li>
+<li class="fragment"><p>Financial Friction: <span class="math inline">\(R_t=R_t^{ff} + \bar{f}\)</span></p></li>
+<li class="fragment"><p>Combining financial friction with monetary policy: <span class="math inline">\(R_t-\bar{r}=\bar{f}+\bar{m}(\pi_t-\bar{\pi})\)</span></p></li>
+<li class="fragment"><p>The new AD curve: <span class="math inline">\(\tilde{Y}=\underbrace{\bar{a}-\bar{b}\bar{f}}_{AD\:shock}-\bar{b}\bar{m}(\pi_t - \bar{\pi})\)</span></p>
+<ul>
+<li class="fragment">Financial friction acts similar to an AD shock.</li>
+</ul></li>
+<li class="fragment"><p><strong>Deflation</strong>.</p></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
+</div>
+</section>
+<section id="deflation" class="slide level2">
+<h2>Deflation</h2>
+<div style="font-size: 35px">
+<ul>
+<li><p>Fisher equation: <span class="math inline">\(i_t=R_t+\pi_t\)</span></p>
+<ul>
+<li><p>Rearrange: <span class="math inline">\(R_t = i_t -\pi_t\)</span></p></li>
+<li><p>If <span class="math inline">\(\pi &lt; 0\)</span> then real interest rate increases.</p></li>
+</ul></li>
+<li><p>Central banks normally respond to <span class="math inline">\(\bar{a}\downarrow\)</span> by <span class="math inline">\(i \downarrow\)</span>.</p></li>
+<li><p>1930’s Great Depression</p>
+<ul>
+<li><p>Fed did not lower <span class="math inline">\(i\)</span> because of fear of asset bubbles, deflation increase <span class="math inline">\(R\)</span> sharply.</p></li>
+<li><p>In 1933 the Fed lowered rates and economy turned around.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="deflation-1" class="slide level2">
+<h2>Deflation</h2>
+<div style="font-size: 35px">
+<ul>
+<li><p>What if we have deflation coupled with a low nominal interest rate?</p></li>
+<li><p>The Fed faces a zero lower bound on <span class="math inline">\(i\)</span>.</p>
+<ul>
+<li>Imagine <span class="math inline">\(i=0\)</span>, <span class="math inline">\(R_t=-\pi_t\)</span>.</li>
+<li>Deflation <span class="math inline">\(\implies R_t \uparrow\)</span></li>
+</ul></li>
+<li><p>Household and firms investment:</p>
+<ul>
+<li><p>If MPC is 1%, and inflation is 3%, investment.</p></li>
+<li><p>If MPC is 1% and inflation is -3%, no investment.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="deflation---liquidity-trap" class="slide level2">
+<h2>Deflation - Liquidity Trap</h2>
+<div style="font-size: 35px">
+<ul>
+<li><p>Deflation coupled with a zero nominal interest rate causes a liquidity trap.</p></li>
+<li><p>Firms and households do not want to borrow. Liquidity is trapped inside the banks and will not stimulate the economy.</p></li>
+<li><p>Theoretically at this point currency and bonds are the same.</p></li>
+<li><p>Other unconventional solutions:</p>
+<ul>
+<li><p>Japan has engaged in extensive open market operations for the past 20 years.</p></li>
+<li><p>Fed tripled balance sheet.</p></li>
+<li><p>Neither has had the recovery that was hoped for.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="deflationary-spiral" class="slide level2">
+<h2>Deflationary Spiral</h2>
+<div style="font-size: 35px">
+<ul>
+<li><p>Recession causes deflation.</p></li>
+<li><p>Deflation raises <span class="math inline">\(R\)</span>.</p></li>
+<li><p>Recession deepens.</p></li>
+<li><p>Causes more deflation.</p></li>
+</ul>
+</div>
+</section>
+<section id="deflation-remedies" class="slide level2">
+<h2>Deflation Remedies</h2>
+<div style="font-size: 35px">
+<ul>
+<li><p>Fiscal stimulus</p></li>
+<li><p>Unconventional monetary policy</p></li>
+<li><p>Manage <span class="math inline">\(\pi^e\)</span></p></li>
+</ul>
+</div>
+
+<img src="images/ne.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>ECON 5120 | Scott Payseur</p>
 </div>
 </section>

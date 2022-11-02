@@ -1272,3 +1272,220 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 ## Great Moderation
 
 ![](images/figure_13_19.png){fig-align="center"}
+
+## Chapter 14: GFC Short-Run
+
+::: {style="font-size: 35px"}
+-   **Financial frictions**: Despite fed funds rate going from 5% to \~0%, the interest rate at which households and firms could borrow was higher than before the crisis.
+
+-   These financial frictions can be offset by lowering target rate, but there is a zero lower bound. Which led to **unconventional** monetary measures.
+
+-   AS/AD suited for normal times, use IS/MP/PC for GFC.
+
+-   Deflation: Holding the nominal interest rate **constant** $\implies$ deflation **raises** real interest rates. Can lead to a vicious cycle.
+
+-   Faced with zero fed funds and deflation, the fed used unconventional policies: TARP, QE, and fiscal spending.
+:::
+
+## Financial Frictions
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   In normal times the Fed effectively sets the real interest rate. This is the rate that households and firms borrow at.
+
+-   Solvency and liquidity worries led to financial frictions.
+
+-   The spread between government securities and the interest rate that firms and households pay increased.
+
+-   10 year treasuries were \~6% below investment grade "medium" risk paper.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Financial Frictions
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   We incorporate this into our short-run model: $R=R^{ff}+\bar{f}$.
+
+    -   $\bar{f}$ represents the exogenous risk premium that sits between the fed funds rate $R^{ff}$ and the real interest rate that firms borrow in financial markets.
+
+    -   During normal times $\bar{f} =0$.
+
+-   Leads to investment shock to the IS curve.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## GFC Shock to IS Curve
+
+::: {style="font-size: 35px"}
+-   **Financial frictions**: Fears over solvency and liquidity led to financial frictions.
+
+-   This led to interest rate spikes and a stock market downturn, in addition to the housing market downturn.
+
+-   Interest rates spiked resulting in a 30% decline in investment, $\bar{a}_i \downarrow$.
+
+-   Stock and housing market declines reduced wealth and consumption leading to $\bar{a}_c \downarrow$.
+:::
+
+## IS/MP Framework
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   In normal times an negative aggregate demand shock will shift the IS curve down. (from IS to IS').
+
+-   In response the central bank will lower the fed funds rate, $R^{ff}$, below the MPC, $\bar{r}$.
+
+-   This will shift output back to potential, eliminating the recession.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## IS/MP Framework
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_2b.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   During the GFC the Fed lowered the fed funds rate, which should have increase output.
+
+-   Households and firms saw an interest rate of $R^{ff} + \bar{f}$ .
+
+-   Despite the Fed's actions the economy saw an even deeper recession.
+
+-   The fed lowered to zero, but still did not stimulate the economy.
+
+-   Fed then took non conventional measures.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## AS/AD Framework
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   IS Curve: $\tilde{Y} = \bar{a} - \bar{b}(R_t - \bar{r})$
+
+-   Monetary Policy Rule: $R_t^{ff}-\bar{r}=\bar{m}(\pi_t-\bar{\pi})$
+
+-   Financial Friction: $R_t=R_t^{ff} + \bar{f}$
+
+-   Combining financial friction with monetary policy: $R_t-\bar{r}=\bar{f}+\bar{m}(\pi_t-\bar{\pi})$
+
+-   The new AD curve: $\tilde{Y}=\underbrace{\bar{a}-\bar{b}\bar{f}}_{AD\:shock}-\bar{b}\bar{m}(\pi_t - \bar{\pi})$
+
+    -   Financial friction acts similar to an AD shock.
+
+-   **Deflation**.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Deflation
+
+::: {style="font-size: 35px"}
+-   Fisher equation: $i_t=R_t+\pi_t$
+
+    -   Rearrange: $R_t = i_t -\pi_t$
+
+    -   If $\pi < 0$ then real interest rate increases.
+
+-   Central banks normally respond to $\bar{a}\downarrow$ by $i \downarrow$.
+
+-   1930's Great Depression
+
+    -   Fed did not lower $i$ because of fear of asset bubbles, deflation increase $R$ sharply.
+
+    -   In 1933 the Fed lowered rates and economy turned around.
+:::
+
+## Deflation
+
+::: {style="font-size: 35px"}
+-   What if we have deflation coupled with a low nominal interest rate?
+
+-   The Fed faces a zero lower bound on $i$.
+
+    -   Imagine $i=0$, $R_t=-\pi_t$.
+    -   Deflation $\implies R_t \uparrow$
+
+-   Household and firms investment:
+
+    -   If MPC is 1%, and inflation is 3%, investment.
+
+    -   If MPC is 1% and inflation is -3%, no investment.
+:::
+
+## Deflation - Liquidity Trap
+
+::: {style="font-size: 35px"}
+-   Deflation coupled with a zero nominal interest rate causes a liquidity trap.
+
+-   Firms and households do not want to borrow. Liquidity is trapped inside the banks and will not stimulate the economy.
+
+-   Theoretically at this point currency and bonds are the same.
+
+-   Other unconventional solutions:
+
+    -   Japan has engaged in extensive open market operations for the past 20 years.
+
+    -   Fed tripled balance sheet.
+
+    -   Neither has had the recovery that was hoped for.
+:::
+
+## Deflationary Spiral
+
+::: {style="font-size: 35px"}
+-   Recession causes deflation.
+
+-   Deflation raises $R$.
+
+-   Recession deepens.
+
+-   Causes more deflation.
+:::
+
+## Deflation Remedies
+
+::: {style="font-size: 35px"}
+-   Fiscal stimulus
+
+-   Unconventional monetary policy
+
+-   Manage $\pi^e$
+:::
