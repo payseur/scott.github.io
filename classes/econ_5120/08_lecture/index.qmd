@@ -408,7 +408,7 @@ MP: $\uparrow i_t \implies \uparrow R_t$      IS: $\uparrow R_t \implies \d
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Short Run Model
+## Chapter 13: Short Run Model
 
 ::: {.incremental style="font-size: 30px"}
 Three Basic Equations:
@@ -1512,3 +1512,95 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 -   Manage $\pi^e$
 :::
+
+## Taylor Rule
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_4a.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Taylor rule is more sophisticated thank the monetary policy rule from last chapter.
+
+-   Short-run output level also influences the setting of the Fed Funds rate.
+
+-   During crisis monetary policy appears to be expansionary (lying close or below the Taylor rule), however, financial frictions $\implies$ misleading.
+
+-   Pre 2008 Fed Funds were kept low for too long + global savings glut.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Taylor Rule
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_4b.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Pre 2008 Fed Funds were kept low for too long + global savings glut (house prices high).
+
+    -   This had to do with the concern of deflation in 2001 and 2002.
+
+-   Short-run output was negative until 2018 (lost generation).
+
+    -   Or was it potential output?
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Potential Output
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Taylor rule showed us that fed funds should be above zero since 2010.
+
+    -   Does not account for financial frictions.
+
+-   Taylor rule has to do with **short-run models** of the economy.
+
+    -   Potential GDP estimates for 2007 vs latest.
+
+    -   Closing of the output gap occurred primarily because potential GDP decreased, not actual GDP returning to its trend.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Potential Output
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Recall that the CBO computes potential GDP based on an extended Solow model.
+
+    -   Investment rates have been low following the financial crisis - this contributes to a lower potential GDP.
+
+    -   We will also see that productivity rates has slowed considerably - also contributing to a lower potential GDP.
+
+-   Did the GFC change firms' desire to make long term investments? How are short term and long term features of the economy held together?
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## 
