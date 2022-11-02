@@ -57,11 +57,29 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ```
 
-## CPI
+## JOLTS
 
-[Link](https://www.bls.gov/news.release/cpi.nr0.htm)
+[Link](https://www.bls.gov/news.release/jolts.a.htm)
 
-![](images/CPI.png){fig-align="center"}
+![](images/jolts.png){fig-align="center"}
+
+## PCE
+
+[Link](https://www.bea.gov/news/2022/personal-income-and-outlays-september-2022) \| [Link](https://apps.bea.gov/iTable/?reqid=19&step=3&isuri=1&select_all_years=0&nipa_table_list=2013&series=m&first_year=2020&last_year=2022&scale=-99&categories=underlying&thetable=)
+
+![](images/PCE.png){fig-align="center"}
+
+## GDP Third Quarter
+
+[Link](https://www.bea.gov/news/blog/2022-10-27/gross-domestic-product-third-quarter-2022-advance-estimate)
+
+![](images/GDP.png){fig-align="center"}
+
+## Fed Today
+
+[Link](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
+
++75 bps, +3.75% YTD
 
 ## Structure of the Short-Run Model
 
@@ -793,9 +811,9 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
     -   Our simply monetary policy rule provides some guidance:$R_t -\bar{r} = \bar{m}(\pi_t -\bar{\pi})$
 
-    -   Plug in the Fisher equation, $i_t = R_t + \pi_t$ , to create the Taylor rule.
+    -   Plug in the Fisher equation, $i_t = R_t + \pi_t$ , to create the Monetary Policy Rule.
 
-    -   Taylor Rule: $i_t= \bar{r} +\pi_t+ \bar{m}(\pi_t -\bar{\pi})$.
+    -   Monetary Policy Rule: $i_t= \bar{r} +\pi_t+ \bar{m}(\pi_t -\bar{\pi})$.
 
         -   John Taylor suggest using $\bar{r} = 2\%, \bar{m}=0.5, \bar{\pi}=2\%$.
 :::
@@ -805,7 +823,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Taylor Rule: US
+## Monetary Policy Rule: US
 
 ```{r, echo=T}
 ## Setup Environment
@@ -820,7 +838,7 @@ fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
 fredr_set_key(fred_key)
 ```
 
-## Taylor Rule: US
+## Monetary Policy Rule: US
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -845,7 +863,7 @@ cpi %>% head(5) %>% print()
 Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 :::
 
-## Taylor Rule: US
+## Monetary Policy Rule: US
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -869,7 +887,7 @@ fedfunds %>% head(5) %>% print()
 Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 :::
 
-## Taylor Rule: US
+## Monetary Policy Rule: US
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -890,12 +908,12 @@ dat_wide %>% head(5) %>% print()
 Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 :::
 
-## Taylor Rule: US
+## Monetary Policy Rule: US
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
 
-# Create Taylor Rule Prediction
+# Create Monetary Policy Rule Prediction
 r_bar = 2       # MPC
 m_bar = 0.5     # Sensitivity Parameter
 pi_bar = 2      # Inflation target
@@ -912,7 +930,7 @@ dat_long <- dat_wide %>% pivot_longer(-date)
 Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 :::
 
-## Taylor Rule: US
+## Monetary Policy Rule: US
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -928,7 +946,7 @@ dat_long %>%
 Source: [Core CPI](https://fred.stlouisfed.org/series/CPILFESL) \| [Fed Funds](https://fred.stlouisfed.org/series/FEDFUNDS)
 :::
 
-## Taylor Rule: JAPAN
+## Monetary Policy Rule: JAPAN
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -953,7 +971,7 @@ inflation %>% head(5) %>% print()
 Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
 :::
 
-## Taylor Rule: JAPAN
+## Monetary Policy Rule: JAPAN
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -978,7 +996,7 @@ overnight %>% head(5) %>% print()
 Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
 :::
 
-## Taylor Rule: JAPAN
+## Monetary Policy Rule: JAPAN
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -999,12 +1017,12 @@ dat_wide %>% head(5) %>% print()
 Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
 :::
 
-## Taylor Rule: JAPAN
+## Monetary Policy Rule: JAPAN
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
 
-# Create Taylor Rule Prediction
+# Create Monetary Policy Rule Prediction
 r_bar = 2       # MPC
 m_bar = 0.5     # Sensitivity Parameter
 pi_bar = 2      # Inflation target
@@ -1021,7 +1039,7 @@ dat_long <- dat_wide %>% pivot_longer(-date)
 Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
 :::
 
-## Taylor Rule: JAPAN
+## Monetary Policy Rule: JAPAN
 
 ::: {style="font-size: 30px"}
 ```{r, echo=T}
@@ -1037,7 +1055,7 @@ dat_long %>%
 Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Overnight Rate](https://fred.stlouisfed.org/series/IRSTCB01JPM156N)
 :::
 
-## Taylor Rule: European Union
+## Monetary Policy Rule: European Union
 
 -   [Inflation Data](https://fred.stlouisfed.org/series/EA19CPALTT01GYM) \| [ECB Overnight Deposit](https://fred.stlouisfed.org/series/ECBDFR)
 
@@ -1045,13 +1063,13 @@ Source: [Inflation](https://fred.stlouisfed.org/series/JPNCPIALLMINMEI) \| [Over
 
 -   Use Monthly (frequency = "m")
 
--   Template: [Taylor Rule US](taylor_us.R)
+-   Template: [Monetary Policy Rule US](taylor_us.R)
 
 ::: footer
 Source: [Inflation Data](https://fred.stlouisfed.org/series/EA19CPALTT01GYM) \| [ECB Overnight Deposit](https://fred.stlouisfed.org/series/ECBDFR)
 :::
 
-## Taylor Rule: ECB
+## Monetary Policy Rule: ECB
 
 ```{r}
 #| echo: false
@@ -1097,7 +1115,7 @@ dat <- bind_rows(inflation, overnight)
 dat_wide <- dat %>% pivot_wider(names_from = id)
 
 
-# Create Taylor Rule Prediction
+# Create Monetary Policy Rule Prediction
 r_bar = 2       # MPC
 m_bar = 0.5     # Sensitivity Parameter
 pi_bar = 2      # Inflation target
@@ -1115,7 +1133,7 @@ dat_long %>%
 
 ```
 
--   [Taylor Rule ECB](taylor_eu.R)
+-   [Monetary Policy Rule ECB](taylor_eu.R)
 
 ::: footer
 Source: [Inflation Data](https://fred.stlouisfed.org/series/EA19CPALTT01GYM) \| [ECB Overnight Deposit](https://fred.stlouisfed.org/series/ECBDFR)
@@ -1415,6 +1433,11 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
+## Covid-19 Spreads
+
+```{=html}
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Vv7V&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+```
 ## Deflation
 
 ::: {style="font-size: 35px"}

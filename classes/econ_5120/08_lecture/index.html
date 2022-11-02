@@ -407,11 +407,26 @@
 
 </div>
 </section>
-<section id="cpi" class="slide level2">
-<h2>CPI</h2>
-<p><a href="https://www.bls.gov/news.release/cpi.nr0.htm">Link</a></p>
+<section id="jolts" class="slide level2">
+<h2>JOLTS</h2>
+<p><a href="https://www.bls.gov/news.release/jolts.a.htm">Link</a></p>
 
-<img data-src="images/CPI.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/jolts.png" class="r-stretch quarto-figure-center"></section>
+<section id="pce" class="slide level2">
+<h2>PCE</h2>
+<p><a href="https://www.bea.gov/news/2022/personal-income-and-outlays-september-2022">Link</a> | <a href="https://apps.bea.gov/iTable/?reqid=19&amp;step=3&amp;isuri=1&amp;select_all_years=0&amp;nipa_table_list=2013&amp;series=m&amp;first_year=2020&amp;last_year=2022&amp;scale=-99&amp;categories=underlying&amp;thetable=">Link</a></p>
+
+<img data-src="images/PCE.png" class="r-stretch quarto-figure-center"></section>
+<section id="gdp-third-quarter" class="slide level2">
+<h2>GDP Third Quarter</h2>
+<p><a href="https://www.bea.gov/news/blog/2022-10-27/gross-domestic-product-third-quarter-2022-advance-estimate">Link</a></p>
+
+<img data-src="images/GDP.png" class="r-stretch quarto-figure-center"></section>
+<section id="fed-today" class="slide level2">
+<h2>Fed Today</h2>
+<p><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">Link</a></p>
+<p>+75 bps, +3.75% YTD</p>
+</section>
 <section id="structure-of-the-short-run-model" class="slide level2">
 <h2>Structure of the Short-Run Model</h2>
 
@@ -1158,8 +1173,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <li class="fragment"><p>Predicting the Fed Funds Rate</p>
 <ul>
 <li class="fragment"><p>Our simply monetary policy rule provides some guidance:<span class="math inline">\(R_t -\bar{r} = \bar{m}(\pi_t -\bar{\pi})\)</span></p></li>
-<li class="fragment"><p>Plug in the Fisher equation, <span class="math inline">\(i_t = R_t + \pi_t\)</span> , to create the Taylor rule.</p></li>
-<li class="fragment"><p>Taylor Rule: <span class="math inline">\(i_t= \bar{r} +\pi_t+ \bar{m}(\pi_t -\bar{\pi})\)</span>.</p>
+<li class="fragment"><p>Plug in the Fisher equation, <span class="math inline">\(i_t = R_t + \pi_t\)</span> , to create the Monetary Policy Rule.</p></li>
+<li class="fragment"><p>Monetary Policy Rule: <span class="math inline">\(i_t= \bar{r} +\pi_t+ \bar{m}(\pi_t -\bar{\pi})\)</span>.</p>
 <ul>
 <li class="fragment">John Taylor suggest using <span class="math inline">\(\bar{r} = 2\%, \bar{m}=0.5, \bar{\pi}=2\%\)</span>.</li>
 </ul></li>
@@ -1171,8 +1186,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
 </section>
-<section id="taylor-rule-us" class="slide level2">
-<h2>Taylor Rule: US</h2>
+<section id="monetary-policy-rule-us" class="slide level2">
+<h2>Monetary Policy Rule: US</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">## Setup Environment</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
@@ -1186,8 +1201,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <span id="cb1-10"><a href="#cb1-10"></a><span class="fu">fredr_set_key</span>(fred_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="taylor-rule-us-1" class="slide level2">
-<h2>Taylor Rule: US</h2>
+<section id="monetary-policy-rule-us-1" class="slide level2">
+<h2>Monetary Policy Rule: US</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># download data</span></span>
@@ -1228,8 +1243,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/CPILFESL">Core CPI</a> | <a href="https://fred.stlouisfed.org/series/FEDFUNDS">Fed Funds</a></p>
 </div>
 </section>
-<section id="taylor-rule-us-2" class="slide level2">
-<h2>Taylor Rule: US</h2>
+<section id="monetary-policy-rule-us-2" class="slide level2">
+<h2>Monetary Policy Rule: US</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># download data</span></span>
@@ -1268,8 +1283,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/CPILFESL">Core CPI</a> | <a href="https://fred.stlouisfed.org/series/FEDFUNDS">Fed Funds</a></p>
 </div>
 </section>
-<section id="taylor-rule-us-3" class="slide level2">
-<h2>Taylor Rule: US</h2>
+<section id="monetary-policy-rule-us-3" class="slide level2">
+<h2>Monetary Policy Rule: US</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Combine two long series</span></span>
@@ -1295,11 +1310,11 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/CPILFESL">Core CPI</a> | <a href="https://fred.stlouisfed.org/series/FEDFUNDS">Fed Funds</a></p>
 </div>
 </section>
-<section id="taylor-rule-us-4" class="slide level2">
-<h2>Taylor Rule: US</h2>
+<section id="monetary-policy-rule-us-4" class="slide level2">
+<h2>Monetary Policy Rule: US</h2>
 <div style="font-size: 30px">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Create Taylor Rule Prediction</span></span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Create Monetary Policy Rule Prediction</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>r_bar <span class="ot">=</span> <span class="dv">2</span>       <span class="co"># MPC</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a>m_bar <span class="ot">=</span> <span class="fl">0.5</span>     <span class="co"># Sensitivity Parameter</span></span>
 <span id="cb12-4"><a href="#cb12-4"></a>pi_bar <span class="ot">=</span> <span class="dv">2</span>      <span class="co"># Inflation target</span></span>
@@ -1314,8 +1329,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/CPILFESL">Core CPI</a> | <a href="https://fred.stlouisfed.org/series/FEDFUNDS">Fed Funds</a></p>
 </div>
 </section>
-<section id="taylor-rule-us-5" class="slide level2">
-<h2>Taylor Rule: US</h2>
+<section id="monetary-policy-rule-us-5" class="slide level2">
+<h2>Monetary Policy Rule: US</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>dat_long <span class="sc">%&gt;%</span> </span>
@@ -1331,8 +1346,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/CPILFESL">Core CPI</a> | <a href="https://fred.stlouisfed.org/series/FEDFUNDS">Fed Funds</a></p>
 </div>
 </section>
-<section id="taylor-rule-japan" class="slide level2">
-<h2>Taylor Rule: JAPAN</h2>
+<section id="monetary-policy-rule-japan" class="slide level2">
+<h2>Monetary Policy Rule: JAPAN</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># download data</span></span>
@@ -1373,8 +1388,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/JPNCPIALLMINMEI">Inflation</a> | <a href="https://fred.stlouisfed.org/series/IRSTCB01JPM156N">Overnight Rate</a></p>
 </div>
 </section>
-<section id="taylor-rule-japan-1" class="slide level2">
-<h2>Taylor Rule: JAPAN</h2>
+<section id="monetary-policy-rule-japan-1" class="slide level2">
+<h2>Monetary Policy Rule: JAPAN</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># download data</span></span>
@@ -1414,8 +1429,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/JPNCPIALLMINMEI">Inflation</a> | <a href="https://fred.stlouisfed.org/series/IRSTCB01JPM156N">Overnight Rate</a></p>
 </div>
 </section>
-<section id="taylor-rule-japan-2" class="slide level2">
-<h2>Taylor Rule: JAPAN</h2>
+<section id="monetary-policy-rule-japan-2" class="slide level2">
+<h2>Monetary Policy Rule: JAPAN</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Combine two long series</span></span>
@@ -1441,11 +1456,11 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/JPNCPIALLMINMEI">Inflation</a> | <a href="https://fred.stlouisfed.org/series/IRSTCB01JPM156N">Overnight Rate</a></p>
 </div>
 </section>
-<section id="taylor-rule-japan-3" class="slide level2">
-<h2>Taylor Rule: JAPAN</h2>
+<section id="monetary-policy-rule-japan-3" class="slide level2">
+<h2>Monetary Policy Rule: JAPAN</h2>
 <div style="font-size: 30px">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Create Taylor Rule Prediction</span></span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Create Monetary Policy Rule Prediction</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>r_bar <span class="ot">=</span> <span class="dv">2</span>       <span class="co"># MPC</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a>m_bar <span class="ot">=</span> <span class="fl">0.5</span>     <span class="co"># Sensitivity Parameter</span></span>
 <span id="cb24-4"><a href="#cb24-4"></a>pi_bar <span class="ot">=</span> <span class="dv">2</span>      <span class="co"># Inflation target</span></span>
@@ -1460,8 +1475,8 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/JPNCPIALLMINMEI">Inflation</a> | <a href="https://fred.stlouisfed.org/series/IRSTCB01JPM156N">Overnight Rate</a></p>
 </div>
 </section>
-<section id="taylor-rule-japan-4" class="slide level2">
-<h2>Taylor Rule: JAPAN</h2>
+<section id="monetary-policy-rule-japan-4" class="slide level2">
+<h2>Monetary Policy Rule: JAPAN</h2>
 <div style="font-size: 30px">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>dat_long <span class="sc">%&gt;%</span> </span>
@@ -1477,23 +1492,23 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <p>Source: <a href="https://fred.stlouisfed.org/series/JPNCPIALLMINMEI">Inflation</a> | <a href="https://fred.stlouisfed.org/series/IRSTCB01JPM156N">Overnight Rate</a></p>
 </div>
 </section>
-<section id="taylor-rule-european-union" class="slide level2">
-<h2>Taylor Rule: European Union</h2>
+<section id="monetary-policy-rule-european-union" class="slide level2">
+<h2>Monetary Policy Rule: European Union</h2>
 <ul>
 <li><p><a href="https://fred.stlouisfed.org/series/EA19CPALTT01GYM">Inflation Data</a> | <a href="https://fred.stlouisfed.org/series/ECBDFR">ECB Overnight Deposit</a></p></li>
 <li><p>Dates: 2000-01-01</p></li>
 <li><p>Use Monthly (frequency = “m”)</p></li>
-<li><p>Template: <a href="taylor_us.R">Taylor Rule US</a></p></li>
+<li><p>Template: <a href="taylor_us.R">Monetary Policy Rule US</a></p></li>
 </ul>
 <div class="footer">
 <p>Source: <a href="https://fred.stlouisfed.org/series/EA19CPALTT01GYM">Inflation Data</a> | <a href="https://fred.stlouisfed.org/series/ECBDFR">ECB Overnight Deposit</a></p>
 </div>
 </section>
-<section id="taylor-rule-ecb" class="slide level2">
-<h2>Taylor Rule: ECB</h2>
+<section id="monetary-policy-rule-ecb" class="slide level2">
+<h2>Monetary Policy Rule: ECB</h2>
 
 <img data-src="index_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"><ul>
-<li><a href="taylor_eu.R">Taylor Rule ECB</a></li>
+<li><a href="taylor_eu.R">Monetary Policy Rule ECB</a></li>
 </ul>
 <div class="footer">
 <p>Source: <a href="https://fred.stlouisfed.org/series/EA19CPALTT01GYM">Inflation Data</a> | <a href="https://fred.stlouisfed.org/series/ECBDFR">ECB Overnight Deposit</a></p>
@@ -1797,6 +1812,10 @@ R_t-\bar{r} = \bar{m}(\pi_t-\bar{\pi})
 <div class="footer">
 <p>Source: <a href="https://wwnorton.com/books/9780393417326">Macroeconomics, Jones, 2021</a></p>
 </div>
+</section>
+<section id="covid-19-spreads" class="slide level2">
+<h2>Covid-19 Spreads</h2>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Vv7V&amp;width=670&amp;height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowtransparency="true" loading="lazy"></iframe>
 </section>
 <section id="deflation" class="slide level2">
 <h2>Deflation</h2>
