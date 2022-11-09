@@ -51,11 +51,29 @@ recs <- getFredRecessionData(fetch_symbol = "USREC",
 
 ```
 
-## JOLTS
+## Employment Situation Summary
 
-[Link](https://www.bls.gov/news.release/jolts.a.htm)
+[Link](https://www.bls.gov/news.release/empsit.nr0.htm)
 
-![](images/jolts.png){fig-align="center"}
+![](images/ess.png){fig-align="center"}
+
+## ISM Manufacturing
+
+[Link](https://www.ismworld.org/globalassets/pub/research-and-surveys/rob/pmi/rob202211pmi.pdf)
+
+![](images/pmim.png){fig-align="center"}
+
+## ISM Services
+
+[Link](https://www.ismworld.org/globalassets/pub/research-and-surveys/rob/nmi/rob202210svcs.pdf)
+
+![](images/pmix.png){fig-align="center"}
+
+## OECD Inflation (CPI Tomorrow)
+
+[Link](https://www.oecd.org/newsroom/consumer-prices-oecd-updated-3-november-2022.htm)
+
+![](images/oecd.png){fig-align="center"}
 
 ## Chapter 14: GFC Short-Run
 
@@ -911,6 +929,186 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
     -   If temporary than increase in G is greater than decrease in C.
 -   More generally consumption is the variable in DSGE models that accounts for the future.
 -   Shift from A to B not like a typical recession, lower wages, lower consumption, higher labor supplied.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## DSGE: Sticky Wages
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Nominal wages, $W$ , are different than real wages, $w= \frac{W}{P}$.
+    -   Nominal are what are paid in the real world
+
+    -   Real wages are in terms of output
+-   If the classic dichotomy holds than changes in monetary policy will only affect nominal variables and have no real effects.
+-   For monetary policy to have real effects on the economy we must introduce frictions to price adjustments.
+    -   Nominal wage rigidity, or sticky prices.
+
+    -   Assume $W = \bar{W}$
+-   Wage is *stuck* above the wage the would clear the labor market.
+-   More people would like to work at that wage than there are jobs - involuntary unemployment.\
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## DSGE: Sticky Wages + Monetary Expansion
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Sticky wages are one of the key mechanisms that DSGE models incorporate unemployment.
+-   Consider an expansion of monetary policy.
+-   Other prices increase, so the overall price level increases to $P'$ .
+-   Since we have a fixed nominal wage, this leads to a decrease in real wage.
+-   This change in monetary policy leads to the real wage and employment moving in opposite directions.
+-   Employment rises but real wages fall.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## DSGE: Sticky Prices + Monetary Expansion
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Alternative form or nominal rigidity is that wages may be flexible but prices for goods and services may change gradual $\implies$ **sticky prices**.
+-   Firms agree to supply whatever quantity of output is demanded regardless of wage. Firms become price takers on wage. Labor demand curve is vertical.
+-   A monetary expansion (lower fed funds rate) increases the demand in the economy because the price is fixed.
+-   Employment and wages rise.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Labor Market and DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   Labor market block of a DSGE model allows us intuition of how various shocks impact employment and wages.
+
+-   TFP shocks and monetary shocks under sticky prices lead to movements in macro variables that resemble business cycles. (employment and real wage move in the same direction)
+
+-   TFP Shocks: real business cycle models.
+
+-   New Keynsian models: Sticky prices with monetary shocks.
+
+-   Modern DSGE models include both TFP and New Keynsian and:
+
+    -   Govt purchases, news, financial frictions, consumption shocks,...
+:::
+
+## Quantitative DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   Goal of DSGE models is to create a set of shock responses across the economy.
+
+-   When individuals make decisions about how much they consume and work they consider the current and future consequences of their decisions.
+
+    -   Expectations of how future shocks with change the economy.
+
+-   Full DSGE models involve large numerical calculations of how all variables respond to shocks quantitatively.
+
+-   Used throughout finance and central banking.
+:::
+
+## Impulse Response Function
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Macro variable responds over more than one period to a shock.
+-   From the shock start to steady-state we plot the impulse response function.
+-   Percentage of real GDP change based on a temporary +1% shock in fed funds rate.
+-   Maximum effect of -0.33% real GDP happens in period 3 and 4.
+-   Five years for this temporary shock to disapate.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Impulse Response Function
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Dynamics of the response are inline with AS/AD model. A shock (or potential future shock) leads to transition dynamics.
+-   What we find is that our initial discussions of transition dynamics might be off.
+    -   AS/AD and Solow models time $t_0$ was the largest move and then it tapered. Instead impulse response functions give us a rich set of dynamics.
+
+    -   Not just of one variable, but of the whole system.
+-   IRF:
+    -   Peak decline
+
+    -   Magnitude
+
+    -   Duration
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Monetary Policy Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_10.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Percentage of real GDP change based on a temporary +1% shock in fed funds rate.
+-   Effect on hours worked is slightly smaller on a percentage basis
+-   Consumption is larger - [Smets-Wouters](https://www.karlwhelan.com/MAMacro/part11.pdf) model includes a substantial adjustment cost for investment.
+    -   Moves by more than the permanent income hypothesis would suggest (also fits data better).
+-   Inflation rate drops by 0.2% for two years.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## TFP Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_11.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Quantitative DSGE models incorporate multiple shocks simultaneously.
+-   Temporary TFP Shock of +1%
+-   
 :::
 :::
 
