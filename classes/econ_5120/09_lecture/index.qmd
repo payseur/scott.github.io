@@ -44,10 +44,10 @@ library(tidyr)
 fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
 fredr_set_key(fred_key)
 
-recs <- getFredRecessionData(fetch_symbol = "USREC", 
-                   data_file_name = "us_recession", 
-                   data_dir = "data", 
-                   force_refresh = params$refresh_fred) 
+# recs <- getFredRecessionData(fetch_symbol = "USREC", 
+#                    data_file_name = "us_recession", 
+#                    data_dir = "data", 
+#                    force_refresh = params$refresh_fred) 
 
 ```
 
@@ -224,7 +224,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 ```
 ## Deflation
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   Fisher equation: $i_t=R_t+\pi_t$
 
     -   Rearrange: $R_t = i_t -\pi_t$
@@ -242,7 +242,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Deflation
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   What if we have deflation coupled with a low nominal interest rate?
 
 -   The Fed faces a zero lower bound on $i$.
@@ -259,7 +259,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Deflation - Liquidity Trap
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   Deflation coupled with a zero nominal interest rate causes a liquidity trap.
 
 -   Firms and households do not want to borrow. Liquidity is trapped inside the banks and will not stimulate the economy.
@@ -277,7 +277,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Deflationary Spiral
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   Recession causes deflation.
 
 -   Deflation raises $R$.
@@ -289,7 +289,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ## Deflation Remedies
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   Fiscal stimulus
 
 -   Unconventional monetary policy
@@ -891,9 +891,11 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
 
 ## A Stylized Approach to DSGE: Increased Taxes
 
+::: columns
 ::: {.column width="50%"}
 ![](images/figure_15_4.png){fig-align="center"}
 :::
@@ -1107,11 +1109,57 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 
 ::: {.column .incremental width="50%" style="font-size: 23px"}
 -   Quantitative DSGE models incorporate multiple shocks simultaneously.
--   Temporary TFP Shock of +1%
--   
+-   Temporary TFP Shock of +1%, long lasting \~4 years for half decay
+-   GDP is above 1% because of capital accumulation
+-   Consumption increases but due to consumption smoothing the effect is less than that on GDP.
+-   Hours worked drops the increases - this is due to sticky prices. Different assumptions and models lead to different outcomes.
+-   Initial inflation falls because GDP expands but not quickly due to adjustment costs.
 :::
 :::
 
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
+
+## Government Purchases Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_12.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Govt Purchase Shock of +1%
+-   GDP increases by 1% and slowly tapers off
+-   Consumption decreases as in our previous example (must be payed for at some point)
+-   Increase in labor supply (shifts out) lowering wages but increasing hours worked.
+-   Little pressure on inflation.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Financial Friction Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_13.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Financial frictions shock for GFC.
+-   Wedge between what people can borrow and save at.
+-   Largest effect on consumption
+-   Looks similar to a monetary policy shock
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Next week
+
+Read Chapter 19
