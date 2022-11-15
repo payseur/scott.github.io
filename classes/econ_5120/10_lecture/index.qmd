@@ -1,0 +1,1412 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "International Trade & Exchange Rates (chpt 19 & 20)"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: FALSE
+---
+
+## Introduction
+
+::: incremental
+-   High frequency data
+
+-   Chapter 19: International Trade
+
+-   Chapter 20: Exchange Rates
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+library(macroTools)
+library(fredr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(purrr)
+library(readr)
+library(tidyr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+
+# recs <- getFredRecessionData(fetch_symbol = "USREC", 
+#                    data_file_name = "us_recession", 
+#                    data_dir = "data", 
+#                    force_refresh = params$refresh_fred) 
+
+```
+
+## TODO
+
+[Link](https://www.bls.gov/news.release/empsit.nr0.htm)
+
+![](images/rstudio.png){fig-align="center"}
+
+## Chapter 19: International Trade
+
+::: {style="font-size: 35px"}
+-   Since WWII tariffs and transportation costs have fallen $\implies$ international trade increasingly important to the world economy.
+
+-   US Imports generally exceeded US exports since the late 1970s.
+
+-   Running a trade deficit allows domestic consumption, investment and government expenditures to be financed by the rest of the world lending goods and services to the US.
+
+-   Trade between countries can be viewed as an extension of trade within countries.
+
+-   Public policy aims to find ways to redistribute gains from trade from economic winners to losers.
+:::
+
+## Chapter 19: International Trade
+
+::: {style="font-size: 35px"}
+-   Trade deficits allow countries to smooth their consumption over time (similar to permanent-income hypothesis)
+
+-   Trade does not need to be balanced year to year but must be in the long run.
+
+-   Trade is based on comparative advantage. Countries produce the goods they are best at producing, not in an absolute sense, but relative to other countries.
+:::
+
+## Chapter 19: International Trade
+
+::: {style="font-size: 35px"}
+-   Alternative to trading goods is to allow the free flow of inputs, like labor and capital. Input flows depend on where they earn the highest return.
+
+    -   Efficiency gains from allowing free migration of labor appear to be extremely large, based on the large TFP differences across country.
+
+-   US has gone from net lender to to the world to being a net borrower. The amount of foreign debt owed by the US exceeds 45% of GDP in recent years.
+
+    -   High relative to US history but not relative to debt ratios of other countries.
+:::
+
+## Trade Basics
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_19_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Since the 1950s US imports and exports have risen steadily
+
+-   Transporting goods and services across countries has become cheaper.
+
+    -   Goods:
+
+        -   Average ocean freight charges per short ton declined from \$95 in 1920 to \$29 in 1990.
+
+        -   Airline revenue per passenger fell from 112 cents in 1930 to 11 cents in 2008.
+
+    -   Services:
+
+        -   Internet makes costs virtually free
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Trade Balance
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_19_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Trade balance or net exports
+
+-   From 1950 to 1970s the US ran a trade surplus.
+
+-   From late 1970s on the US ran a trade deficit.
+
+-   Closed Global Economy: The US + Rest of World (RoW) = zero
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Trade Balance Around the World
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_19_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   In 2017:
+
+    -    US and France ran a trade deficit
+
+    -   Japan, China, and Germany ran a trade surplus
+
+-   US trade deficit is financed primarily by China
+
+-   Southern Europe's trade deficits financed primarily by Germany
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## A Basic Reason for Trade
+
+::: {.incremental style="font-size: 35px"}
+-   Consider the fundamental economic model: Robinson Crusoe Economy.
+
+-   Step 1: each person produces all the goods he/she consumes.
+
+-   Step 2: Two economies (islands) and two products (bananas and fish).
+
+    -   Economy one is endowed with 250 bananas and 750 fish / per year
+
+    -   Economy two is endowed with 750 bananas and 250 fish / per year
+
+-   Trade between the can facilitate a consumption mix of 500 bananas and fish for each island. Can lead to welfare gains.
+:::
+
+## Trade Across Time
+
+::: columns
+::: {.column width="50%"}
+![](images/table_19_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Consider two islands one good (wheat):
+
+    -   Eventopia succeeds in growing wheat in even years.
+
+    -   Oddtopia succeeds in growing wheat in odd years.
+
+-   Inter-temporal trade, trade over time, allows the islands to smooth out the risk associated with a bad harvest.
+
+-   In this example: perfect risk-sharing.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Long-Run 
+
+::: {.incremental style="font-size: 35px"}
+-   In the long run trade must be balanced.
+
+    -   No one is willing to lend unless they will be repaid.
+
+    -   Deficits today represent borrowing from the rest of the world.
+
+    -   The US has been running a trade deficit for 25 years. The rest of the world has been lending goods and services to the US.
+
+-   $NX \equiv EX - IM$
+
+    -   if $NX < 0 \implies (C+I+G) > Y$
+
+    -   if $NX > 0 \implies (C+I+G) < Y$
+
+-   Borrowing allows the people in both countries to smooth consumption.
+:::
+
+## Trade with Production
+
+::: columns
+::: {.column width="50%"}
+![](images/table_19_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Two countries: North and South which prefer to spend half their budget on apples and half on computers.
+
+    -   North is more productive in both sectors. A single worker can produce either 16 computers or 160 apples.
+
+-   The fact that northern workers are more productive for both goods means they have an **absolute advantage**.
+
+-   There may still be gains from trade. The North's productivity advantage is much larger for computers than apples $\implies$ North has a **comparative advantage** in computer production.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Autarky
+
+::: columns
+::: {.column width="50%"}
+![](images/table_19_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Still assume that people in both countries spend half their income on apples and half on computers.
+
+    -   $\frac{price\:of\:apples \times consumption\:of\:apples}{wage,w}=.5$
+
+    -   $\frac{price\:of\:computers \times consumption\:of\:computers}{wage,w}=.5$
+
+-   Choose numeraire: apples - the price of computers is in apples.
+
+-   Since wage is in apples it is equal to the number of apples that one can produce.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Free Trade
+
+::: columns
+::: {.column width="50%"}
+![](images/table_19_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Computers sell for different prices, 50 apples in the South and 10 apples in the North.
+
+-   Suppose one person could trade in this world? They would buy computers in the North and sell in the South. Creating risk-less profit or **arbitrage**.
+
+-   North has a comparative advantage at computer production.
+
+-   South has comparative advantage at apple production.
+
+-   In this table the North and South completely specialize.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Free Trade
+
+::: columns
+::: {.column width="50%"}
+![](images/table_19_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Solve for the world price of a computer.
+
+-   World produces 40,000 apples and 1,600 computers. Let's guess that we used the same method for the world that we used for individual countries (40,000/1,600 = 25 apples).
+
+-   Wages:
+
+    -   South produces only apples $\implies$ wage = 100 apples.
+
+    -   North produces only computers $\implies$ wage = 16 x 25 = 400 apples.
+
+-   Welfare increases (consumption)
+
+-   Note: workforce changes, nobody in the south is in high tech now.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Trade in Inputs: Labor
+
+::: columns
+::: {.column width="50%"}
+![](images/table_19_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Open economy to the free movement of labor.
+
+    -   All of the workers from the South would work in the North.
+
+    -   Free trade is about **comparative advantage**
+
+    -   Free migration is about **absolute advantage**.
+
+-   Economy exhibits constant returns to scale.
+
+-   Southern workers receive all the welfare gains from free migration, gains were shared under free trade.
+
+-   Gains to Southerners are greater than losses to Northerners
+
+-   Note: Moving capital is less efficient due to lower TFP.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Financial Frictions
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   We incorporate this into our short-run model: $R=R^{ff}+\bar{f}$.
+
+    -   $\bar{f}$ represents the exogenous risk premium that sits between the fed funds rate $R^{ff}$ and the real interest rate that firms borrow in financial markets.
+
+    -   During normal times $\bar{f} =0$.
+
+-   Leads to investment shock to the IS curve.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## GFC Shock to IS Curve
+
+::: {style="font-size: 35px"}
+-   **Financial frictions**: Fears over solvency and liquidity led to financial frictions.
+
+-   This led to interest rate spikes and a stock market downturn, in addition to the housing market downturn.
+
+-   Interest rates spiked resulting in a 30% decline in investment, $\bar{a}_i \downarrow$.
+
+-   Stock and housing market declines reduced wealth and consumption leading to $\bar{a}_c \downarrow$.
+:::
+
+## IS/MP Framework
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   In normal times an negative aggregate demand shock will shift the IS curve down. (from IS to IS').
+
+-   In response the central bank will lower the fed funds rate, $R^{ff}$, below the MPC, $\bar{r}$.
+
+-   This will shift output back to potential, eliminating the recession.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## IS/MP Framework
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_2b.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   During the GFC the Fed lowered the fed funds rate, which should have increase output.
+
+-   Households and firms saw an interest rate of $R^{ff} + \bar{f}$ .
+
+-   Despite the Fed's actions the economy saw an even deeper recession.
+
+-   The fed lowered to zero, but still did not stimulate the economy.
+
+-   Fed then took non conventional measures.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## AS/AD Framework
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   IS Curve: $\tilde{Y} = \bar{a} - \bar{b}(R_t - \bar{r})$
+
+-   Monetary Policy Rule: $R_t^{ff}-\bar{r}=\bar{m}(\pi_t-\bar{\pi})$
+
+-   Financial Friction: $R_t=R_t^{ff} + \bar{f}$
+
+-   Combining financial friction with monetary policy: $R_t-\bar{r}=\bar{f}+\bar{m}(\pi_t-\bar{\pi})$
+
+-   The new AD curve: $\tilde{Y}=\underbrace{\bar{a}-\bar{b}\bar{f}}_{AD\:shock}-\bar{b}\bar{m}(\pi_t - \bar{\pi})$
+
+    -   Financial friction acts similar to an AD shock.
+
+-   **Deflation**.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Covid-19 Spreads
+
+```{=html}
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Vv7V&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+```
+## Deflation
+
+::: {.incremental style="font-size: 35px"}
+-   Fisher equation: $i_t=R_t+\pi_t$
+
+    -   Rearrange: $R_t = i_t -\pi_t$
+
+    -   If $\pi < 0$ then real interest rate increases.
+
+-   Central banks normally respond to $\bar{a}\downarrow$ by $i \downarrow$.
+
+-   1930's Great Depression
+
+    -   Fed did not lower $i$ because of fear of asset bubbles, deflation increase $R$ sharply.
+
+    -   In 1933 the Fed lowered rates and economy turned around.
+:::
+
+## Deflation
+
+::: {.incremental style="font-size: 35px"}
+-   What if we have deflation coupled with a low nominal interest rate?
+
+-   The Fed faces a zero lower bound on $i$.
+
+    -   Imagine $i=0$, $R_t=-\pi_t$.
+    -   Deflation $\implies R_t \uparrow$
+
+-   Household and firms investment:
+
+    -   If MPC is 1%, and inflation is 3%, investment.
+
+    -   If MPC is 1% and inflation is -3%, no investment.
+:::
+
+## Deflation - Liquidity Trap
+
+::: {.incremental style="font-size: 35px"}
+-   Deflation coupled with a zero nominal interest rate causes a liquidity trap.
+
+-   Firms and households do not want to borrow. Liquidity is trapped inside the banks and will not stimulate the economy.
+
+-   Theoretically at this point currency and bonds are the same.
+
+-   Other unconventional solutions:
+
+    -   Japan has engaged in extensive open market operations for the past 20 years.
+
+    -   Fed tripled balance sheet.
+
+    -   Neither has had the recovery that was hoped for.
+:::
+
+## Deflationary Spiral
+
+::: {.incremental style="font-size: 35px"}
+-   Recession causes deflation.
+
+-   Deflation raises $R$.
+
+-   Recession deepens.
+
+-   Causes more deflation.
+:::
+
+## Deflation Remedies
+
+::: {.incremental style="font-size: 35px"}
+-   Fiscal stimulus
+
+-   Unconventional monetary policy
+
+-   Manage $\pi^e$
+:::
+
+## Taylor Rule
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_4a.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Taylor rule is more sophisticated thank the monetary policy rule from last chapter.
+
+-   Short-run output level also influences the setting of the Fed Funds rate.
+
+-   During crisis monetary policy appears to be expansionary (lying close or below the Taylor rule), however, financial frictions $\implies$ misleading.
+
+-   Pre 2008 Fed Funds were kept low for too long + global savings glut.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Taylor Rule
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_4b.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Pre 2008 Fed Funds were kept low for too long + global savings glut (house prices high).
+
+    -   This had to do with the concern of deflation in 2001 and 2002.
+
+-   Short-run output was negative until 2018 (lost generation).
+
+    -   Or was it potential output?
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Potential Output
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Taylor rule showed us that fed funds should be above zero since 2010.
+
+    -   Does not account for financial frictions.
+
+-   Taylor rule has to do with **short-run models** of the economy.
+
+    -   Potential GDP estimates for 2007 vs latest.
+
+    -   Closing of the output gap occurred primarily because potential GDP decreased, not actual GDP returning to its trend.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Potential Output
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Recall that the CBO computes potential GDP based on an extended Solow model.
+
+    -   Investment rates have been low following the financial crisis - this contributes to a lower potential GDP.
+
+    -   We will also see that productivity rates has slowed considerably - also contributing to a lower potential GDP.
+
+-   Did the GFC change firms' desire to make long term investments? How are short term and long term features of the economy held together?
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Money Supply
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Friedman: Great depression partly caused by deflation as a result of tight monetary policy.
+
+    -   Money supply declined between 1929 and 1933.
+
+    -   Bernanke in 2002 discussed Friedman's research saying "Your are right, we did it... but thanks to you we won't do it again.
+
+-   In 2008 and 2009 there was rapid growth in money supply.
+
+    -   Helped avoid deflation
+
+    -   Targeted +2% $\bar{\pi}$ .
+
+    -   Bernanke was true to his word.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Fed's Balance Sheet
+
+::: columns
+::: {.column width="50%"}
+![](images/table_14_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Conventional monetary policy failed to stimulate the economy.
+
+    -   Fed and treasury created new policies to provide liquidity and capital to financial institutions.
+
+        -   Swap less liquid instruments for treasury securities.
+
+        -   Providing liquidity to large govt sponsored mortgage companies: Fannie Mae & Freddie Mac.
+
+        -   Direct capital injections through the TARP.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+::: footer
+:::
+
+## Fed's Balance Sheet
+
+::: columns
+::: {.column width="50%"}
+![](images/table_14_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   2007:
+
+    -   Assets: Mostly US Treasuries
+
+    -   Liabilities: Mostly US Currency
+
+-   2019:
+
+    -   Five times as large at \$3.5 Trillion
+
+    -   Composition of assets and liabilities changed.
+
+        -   Asset side: lending not only to banks, but to other institutions. Loans or commercial paper. (Other)
+
+        -   Mortgage backed securities
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Assets in the Fed
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Programs where the central bank buys assets other than short term govt bonds are known as **quantitative easing (QE)**.
+
+-   2008-2009: QE1 - Fed purchased nearly \$1T in mortgage-backed securities (MBS)
+
+-   2010: QE2 - Fed purchased \$600B in long-term treasuries.
+
+-   2012-2015: QE3 - Bed purchased \$1.5T in MBS and long-term treasuries.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Liability side of the Fed
+
+::: columns
+::: {.column width="50%"}
+![](images/table_14_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Currency was increased somewhat, but most of the liabilities were parked in reserves of financial institutions.
+
+    -   For the most part the financial institutions kept the money in reserves instead of lending them out.
+
+        -   Worried about financial risk (stress tests, Basel 2&3 capital requirements)
+
+        -   Fed started paying interest on reserves.
+
+        -   By adjusting the interest rate the Fed could control how much was lent out.
+
+-   QE1 is largely credited for helping avoid depression.
+
+-   Further QE actions had less impact (same as 1/4% cut in FF rate, 1.25% change in employment).
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## TARP
+
+::: {.incremental style="font-size: 35px"}
+-   Troubled Asset Relief Program (TARP) passed by congress in the fall of 2008 established a fund to be used by the Treasury.
+
+-   \$700B fund used to buy and insure assets from troubled financial institutions.
+
+    -   Funds ultimately used to purchase equity in banks, guarantee loans to those institutions and even bail out US autos.
+
+        -   97% was returned to treasury by 2012.
+:::
+
+## Fiscal Stimulus
+
+::: {.incremental style="font-size: 35px"}
+-   American Recovery and Reinvestment Act of 2009
+
+-   \$787B package designed to stimulate aggregate demand in the economy.
+
+    -   \$250B in tax cuts
+
+    -   \$500B in new govt spending on unemployment, infrastructure, education, health care, and aid to state and local govts.
+
+    -   CBO estimates \$185B in 2009, \$400B in 2010.
+
+    -   Deficit rose to 10% of GDP.
+:::
+
+## Financial Reform - Moral Hazard
+
+::: {.incremental style="font-size: 35px"}
+-   Financial institutions were able to use \$3 of their money and \$97 of borrowed money to purchase risky assets.
+
+-   In 2008 MBS were the risky asset.
+
+-   When the MBS market turned bad, these companies were deemed **too big to fail** and were bailed out.
+
+-   What should happen? Bankruptcy. Equity holders lose everything and bond holders get a portion of the liquidated company.
+
+-   2008 all big banks were in trouble. Lehman Brothers went bankrupt which led to panic.
+:::
+
+## Financial Reform
+
+::: {.incremental style="font-size: 35px"}
+-   Enhance capital requirements: typically around 7% if increased the stability of financial institution improves.
+
+-   Systemic Regulator: Enforces financial reform.
+
+-   Executive Compensation linked to Long-Term Performance: Claw-backs/deferred comp.
+
+-   Require convertible debt: bonds could convert to equity if certain crisis conditions were met. Puts the risk on the owners of the firm.
+
+-   Living wills - Some firms will fail, a plan for their assets and liabilities if that should happen.
+:::
+
+## Secular Stagnation
+
+::: {.incremental style="font-size: 35px"}
+-   2014 Larry Summers proposed that secular stagnation might have taken hold in western economies.
+
+    -   Combination of slow economic growth, low inflation, and negative real interest rates.
+
+    -   Global savings glut with a decline in demand for investment.
+
+        -   Increased supply of saving and shift back in demand for investment could lead to negative equilibrium real interest rate.
+
+        -   Low investment can lead to low capital accumulation in a Solow model leading to slow growth.
+
+        -   Slow recovery!
+:::
+
+## Productivity Slowdown
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_14_11.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Alternative or complementary explaination for the slow recovery is the level of TFP.
+-   Since 2004 TFP has been low, averaging just:
+    -   0.5% in the private business sector
+
+    -   -0.3% in manufacturing
+-   Businesses with great ideas in GFC were constrained by investment
+-   R&D spending growth was higher before 2000 now it is flat.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Conclusion
+
+::: {.incremental style="font-size: 35px"}
+-   The direct cost of bailing out financial institutions was only a small portion of overall costs.
+
+-   The bulk of the costs were borne by people outside the finance industry
+
+-   Main cost is measured in jobs lost and forgone GDP; inflicted around the world.
+
+-   Financial reforms and lessons learned should help avoid another balance sheet crisis.
+:::
+
+## DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   DSGE Models- Dynamic Stochastic Generalized Equilibrium Models
+
+-   Frontier of macro-economic fluctuations (shocks and their effects).
+
+-   First DSGE models were real business cycle models, such as modified Solow models. Demonstrated that TFP shocks could lead to business cycle like fluctuations
+
+-   Labor market block of the models shows immediate impact of shocks.
+
+-   Permanent income hypothesis holding provides a good bridge to consumption dynamics.
+
+-   Sticky vs flexible prices lead to different conclusions and DSGE models.
+
+-   Estimating models is beyond this class but DSGE models can show similar dynamics as AS/AD models. With more detail.
+:::
+
+## DSGE Motivation
+
+::: {style="font-size: 30px"}
+Economists have long been puzzled by the observations that during peacetime industrial market economies display **recurrent**, large **fluctuations** in output and employment over relatively short time periods. . . . These observations should **not be** puzzling, for they are what **standard economic theory predicts**. For the United States, in fact, given people's ability and willingness to **intertemporally and intratemporally substitute consumption and leisure** and given the nature of the **changing production possibility set**, it would be puzzling if the economy did not display these large fluctuations in output and employment.
+
+-Edward C. Prescott
+:::
+
+## DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   Micro-foundations for macro-models and fluctuations.
+
+-   (D)SGE - Dynamic: evolution of macro-economy over time.
+
+-   D(S)GE - Stochastic: Shocks to the economy lead to macro-economic fluctuations.
+
+-   DS(GE) - General Equilibrium: models feature labor and asset markets that determine every price in the economy everyday.
+:::
+
+## Real Business Cycle Models
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Real business cycles models
+-   Solow model with TFP shocks.
+-   TP fluctuates over time
+    -   Internet (+)
+
+    -   Institutions / Taxes (-)
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Real Business Cycle Models
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_1.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Solow model solution:
+    -   $y^*=\bar{A}^{\frac{3}{2}}(\frac{\bar{s}}{\bar{d}})^{1/2}$
+
+    -   Real because we are not speaking in nominal terms.
+-   Positive shocks to TFP lead to a boom.
+-   Negative shocks lead to a decline.
+-   Yields powerful insights, but what happened in 2009 and 2001?
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Real Business Cycles to DSGE
+
+::: {.incremental style="font-size: 30px"}
+-   RBC models led to an explosion of additional research as economists sought to enrich models to include shocks and explain further variables.
+
+-   Modern DSGE models are divided into three categories:
+
+    -   Endogenous Variables
+
+    -   Shocks
+
+    -   Mechanics of economy that affect the way shocks impact endogenous variables over time.
+:::
+
+## Endogenous Variables
+
+::: {.incremental style="font-size: 30px"}
+-   Familiar already:
+
+    -   GDP
+
+    -   Consumption
+
+    -   Investment
+
+    -   Government Spending
+
+    -   Employment
+
+    -   Capital
+
+    -   Wages
+
+    -   Interest rates
+
+    -   Inflation
+
+-   Labor Market particularly important. output = f(hours, effort)
+:::
+
+## Shocks
+
+::: {.incremental style="font-size: 30px"}
+-   Exogenous variables move over time because the economy is hit by shocks
+
+-   Timing:
+
+    -   Some are temporary and some are permanent.
+
+    -   Some happen now and some we know will happen in the future.
+
+-   Types:
+
+    -   TFP, government purchases, taxes, monetary policy, energy prices, financial frictions, price markups above marginal cost
+
+-   Uncertainty:
+
+    -   Around all shocks there is a level of uncertainty, statistically captured by a distribution over time. (not always symmetrical.)
+:::
+
+## Features of DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   **Nominal rigitidies:** In order for monetary policy to have real effects on the economy some friction must interfere with price adjustment.
+
+    -   Sticky wages and sticky prices
+
+-   **Adjustment costs:** in Solow transition dynamics the first period after a shock included the largest move back towards steady-state. Milton Friedman said monetary policy had peak effect after *long and variable lags*.
+
+-   **Heterogeneity:** People and firms are not the same, different reservation wages, elasticities, etc.
+
+-   **Complete vs Incomplete markets:** Market is segmented by time and geography.
+:::
+
+## Mathematics of DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   Solow model: savings rate is assumed constant (and exogenous).
+
+-   DSGE Model: people make decisions about saving each period.
+
+-   Consider a quarterly model of the past 50 years (200 quarters), a decision one period may affect the decision in a later period.
+
+-   Savings today becomes investment, which becomes capital tomorrow, which affects wage rates tomorrow, which affects how much people want to work and consume tomorrow.
+
+-   Even relatively simple models hard to solve.
+:::
+
+## A Stylized Approach to DSGE: Labor
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Most DSGE Models feature at least Labor, Capital and Output markets.
+-   Labor Demand Curve:
+    -   Reflects the profit-maximizing of firms in deciding how much labor to hire.
+
+    -   Firms continue expanding employment until the marginal product of labor equals real wage (MPL = w)
+
+    -   $Y=\bar{A}K^{1/3}L^{2/3}$ Labor has decreasing returns to scale.
+
+    -   Partial derivative, set equal to w, $w=\frac{2}{3}\frac{\bar{A}K^{2/3}}{L^{1/3}}$
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## A Stylized Approach to DSGE: Labor
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Labor Supply Curve:
+    -   People choose the amount of time they work in order to maximize their utility.
+
+    -   Balance reward of working an extra hour against the leisure that it costs to work that hour.
+
+    -   $L^s = \bar{l}\frac{w}{c}$
+
+        -   $L^s$ : the total labor supply
+
+        -   $w$ : real wage
+
+        -   $c$ : consumption per person
+
+        -   $\bar{l}$ : governs overall labor supply
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## A Stylized Approach to DSGE: Labor
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Equilibrium in the labor market:
+    -   Point where labor supply equals labor demand pins down
+
+        -   the real wage that clears the labor market
+
+        -   the amount of labor that gets used in production
+
+        -   Simplification, we assume $\bar{c}$ , hard to solve for forward looking consumption.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## A Stylized Approach to DSGE: TFP Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_3.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Use DSGE framework to study a temporary negative TFP shock.
+-   TFP is low $\implies$ not a good time to produce, labor demand shifts down.
+-   When $\bar{A}$ is lower the output that an extra worker will produce declines $\implies MPL \downarrow$
+-   Equilibrium in the labor market goes from point A to point B. Employment falls and wages fall. This looks very much like a recession.
+-   Note: temporary implies little effect on consumption.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## A Stylized Approach to DSGE: Increased Taxes
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_4.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Use DSGE framework to study a temporary rise in tax paid by firms from zero to $\tau$ .
+-   Since this tax is paid by firms the marginal product of capital changes and the labor demand curve becomes: $w=(1-\tau)\frac{2}{3}\frac{\bar{A}K^{2/3}}{L^{1/3}}$
+-   TFP is low $\implies$ not a good time to produce, labor demand shifts down.
+-   Equilibrium in the labor market goes from point A to point B. Employment falls and wages fall. This looks very much like a recession.
+-   Note: temporary implies little effect on consumption.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## DSGE: Rise in Government Purchases
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_5.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Suppose that their is a military build up that will be financed by lump sum of taxes at an unspecified date.
+-   Use DSGE framework to study effects of this shock.
+-   Consumption: permanent income hypothesis
+    -   Must pay for this in the future so consumption is lowered.
+
+    -   If permanent than increase in G is equal to decrease in C.
+
+    -   If temporary than increase in G is greater than decrease in C.
+-   More generally consumption is the variable in DSGE models that accounts for the future.
+-   Shift from A to B not like a typical recession, lower wages, lower consumption, higher labor supplied.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## DSGE: Sticky Wages
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_6.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Nominal wages, $W$ , are different than real wages, $w= \frac{W}{P}$.
+    -   Nominal are what are paid in the real world
+
+    -   Real wages are in terms of output
+-   If the classic dichotomy holds than changes in monetary policy will only affect nominal variables and have no real effects.
+-   For monetary policy to have real effects on the economy we must introduce frictions to price adjustments.
+    -   Nominal wage rigidity, or sticky prices.
+
+    -   Assume $W = \bar{W}$
+-   Wage is *stuck* above the wage the would clear the labor market.
+-   More people would like to work at that wage than there are jobs - involuntary unemployment.\
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## DSGE: Sticky Wages + Monetary Expansion
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Sticky wages are one of the key mechanisms that DSGE models incorporate unemployment.
+-   Consider an expansion of monetary policy.
+-   Other prices increase, so the overall price level increases to $P'$ .
+-   Since we have a fixed nominal wage, this leads to a decrease in real wage.
+-   This change in monetary policy leads to the real wage and employment moving in opposite directions.
+-   Employment rises but real wages fall.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## DSGE: Sticky Prices + Monetary Expansion
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Alternative form or nominal rigidity is that wages may be flexible but prices for goods and services may change gradual $\implies$ **sticky prices**.
+-   Firms agree to supply whatever quantity of output is demanded regardless of wage. Firms become price takers on wage. Labor demand curve is vertical.
+-   A monetary expansion (lower fed funds rate) increases the demand in the economy because the price is fixed.
+-   Employment and wages rise.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Labor Market and DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   Labor market block of a DSGE model allows us intuition of how various shocks impact employment and wages.
+
+-   TFP shocks and monetary shocks under sticky prices lead to movements in macro variables that resemble business cycles. (employment and real wage move in the same direction)
+
+-   TFP Shocks: real business cycle models.
+
+-   New Keynsian models: Sticky prices with monetary shocks.
+
+-   Modern DSGE models include both TFP and New Keynsian and:
+
+    -   Govt purchases, news, financial frictions, consumption shocks,...
+:::
+
+## Quantitative DSGE Models
+
+::: {.incremental style="font-size: 30px"}
+-   Goal of DSGE models is to create a set of shock responses across the economy.
+
+-   When individuals make decisions about how much they consume and work they consider the current and future consequences of their decisions.
+
+    -   Expectations of how future shocks with change the economy.
+
+-   Full DSGE models involve large numerical calculations of how all variables respond to shocks quantitatively.
+
+-   Used throughout finance and central banking.
+:::
+
+## Impulse Response Function
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Macro variable responds over more than one period to a shock.
+-   From the shock start to steady-state we plot the impulse response function.
+-   Percentage of real GDP change based on a temporary +1% shock in fed funds rate.
+-   Maximum effect of -0.33% real GDP happens in period 3 and 4.
+-   Five years for this temporary shock to disapate.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Impulse Response Function
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Dynamics of the response are inline with AS/AD model. A shock (or potential future shock) leads to transition dynamics.
+-   What we find is that our initial discussions of transition dynamics might be off.
+    -   AS/AD and Solow models time $t_0$ was the largest move and then it tapered. Instead impulse response functions give us a rich set of dynamics.
+
+    -   Not just of one variable, but of the whole system.
+-   IRF:
+    -   Peak decline
+
+    -   Magnitude
+
+    -   Duration
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Monetary Policy Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_10.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Percentage of real GDP change based on a temporary +1% shock in fed funds rate.
+-   Effect on hours worked is slightly smaller on a percentage basis
+-   Consumption is larger - [Smets-Wouters](https://www.karlwhelan.com/MAMacro/part11.pdf) model includes a substantial adjustment cost for investment.
+    -   Moves by more than the permanent income hypothesis would suggest (also fits data better).
+-   Inflation rate drops by 0.2% for two years.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## TFP Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_11.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Quantitative DSGE models incorporate multiple shocks simultaneously.
+-   Temporary TFP Shock of +1%, long lasting \~4 years for half decay
+-   GDP is above 1% because of capital accumulation
+-   Consumption increases but due to consumption smoothing the effect is less than that on GDP.
+-   Hours worked drops the increases - this is due to sticky prices. Different assumptions and models lead to different outcomes.
+-   Initial inflation falls because GDP expands but not quickly due to adjustment costs.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Government Purchases Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_12.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Govt Purchase Shock of +1%
+-   GDP increases by 1% and slowly tapers off
+-   Consumption decreases as in our previous example (must be payed for at some point)
+-   Increase in labor supply (shifts out) lowering wages but increasing hours worked.
+-   Little pressure on inflation.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Financial Friction Shock
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_15_13.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 23px"}
+-   Financial frictions shock for GFC.
+-   Wedge between what people can borrow and save at.
+-   Largest effect on consumption
+-   Looks similar to a monetary policy shock
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Next week
+
+Read Chapter 19

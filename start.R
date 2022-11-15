@@ -1,7 +1,26 @@
-install.packages("quantmod")
-install.packages("tidyquant")
+
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+library(googlesheets4)
+library(formattable)
+library(kableExtra)
+library(dplyr)
 library(quantmod)
 library(tidyquant)
+library(purrr)
+
+
+
+dat <- read_sheet("1hMewH2nvYKniqzcS1CUQof0JgX--Ezvt9O93k9kzYjY")
+
+
+vix <- tq_get(dat$ticker[[1]],
+              from = "1990-01-01")
+
+
+install.packages("quantmod")
+install.packages("tidyquant")
 
 library(ggplot2)
 
