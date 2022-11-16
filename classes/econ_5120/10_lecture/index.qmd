@@ -53,11 +53,29 @@ fredr_set_key(fred_key)
 
 ```
 
-## TODO
+## CPI
 
-[Link](https://www.bls.gov/news.release/empsit.nr0.htm)
+![](images/cpi.png)
 
-![](images/rstudio.png){fig-align="center"}
+[Link](https://www.bls.gov/news.release/cpi.nr0.htm)
+
+## BLS Imports / Exports
+
+[Link](https://www.bls.gov/news.release/pdf/ximpim.pdf) \| [Link](https://www.bls.gov/news.release/ximpim.t10.htm)
+
+![](images/im.png){fig-align="center"}
+
+## Household Debt and Credit Report
+
+[Link](https://www.newyorkfed.org/microeconomics/hhdc)
+
+![](images/house.png){fig-align="center"}
+
+## Monthly Retail 
+
+[Link](https://www.census.gov/retail/marts/www/marts_current.pdf)
+
+![](images/retail.png){fig-align="center"}
 
 ## Chapter 19: International Trade
 
@@ -1034,7 +1052,15 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px"}
--   M
+-   In 1999 the Euro meant that inflation in different EU countries was the same.
+
+    -   Sovereign debt (superior), or government held debt, yields converged.
+
+    -   The 2008 GFC started in the US but moved to Europe, investors worried about default risk on some countries debts.
+
+        -   Italy, Spain, Greece, Ireland, etc
+
+    -   Investors demanded a higher interest rate to lend to these governments.
 :::
 :::
 
@@ -1050,7 +1076,11 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px"}
--   M
+-   Domestic lending in the Southern European economies rose sharply when the Euro was established.
+
+-   The south was economically more poor than the north, given economic reforms associated with the Euro, investors believed that high returns to investment could be obtained.
+
+-   The south would benefit from the new investment and investors would benefit from high returns.
 :::
 :::
 
@@ -1066,7 +1096,13 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 30px"}
--   M
+-   One can see the same for foreign investment.
+
+-   Current account balance is similar to trade balance + interest payments.
+
+-   Many domestic and foreign loans were based on excessive optimism.
+
+-   Many European economies experienced property an housing bubbles, reflecting the easy availability of credit.
 :::
 :::
 
@@ -1081,40 +1117,20 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 ![](images/figure_20_12.png){fig-align="center"}
 :::
 
-::: {.column .incremental width="50%" style="font-size: 30px"}
--   M
-:::
-:::
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   The advent of the GFC led to many of these loans going bad.
 
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
+-   Governments expanded their borrowing party to keep their banks from going under.
 
-## The Euro Crisis
+-   Ireland guaranteed all of their financial institutions.
 
-::: columns
-::: {.column width="50%"}
-![](images/figure_20_13.png){fig-align="center"}
-:::
+-   Higher levels of debt means higher servicing costs.
 
-::: {.column .incremental width="50%" style="font-size: 30px"}
--   M
-:::
-:::
+    -   More investor doubt means higher servicing costs, leading to more debt.
 
-::: footer
-Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
-:::
+-   Cannot print money!
 
-## The Euro Crisis
-
-::: columns
-::: {.column width="50%"}
-![](images/figure_20_14.png){fig-align="center"}
-:::
-
-::: {.column .incremental width="50%" style="font-size: 30px"}
--   M
+-   ECB said they would "do whatever it takes to preserve the euro". Added unlimited quantities of debt onto their balance sheet.
 :::
 :::
 
