@@ -19,6 +19,8 @@ params:
 ## Introduction
 
 ::: incremental
+-   [Homework 2](../hw/02_homework)
+
 -   High frequency data
 
 -   Chapter 19: International Trade
@@ -842,7 +844,7 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
-## Policy Trilemma - TODO
+## Policy Trilemma 
 
 ::: columns
 ::: {.column width="50%"}
@@ -850,18 +852,280 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
 
 ::: {.column .incremental width="50%" style="font-size: 25px"}
--   Gold standard - each country fixed a price that they were willing to pay for one ounce of gold.
+-   Three goals related to the international monetary system and an open economy might like to achieve:
 
--   Bretton Woods - United States pegged their currency to \$35 per ounce price of gold and other economies specified a fixed exchange rate to US dollar.
+    -   A stable exchange rate - makes it easier for firms and individuals to plan over time.
 
--   Floating exchange rates - in the 1970s inflation led to a collapse of Bretton Woods.
+    -   Monetary policy autonomy - allows governments to smooth shocks (think short run model)
 
-    -   Now monetary policies are not formally coordinated.
-
-    -   The value of nominal exchange rate is determined by supply and demand in the markets for foreign exchange.
+    -   Free flows of international finance - allows resources to be allocated most efficiently. Allow countries to borrow when times are bad in order to smooth consumption.
 :::
 :::
 
 ::: footer
 Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
 :::
+
+## Policy Trilemma 
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 20px"}
+-   Countries can choose only one edge - only two out of the three goals can be accomplished.
+
+    -   US sets its own monetary policy and allows free financial flows.
+
+    -   Argentina between 1991 and 2001 had a currency board. Held foreign exchange reserves in order to peg to the dollar.
+
+        -   Argentina could not use monetary policy to respond to shocks to it's economy.
+
+        -   Many exchange traders did not believe the fixed exchange rate would hold, started to bet against the peso, reserves ran low and Argentina gave up the peg.
+
+    -   China is an example of capital controls - instituting tight controls on financial flows with the rest of the world. Government regulated exchange rate and did not allow financial traders to trade large volumes of currency in the open market.
+
+        -   Tightly regulated allows the regulator to set whatever price it wishes.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## What Side to Choose
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 20px"}
+-   Three sides have merits to the country that chooses them.
+
+-   Mexico Currency Board
+
+    -   Mexico from 1989 to 1994 exhibited strong economic growth, booming investment, and a relatively stable exchange rate of 3 pesos per dollar.
+
+    -   Large capital flows and the stable exchange rate imply something similar to a currency board.
+
+    -   Late 1994 political turmoil and large foreign borrowing (trade deficit) lead to devaluation of the peso.
+
+    -   Central bank attempted to maintain exchange rate, but eventually foreign reserves ran low.
+
+    -   Mexico was forced to devalue the peso and let it float against the dollar.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## What Side to Choose
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 20px"}
+-   Three sides have merits to the country that chooses them.
+
+-   Asian Currency Crisis
+
+    -   Pre-1997 Asia was home to the fastest growing countries in the world.
+
+    -   A substantial part of this growth came from high and rising investment rates.
+
+    -   Before 1990s most of its investment was financed through domestic savings.
+
+    -   During the 1990s turned to foreign saving to finance their growth.
+
+    -   Many, but most note-ably Thailand and Korea, were running large trade deficits.
+
+    -   1997 currency speculation led to sharp declines in Asian exchange rates.
+
+    -   Many firms had taken loans in dollars so the decline in domestic currency made loans more costly to repay.
+
+    -   Resulted in steep declines in economic activity.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## What Side to Choose
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_8.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 20px"}
+-   Three sides have merits to the country that chooses them.
+
+-   Argentina's currency board ends in 2001
+
+    -   in April 1991 they had adopted a formal currency policy board.
+
+    -   Pegged peso to dollar.
+
+    -   Backed by dollar and gold reserves it was successful in ending hyper-inflation.
+
+    -   Throughout the 1990s had a modest trade deficit of just under 2% of GDP.
+
+    -   Mexico & Asian crisis
+
+    -   1999 Brazil's currency declined leading to a negative demand shock in Argentina (trade surplus)
+
+    -   Unemployment and government debt increased, leading people to wonder about their ability to pay off debts.
+
+    -   Risk premiums went up, in 2001 Argentina defaulted on its debt.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Policy Trilemma 
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_7.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   Most economies are floating exchange rate.
+
+-   China has implemented capital controls.
+
+-   Euro is attempting one thing for their member nations, floating exchange with the rest of the world.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## The Euro
+
+::: {.incremental style="font-size: 30px"}
+-   1999, 16 EU member nations one currency.
+
+-   Facilitates better planning because it eliminates currency fluctuation within the EU.
+
+-   No currency transaction costs of trading with your neighbor.
+
+-   One bank controls monetary policy
+
+-   ECB quickly achieved a high degree of credibility and transparency in conducting monetary policy and coordinating inflation expectations.
+
+-   Problem: individual countries cannot control monetary policy.
+:::
+
+## The Euro Crisis
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_9.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   M
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## The Euro Crisis
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_10.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   M
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## The Euro Crisis
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_11.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   M
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## The Euro Crisis
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_12.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   M
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## The Euro Crisis
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_13.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   M
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## The Euro Crisis
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_20_14.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 30px"}
+-   M
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Next Week
+
+-   No class
+
+-   Homework posted soon
+
+-   Read Chpt 20 and Chpt 16

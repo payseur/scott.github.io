@@ -4,43 +4,150 @@ format: revealjs
 editor: visual
 ---
 
-## Question 1: (a)
+## Question 1
+
+::: {style="font-size: 15px"}
+Using the FRED database construct a graph containing two data series
+
+-   Real GDP ("GDPC1").
+
+-   Real government consumption and investment expenditures ("GCEC1").
+
+\(a\) Display a graph from 2004 to 2019, with real government spending on the right hand axis.
+
+Below.
+
+\(b\) How did government purchases co-move with Real GDP during the Global Financial Crisis (GFC) of 2008?
+
+There is a negative relationship between government spending and real GDP during the GFC.
+
+\(c\) Ceteris Paribus (holding everything else constant) discuss how the aggregate demand parameter, $\bar{a}$, changed during the GFC with and without fiscal spending.
+
+$\bar{a} \equiv \bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$ the collapse of the housing market likely shifted the IS curve by lowering $\bar{a}_c$ and $\bar{a}_i$ . The government tried to offset this shift by increasing $\bar{a}_g$ with fiscal spending.
+:::
 
 ```{=html}
-<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Vfjm&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Vfjm&width=670&height=275" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:275px;" allowTransparency="true" loading="lazy"></iframe>
 ```
-## Question 1: (b) & (c)
+## Question 2
 
-b\. There is a negative relationship between government spending and real gdp during the GFC.
-
-c\. $\bar{a} \equiv \bar{a}_c + \bar{a}_i + \bar{a}_g + \bar{a}_{ex} - \bar{a}_{im} -1$ the collapse of the housing market likely shifted the IS curve by lowering $\bar{a}_c$ and $\bar{a}_i$ . The government tried to offset this shift by increasing $\bar{a}_g$ with fiscal spending.
-
-## Question 2 (a) - (d)
-
+::: columns
+::: {.column width="50%"}
 ![](images/figure_12_18.png){fig-align="center"}
+:::
 
-## Question 3: (a)
+::: {.column width="50%" style="font-size: 15px"}
+-   The productivity slowdown and the Great Inflation: Using the IS-MP diagram and the Phillips curve, explain how the productivity slowdown of the 1970s may have contributed to the Great Inflation. In particular, answer the following:
 
-Most recent value: 2022 Q2: 4.98%
+    -   \(a\) Suppose growth in actual output is slowing down, as shown in Figure 12.13. Policymakers believe this is occurring because of a negative shock to aggregate demand. Explain how such a shock would account for the slowdown using an IS-MP diagram.
+
+    -   \(b\) With this belief, what monetary policy action would policymakers take to stabilize the economy? Show this in the IS-MP diagram, as perceived by policymakers.
+
+    -   \(c\) In truth, there was a slowdown in potential output, as also shown in Figure 12.13. Show the effect of monetary policy on short-run output in the "true" IS-MP diagram.
+
+    -   \(d\) Show the effect of this monetary policy in a graph of the Phillips curve. Explain what happens
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Question 3a
+
+::: columns
+::: {.column width="50%"}
 
 ```{=html}
-<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=VipE&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=VipE&width=470&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:470px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
 ```
-## Question 3: (b)
+:::
 
-Most recent value: 2022 Q2: 6.63%
+::: {.column width="50%" style="font-size: 15px"}
+-   This question asks you to use the FRED database to predict the fed funds
+    rate using the chapter\'s monetary policy rule. Of course, there are many
+    possible inflation measures you could use. This question lets you
+    consider two common ones.
+
+    -   \(a\) The Fed likes to focus on the price index for personal consumption
+        expenditures excluding food and energy---the so-called \"core\" measure of inflation. This is the series \"JCXFE\" in the FRED database. Display a
+        graph of the inflation rate using this measure since 2000. What is the
+        most recent 12-month inflation rate? \
+
+    -   4.90%
+:::
+:::
+
+## Question 3b & 3c
+
+::: columns
+::: {.column width="50%"}
 
 ```{=html}
-<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=VipU&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=VipU&width=470&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:470px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
 ```
-## Question 3: (c)
+:::
 
-PCECTPI includes energy and food prices. Prices for food and energy are known to be more volatile than other prices (especially energy). This can be seen in the GFC with a large spike in energy prices followed by a deflationary print. Currently, it is 1.75% higher than "core" consumer expenditures.
+::: {.column width="50%" style="font-size: 15px"}
+-   This question asks you to use the FRED database to predict the fed funds
+    rate using the chapter\'s monetary policy rule. Of course, there are many
+    possible inflation measures you could use. This question lets you
+    consider two common ones.
 
-## Question 3: (d)
+    -   \(b\) As an alternative, consider the price index for personal consumption
+        expenditures without excluding food and energy. This is the series
+        \"PCECTPI\" in the FRED database. Display a graph of the inflation rate
+        using this measure since 2000. What is the most recent 12-month
+        inflation rate measured this way?\
 
-PCE Core implies: 8.5%, Including energy and food implies: 8.5%. This is far above the current fed funds rate of 2.56% (as of sep 2022).
+    -   6.28%
+
+    -   \(c\) Why do you think the two measures are different (if they are)?
+
+    -   PCECTPI includes energy and food prices. Prices for food and energy are known to be more volatile than other prices (especially energy). This can be seen in the GFC with a large spike in energy prices followed by a deflationary print. Currently, it is 1.75% higher than "core" consumer expenditures.
+:::
+:::
+
+## Question 3d 
+
+::: columns
+::: {.column width="50%"}
 
 ```{=html}
-<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=VitH&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=VitH&width=470&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:470px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
 ```
+:::
+
+::: {.column width="50%" style="font-size: 15px"}
+-   This question asks you to use the FRED database to predict the fed funds
+    rate using the chapter\'s monetary policy rule. Of course, there are many
+    possible inflation measures you could use. This question lets you
+    consider two common ones.
+
+    -   \(d\) Using each of these recent inflation rates and the monetary policy rule
+        considered in this chapter, produce an estimate of the appropriate fed
+        funds rate for the U.S. economy. (Use $\bar{r}=2,\bar{m}=0.5,\bar{\pi}=2$ .) Discuss how these rates compare to the actual fed funds rate. (Hint: Be sure that you are comparing two nominal rates; our simple rule corresponds to a real rate.) \
+
+    -   PCE Core implies: 8.3%, Including energy and food implies: 10.4%. This is far above the current fed funds rate of 2.19% (as of sep 2022).
+:::
+:::
+
+## Question 4
+
+::: {style="font-size: 15px"}
+\(a\) Why does the AS curve slope upward?
+
+If short-run output is greater than zero, firms see the opportunity to set prices higher, and inflation goes up.
+
+\(b\) Why does the AD curve slope downward?
+
+As inflation increases, central banks raise real rates, decreasing output.
+
+\(c\) What kind of economic changes in the economy would lead to the AS curve to be more steeply sloped?
+
+The demand conditions multiplier, $\bar{v}$, increases.
+
+\(d\) What kind of economic changes in the economy would lead to the AD curve to be more steeply sloped?
+
+An increase in the aggressiveness of monetary policy, $\bar{m}$.
+:::
