@@ -79,7 +79,7 @@ fredr_set_key(fred_key)
 
 ## Chapter 19: International Trade
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   Since WWII tariffs and transportation costs have fallen $\implies$ international trade increasingly important to the world economy.
 
 -   US Imports generally exceeded US exports since the late 1970s.
@@ -93,7 +93,7 @@ fredr_set_key(fred_key)
 
 ## Chapter 19: International Trade
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   Trade deficits allow countries to smooth their consumption over time (similar to permanent-income hypothesis)
 
 -   Trade does not need to be balanced year to year but must be in the long run.
@@ -103,7 +103,7 @@ fredr_set_key(fred_key)
 
 ## Chapter 19: International Trade
 
-::: {style="font-size: 35px"}
+::: {.incremental style="font-size: 35px"}
 -   Alternative to trading goods is to allow the free flow of inputs, like labor and capital. Input flows depend on where they earn the highest return.
 
     -   Efficiency gains from allowing free migration of labor appear to be extremely large, based on the large TFP differences across country.
