@@ -1,0 +1,33 @@
+---
+title: "Assigment 3"
+format: revealjs
+editor: visual
+---
+
+## Question 1
+
+::: {style="font-size: 15px"}
+\(1\) The trade balance is easily obtained from the World Bank site: <https://data.worldbank.org>. Use that database to analyze graphs of the trade balance as a share of GDP in China, Germany and the United States.
+
+\(a\) The data series you are looking for are called the external balance on goods and services (% of GDP). Graph this data for China, Germany and the United States since 1980.
+
+![](images/wb.png){fig-align="center" width="315"}
+
+\(b\) Comment on the patterns that you see for China, Germany and the United States.
+:::
+
+::: {style="color: blue; font-size: 15px"}
+The United States has consistently ran a trade deficit since 1980. Germany ran a deficit until the early 1990's and then a surplus, as we have read this is likely mostly with Southern European countries. China ran a surplus since the mid-1990's but that accelerated fast in the early 2000's.
+:::
+
+## Question 4
+
+::: {style="font-size: 15px"}
+\(4\) Suppose the European Central Bank decides to stimulate the European economy by reducing interest rates there.  Explain how and why this affects the US economy in the short run. How does the economy return to the steady state?
+:::
+
+::: {style="color: blue; font-size: 15px"}
+Demand for the dollar is now higher do to the fact that interest rates are relatively higher than they were before the ECB's action. This causes the dollar to appreciate and the Euro to depreciate. Because of sticky inflation, the real exchange rate for the dollar appreciates as well, leading the real price of US goods to increase. As a result, net exports in the US are decreased.
+
+In terms of our short-run model, the net export shock in aggregate demand causes the IS or AD curve to shifts in. The slowing economy leads to lower than target inflation, and the Fed lowers real interest rates in order to stimulate growth. Eventually European interest rates will fall back in line with the rest of the world and the US will move to steady state.
+:::
