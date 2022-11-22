@@ -20,6 +20,56 @@ editor: visual
 The United States has consistently ran a trade deficit since 1980. Germany ran a deficit until the early 1990's and then a surplus, as we have read this is likely mostly with Southern European countries. China ran a surplus since the mid-1990's but that accelerated fast in the early 2000's.
 :::
 
+## Question 2
+
+::: {style="font-size: 15px"}
+\(2\) Consider the apple computer trade example in Section 19.5 of the
+book. Now suppose that because of a new technology, the North becomes
+even more productive at producing computers: one unit of labor can now
+produce 20 computers instead of 16.
+
+\(a\) Autarky: Redo Table 19.3 to reflect this change.  Assume the other parameter values are unchanged.
+
+\(b\) Free Trade: Do the same thing for Table 19.4.
+
+\(c\) Discuss the differences: How doe the gains from trade change?  Who benefits from the improvement in technology in the North?
+
+![](images/ex.png){fig-align="center" width="404"}
+:::
+
+::: {style="color: blue; font-size: 15px"}
+The gains to trade in Autarky: The North consumption of computers increases by 2, everything else stays the same.
+
+The gains to trade under free trade: The North consumption of computers increases by 2, while the south consumes 1 more. Apple consumption stays the same
+
+[Link](q2q3.xlsx)
+:::
+
+## Question 3
+
+::: {style="font-size: 15px"}
+\(3\) Consider the apple computer trade example in Section 19.5 of the book. 
+Now suppose that because of technology transfer, the South becomes just
+as productive as the North at producing apples: one unit of labor can
+now produce 160 apples instead of 100.
+
+\(a\) Autarky: Redo Table 19.3 to reflect this change.  Assume the other parameter values are unchanged.
+
+\(b\) Free Trade: Do the same thing for Table 19.4.
+
+\(c\) Discuss the differences: How doe the gains from trade change?  Who benefits from the improvement in technology in the South?
+
+![](images/ex.png){fig-align="center" width="404"}
+:::
+
+::: {style="color: blue; font-size: 15px"}
+The gains to trade in Autarky: The South consumption of apples increases by 30, everything else stays the same.
+
+The gains to trade under free trade: The North consumption of apples increases by 120, while the south consumes 30 more. Computer consumption stays the same.
+
+[Link](q2q3.xlsx)
+:::
+
 ## Question 4
 
 ::: {style="font-size: 15px"}
@@ -27,7 +77,11 @@ The United States has consistently ran a trade deficit since 1980. Germany ran a
 :::
 
 ::: {style="color: blue; font-size: 15px"}
-Demand for the dollar is now higher do to the fact that interest rates are relatively higher than they were before the ECB's action. This causes the dollar to appreciate and the Euro to depreciate. Because of sticky inflation, the real exchange rate for the dollar appreciates as well, leading the real price of US goods to increase. As a result, net exports in the US are decreased.
+Demand for the dollar is now higher do to the fact that interest rates are relatively higher than they were before the ECB's actio
+
+TODO:
+
+Demand for the dollar is now higher do to the fact that interest rates are relatively higher than they were before the ECB's action. This causes the dollar to appreciate and the Euro to depreciate. Because of sticky inflation, the real exchange rate for the dollar appreciates as well, leading the real price of US goods to increase. As a result, net exports in the US aren. This causes the dollar to appreciate and the Euro to depreciate. Because of sticky inflation, the real exchange rate for the dollar appreciates as well, leading the real price of US goods to increase. As a result, net exports in the US are decreased.
 
 In terms of our short-run model, the net export shock in aggregate demand causes the IS or AD curve to shifts in. The slowing economy leads to lower than target inflation, and the Fed lowers real interest rates in order to stimulate growth. Eventually European interest rates will fall back in line with the rest of the world and the US will move to steady state.
 :::
