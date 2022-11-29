@@ -1,0 +1,667 @@
+---
+title: "Econ 5120 Macroeconomic Theory"
+subtitle: "Consumption & Investment (chpt 16 & 17)"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/ne.png
+    css: styles.css
+    footer: "ECON 5120 | Scott Payseur"
+resources:
+  - demo.pdf
+params:
+  refresh_fred: TRUE
+---
+
+## Introduction
+
+::: incremental
+-   High frequency data
+
+-   Chapter 16: Consumption
+
+-   Chapter 17: Investment
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+#| message: false
+library(macroTools)
+library(fredr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(purrr)
+library(readr)
+library(tidyr)
+
+fred_key <- "cf80aa4b84f24ffb79b52ba1255b1803"
+fredr_set_key(fred_key)
+
+ recs <- getFredRecessionData(fetch_symbol = "USREC", 
+                    data_file_name = "us_recession", 
+                    data_dir = "data", 
+                    force_refresh = params$refresh_fred) 
+
+```
+
+## CPI
+
+![](images/cpi.png)
+
+[Link](https://www.bls.gov/news.release/cpi.nr0.htm)
+
+## Chapter 16: Consumption
+
+::: {.incremental style="font-size: 30px"}
+-   Neoclassical consumption
+
+    -   Based on rational individuals who choose the time path of their consumption to maximize utility
+
+    -   Subject to intertxemporal budget constraint.
+
+    -   We consider two periods: today and future.
+
+-   The solution reinforces our view of the permanent income hypothesis: consumption in each period is a fraction of total wealth.
+
+    -   Total wealth: financial resources, current income, present value of future income.
+
+-   The solution can be expressed in terms of an Euler equation for consumption
+
+    -   Individuals are indifferent between consuming a little more today and saving a little more for consumption in the future.
+:::
+
+## Chapter 16: Consumption
+
+::: {.incremental style="font-size: 30px"}
+-   Individuals will seek to smooth out any shocks to current and future income, suggesting that marginal propensity to consume out of a temporary increase in current income is likely to be small.
+
+    -   Two forces counterbalance this low marginal propensity to consume.
+
+        -   Individuals who are constrained from borrowing in credit markets.
+
+        -   Individuals that engage inn precautionary savings.
+
+    -   Data is consistent with this theory - suggesting that the permanent-income model is a good benchmark for describing consumption of well-off individuals, while poorer consumers have a high marginal propensity to spend.
+
+-   Aggregate data shows a rise in debt as ratio to income and a decline in personal savings in recent decades.
+:::
+
+## Neoclassical Consumption Model
+
+::: incremental
+-   Consumption over time - but we can make progress by thinking of time involving only two periods
+
+    -   Today and the future
+
+-   People earn income today and the future, consume today and the future, **how much do they consume today and in the future**?
+
+-   Consumption model is based on two main elements:
+
+    -   Intertemporal budget constraint
+
+    -   Utility function
+:::
+
+## Intertemporal Budget Constraint
+
+::: incremental
+-   Irving has financial wealth of $f_{today}$
+
+-   Two time periods $today$ and $future$ .
+
+-   Let $c$ represent consumption and $y$ represent income, Irving faces the following two budget constraints:
+
+    -   $c_{today} + (f_{future} - f_{today})=y_{today}$
+
+    -   $c_{future} = y_{future} + (1+R) f_{future}$
+
+        -   $(f_{future} - f_{today})$ represents savings for the future.
+:::
+
+## Intertemporal Budget Constraint
+
+::: {style="font-size: 30px; text-align: center"}
+$c_{today} + (f_{future} - f_{today})=y_{today}$
+
+$c_{future} = y_{future} + (1+R) f_{future}$
+:::
+
+Example, no starting financial wealth:
+
+::: {.incremental style="font-size: 30px"}
+-   $f_{today} = 0, f_{future}=0$
+
+-   $y_{today} - c_{today} = 0 \implies (f_{future}-f_{today}) = 0$
+
+-   $y_{future} +(1+R)f_{future} - c_{future} = 0$
+
+    -   $c_{future} = y_{future}$
+:::
+
+## Intertemporal Budget Constraint
+
+::: {style="font-size: 30px; text-align: center"}
+$c_{today} + (f_{future} - f_{today})=y_{today}$
+
+$c_{future} = y_{future} + (1+R) f_{future}$
+:::
+
+Example, no starting financial wealth, **save 20 for future**:
+
+::: {.incremental style="font-size: 30px"}
+-   $f_{today} = 0, f_{future}=20$
+
+-   $y_{today} - c_{today} = 20 \implies (f_{future}-f_{today}) = 20$
+
+-   $y_{future} +(1+R)f_{future} - c_{future} = 0$
+
+    -   $c_{future} = y_{future} + (1+R)(20)$
+:::
+
+## Intertemporal Budget Constraint
+
+::: {style="font-size: 30px; text-align: center"}
+$c_{today} + (f_{future} - f_{today})=y_{today}$
+
+$c_{future} = y_{future} + (1+R) f_{future}$
+:::
+
+Example, no starting financial wealth, **borrow 20 from future**:
+
+::: {.incremental style="font-size: 30px"}
+-   $f_{today} = 0, f_{future}=-20$
+
+-   $y_{today} - c_{today} = -20 \implies (f_{future}-f_{today}) = -20$
+
+-   $y_{future} +(1+R)f_{future} - c_{future} = 0$
+
+    -   $c_{future} = y_{future} + (1+R)(-20)$
+:::
+
+## Intertemporal Budget Constraint
+
+::: {style="font-size: 30px; text-align: center"}
+$c_{today} + (f_{future} - f_{today})=y_{today}$
+
+$c_{future} = y_{future} + (1+R) f_{future}$
+:::
+
+Example, start with 20 financial wealth, **save 10 for future**:
+
+::: {.incremental style="font-size: 30px"}
+-   $f_{today} = 10, f_{future}=10$
+
+-   $y_{today} - c_{today} = -10 \implies (f_{future}-f_{today}) = 10$
+
+-   $y_{future} +(1+R)f_{future} - c_{future} = 0$
+
+    -   $c_{future} = y_{future} + (1+R)(10)$
+:::
+
+## Intertemporal Budget Constraint
+
+::: {style="font-size: 30px; text-align: center"}
+$c_{today} + (f_{future} - f_{today})=y_{today}$
+
+$c_{future} = y_{futue} + (1+R) f_{future}$
+:::
+
+\
+
+Combine equations to get a two period constraint:
+
+\
+
+::: {style="font-size: 30px; text-align: center"}
+$c_{today} + \frac{c_{future}}{1+R} = f_{today} +y_{today} + \frac{y_{future}}{1+R}$
+
+$Present\:Value\:of\:Consumption = \underbrace{Financial\:Wealth + Human\: Wealth}_{Total\:Wealth}$
+:::
+
+## Intertemporal Budget Constraint
+
+::: {style="font-size: 30px; text-align: center"}
+$Present\:Value\:of\:Consumption = \underbrace{Financial\:Wealth + Human\: Wealth}_{Total\:Wealth}$
+:::
+
+::: incremental
+-   Present value of consumption
+
+-   Human wealth - present value of labor income
+
+-   Endowed financial wealth
+
+-   At the end of life Irving has zero
+:::
+
+## Utility Function
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_16_1.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+In order to quantify the value of consumption we use a Utility function.
+
+::: {.incremental style="font-size: 30px"}
+-   If Irving consumes some amount, $c$ , in a given period, we assume that he receives $u(c)$ units of utility.
+
+    -   We will call these units *Utils*
+
+-   Classic assumption: the more Irving consumes the less utility Irving has - *Law of diminishing marginal utility.*
+:::
+:::
+:::
+
+## Lifetime Utility Function
+
+::: {style="font-size: 30px; text-align: center"}
+$U = u(c_{today})+\beta u(c_{future})$
+:::
+
+::: incremental
+-   Lifetime Utility depends on two periods
+
+-   The parameter, $\beta$, captures the weight that Irving places on the future, relative to today.
+
+-   If $\beta =1$ then Irving treats utils received today and in the future equally.
+
+-   Alternatively, if $\beta <1$ , a given flow of utility is worth more when it occurs today.
+:::
+
+## Maximizing Utility
+
+::: {style="font-size: 30px; text-align: center"}
+$max_{c_{today}, c_{future}}\:U = u(c_{today})+\beta u(c_{future})$, subject to
+
+$c\_{today}+ \left( \frac{c_{future}}{1+R} \right) = \bar{X}$,
+
+where $\bar{X}$ denotes total wealth $\bar{X}=f_{today} +y_{today} + \frac{y_{future}}{1+R}$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   Could solve with calculus
+
+-   Instead use intuition.
+
+    -   Irving consumes a little more today the marginal utility will be $u'(c_{today})$.
+
+    -   Irving consumes a little more tomorrow the marginal utility will be $\beta u'(c_{future})$.
+
+    -   Combine with intertemporal budget constraint.
+
+    -   If he has maximized utility, Irving must be indifferent between consuming today or in the future.
+:::
+
+## Euler Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$u'(c_{today})=\beta (1+R) u'(c_{future})$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   If Irving has maximized utility, he must be indifferent between consuming today or in the future
+
+-   Why? if moving consumption from today to the future would increase utility, he would not be at a maximum.
+
+-   This *indifference equation* is called the *Euler equation*.
+
+    -   Marginal utility today = adjusted marginal utility in the future.
+:::
+
+## Solving Euler Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{c_{today}}{c_{today}}=\beta (1+R)$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   In order to get an explicit solution for consumption we must specify a functional form for $u(.)$.
+
+-   A common choice is $u(c)=log(c)$.
+
+    -   Diminishing marginal utility
+
+    -   $u(c) = log(c) \implies u'(c)=\frac{1}{c}$
+
+    -   The Euler Equation can be written as $\frac{1}{c_{today}}=\beta (1+R) \frac{1}{c_{future}}$
+:::
+
+## Solving Euler Equation
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{c_{today}}{c_{today}}=\beta (1+R)$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   Says that Irving will choose consumption so that the growth rate of consumption is the product of $\beta$ and the interest he can earn on his savings $1+R$.
+
+-   The Euler equation in terms of consumption growth reveals another deep insight into macroeconomics.
+
+    -   Interest rates and growth rates are similar numbers, like 2%.
+
+    -   Irving chooses his consumption rate given $R$. And so does everyone else.
+
+    -   Produces a general equilibrium value.
+:::
+
+## Euler Equation Insights
+
+::: {style="font-size: 30px; text-align: center"}
+$\frac{c_{today}}{c_{today}}=\beta (1+R)$
+:::
+
+::: {.incremental style="font-size: 30px"}
+-   Suppose the long-run growth rate of the economy and consumption (from Solow/Romer type models) is 2% per year.
+
+-   If $\beta = 1$ the Euler equation implies that the real interest rate will be 2%.
+
+-   If $\beta < 1$ , consumers prefer to get their utility today instead of the future driving interest rates a little higher than 2%.
+
+-   The key here is the *Euler equation explains how interest rates and growth rates are linked.*
+:::
+
+## Effect of  $\uparrow R$ on Consumption
+
+::: {.incremental style="font-size: 30px"}
+-   A higher interest rate will reduce the present value of labor income, therefore reducing consumption in the case of log utility. This force is called the *wealth effect* of higher interest rates because it works through the total wealth term.
+
+-   The *substitution effect* of a higher interest rate is that current consumption becomes more expensive so consumers will tend to reduce consumption today.
+
+-   The *income effect* of a higher interest rate says that consumers are now richer - because their current saving leads to more income in the future - which makes them want to consume more now.
+
+-   In general it can go either way because these effects work in *opposite directions*.
+:::
+
+## Permanent-Income Hypothesis
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_16_2.png){fig-align="center"}
+:::
+
+::: {.column .incremental width="50%" style="font-size: 25px"}
+-   Consumption depends on some average value of income rather than just current income.
+
+-   This is one implication of the neoclasssical consumption model.
+
+-   Because of diminishing marginal utility Irving prefers to smooth consumption and take the average in both periods.
+
+-   Lifetime utility is $u(\bar{c})$ instead of average utility between $c_1$ and $c_2$.
+
+-   In this example 1/2 is called the marginal propensity to consume, if income goes up \$1 temporarily consumption rises by 1/2 that amount.
+:::
+:::
+
+::: footer
+Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
+:::
+
+## Ricardian Equivalence
+
+::: {.incremental style="font-size: 33px"}
+-   Ricardian approach to the government is that consumption depends on the present discounted value of taxes and in invariant to timing of the taxes.
+
+-   Our intertemporal budget constraint comes after taxes.
+
+-   If there is a large tax in the future we will consume less now.
+
+-   If there is a large tax now we will consume less in the future.
+
+-   Lack of transparency can lead to more/less consumption.
+:::
+
+## Borrowing Constraints
+
+::: {.incremental style="font-size: 30px"}
+-   A key assumption in our model is that Irving was free to save or borrow in each period.
+
+-   There are some consumers that do not have this option.
+
+    -   No financial wealth
+
+    -   Unable to borrow in credit markets
+
+-   In this case the intertemporal budget constraint is $c_{today} \le y_{today}$ .
+
+    -   If Irving is consuming less than income he can save for future.
+
+    -   If Irving is consuming all income the constraint is binding.
+:::
+
+## Random Walk Consumption
+
+::: {.incremental style="font-size: 30px"}
+-   Is Irving's income certain? Is yours?
+
+-   Our neoclassical utility framework has not included uncertainty - all information about the future is known.
+
+-   Some income increases are expected like a promotion after $x$ years. Some are unexpected like winning the lottery.
+
+-   Random walk view of consumption.
+
+-   Because all known information should be incorporated into current consumption, changes in consumption should be modeled as uncertain.
+
+-   Each step of the process is random, for instance %-age change is based on $N(0,\sigma)$ .
+:::
+
+## Precautionary Savings
+
+::: {.incremental style="font-size: 30px"}
+-   Its possible that Irving is facing a large drop in income, perhaps unemployment or disability.
+
+-   Saving for such a case is called precautionary savings.
+
+-   Such a consumer might save even when income and wealth are temporarily low, permanent income hypothesis would suggest borrowing.
+
+    -   As long as the possibility remains that income could fall even further, consumers may engage in precautionary savings to insure themselves against that outcome.
+
+    -   For example, savings rates rose sharply during the financial crisis.
+:::
+
+## Household Debt (TODO)
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 10
+data_file_name <- "debt_of_gdp"
+title <- "Household Debt as a % of GDP"
+sub_title <- "percent"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "BOGZ1FL010000336Q", "Household Debt"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19700101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column width="50%"}
+
+::: {.incremental style="font-size: 30px"}
+-   I*.*
+:::
+:::
+:::
+
+## Personal Savings Rate (TODO)
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 10
+data_file_name <- "personal_savings_rate"
+title <- "Personal Savings Rate"
+sub_title <- "percent"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "PSAVERT", "Savings Rate"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19700101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column width="50%"}
+
+::: {.incremental style="font-size: 30px"}
+-   I*.*
+:::
+:::
+:::
+
+## Household Wealth (TODO)
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 10
+data_file_name <- "household_wealth"
+title <- "Household Wealth"
+sub_title <- "as ratio to income"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "HNONWPDPI", "Household Wealth"
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19700101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+:::
+
+::: {.column width="50%"}
+
+::: {.incremental style="font-size: 30px"}
+-   I*.*
+:::
+:::
+:::
+
+## 17.4
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4.5
+data_file_name <- "comp_of_investments"
+title <- "Components of Investment"
+sub_title <- "as share of GDP"
+
+fetch <- tribble(
+  ~series_id, ~series_name,
+  "A006RE1Q156NBEA", "Total",
+  "A008RE1Q156NBEA", "Nonresidential Fixed",
+  "A011RE1Q156NBEA", "Residential",
+  "A014RE1Q156NBEA", "Inventory"
+  
+)
+
+data_file_path <- file.path("data", paste0(data_file_name,".RDS"))
+if(params$refresh_fred  || !file.exists(data_file_path)){
+  dat <- map_df(fetch$series_id, fredr, frequency="q", observation_start=ymd(19750101)) %>% 
+    left_join(fetch) 
+  write_rds(dat, data_file_path)
+}else{
+  dat <- read_rds(data_file_path)
+}
+
+dat %>%
+  ggplot(mapping = aes(x=date, y=value, color=series_name)) + 
+  geom_line() + 
+  geom_rect(data = recs %>% filter(end_date >= min(dat$date)), 
+            aes(xmin=start_date, xmax=end_date, ymin=-Inf, ymax=+Inf), 
+            fill='blue', alpha=0.2,inherit.aes = FALSE) +
+  ggplot2::theme_light() +
+  ylab("") +
+  xlab("") +
+  guides(color = guide_legend(title = ""))+
+  theme(legend.position="top") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(title, subtitle = sub_title)
+```
+
+## 
