@@ -620,6 +620,180 @@ dat %>%
 :::
 :::
 
+## Chapter 17: Investment
+
+::: {.incremental style="font-size: 30px"}
+-   Investment of all kinds are ways of transferring resources from the present to the future:
+
+    -   Physical capital, Human capital, New Ideas, Financial Assets
+
+-   **Arbitrage equation** is a fundamental tool for studying investment of all types.
+
+    -   It says that two investments of equal riskiness must have the same return (otherwise everyone will flock to the investment with the higher return).
+
+    -   Typically this equation has the form that says the interest rate is equal to the sum of a *dividend* return and a *capital gain* return, both in percentage terms.
+
+-   The arbitrage argument applied to physical capital leads to a key result: *firms invest in physical capital until marginal product of capital falls to equal the user cost of capital.*
+:::
+
+## Chapter 17: Investment
+
+::: {.incremental style="font-size: 30px"}
+-   The **user cost of capital** is the total economic cost of using one unit of capital for one period.
+
+    -   It typically involves the interest rate, depreciation rate, and any capital gain/loss.
+
+    -   Can also be augmented by taxation or subsidies.
+
+-   Applying the arbitrage argument to financial investments lead to a simple theory of stock prices: the price of a stock is the present discounted value of dividends.
+
+    -   Written as the ratio of the current dividend to the difference between the interest rate and the capital gain.
+:::
+
+## Chapter 17: Investment
+
+::: {.incremental style="font-size: 30px"}
+-   If financial markets are informationally efficient, then stock prices will reflect all publicly available information.
+
+    -   Only unexpected *news* will change stock prices, making them equally likely to go up or down (apart from a trend return).
+
+    -   Stocks prices will follow a random walk.
+
+-   Arbitrage argument applied to housing means that the price of a house should equal the present discounted value of the amount the house can be rented for (adjusted for leverage).
+
+-   Inventory investment is highly pro-cyclical, rising sharply in booms and falling in recessions.
+:::
+
+## Investment
+
+::: {.incremental style="font-size: 34px"}
+-   Investment can be into new ideas, human capital, financial assets.
+
+-   In the **national income accounting** sense it refers to the accumulation of physical capital:
+
+    -   Roads, Houses, Computers, Machine Tools
+
+-   Key: it is by investing that our actions **today** influence our **opportunities in the future**.
+:::
+
+## Investment as GDP Share
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_2_2.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+
+::: {.incremental style="font-size: 30px"}
+-   Investment typically makes up 15-20% of US GDP
+
+-   During 2006-2009 investment share of GDP fell from 20% to 13%.
+
+    -   Typically investment fluctuates more than consumption, falls disproportionately.
+
+-   As we have seen in our long-run models investment is the heart of economic growth.
+:::
+:::
+:::
+
+## Investment Decision
+
+::: {.incremental style="font-size: 35px"}
+-   Amazon / Walmart / Gino's East
+
+-   Model of production, Cobb-Douglas: $Y=\bar{A}K^{1/3}L^{2/3}$
+
+-   Businesses should invest in physical capital until the MPC falls equal to the rental price of capital, $R$.
+
+    -   Invest until $MPK=\frac{1}{3}\bar{A} \left( \frac{L}{K}\right)^{2/3} = \frac{1}{3} \frac{Y}{K} = R$
+:::
+
+## Investment Arbitrage Equation
+
+::: {.incremental style="font-size: 35px"}
+-   Investors have two possible investments
+
+    -   Each have the same amount of risk.
+
+    -   A profit maximizing investor will choose the investment that offers the larger profit.
+
+    -   This bids up the price of that investment.
+
+    -   In the end the two investments will yield the same.
+
+    -   This is the arbitrage equation.
+:::
+
+## Gino's East 
+
+::: {.incremental style="font-size: 35px"}
+-   Suppose Gino's East can buy a pizza oven for $p_k$.
+
+-   Gino's can do two things with cash on hand:
+
+    -   Put money in the bank for one year and earn $R \times p_k$
+
+    -   Buy a pizza oven for one year year and earn $MPK + \Delta p_k$
+
+    -   $\Delta p_k$ is the capital gain/loss on the oven
+
+-   Arbitrage equation: $R \times p_k = MPK + \Delta p_k$
+
+-   Rearrange: $MPK = R - \frac{\Delta p_k}{p_k}$
+
+    -   Note: with if no capital gains/losses this is our solution from long-term growth chapters.
+:::
+
+## User Cost of Capital
+
+$$
+ \underbrace{R \times p_k}_{return\:from\:bank} = \underbrace{MPK + \Delta p_k}_{return\:from\:oven}
+$$
+
+::: {.incremental style="font-size: 35px"}
+-   Richer solution than long-run growth equation
+
+    -   Price of ovens changing over time
+
+-   Define growth rate of price: $\frac{\Delta p_k}{p_k}$
+
+    -   Capital gain (+), Capital loss (-)
+
+    -   Start the year with an oven worth \$10,000, by the end of the year it is worth \$8,000. There is a capital loss of -20%.
+:::
+
+## User Cost of Capital
+
+$$
+ MPK = \underbrace{R + \bar{d} - \frac{\Delta p_k}{p_k}}_{user\:cost\:of\:capital}
+$$
+
+::: {.incremental style="font-size: 35px"}
+-   Many reasons why capital loss is common: depreciation, technology, etc.
+
+-   Capital gain is common in structures on land, which becomes increasingly scarce.
+
+-   Place depreciation explicitly in the equation.
+:::
+
+## Investment Decision
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_17_1.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+
+::: {.incremental style="font-size: 30px"}
+-   Investment typically makes up 15-20% of US GDP
+
+-   
+:::
+:::
+:::
+
 ## 17.4
 
 ```{r}
