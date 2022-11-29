@@ -369,7 +369,7 @@ $\frac{c_{today}}{c_{today}}=\beta (1+R)$
 -   The key here is the *Euler equation explains how interest rates and growth rates are linked.*
 :::
 
-## Effect of  $\uparrow R$ on Consumption
+## Effect of $\uparrow R$ on Consumption
 
 ::: {.incremental style="font-size: 30px"}
 -   A higher interest rate will reduce the present value of labor income, therefore reducing consumption in the case of log utility. This force is called the *wealth effect* of higher interest rates because it works through the total wealth term.
@@ -511,7 +511,6 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
-
 ::: {.incremental style="font-size: 30px"}
 -   I*.*
 :::
@@ -562,7 +561,6 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
-
 ::: {.incremental style="font-size: 30px"}
 -   I*.*
 :::
@@ -613,7 +611,6 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
-
 ::: {.incremental style="font-size: 30px"}
 -   I*.*
 :::
@@ -684,7 +681,6 @@ dat %>%
 :::
 
 ::: {.column width="50%"}
-
 ::: {.incremental style="font-size: 30px"}
 -   Investment typically makes up 15-20% of US GDP
 
@@ -725,7 +721,7 @@ dat %>%
     -   This is the arbitrage equation.
 :::
 
-## Gino's East 
+## Gino's East
 
 ::: {.incremental style="font-size: 35px"}
 -   Suppose Gino's East can buy a pizza oven for $p_k$.
@@ -785,16 +781,108 @@ $$
 :::
 
 ::: {.column width="50%"}
-
 ::: {.incremental style="font-size: 30px"}
--   Investment typically makes up 15-20% of US GDP
+-   A firm should invest in capital until the value of the extra output that capital produces falls to equal the user cost.
+:::
+:::
+:::
+
+## Investment Decision Taxes
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_17_2.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+::: {.incremental style="font-size: 30px"}
+$$
+\underbrace{R}_{cost\:of\:funds}=\underbrace{(1-\tau)MPK-\bar{d}+\frac{\Delta p_k}{p_k}}_{return\:from\:investing}
+$$
+
+$$
+MPK = \underbrace{\frac{R+\bar{d}-\frac{\Delta p_k}{p_k}}{1-\tau}}_{user\:cost\:of\:capital}
+$$
+:::
+:::
+:::
+
+## Corporate Tax Rates
+
+![](images/table_17_1.png){fig-align="center"}
+
+## Desired Capital to Investment
+
+::: {.incremental style="font-size: 25px"}
+$$
+MPK=\frac{1}{3}\bar{A} \left( \frac{L}{K}\right)^{2/3} = \frac{1}{3} \frac{Y}{K}
+$$
+
+MPK equals UCC
+
+$$
+\frac{Y}{K}=3 \times uc
+$$
+
+accumulation equation:
+
+$$
+K_{t+1}= I_t+(1-\bar{d})K_t \implies \frac{\Delta K_{t+1}}{K_t} =\frac{I_t}{Y_t}\frac{Y_t}{K_t}-\bar{d}
+$$
+
+define $g_K \equiv \Delta K_{t+1}/K_t$ and combine
+
+$$
+\frac{I_t}{Y_t}=\frac{g_K+\bar{d}}{3 \times uc}
+$$
+
+Higher user cost of capital leads to lower investment.
+:::
+
+## Stock Market and Investment
+
+::: {.incremental style="font-size: 35px"}
+-   Capital and investment refer to accumulation of physical (or intellectual) capital in macroeconomics.
+
+-   Investment often used in finance.
+
+    -   Financial capital, Net worth of an institution, making a financial investment into a mutual fund
+
+-   Main similarity: arbitrage equation.
+:::
+
+## Stock Market Arbitrage Eq
+
+$$
+ \underbrace{R \times p_s}_{return\:from\:bank} = \underbrace{dividend + \Delta p_s}_{return\:from\:the\:stock}
+$$
+
+::: {.incremental style="font-size: 35px"}
+-   Investor can put money in bank account and earn $R$ per year.
+
+-   Investor can put money in stock market and earn a dividend plus capital gain/loss per year.
+
+    -   Note: we assume the same risk!
+
+-   $R = \underbrace{\frac{dividend}{p_s}}_{\%\:div\:return} + \underbrace{\frac{\Delta p_s}{p_s}}_{\%\:capital\:gain}$
 
 -   
 :::
-:::
-:::
 
-## 17.4
+
+## Price of a Stock
+
+$$
+ R = \underbrace{\frac{dividend}{p_s}}_{\%\:div\:return} + \underbrace{\frac{\Delta p_s}{p_s}}_{\%\:capital\:gain}
+$$
+
+::: {.incremental style="font-size: 35px"}
+-   Solve for the price of a stock.
+
+-   $p_s = \frac{dividend}{R-\frac{\Delta p_s}{p_s}} = \frac{dividend}{interest\:rate - capital\:gain}$
+
+-   
+:::
 
 ```{r}
 #| echo: false
