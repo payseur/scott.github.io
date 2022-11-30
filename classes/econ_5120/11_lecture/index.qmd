@@ -51,11 +51,11 @@ fredr_set_key(fred_key)
 
 ```
 
-## CPI
+## Powell Today
 
-![](images/cpi.png)
+<https://www.brookings.edu/events/federal-reserve-chair-jerome-powell-the-economic-outlook-and-the-labor-market/>
 
-[Link](https://www.bls.gov/news.release/cpi.nr0.htm)
+4:35 - 36:40
 
 ## Chapter 16: Consumption
 
@@ -467,7 +467,21 @@ Source: [Macroeconomics, Jones, 2021](https://wwnorton.com/books/9780393417326)
     -   For example, savings rates rose sharply during the financial crisis.
 :::
 
-## Household Debt (TODO)
+## Empirical Evidence
+
+::: {.incremental style="font-size: 30px"}
+-   Euler equation and permanent-income hypothesis provide a useful description of consumption behavior of many households.
+
+    -   Particularly those above average wealth.
+
+    -   Low income household act as if they are facing a borrowing constraint.
+
+-   Households are heterogeneous.
+
+    -   Aggregate values do not reflect a one-for-one relationship.
+:::
+
+## Household Debt 
 
 ::: columns
 ::: {.column width="50%"}
@@ -512,12 +526,13 @@ dat %>%
 
 ::: {.column width="50%"}
 ::: {.incremental style="font-size: 30px"}
--   I*.*
+-   Households have increased their borrowing from 40% in the 1970s to 100% in 2008.
+-   Deleveraging post GFC.
 :::
 :::
 :::
 
-## Personal Savings Rate (TODO)
+## Personal Savings Rate 
 
 ::: columns
 ::: {.column width="50%"}
@@ -562,12 +577,14 @@ dat %>%
 
 ::: {.column width="50%"}
 ::: {.incremental style="font-size: 30px"}
--   I*.*
+-   Personal savings rate is the ratio of personal savings to disposable income (income post tax)
+-   Steady decline until GFC, back up to 6% before covid.
+-   Covid spike, now inflation.
 :::
 :::
 :::
 
-## Household Wealth (TODO)
+## Household Wealth
 
 ::: columns
 ::: {.column width="50%"}
@@ -612,7 +629,9 @@ dat %>%
 
 ::: {.column width="50%"}
 ::: {.incremental style="font-size: 30px"}
--   I*.*
+-   Household wealth is primarily asset price driven.
+
+-   Heterogeneous - most of the wealth is held by the top 10%.
 :::
 :::
 :::
@@ -830,13 +849,33 @@ $$
 K_{t+1}= I_t+(1-\bar{d})K_t \implies \frac{\Delta K_{t+1}}{K_t} =\frac{I_t}{Y_t}\frac{Y_t}{K_t}-\bar{d}
 $$
 
-define $g_K \equiv \Delta K_{t+1}/K_t$ and combine
+define desired growth rate of capital stock $g_K \equiv \Delta K_{t+1}/K_t$ and combine
 
 $$
 \frac{I_t}{Y_t}=\frac{g_K+\bar{d}}{3 \times uc}
 $$
 
 Higher user cost of capital leads to lower investment.
+:::
+
+## The Big Picture
+
+$$
+\frac{I_t}{Y_t}=\frac{g_K+\bar{d}}{3 \times uc}
+$$
+
+::: {.incremental style="font-size: 30px"}
+-   This equation for investment rate can replace the constant, $\bar{s}$, that we used in our long-run growth models.
+
+-   Combining this result with the consumption Euler equation we have a full theory of long-run growth, including micro-foundations.
+
+-   Long-run models pin down growth rate including growth rate of capital.
+
+-   The Euler equation for consumption pins down the long-run interest rate.
+
+-   MPK = User Cost of Capital pins down capital to output ratio.
+
+-   Investment rate pins down consumption share of GDP.
 :::
 
 ## Stock Market and Investment
@@ -865,10 +904,7 @@ $$
     -   Note: we assume the same risk!
 
 -   $R = \underbrace{\frac{dividend}{p_s}}_{\%\:div\:return} + \underbrace{\frac{\Delta p_s}{p_s}}_{\%\:capital\:gain}$
-
--   
 :::
-
 
 ## Price of a Stock
 
@@ -876,19 +912,61 @@ $$
  R = \underbrace{\frac{dividend}{p_s}}_{\%\:div\:return} + \underbrace{\frac{\Delta p_s}{p_s}}_{\%\:capital\:gain}
 $$
 
-::: {.incremental style="font-size: 35px"}
+::: {.incremental style="font-size: 30px"}
 -   Solve for the price of a stock.
 
 -   $p_s = \frac{dividend}{R-\frac{\Delta p_s}{p_s}} = \frac{dividend}{interest\:rate - capital\:gain}$
 
--   
+-   Essentially the price of a stock will equal the present discounted value of the dividends that the stock will pay.
+
+    -   Suppose capital gain is zero, dividend is a constant \$10 per share, and interest rate is 5%.
+
+    -   The price of the stock is 10/.05=\$200
 :::
 
+## P/E Ratios
+
+::: columns
+::: {.column width="50%"}
+![](images/figure_17_3.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+::: {.incremental style="font-size: 27px"}
+-   Above we covered a simple model that assumed a constant risk per stock.
+-   Instead we look at a bit more complex model price-earnings ratio.
+    -   $\frac{p_s}{earnings}=\frac{dividend/earnings}{interest\:rate - capital\:gains}$
+
+    -   Volatile Series:
+
+        -   Should be stable if dividend to earnings ratio is stable and the difference between real interest rate and the growth rate of dividends is stable.
+:::
+:::
+:::
+
+## Efficient Markets
+
+::: {.incremental style="font-size: 30px"}
+-   Markets are informationally efficient if financial prices fully and correctly reflect all available information.
+
+-   Let's say Google will announce earnings next week, if it is in line with what everyone expects it should not move.
+
+-   According to this theory the only thing that moves prices is unexpected news. In this case the stock can move up or down.
+
+-   When this is the case the stock price follows a random walk.
+
+-   Actively managed mutual funds - evidence seems to suggest a random walk (investing in the index yields higher returns).
+:::
+
+## Components of Investment
+
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| warning: false
 #| fig-width: 10
-#| fig-height: 4.5
+#| fig-height: 10
 data_file_name <- "comp_of_investments"
 title <- "Components of Investment"
 sub_title <- "as share of GDP"
@@ -925,5 +1003,53 @@ dat %>%
   scale_y_continuous(labels = scales::percent_format(scale = 1))+
   ggtitle(title, subtitle = sub_title)
 ```
+:::
 
-## 
+::: {.column width="50%"}
+::: {.incremental style="font-size: 27px"}
+-   Nonresidential fixed - equipment and structures purchased by businesses as well as IP.
+-   Residential fixed - new housing purchased by households.
+-   Inventory Investment - goods that have been produced by firms but have not been sold. Usually positive, but turns negative during recessions.
+:::
+:::
+:::
+
+## Residential Investment
+
+::: {style="font-size: 27px"}
+$$
+\underbrace{R \times down\:payment}_{return\:from\:saving}=\underbrace{Rent-\bar{d}P^{house}-R(1-\tau)(P^{house}-down\:payment)}_{return\:from\:investing\:in\:condo}
+$$
+
+Dividing both sides by the price of the condo:
+
+$$
+P^{house}=\frac{rent}{\tau\bar{x}R + (1-\tau)R+\bar{d}-\frac{\Delta P^{house}}{P^{house}}}
+$$
+
+where $\bar{x}=down\:payment/P^{house}$.
+
+The price of a condo is the present discounted value of the amount you can earn by renting out the condo.
+:::
+
+## Inventory
+
+::: {.incremental style="font-size: 30px"}
+-   Inventories are goods that have been produced but not yet sold.
+
+-   Small but cyclical component of investment.
+
+-   Production smoothing
+
+-   Pipeline theory
+
+-   Stockout avoidance
+:::
+
+## Next week
+
+-   Read chapter 17-18
+
+-   Last class
+
+-   Final will be an assignment due 12/17
