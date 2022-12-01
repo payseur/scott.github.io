@@ -64,11 +64,11 @@ fredr_set_key(fred_key)
 
     -   Based on rational individuals who choose the time path of their consumption to maximize utility
 
-    -   Subject to intertxemporal budget constraint.
+    -   Subject to intertemporal budget constraint.
 
     -   We consider two periods: today and future.
 
--   The solution reinforces our view of the permanent income hypothesis: consumption in each period is a fraction of total wealth.
+-   The solution reinforces our view of the permanent-income hypothesis: consumption in each period is a fraction of total wealth.
 
     -   Total wealth: financial resources, current income, present value of future income.
 
