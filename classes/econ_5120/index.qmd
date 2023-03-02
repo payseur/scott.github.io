@@ -1,0 +1,34 @@
+---
+title: "Macroeconomics"
+format: html
+editor: visual
+---
+
+
+**Links:**
+
+[Macro Economic Data](https://payseur.github.io/classes/econ_5120/references.html)
+
+**Lecture Slides:**
+
+[Introduction](https://payseur.github.io/classes/econ_5120/01_lecture/#/title-slide)
+
+[Growth and Production](https://payseur.github.io/classes/econ_5120/02_lecture/#/title-slide) \| [In Class Exercise](https://payseur.github.io/classes/econ_5120/02_lecture/Growth_Worksheet.xlsx)
+
+[Solow](https://payseur.github.io/classes/econ_5120/03_lecture/#/title-slide)\| [R Download](https://cran.r-project.org/) \| [RStudio Download](https://www.rstudio.com/products/rstudio/download/)
+
+[Romer & Employment](https://payseur.github.io/classes/econ_5120/04_lecture/#/title-slide)
+
+[Inflation & Short-Run Intro](https://payseur.github.io/classes/econ_5120/05_lecture/#/title-slide)
+
+[FC First Look & The IS Curve](https://payseur.github.io/classes/econ_5120/06_lecture/#/title-slide)
+
+[Short-Run: IS - MP - PC](https://payseur.github.io/classes/econ_5120/07_lecture/#/title-slide)
+
+[Short-Run: AS / AD](https://payseur.github.io/classes/econ_5120/08_lecture/#/title-slide)
+
+[GFC & DSGE](https://payseur.github.io/classes/econ_5120/09_lecture/#/title-slide)
+
+[Trade & FX](https://payseur.github.io/classes/econ_5120/10_lecture/#/title-slide)
+
+[Consumption & Investment](https://payseur.github.io/classes/econ_5120/11_lecture/#/title-slide)
