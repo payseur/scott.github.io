@@ -13,12 +13,22 @@ library(PerformanceAnalytics)
 
 
 
+#
+# Convert dttm to string
+#
+textTime2Min <- function(time_){
+  hour_mins = (as.numeric(substr(time_,1,2)) - 9) * 60
+  min_mins = as.numeric(substr(time_,4,5))
+  return(hour_mins + min_mins - 30)
+}
 
+
+#1XsTuSwrI5lycy-lfWOstErtCJ2MwNEfsYTPmaomIV64
 dates_num <- c(
   #20180321, 20180613, 20180926, 20181219, 
   #  20190320, 20190619, 20190918, 20191211,
   #             20200610, 20200916, 20201216,
-  20210317, 20210616, 20210922, 20211215,
+ # 20210317, 20210616, 20210922, 20211215,
   20220316, 20220615, 20220921, 20221214,
   20230322)
 
@@ -51,7 +61,7 @@ org_tbl_tp2 <- org_tbl %>%
 event_tbl <- org_tbl_tm1 %>% bind_rows(org_tbl, org_tbl_tp1,org_tbl_tp2)
 
 
-query_dates <- org_tbl %>% filter(event_time %in% c("t", "tp1"))
+query_dates <- event_tbl %>% filter(event_time %in% c("t", "tp1"))
 for(i in 1:nrow(query_dates)){
   
   market_data <- tq_get(c("SPY"),
@@ -63,10 +73,12 @@ for(i in 1:nrow(query_dates)){
     rename(market_date = date) %>% 
     mutate(date_ = query_dates$date_[[i]]) %>% 
     mutate(time_rank = rank(market_date)) %>% 
-    mutate(rets = close/lag(close) - 1) %>%
+    mutate(rets = (close)/lag(close) - 1) %>%
     mutate(rets = ifelse(is.na(rets), 0.0, rets)) %>% 
     mutate(cumrets = cumprod(rets+1) - 1) %>% 
-    select(symbol, market_date, time_rank, close, volume, date_, rets, cumrets)
+    mutate(time_mins =  textTime2Min(format(as.POSIXlt(market_date,"America/New_York"), format = "%H:%M"))) %>% 
+    mutate(time_char = format(as.POSIXlt(market_date,"America/New_York"), format = "%H:%M")) %>% 
+    select(symbol, market_date, time_rank, close, volume, date_, rets, cumrets, time_mins, time_char)
 
   if(i == 1){
     total_event_tbl <- event_tbl %>% 
@@ -77,7 +89,19 @@ for(i in 1:nrow(query_dates)){
   }
   
 }
+
   
-total_event_tbl %>% ggplot(aes(x=time_rank, y=cumrets, color=factor(date_)))+geom_path()
+total_event_tbl %>% 
+  mutate(cumrets = cumrets*100) %>% 
+  ggplot(aes(x=time_mins, y=cumrets, color=factor(date_))) + 
+  geom_path() +
+  scale_x_continuous(label=c("9:30", "2:00"), breaks=c(0,270),minor_breaks = NULL)+
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  ggplot2::theme_bw() +
+  ylab("") +
+  xlab("") + 
+  theme(legend.position="none") + 
+  facet_grid(~event_time)
+  
 
   
