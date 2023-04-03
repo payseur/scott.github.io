@@ -1,0 +1,14 @@
+{
+  "hash": "933f1372f98301718636376207a57718",
+  "result": {
+    "markdown": "---\ntitle: \"Don't SVB your 401K\"\nauthor: \"Scott Payseur\"\ndate: \"2023-03-30\"\ncategories: [svb, 401k, duration, bonds, diversification, R]\nimage: \"image.png\"\n---\n\n\n## Bond duration is a simple risk management tool that Silicon Valley Bank \noverlooked, but it can help you manage your retirement portfolio by \ncontrolling sensitivity to interest rate risk.\n\nWith the Silicon Valley Bank collapse fresh in everyone\\'s mind, this is a\ngreat opportunity to discuss interest rate risk: what it is, how it\nimpacted SVB, and how you can manage it in your retirement portfolio.\n\nInterest rate risk refers to the potential for changes in interest rates to negatively affect the value of an investment. Typically, this risk\naffects fixed-income investments such as bonds, where the value of the\nbond can fluctuate in response to changes in prevailing interest rates.\nWhen interest rates rise, the value of existing bonds decreases, as the\ninterest rate being paid by the bond is now lower than the prevailing\ninterest rate. Conversely, if interest rates fall, the value of existing\nbonds increases. To put it differently, the value of a bond is\nnegatively correlated with the current interest rates.This is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,83 @@
+---
+title: "Don't SVB your 401K"
+author: "Scott Payseur"
+date: "2023-03-30"
+categories: [svb, 401k, duration, bonds, diversification, R]
+image: "image.png"
+---
+
+### Bond duration is a simple risk management tool that Silicon Valley Bank overlooked, but it can help you manage your retirement portfolio by controlling sensitivity to interest rate risk.
+
+With the Silicon Valley Bank collapse fresh in everyone's mind, this is a great opportunity to discuss interest rate risk: what it is, how it impacted SVB, and how you can manage it in your retirement portfolio.
+
+Interest rate risk refers to the potential for changes in interest rates to negatively affect the value of an investment. Typically, this risk affects fixed-income investments such as bonds, where the value of the bond can fluctuate in response to changes in prevailing interest rates. When interest rates rise, the value of existing bonds decreases, as the interest rate being paid by the bond is now lower than the prevailing interest rate. Conversely, if interest rates fall, the value of existing bonds increases. To put it differently, the value of a bond is negatively correlated with the current interest rates.This is a post with executable code.
+
+> **Interest rate risk:** the potential for fixed income (bond) investment losses brought on by an upward shift in interest rates.
+
+For those who may have missed their finance or macroeconomics class, here's a quick refresher. A typical bond represents a loan from an investor to a borrower. The bond is typically issued to the investor at a face value of \$100, and when the bond reaches maturity, the borrower returns the face value to the investor. Throughout the bond's term, the borrower pays a periodic interest payment, known as a coupon, to the investor. If the investor holds the bond until maturity, they will receive the full face value and all coupon payments. In this case the only interest rate risk is opportunity cost, meaning the investor could have earned more if they held a comparable bond with a higher coupon rate.
+
+Selling a bond before maturity can result in a selling price that is either higher or lower than its face value, depending on changes in interest rates. When the investor sells the bond before maturity and interest rates have risen since the bond's purchase they incur losses due to interest rate risk. SVB had invested bank deposits into treasury bonds, but due to multiple increases in interest rates spurred on by the Federal Reserve in 2022, the face value of these bonds had decreased. As a result of inadequate management of interest rate risk, SVB suffered a significant loss when they sold their bonds before maturity to meet customer demands for cash. I won't delve further into the cascading effects, but this loss was the signal that triggered the bank run.
+
+If you've been following SVB news, you may have heard a finance expert say that "their duration was too long." Although this may seem like complicated financial terminology, duration is a straightforward interest rate risk management tool that assesses the sensitivity of bonds to changes in interest rates.
+
+> **Duration:** the percentage that a bond's price will decrease (increase) given a 1% increase (decrease) in rates.
+
+For instance, if interest rates increase by 1%, a bond with a one-year duration will lose 1% of its value. In contrast, a bond with a seven-year duration will lose 7% of its value under the same scenario. On the other hand, if interest rates decrease by 1%, bonds with longer duration will experience a greater increase in value, while those with shorter duration will experience a smaller increase. In general, bonds with longer maturities have higher duration and are more sensitive to interest rate changes than bonds with shorter maturities. This is because the cash flows of longer-term bonds are received further into the future and are therefore subject to greater uncertainty and risk.
+
+![Figure 1: Interest Rates: Market yield on U.S. Treasury Securities at 10-year constant maturity. Data Source: St. Louis Federal Reserve Bank](https://cdn-images-1.medium.com/max/1600/1*VX9vKgdBtJwG3ebBnt_JSg.png)
+
+The 10-year benchmark interest rate (Figure 1) experienced over a 2% increase in 2022 as a result of the Federal Reserve's efforts to curb inflation. SVB had invested in bonds with long duration and quickly rising interest rates amplified their bond losses upon sale. To mitigate their interest rate risk, SVB could have reduced their duration before 2022.
+
+#### Performance of a Typical Retirement Portfolio in 2022
+
+Let\'s analyze a typical retirement account in 2022, why diversification did not perform effectively, and how reducing the duration could have been beneficial. For the sake of simplicity, I will examine the performance of a U.S. portfolio comprised of 60% stocks and 40% bonds, using popular fund options for each asset class.
+
+Last year will be remembered for its steadily increasing inflation, which prompted the Federal Reserve to raise interest rates to curb it. As a consequence, the stock market experienced considerable distress, particularly in large growth stocks. To illustrate, Figure 2 exhibits the returns of SPY, a stock market fund that tracks the S&P 500, ranked from the smallest to largest over the last 20 years. It is evident that 2022 was the second-worst year, with a return of -18.6%, surpassed only by the Great Financial Crisis in 2008.
+
+![Figure 2: Sorted stock fund returns for the previous 20 years: total returns for SPDR S&P 500 ETF Trust (SPY). Data Source: Yahoo! Finance](https://cdn-images-1.medium.com/max/1600/1*_eNZcslAwhtWzCTOeEsiIg.png)
+
+Although the stock market didn\'t perform well in 2022, we can usually rely on bonds as a stable asset class that helps diversify our portfolio. Figure 3 displays yearly portfolio returns of a retirement portfolio constructed of 60% SPY and 40% of the popular Core U.S. Aggregate bond fund (AGG).
+
+![Figure 3: Sorted portfolio returns for the previous 20 years: 60% stock fund (SPY) + %40 bond fund (AGG). Data Source: Yahoo! Finance](https://cdn-images-1.medium.com/max/1600/1*5XvNswvGFpC0Gkfo_4opVw.png)
+
+In 2008, the diversification effect was potent as our bond fund reduced the overall portfolio loss from 36.2% to 18.8%. However, in 2022, incorporating exposure to our bond fund only enhanced portfolio returns by 2.6% to -16.2%.
+
+You might be surprised to learn that the diversification effect was more robust in 2008 compared to 2022. However, if you have been following along, you might have guessed the reason behind this --- interest rate risk.
+
+As depicted in the above Figure 1, interest rates decreased in 2008 as the Federal Reserve needed to heat up the economy during the Global Financial Crisis. With the decrease in interest rates, the value of bonds rose, which helped to mitigate some of the losses in stocks and had a robust diversification impact in 2008. In 2022, the Federal Reserve encountered a situation where inflation was high and they needed to raise rates to slow the economy. The rise in interest rates by more than 2% led to decreased bond values and a reduced diversification impact in investment portfolios.
+
+Figure 4 clearly demonstrates the impact of interest rate risk, with the 2022 rate hikes leading to a significant negative return in our bond fund, while the 2008 rate cuts led to a positive return.
+
+![Figure 4: Sorted bond fund returns for the previous 20 years: iShares Core U.S. Aggregate Bond ETF (AGG). Data Source: Yahoo! Finance](https://cdn-images-1.medium.com/max/1600/1*5332xpGViaqGHmx_ZdL3yQ.png)
+
+#### Using Duration to Manage your Retirement Portfolio Risk
+
+While SVB had to sell their bonds to fulfill customer withdrawal requirements, you did not sell your bond funds. However, you still experienced losses on your bond funds. Why did this occur? The reason is that a bond fund does not behave in the same manner as an individual bond because the bonds within the fund are not held until maturity. There are various reasons for this, but the primary reason is that individuals are buying and selling the fund, which necessitates the fund manager to purchase and sell the bonds within the fund.
+
+If you anticipate that ongoing inflation will result in further increased interest rates, how should you handle interest rate risk in your portfolio?
+
+Managing your interest rate risk is simple:
+
+1.  Lookup the duration for your available retirement bond funds.
+
+2.  If you want to lower your interest rate risk move your money from long to short duration funds.
+
+For instance, the fund page for the [iShares Core U.S. Aggregate Bond ETF (AGG)](https://www.ishares.com/us/products/239458/ishares-core-total-us-bond-market-etf) used above can be found using the search engine of your choice. Under Fund Facts -\> Portfolio Characteristics you will find duration.
+
+![Effective Duration for iShares Core U.S. Aggregate Bond ETF. Source: BlackRock.](https://cdn-images-1.medium.com/max/1600/1*f_jX1O2HN_CoRAoic4hzXA.png)
+
+This metric reveals that in the event of a further 1% increase in interest rates, the value of AGG would decline by around 6.35%. This is comparable to the findings illustrated in Figure 4, which showed that following an interest rate increase of approximately 2%, AGG\'s value decreased by 12.4%.
+
+#### Conclusion
+
+Bond duration is a simple risk management tool that SVB overlooked. It can help you manage risk in your retirement portfolio by controlling sensitivity to interest rate risk.
+
+#### Disclaimer and Further Considerations
+
+-   The market determines the prevailing interest rate, and it is not set by the Federal Reserve, although the Fed has various tools to influence its direction.
+
+-   Normally, funds with longer duration provide greater yields, which implies that if you wish to mitigate interest rate risk, you must be willing to accept a yield. Nonetheless, lately, it is possible to come across higher-yield funds that have shorter duration. For instance, the iShares 20+ Treasury Fund (TLT) presently has a duration of 17 years and a SEC yield of 3.75%, whereas the iShares Short-Term Treasury Fund (SHV) has a duration of 0.3 years and a SEC yield of 4.5%.
+
+-   Although interest rate risk is a significant concern for bond funds, it is not the only risk associated with them. However, given the current increase in interest rates and the challenges faced by SVB, it is a great time to re-introduce it into the conversation.
+
+-   This is educational material and not advice for investment purposes. If you have any inquiries, please contact me or your financial advisor.

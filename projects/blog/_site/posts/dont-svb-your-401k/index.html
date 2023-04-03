@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Scott Payseur">
+<meta name="dcterms.date" content="2023-03-30">
+
+<title>blog - Don’t SVB your 401K</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Don’t SVB your 401K</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">svb</div>
+                <div class="quarto-category">401k</div>
+                <div class="quarto-category">duration</div>
+                <div class="quarto-category">bonds</div>
+                <div class="quarto-category">diversification</div>
+                <div class="quarto-category">R</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Scott Payseur </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 30, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="bond-duration-is-a-simple-risk-management-tool-that-silicon-valley-bank-overlooked-but-it-can-help-you-manage-your-retirement-portfolio-by-controlling-sensitivity-to-interest-rate-risk." class="level3">
+<h3 class="anchored" data-anchor-id="bond-duration-is-a-simple-risk-management-tool-that-silicon-valley-bank-overlooked-but-it-can-help-you-manage-your-retirement-portfolio-by-controlling-sensitivity-to-interest-rate-risk.">Bond duration is a simple risk management tool that Silicon Valley Bank overlooked, but it can help you manage your retirement portfolio by controlling sensitivity to interest rate risk.</h3>
+<p>With the Silicon Valley Bank collapse fresh in everyone’s mind, this is a great opportunity to discuss interest rate risk: what it is, how it impacted SVB, and how you can manage it in your retirement portfolio.</p>
+<p>Interest rate risk refers to the potential for changes in interest rates to negatively affect the value of an investment. Typically, this risk affects fixed-income investments such as bonds, where the value of the bond can fluctuate in response to changes in prevailing interest rates. When interest rates rise, the value of existing bonds decreases, as the interest rate being paid by the bond is now lower than the prevailing interest rate. Conversely, if interest rates fall, the value of existing bonds increases. To put it differently, the value of a bond is negatively correlated with the current interest rates.This is a post with executable code.</p>
+<blockquote class="blockquote">
+<p><strong>Interest rate risk:</strong> the potential for fixed income (bond) investment losses brought on by an upward shift in interest rates.</p>
+</blockquote>
+<p>For those who may have missed their finance or macroeconomics class, here’s a quick refresher. A typical bond represents a loan from an investor to a borrower. The bond is typically issued to the investor at a face value of $100, and when the bond reaches maturity, the borrower returns the face value to the investor. Throughout the bond’s term, the borrower pays a periodic interest payment, known as a coupon, to the investor. If the investor holds the bond until maturity, they will receive the full face value and all coupon payments. In this case the only interest rate risk is opportunity cost, meaning the investor could have earned more if they held a comparable bond with a higher coupon rate.</p>
+<p>Selling a bond before maturity can result in a selling price that is either higher or lower than its face value, depending on changes in interest rates. When the investor sells the bond before maturity and interest rates have risen since the bond’s purchase they incur losses due to interest rate risk. SVB had invested bank deposits into treasury bonds, but due to multiple increases in interest rates spurred on by the Federal Reserve in 2022, the face value of these bonds had decreased. As a result of inadequate management of interest rate risk, SVB suffered a significant loss when they sold their bonds before maturity to meet customer demands for cash. I won’t delve further into the cascading effects, but this loss was the signal that triggered the bank run.</p>
+<p>If you’ve been following SVB news, you may have heard a finance expert say that “their duration was too long.” Although this may seem like complicated financial terminology, duration is a straightforward interest rate risk management tool that assesses the sensitivity of bonds to changes in interest rates.</p>
+<blockquote class="blockquote">
+<p><strong>Duration:</strong> the percentage that a bond’s price will decrease (increase) given a 1% increase (decrease) in rates.</p>
+</blockquote>
+<p>For instance, if interest rates increase by 1%, a bond with a one-year duration will lose 1% of its value. In contrast, a bond with a seven-year duration will lose 7% of its value under the same scenario. On the other hand, if interest rates decrease by 1%, bonds with longer duration will experience a greater increase in value, while those with shorter duration will experience a smaller increase. In general, bonds with longer maturities have higher duration and are more sensitive to interest rate changes than bonds with shorter maturities. This is because the cash flows of longer-term bonds are received further into the future and are therefore subject to greater uncertainty and risk.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*VX9vKgdBtJwG3ebBnt_JSg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure 1: Interest Rates: Market yield on U.S. Treasury Securities at 10-year constant maturity. Data Source: St.&nbsp;Louis Federal Reserve&nbsp;Bank</figcaption><p></p>
+</figure>
+</div>
+<p>The 10-year benchmark interest rate (Figure 1) experienced over a 2% increase in 2022 as a result of the Federal Reserve’s efforts to curb inflation. SVB had invested in bonds with long duration and quickly rising interest rates amplified their bond losses upon sale. To mitigate their interest rate risk, SVB could have reduced their duration before 2022.</p>
+<section id="performance-of-a-typical-retirement-portfolio-in-2022" class="level4">
+<h4 class="anchored" data-anchor-id="performance-of-a-typical-retirement-portfolio-in-2022">Performance of a Typical Retirement Portfolio in&nbsp;2022</h4>
+<p>Let's analyze a typical retirement account in 2022, why diversification did not perform effectively, and how reducing the duration could have been beneficial. For the sake of simplicity, I will examine the performance of a U.S. portfolio comprised of 60% stocks and 40% bonds, using popular fund options for each asset class.</p>
+<p>Last year will be remembered for its steadily increasing inflation, which prompted the Federal Reserve to raise interest rates to curb it. As a consequence, the stock market experienced considerable distress, particularly in large growth stocks. To illustrate, Figure 2 exhibits the returns of SPY, a stock market fund that tracks the S&amp;P 500, ranked from the smallest to largest over the last 20 years. It is evident that 2022 was the second-worst year, with a return of -18.6%, surpassed only by the Great Financial Crisis in 2008.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*_eNZcslAwhtWzCTOeEsiIg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure 2: Sorted stock fund returns for the previous 20 years: total returns for SPDR S&amp;P 500 ETF Trust (SPY). Data Source: Yahoo!&nbsp;Finance</figcaption><p></p>
+</figure>
+</div>
+<p>Although the stock market didn't perform well in 2022, we can usually rely on bonds as a stable asset class that helps diversify our portfolio. Figure 3 displays yearly portfolio returns of a retirement portfolio constructed of 60% SPY and 40% of the popular Core U.S. Aggregate bond fund (AGG).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*5XvNswvGFpC0Gkfo_4opVw.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure 3: Sorted portfolio returns for the previous 20 years: 60% stock fund (SPY) + %40 bond fund (AGG). Data Source: Yahoo!&nbsp;Finance</figcaption><p></p>
+</figure>
+</div>
+<p>In 2008, the diversification effect was potent as our bond fund reduced the overall portfolio loss from 36.2% to 18.8%. However, in 2022, incorporating exposure to our bond fund only enhanced portfolio returns by 2.6% to -16.2%.</p>
+<p>You might be surprised to learn that the diversification effect was more robust in 2008 compared to 2022. However, if you have been following along, you might have guessed the reason behind this — interest rate risk.</p>
+<p>As depicted in the above Figure 1, interest rates decreased in 2008 as the Federal Reserve needed to heat up the economy during the Global Financial Crisis. With the decrease in interest rates, the value of bonds rose, which helped to mitigate some of the losses in stocks and had a robust diversification impact in 2008. In 2022, the Federal Reserve encountered a situation where inflation was high and they needed to raise rates to slow the economy. The rise in interest rates by more than 2% led to decreased bond values and a reduced diversification impact in investment portfolios.</p>
+<p>Figure 4 clearly demonstrates the impact of interest rate risk, with the 2022 rate hikes leading to a significant negative return in our bond fund, while the 2008 rate cuts led to a positive return.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*5332xpGViaqGHmx_ZdL3yQ.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure 4: Sorted bond fund returns for the previous 20 years: iShares Core U.S. Aggregate Bond ETF (AGG). Data Source: Yahoo!&nbsp;Finance</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="using-duration-to-manage-your-retirement-portfolio-risk" class="level4">
+<h4 class="anchored" data-anchor-id="using-duration-to-manage-your-retirement-portfolio-risk">Using Duration to Manage your Retirement Portfolio Risk</h4>
+<p>While SVB had to sell their bonds to fulfill customer withdrawal requirements, you did not sell your bond funds. However, you still experienced losses on your bond funds. Why did this occur? The reason is that a bond fund does not behave in the same manner as an individual bond because the bonds within the fund are not held until maturity. There are various reasons for this, but the primary reason is that individuals are buying and selling the fund, which necessitates the fund manager to purchase and sell the bonds within the fund.</p>
+<p>If you anticipate that ongoing inflation will result in further increased interest rates, how should you handle interest rate risk in your portfolio?</p>
+<p>Managing your interest rate risk is simple:</p>
+<ol type="1">
+<li><p>Lookup the duration for your available retirement bond funds.</p></li>
+<li><p>If you want to lower your interest rate risk move your money from long to short duration funds.</p></li>
+</ol>
+<p>For instance, the fund page for the <a href="https://www.ishares.com/us/products/239458/ishares-core-total-us-bond-market-etf">iShares Core U.S. Aggregate Bond ETF (AGG)</a> used above can be found using the search engine of your choice. Under Fund Facts -&gt; Portfolio Characteristics you will find duration.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*f_jX1O2HN_CoRAoic4hzXA.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Effective Duration for iShares Core U.S. Aggregate Bond ETF. Source: BlackRock.</figcaption><p></p>
+</figure>
+</div>
+<p>This metric reveals that in the event of a further 1% increase in interest rates, the value of AGG would decline by around 6.35%. This is comparable to the findings illustrated in Figure 4, which showed that following an interest rate increase of approximately 2%, AGG's value decreased by 12.4%.</p>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>Bond duration is a simple risk management tool that SVB overlooked. It can help you manage risk in your retirement portfolio by controlling sensitivity to interest rate risk.</p>
+</section>
+<section id="disclaimer-and-further-considerations" class="level4">
+<h4 class="anchored" data-anchor-id="disclaimer-and-further-considerations">Disclaimer and Further Considerations</h4>
+<ul>
+<li><p>The market determines the prevailing interest rate, and it is not set by the Federal Reserve, although the Fed has various tools to influence its direction.</p></li>
+<li><p>Normally, funds with longer duration provide greater yields, which implies that if you wish to mitigate interest rate risk, you must be willing to accept a yield. Nonetheless, lately, it is possible to come across higher-yield funds that have shorter duration. For instance, the iShares 20+ Treasury Fund (TLT) presently has a duration of 17 years and a SEC yield of 3.75%, whereas the iShares Short-Term Treasury Fund (SHV) has a duration of 0.3 years and a SEC yield of 4.5%.</p></li>
+<li><p>Although interest rate risk is a significant concern for bond funds, it is not the only risk associated with them. However, given the current increase in interest rates and the challenges faced by SVB, it is a great time to re-introduce it into the conversation.</p></li>
+<li><p>This is educational material and not advice for investment purposes. If you have any inquiries, please contact me or your financial advisor.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

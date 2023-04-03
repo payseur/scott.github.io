@@ -1,0 +1,14 @@
+{
+  "hash": "6741e47c62d245f035d85dfa61f35011",
+  "result": {
+    "markdown": "---\ntitle: \"Don't SVB your 401K\"\nauthor: \"Scott Payseur\"\ndate: \"2023-03-30\"\ncategories: [svb, 401k, duration, bonds, diversification, R]\nimage: \"image.png\"\n---\n\n\nThis is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
