@@ -11,7 +11,7 @@ library(purrr)
 library(Quandl)
 library(viridis)
 library(xts)
-
+library(tibble)
 
 #
 #  AGG
